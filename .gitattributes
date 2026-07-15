@@ -1,0 +1,7 @@
+# Файлы территории: при merge из эталона (upstream) всегда оставляем ВЕРСИЮ
+# ФОРКА. Требует включённого драйвера: git config merge.ours.driver true
+REGION merge=ours
+region_front.js merge=ours
+manifest.json merge=ours
+cloudflare-worker/wrangler.toml merge=ours
+data/** merge=ours

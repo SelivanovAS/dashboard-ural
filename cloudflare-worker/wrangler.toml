@@ -1,31 +1,20 @@
-name = "court-monitor-trigger"
+name = "court-monitor-ural"
 main = "worker.js"
 compatibility_date = "2024-01-01"
 
 [triggers]
-# ✅ Cron ВОЗВРАЩЁН 05.07.2026. Блок судов на иностранные IP сняли (в т.ч. для
-# US-egress GitHub — проверено .github/workflows/probe_courts.yml), парсинг снова
-# идёт в облаке: Worker по крону дёргает workflow_dispatch update_cases.yml
-# (полный прогон: парсинг + дайджест + доставка), а Mac-схема D2 — спящий резерв.
-# 03:45 UTC = 06:45 МСК = 08:45 ХМАО, пн-пт. Буквенный `mon-fri` ОБЯЗАТЕЛЕН:
-# Cloudflare нумерует дни 1=Sun..7=Sat, цифровой `1-5` захватывал воскресенье.
-# ⚠️ Правки crons применяются ТОЛЬКО после `wrangler deploy`.
-# Выключить автозапуск обратно — вернуть `crons = []` и `wrangler deploy`.
-crons = ["45 3 * * mon-fri"]
+# Cron ВЫКЛЮЧЕН до создания Worker'а территории. При включении — сдвинуть
+# от ХМАО (03:45 UTC), напр. 04:30 UTC, чтобы не бить sudrf одновременно.
+crons = []
 
-# ── Пер-инстансные настройки территории ─────────────────────────────────────
-# Форк территории меняет ТОЛЬКО этот файл: name воркера, значения [vars],
-# id KV namespace и сдвиг крона (не бить sudrf одновременно с ХМАО-инстансом).
-# Пустое/отсутствующее значение → worker.js использует фолбэк ХМАО-инстанса
-# (см. cfgVar), поэтому существующий деплой работает и без [vars].
+# ── Пер-инстансные настройки территории «Урал» ──────────────────────────────
 [vars]
 ALLOWED_ORIGIN = "https://selivanovas.github.io"
-CASES_DATA_URL = "https://selivanovas.github.io/dashboard/data/cases.json"
-GH_REPO = "SelivanovAS/dashboard"
+CASES_DATA_URL = "https://selivanovas.github.io/dashboard-ural/data/cases.json"
+GH_REPO = "SelivanovAS/dashboard-ural"
 
-# KV-хранилище push-подписок PWA.
-# Создать namespace: wrangler kv namespace create PUSH_SUBSCRIPTIONS
-# Вставить полученный id в поле id ниже, затем wrangler deploy.
+# KV-хранилище push-подписок PWA территории.
+# Создать: wrangler kv namespace create PUSH_SUBSCRIPTIONS → вписать id.
 [[kv_namespaces]]
 binding = "PUSH_SUBSCRIPTIONS"
-id = "2ffe67ca59ce4bfe986f80d11df2ab39"
+id = "ЗАПОЛНИТЬ-ПРИ-СОЗДАНИИ-WORKER"
