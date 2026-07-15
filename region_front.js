@@ -5,4 +5,6 @@
 window.REGION_FRONT = {
   PUSH_WORKER_URL: '',
   VAPID_PUBLIC_KEY: '',
+  // Подпись региона в шапке до первого прогона (данные пока пусты).
+  REGION_LABEL: 'ЕКБ + ЯНАО',
 };
