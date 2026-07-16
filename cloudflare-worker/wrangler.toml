@@ -3,9 +3,11 @@ main = "worker.js"
 compatibility_date = "2024-01-01"
 
 [triggers]
-# Cron ВЫКЛЮЧЕН до создания Worker'а территории. При включении — сдвинуть
-# от ХМАО (03:45 UTC), напр. 04:30 UTC, чтобы не бить sudrf одновременно.
-crons = []
+# Автозапуск Урала: 03:00 UTC = 08:00 Екатеринбург, пн-пт (решение юриста
+# 15.07.2026). ХМАО-инстанс ходит в 03:30 UTC — разнос 30 мин, чтобы не бить
+# sudrf одновременно. Буквенный `mon-fri` ОБЯЗАТЕЛЕН: Cloudflare нумерует
+# дни 1=Sun..7=Sat. Применяется только после `wrangler deploy`.
+crons = ["0 3 * * mon-fri"]
 
 # ── Пер-инстансные настройки территории «Урал» ──────────────────────────────
 [vars]
@@ -13,8 +15,9 @@ ALLOWED_ORIGIN = "https://selivanovas.github.io"
 CASES_DATA_URL = "https://selivanovas.github.io/dashboard-ural/data/cases.json"
 GH_REPO = "SelivanovAS/dashboard-ural"
 
-# KV-хранилище push-подписок PWA территории.
-# Создать: wrangler kv namespace create PUSH_SUBSCRIPTIONS → вписать id.
+# KV-хранилище push-подписок PWA территории (+ дампы и журнал импорта).
+# Namespace «URAL_PUSH_SUBSCRIPTIONS» создан 16.07.2026 (титул с префиксом:
+# голый «PUSH_SUBSCRIPTIONS» занят ХМАО-инстансом; binding при этом прежний).
 [[kv_namespaces]]
 binding = "PUSH_SUBSCRIPTIONS"
-id = "ЗАПОЛНИТЬ-ПРИ-СОЗДАНИИ-WORKER"
+id = "a42e1b5a8c31485e9483ab9ee80be518"
