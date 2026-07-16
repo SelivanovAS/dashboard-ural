@@ -14,6 +14,10 @@ crons = ["0 3 * * mon-fri"]
 ALLOWED_ORIGIN = "https://selivanovas.github.io"
 CASES_DATA_URL = "https://selivanovas.github.io/dashboard-ural/data/cases.json"
 GH_REPO = "SelivanovAS/dashboard-ural"
+# VAPID-пара территории (16.07.2026): public обязан совпадать с
+# region_front.js форка; private — секрет VAPID_PRIVATE_KEY (тот же PEM,
+# что в GH-секрете форка). Нужен кнопке «Тест push» админки.
+VAPID_PUBLIC_KEY = "BHjYv0QmRYDkdwqvERpsbWi8wWkmwqMkn78Q-TN9gK7awAVjeQ7u2LebeUKFyiT_BTlJOVD3YB6E3MLUKe43d7k"
 
 # KV-хранилище push-подписок PWA территории (+ дампы и журнал импорта).
 # Namespace «URAL_PUSH_SUBSCRIPTIONS» создан 16.07.2026 (титул с префиксом:

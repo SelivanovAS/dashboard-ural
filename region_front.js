@@ -1,10 +1,12 @@
 // ── Файл территории «Урал» (Свердловская обл. + ЯНАО) ───────────────────────
-// Worker территории ещё не создан: PUSH_WORKER_URL пуст — web-push и
-// watchlist-синхронизация отключены (app.js это понимает и не фолбэчит на
-// ХМАО-Worker). После создания Worker'а вписать его URL и VAPID public key.
+// Пер-инстансные значения фронта. Push ВКЛЮЧЁН 16.07.2026: Worker
+// court-monitor-ural задеплоен, VAPID-пара своя (public здесь и в [vars]
+// wrangler.toml форка; private — в GH-секрете VAPID_PRIVATE_KEY форка и
+// секрете Worker'а). app.js читает window.REGION_FRONT и остаётся общим.
 window.REGION_FRONT = {
-  PUSH_WORKER_URL: '',
-  VAPID_PUBLIC_KEY: '',
-  // Подпись региона в шапке до первого прогона (данные пока пусты).
+  PUSH_WORKER_URL: 'https://court-monitor-ural.7selivanov-a.workers.dev',
+  VAPID_PUBLIC_KEY: 'BHjYv0QmRYDkdwqvERpsbWi8wWkmwqMkn78Q-TN9gK7awAVjeQ7u2LebeUKFyiT_BTlJOVD3YB6E3MLUKe43d7k',
+  // Подпись региона в шапке до загрузки данных (данные перекрывают её
+  // значением name_short из блока region).
   REGION_LABEL: 'ЕКБ + ЯНАО',
 };
