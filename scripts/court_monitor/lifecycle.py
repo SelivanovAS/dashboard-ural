@@ -272,6 +272,162 @@ def bank_is_third_party(case: dict) -> bool:
     return (case.get("bank_role") or "").strip().lower() == "третье лицо"
 
 
+# ── Трек «Иски банка» (банк — истец, data/cases_bank.json) ───────────────────
+# Лёгкий трек: дела заводятся импортёром реестра (import_bank_registry.py),
+# на прогон подмешиваются в общий список и проходят обычный FI-цикл; отличия —
+# недельный опрос после решения (should_skip_case), свои архивные окна
+# (is_case_archived) и отдельная секция дайджеста. Подана апел. жалоба →
+# дело «переезжает» в основной cases.json (bank_case_left_track) и дальше
+# живёт стандартным треком, как нынешние истцовые дела «с апелляции».
+
+def is_bank_plaintiff_track(case: dict) -> bool:
+    """True для дел лёгкого трека исков банка (track="plaintiff_light")."""
+    return (case.get("track") or "").strip() == "plaintiff_light"
+
+
+def bank_case_left_track(case: dict) -> bool:
+    """True, если дело покинуло лёгкий трек → переезд в основной cases.json.
+
+    Признаки: подана апел. жалоба (видна в карточке 1-й инст. — «флаг без
+    даты» тоже считается, как в is_case_archived) ИЛИ стадия уже не
+    first_instance (link_cases/migrate_stages увели дело выше).
+    """
+    if not is_bank_plaintiff_track(case):
+        return False
+    if (case.get("current_stage") or "first_instance") != "first_instance":
+        return True
+    fi = case.get("first_instance") or {}
+    return bool(
+        fi.get("appeal_filed") or fi.get("appeal_filed_date")
+        or fi.get("sent_to_appeal") or fi.get("sent_to_appeal_date")
+    )
+
+
+def bank_legal_force_est(fi: dict) -> date | None:
+    """Расчётная дата вступления решения в силу (иск банка, без апелляции).
+
+    Мотивировка (act_date; фолбэк — hearing_date) + BANK_APPEAL_TERM_DAYS
+    (30 дн, ст. 321 ГПК) со сдвигом вперёд на ближайший рабочий день
+    производственного календаря. Обе даты пусты → None (решения ещё нет
+    или карточка без дат — потолок ожидания ИЛ считается от других якорей).
+    """
+    from court_monitor.textutil import is_russian_working_day
+
+    anchor = (parse_date(fi.get("act_date") or "")
+              or parse_date(fi.get("hearing_date") or ""))
+    if not anchor:
+        return None
+    est = anchor.date() + timedelta(days=config.BANK_APPEAL_TERM_DAYS)
+    while not is_russian_working_day(est):
+        est += timedelta(days=1)
+    return est
+
+
+def classify_writ_kind(writ: dict, fi: dict) -> str:
+    """Тип исполнительного листа: "enforcement" | "interim" | "unknown".
+
+    Суд тип листа не публикует (в таблице «ИСПОЛНИТЕЛЬНЫЕ ЛИСТЫ» только
+    дата/номер/статус/получатель), но дата выдачи разделяет типы безошибочно
+    (данные пилота 26.07.2026, 24 листа: 16/8, зазор без пограничных):
+    - лист ДО даты резолютивки (реально — в первые дни после подачи иска,
+      за 27..163 дн до решения) — обеспечительные меры (арест имущества,
+      лист выдаётся сразу после определения об обеспечении, ст. 142 ГПК);
+    - лист ПОСЛЕ решения (реально +40..55 дн — вступление в силу +
+      изготовление) — принудительное исполнение решения.
+    Решения ещё нет → любой лист может быть только обеспечительным.
+    Нет даты выдачи → unknown (в архивных окнах не считается исполнением).
+    """
+    issue = parse_date(writ.get("issue_date") or "")
+    if not issue:
+        return "unknown"
+    hearing = parse_date(fi.get("hearing_date") or "")
+    if not hearing:
+        return "interim"
+    return "enforcement" if issue >= hearing else "interim"
+
+
+def _is_bank_track_archived(fi: dict, now: datetime) -> bool:
+    """Архивные окна лёгкого трека исков банка (ветка is_case_archived).
+
+    Обычное FI_ARCHIVE_DAYS=60 от резолютивки здесь не годится: исполнительный
+    лист появляется на +40..90+ день (мотивировка → вступление в силу →
+    выдача), дело уходило бы в архив ровно в окне ожидания ИЛ.
+
+    - признак жалобы/направления выше → не архивируем (дело покинет трек);
+    - статус не «Решено»/«Возвращено» → активное, не архивируем;
+    - «Возвращено» (возврат/прекращение): BANK_RETURNED_ARCHIVE_DAYS (30) от
+      event_date/hearing_date — окно на частную жалобу банка;
+    - «Решено» + ИЛ выдан: BANK_WRIT_ARCHIVE_DAYS (14) от последней даты
+      выдачи листа — окно на смену статуса («Отозван»/«Возвращен»);
+    - «Решено» без ИЛ: потолок BANK_WRIT_WAIT_MAX_DAYS (180) от расчётного
+      вступления в силу (фолбэк — hearing_date/event_date), иначе пул
+      опрашивался бы вечно.
+    """
+    if (fi.get("appeal_filed") or fi.get("appeal_filed_date")
+            or fi.get("cassation_filed") or fi.get("sent_to_cassation")):
+        return False
+    status = (fi.get("status") or "").strip()
+    if status == "Возвращено":
+        anchor = (parse_date(fi.get("event_date") or "")
+                  or parse_date(fi.get("hearing_date") or ""))
+        return bool(anchor) and (now - anchor).days > config.BANK_RETURNED_ARCHIVE_DAYS
+    if status != "Решено":
+        return False
+    # Окно «лист выдан → архив» считается ТОЛЬКО по листам на исполнение
+    # решения: обеспечительный лист выдаётся в начале дела (задолго до
+    # решения), и без classify_writ_kind дело 2-6005 (решено, есть лишь
+    # обеспечительный лист) ушло бы в архив, не дождавшись листа на
+    # исполнение — вопрос юриста 26.07.2026.
+    issue_dates = [
+        d for d in (
+            parse_date(w.get("issue_date") or "")
+            for w in (fi.get("writs") or [])
+            if classify_writ_kind(w, fi) == "enforcement"
+        )
+        if d
+    ]
+    if issue_dates:
+        return (now - max(issue_dates)).days > config.BANK_WRIT_ARCHIVE_DAYS
+    est = bank_legal_force_est(fi)
+    if est:
+        return (now.date() - est).days > config.BANK_WRIT_WAIT_MAX_DAYS
+    anchor = (parse_date(fi.get("hearing_date") or "")
+              or parse_date(fi.get("event_date") or ""))
+    return bool(anchor) and (now - anchor).days > config.BANK_WRIT_WAIT_MAX_DAYS
+
+
+# Рутинные типы событий track-дел — гасятся в дайджесте при
+# config.BANK_DIGEST_ROUTINE=0 (рычаг масштабирования: при ~1000 исков банка
+# заседания затопили бы Telegram-лимит). Содержательные типы (решение, акт,
+# возврат, жалобы, ИЛ) не входят и доставляются всегда.
+BANK_ROUTINE_EVENT_TYPES = (
+    "fi_hearing_new", "fi_hearing_next", "fi_hearing_postponed",
+    "fi_hearing_recess", "fi_hearing_restart", "fi_status_change",
+    "fi_accepted_no_hearing", "fi_final_event",
+)
+
+
+def filter_bank_routine_events(fi_changes: list[dict]) -> list[dict]:
+    """Убрать рутину track-дел из fi_changes (при BANK_DIGEST_ROUTINE=0).
+
+    Обычные (не track) записи не трогаются. Track-запись, у которой после
+    фильтра не осталось типов, выпадает целиком. Применяется в main_json ДО
+    save_digest_context — replay и push видят тот же список.
+    """
+    kept: list[dict] = []
+    for ch in fi_changes:
+        if ch.get("track") != "plaintiff_light":
+            kept.append(ch)
+            continue
+        types = [
+            t for t in (ch.get("type") or [])
+            if t not in BANK_ROUTINE_EVENT_TYPES
+        ]
+        if types:
+            kept.append({**ch, "type": types})
+    return kept
+
+
 def should_parse_fi_card(case: dict) -> bool:
     """Нужно ли на этом прогоне парсить карточку 1-й инстанции по делу.
 
@@ -556,6 +712,10 @@ def is_case_archived(case: dict) -> bool:
     cs = case.get("cassation") or {}
 
     if stage == "first_instance":
+        # Лёгкий трек исков банка — свои окна (ожидание исполнительного листа
+        # дольше обычного 60-дневного окна, см. _is_bank_track_archived).
+        if is_bank_plaintiff_track(case):
+            return _is_bank_track_archived(fi, now)
         if fi.get("appeal_filed_date"):
             return False
         # Защита от потери даты: если флаг жалобы/кассации стоит, но дата
@@ -1344,6 +1504,19 @@ def should_skip_case(
     if last_checked is None or (today - last_checked).days >= force_parse_days:
         return False, ""
 
+    # Трек «Иски банка»: решённое дело опрашивается раз в BANK_WRIT_CHECK_DAYS
+    # (7 дн) на всём пост-решенческом отрезке — до расчётного вступления в силу
+    # недельный опрос ловит раннюю апел. жалобу ответчика, после — ищет
+    # исполнительный лист во вкладке «ИСПОЛНИТЕЛЬНЫЕ ЛИСТЫ». Ежедневный парс
+    # бесполезен: события там штучные. До решения дело живёт обычным
+    # smart-skip по датам заседаний (ветки ниже).
+    if (stage == "first_instance" and is_bank_plaintiff_track(case_dict)
+            and (block.get("status") or "").strip() in ("Решено", "Возвращено")):
+        days_since = (today - last_checked).days
+        if days_since < config.BANK_WRIT_CHECK_DAYS:
+            return True, f"writ_weekly({days_since}d/{config.BANK_WRIT_CHECK_DAYS}d)"
+        return False, ""
+
     # Кассация: явные поля hearing_date / suspended_until в блоке (DD.MM.YYYY).
     # events карточки 7kas хранят текст в поле name (не text), поэтому
     # get_next_planned_date по ним не сработает — читаем явные поля.
@@ -1413,6 +1586,10 @@ def skip_reason_ru(reason: str) -> str:
     m = re.match(r"suspended_weekly\((\d+)d/(\d+)d\)$", reason)
     if m:
         return f"без движения без срока, парсим раз в {m.group(2)} дн. (прошло {m.group(1)})"
+    m = re.match(r"writ_weekly\((\d+)d/(\d+)d\)$", reason)
+    if m:
+        return (f"иск банка решён, ждём ИЛ/жалобу — опрос раз в "
+                f"{m.group(2)} дн. (прошло {m.group(1)})")
     if reason == "material_pending_promotion":
         return "материал под М-номером, ждём промоушен"
     return reason

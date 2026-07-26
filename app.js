@@ -365,6 +365,11 @@ function pendingAppealBadge(c){
 const CAT_COLORS=['#2d5480','#10b981','#f59e0b','#ef4444','#8b5cf6','#ec4899','#14b8a6','#f97316','#64748b'];
 
 let allCases=[],filteredCases=[],sortField='relevance',sortDir='desc';
+// Трек «Иски банка» (банк — истец, data/cases_bank.json): отдельный датасет,
+// грузится ЛЕНИВО при первом включении чипа «🏦 Иски банка» — основная
+// таблица и её загрузка не тяжелеют. bankFileExists — HEAD-проба при старте:
+// до пилотного импорта файла нет, чип не показывается.
+let bankCases=[],bankLoaded=false,bankViewActive=false,bankFileExists=false;
 let newCaseNumbers=new Set();
 let archivedCount=0;
 let expandedRows=new Set();
@@ -809,6 +814,9 @@ function jsonToCase(j){
     stage:stage,
     fiCaseNumber:fi.case_number||'',
     materialNumber:fi.material_number||'',
+    // Исполнительные листы (трек исков банка): записи вкладки «ИСПОЛНИТЕЛЬНЫЕ
+    // ЛИСТЫ» карточки 1-й инст. У основной базы поля нет — пустой список.
+    writs:fi.writs||[],
     appealCaseNumber:ap.case_number||'',
     dateReceived:parseDate(isCass?(cs.filing_date||fi.filing_date||''):isAppeal?(ap.filing_date||fi.filing_date||''):(fi.filing_date||'')),
     plaintiff:j.plaintiff||'',
@@ -1010,7 +1018,18 @@ function init(){
     const sel=document.getElementById('filter-status');
     if(f&&sel&&[...sel.options].some(o=>o.value===f))sel.value=f;
   }catch(_){}
+  // Deep-link ?bank=1 — открыть сразу картотеку исков банка (ссылки из
+  // дайджеста/ярлыков). Датасет грузим, не дожидаясь HEAD-пробы; при сбое
+  // loadBankDataset сам откатит режим и покажет баннер.
+  try{
+    if(new URLSearchParams(window.location.search).get('bank')==='1'){
+      bankViewActive=true;
+      bankFileExists=true;
+      loadBankDataset().then(()=>applyFilters());
+    }
+  }catch(_){}
   loadFromSheet(resolveSheetUrl());
+  probeBankFile();
 }
 function showSetup(){document.getElementById('setup-screen').style.display='';document.getElementById('loading-screen').style.display='none';document.getElementById('app').style.display='none';}
 function showLoading(){document.getElementById('setup-screen').style.display='none';document.getElementById('loading-screen').style.display='';document.getElementById('app').style.display='none';}
@@ -1116,6 +1135,71 @@ async function loadFromSheet(url){
   }
 }
 function refreshData(){loadFromSheet(resolveSheetUrl());}
+
+// ── Трек «Иски банка» (банк — истец): ленивый датасет ────────────────────────
+function bankJsonUrl(){
+  const u=resolveSheetUrl();
+  return isJsonUrl(u)?u.replace('cases.json','cases_bank.json'):'';
+}
+async function probeBankFile(){
+  // HEAD-проба существования файла: чип показываем только территориям, где
+  // пилот уже импортирован. Сбой сети → чип просто не показан (не ошибка).
+  const url=bankJsonUrl();
+  if(!url)return;
+  try{
+    const r=await fetch(url,{method:'HEAD',cache:'no-cache'});
+    bankFileExists=bankFileExists||r.ok;
+  }catch(_){}
+  if(bankFileExists)renderDatasetSwitch();
+}
+async function loadBankDataset(){
+  try{
+    const mainUrl=bankJsonUrl();
+    const archUrl=mainUrl.replace('cases_bank.json','cases_bank_archive.json');
+    const [mainRes,archRes]=await Promise.all([
+      fetchJsonCases(mainUrl).then(v=>({ok:true,v}),e=>({ok:false,e})),
+      fetchJsonCases(archUrl).then(v=>({ok:true,v}),e=>({ok:false,e})),
+    ]);
+    if(!mainRes.ok)throw mainRes.e;
+    const arch=archRes.ok?archRes.v:[];
+    // Архивность в bank-режиме определяет ТОЛЬКО файл-источник: у трека свои
+    // окна (ожидание ИЛ дольше фронтовых ARCHIVE_DAYS=60), давно решённое
+    // дело из активного файла прятать как «архив» нельзя — оно ждёт лист.
+    arch.forEach(c=>{if(c.computed)c.computed.archived=true;c._bankArchived=true;});
+    const seen=new Set(mainRes.v.map(c=>c.caseNumber));
+    bankCases=mainRes.v.concat(arch.filter(c=>!seen.has(c.caseNumber)));
+    bankLoaded=true;
+    bankFileExists=true;
+  }catch(e){
+    console.warn('Иски банка: датасет не загрузился:',e.message);
+    bankViewActive=false;
+    showError('Не удалось загрузить иски банка ('+e.message+')');
+  }
+}
+async function setDatasetView(v){
+  const want=v==='bank';
+  if(want===bankViewActive){renderDatasetSwitch();return;}
+  bankViewActive=want;
+  if(bankViewActive&&!bankLoaded)await loadBankDataset();
+  applyFilters();
+}
+window.setDatasetView=setDatasetView;
+// Сегмент-переключатель картотек «Основные | 🏦 Иски банка» (#dataset-switch
+// над таблицей). Скрыт, пока файла cases_bank.json нет (HEAD-проба
+// probeBankFile) — до пилотного импорта дашборд выглядит как раньше.
+// В отличие от чипов-фильтров виден и на мобильном (тулбар там — плавающая
+// капсула внизу, в шторку «Фильтры» переключатель картотеки не прячем).
+function renderDatasetSwitch(){
+  const box=document.getElementById('dataset-switch');
+  if(!box)return;
+  if(!bankFileExists){box.hidden=true;return;}
+  box.hidden=false;
+  const bankCount=bankLoaded?`<span class="chip-count">${bankCases.length}</span>`:'';
+  box.innerHTML=`<div class="seg-ctrl">
+    <button class="seg-btn ${bankViewActive?'':'active'}" aria-pressed="${bankViewActive?'false':'true'}" onclick="setDatasetView('main')">Основные</button>
+    <button class="seg-btn ${bankViewActive?'active':''}" aria-pressed="${bankViewActive?'true':'false'}" onclick="setDatasetView('bank')">🏦 Иски банка${bankCount}</button>
+  </div>`;
+}
 function showError(m){const e=document.getElementById('error-banner');e.style.display='';e.textContent='';const s=document.createElement('strong');s.textContent='Ошибка: ';e.appendChild(s);e.appendChild(document.createTextNode(m));}
 function hideError(){document.getElementById('error-banner').style.display='none';}
 
@@ -1426,10 +1510,12 @@ function applyFilters(){
   // Непустой поиск (q) перекрывает фильтр «Мои» — ищем по всей базе,
   // а не только по watchlist'у (см. условие `!q` ниже). Очистка поиска
   // через clearSearch() возвращает представление «Мои».
-  const mineOn=filterMineActive&&watchlist.size>0;
+  // Режим «Иски банка»: фильтруем ленивый датасет; «★ Мои» в нём не действует
+  // (watchlist для track-дел пока не поддержан).
+  const mineOn=filterMineActive&&watchlist.size>0&&!bankViewActive;
 
-  filteredCases=allCases.filter(c=>{
-    const archived=c.computed?c.computed.archived:isArchived(c);
+  filteredCases=(bankViewActive?bankCases:allCases).filter(c=>{
+    const archived=bankViewActive?!!c._bankArchived:(c.computed?c.computed.archived:isArchived(c));
     if(st==='archived'){if(!archived)return false;}
     else if(st==='new'){if(!isNewCase(c))return false;}
     else if(st==='today'){const d=c.nextDate?dayDiff(c.nextDate):null;if(archived||c.status!=='active'||d===null||d<0||d>1)return false;}
@@ -1499,7 +1585,7 @@ function applyFilters(){
 
   // Reset focus если вышел за границы
   if(focusedRowIdx>=filteredCases.length)focusedRowIdx=filteredCases.length-1;
-  renderChipBar();renderTable();renderMobileCards();renderCounter();
+  renderDatasetSwitch();renderChipBar();renderTable();renderMobileCards();renderCounter();
 }
 
 function toggleSort(f){
@@ -1510,9 +1596,40 @@ function toggleSort(f){
 }
 
 /* ========== Chip-bar ========== */
+// Бейдж «🧾 ИЛ» — по делу есть записи вкладки «ИСПОЛНИТЕЛЬНЫЕ ЛИСТЫ»
+// (трек исков банка, fi.writs из cases_bank.json). Тултип перечисляет
+// дату/статус каждого листа. У дел основной базы поля нет — пусто.
+// Архивность для отображения: в bank-режиме — только по файлу-источнику
+// (см. loadBankDataset), у основной картотеки — прежняя isArchived.
+function viewArchived(c){return bankViewActive?!!c._bankArchived:isArchived(c);}
+// Тип исполнительного листа (зеркало classify_writ_kind из lifecycle.py):
+// суд тип не публикует, различает дата — лист ДО даты решения выдан на
+// обеспечительные меры (арест, первые дни после подачи иска), ПОСЛЕ — на
+// принудительное исполнение (реально +40..55 дн от решения).
+function classifyWritKind(w,c){
+  const issue=parseDate(w.issue_date||'');
+  if(!issue)return 'unknown';
+  const hearing=parseDate((c._fi&&c._fi.hearing_date)||'');
+  if(!hearing)return 'interim';
+  return issue>=hearing?'enforcement':'interim';
+}
+// Бейджи листов: «🧾 ИЛ» — есть лист на исполнение решения, «🛡 Обеспечение» —
+// есть обеспечительный (арест). Могут стоять одновременно.
+function writBadgeHtml(c){
+  if(!c.writs||!c.writs.length)return '';
+  const kinds=c.writs.map(w=>classifyWritKind(w,c));
+  const title=c.writs.map(w=>`${w.issue_date||''} ${w.status||''}`.trim()).filter(Boolean).join(', ');
+  let html='';
+  if(kinds.some(k=>k!=='interim'))
+    html+=`<span class="badge badge-compact badge-writ" title="Исполнительные листы: ${escHtml(title)}">🧾 ИЛ</span>`;
+  if(kinds.some(k=>k==='interim'))
+    html+=`<span class="badge badge-compact badge-writ-interim" title="Обеспечительные меры: ${escHtml(title)}">🛡 Обеспечение</span>`;
+  return html;
+}
 function countCasesByStatus(st){
-  return allCases.filter(c=>{
-    const archived=c.computed?c.computed.archived:isArchived(c);
+  // Счётчики чипов считаются по активному датасету (основной / иски банка).
+  return (bankViewActive?bankCases:allCases).filter(c=>{
+    const archived=bankViewActive?!!c._bankArchived:(c.computed?c.computed.archived:isArchived(c));
     if(st==='all')return !archived;
     if(st==='new')return isNewCase(c);
     if(st==='today'){const d=c.nextDate?dayDiff(c.nextDate):null;return !archived&&c.status==='active'&&d!==null&&d>=0&&d<=1;}
@@ -1560,6 +1677,9 @@ function renderChipBar(){
     const nMine=allCases.filter(c=>isWatched(c.caseNumber)&&!(c.computed?c.computed.archived:isArchived(c))).length;
     quickHtml+=`<button class="chip-btn chip-mine mine-toggle-btn ${mineOn?'active':''}" aria-pressed="${mineOn?'true':'false'}" onclick="toggleMobileMine()">★ Мои<span class="chip-count">${nMine}</span></button>`;
   }
+  // Переключатель картотек «Основные | Иски банка» живёт НЕ здесь, а в
+  // #dataset-switch над таблицей (renderDatasetSwitch): это смена картотеки,
+  // а не фильтр, и на мобильном он не должен прятаться в шторку «Фильтры».
   // Segmented controls: роль и инстанция — собираются отдельно, чтобы лечь
   // в свой ряд тулбара на десктопе (.chip-bar-segments).
   let segmentsHtml=`<div class="seg-ctrl">
@@ -1642,6 +1762,12 @@ function resetFilters(){
 
 /* ========== Counter ========== */
 function renderCounter(){
+  // В режиме «Иски банка» счётчик считает по активному датасету; «новых» и
+  // «в архиве» — атрибуты основной картотеки, в bank-режиме их не показываем.
+  if(bankViewActive){
+    document.getElementById('table-counter').innerHTML=`Показано <strong>${filteredCases.length}</strong> из <strong>${bankCases.length}</strong> исков банка`;
+    return;
+  }
   const archText=archivedCount>0?` · ${archivedCount} в архиве`:'';
   const newText=newCaseNumbers.size>0?` · ${newCaseNumbers.size} новых`:'';
   document.getElementById('table-counter').innerHTML=`Показано <strong>${filteredCases.length}</strong> из <strong>${allCases.length}</strong> дел${newText}${archText}`;
@@ -1901,7 +2027,7 @@ function renderTable(){
       +(vm.defendantIsCassator?cassBadge:'');
 
     const newBadge=isUnread?'<span class="badge-new">Новое</span>':'';
-    const archived=isArchived(c)?'<span class="badge-archived">Архив</span>':'';
+    const archived=viewArchived(c)?'<span class="badge-archived">Архив</span>':'';
     const stageBadge=stageBadgeHtml(c);
     const pendingBadge=pendingAppealBadge(c);
 
@@ -1920,7 +2046,7 @@ function renderTable(){
 
     const rc=vm.roleClass;
     const caseNumEsc=escHtml(c.caseNumber);
-    const metaBadges = [stageBadge, pendingBadge, newBadge, archived].filter(Boolean).join('');
+    const metaBadges = [stageBadge, pendingBadge, writBadgeHtml(c), newBadge, archived].filter(Boolean).join('');
     // Дело часто приходит как «2-857/2026 (2-7073/2025;)» — основной номер +
     // старый/связанный в скобках. Раскладываем на две строки, чтобы первая
     // строка была короткой: «осн.номер | бейдж», вторая — «(доп.номер)».
@@ -1957,8 +2083,16 @@ function copyCaseNumber(btn,num){
 /* ========== Drawer ========== */
 function findCaseIdx(num){return filteredCases.findIndex(x=>x.caseNumber===num);}
 
+// Поиск дела по номеру в активном датасете (bank-режим → иски банка),
+// с фолбэком на второй датасет — drawer работает в обоих режимах.
+function findCaseByNumber(num){
+  const primary=bankViewActive?bankCases:allCases;
+  const secondary=bankViewActive?allCases:bankCases;
+  return primary.find(x=>x.caseNumber===num)||secondary.find(x=>x.caseNumber===num);
+}
+
 function openDrawer(caseNumber){
-  const c=allCases.find(x=>x.caseNumber===caseNumber);
+  const c=findCaseByNumber(caseNumber);
   if(!c)return;
   activeCaseNumber=caseNumber;
   markCaseRead(caseNumber);
@@ -2007,7 +2141,7 @@ function drawerNav(dir){
 function setDrawerStage(s){
   if(drawerStage===s)return;
   drawerStage=s;
-  const c=allCases.find(x=>x.caseNumber===activeCaseNumber);
+  const c=findCaseByNumber(activeCaseNumber);
   if(c)renderDrawer(c);
 }
 
@@ -2271,6 +2405,29 @@ function stripActAnalysisHeader(html,caseNumber){
 function scrollToActAnalysis(){
   const el=document.getElementById('ai-act-analysis');
   if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// Секция «Исполнительные листы» в drawer (трек исков банка): реквизиты
+// каждого листа показываются явно — title-тултип бейджа «🧾 ИЛ» на
+// телефоне не работает вообще, а на десктопе требует задержки наведения.
+function buildWritsSectionHtml(c){
+  if(!c.writs||!c.writs.length)return '';
+  const rows=c.writs.map(w=>{
+    const num=w.electronic_id||w.blank_number||'';
+    const st=(w.status||'').trim();
+    const cls=st==='Выдан'?'writ-issued':'writ-inactive';
+    const kind=classifyWritKind(w,c);
+    const kindLabel=kind==='interim'?'🛡 обеспечительные меры':kind==='enforcement'?'🧾 на исполнение решения':'🧾 тип не определён';
+    return `<div class="writ-row">
+      <div class="writ-row-top"><b>${escHtml(w.issue_date||'дата не указана')}</b><span class="writ-kind">${kindLabel}</span><span class="badge badge-compact badge-writ-status ${cls}">${escHtml(st||'—')}</span></div>
+      ${num?`<div class="writ-num">${escHtml(num)}</div>`:''}
+      ${w.recipient?`<div class="writ-recipient">→ ${escHtml(w.recipient)}</div>`:''}
+    </div>`;
+  }).join('');
+  return `<div class="drawer-section">
+    <div class="drawer-section-title">Исполнительные листы (${c.writs.length})</div>
+    <div class="writ-list">${rows}</div>
+  </div>`;
 }
 
 function renderDrawer(c){
@@ -2579,7 +2736,7 @@ function renderDrawer(c){
     </div>
     <div class="drawer-body">
       <div class="drawer-hero">
-        <div class="hero-meta">${stageBadge}${pendingAppealBadge(c)}${roleBadge}${isNew?'<span class="badge-new">Новое</span>':''}${isArchived(c)?'<span class="badge-archived">Архив</span>':''}</div>
+        <div class="hero-meta">${stageBadge}${pendingAppealBadge(c)}${writBadgeHtml(c)}${roleBadge}${isNew?'<span class="badge-new">Новое</span>':''}${viewArchived(c)?'<span class="badge-archived">Архив</span>':''}</div>
         <div class="hero-parties">
           <div class="party-row"><span class="p-tag">Истец</span><span>${plHtml}${vm.plaintiffIsAppellant?' <span class="badge badge-appellant badge-compact">Апеллянт</span>':''}${vm.plaintiffIsCassator?' <span class="badge badge-cassator badge-compact">Кассатор</span>':''}</span></div>
           <div class="party-row"><span class="p-tag">Ответ.</span><span>${dfHtml}${vm.defendantIsAppellant?' <span class="badge badge-appellant badge-compact">Апеллянт</span>':''}${vm.defendantIsCassator?' <span class="badge badge-cassator badge-compact">Кассатор</span>':''}</span></div>
@@ -2593,6 +2750,8 @@ function renderDrawer(c){
         <div class="drawer-section-title">Ключевые даты</div>
         ${keyDates}
       </div>
+
+      ${buildWritsSectionHtml(c)}
 
       <div class="drawer-section">
         <div class="drawer-section-title">${drawerStage==='fi'?'Первая инстанция':drawerStage==='ap'?'Апелляция':drawerStage==='cs'?'Кассация':'Суд и состав'}</div>
@@ -2664,7 +2823,7 @@ function renderMobileCards(){
     const accent=rowAccent(c);
 
     const newBadge=isUnread?'<span class="badge-new">Новое</span>':'';
-    const archived=isArchived(c)?'<span class="badge-archived">Архив</span>':'';
+    const archived=viewArchived(c)?'<span class="badge-archived">Архив</span>':'';
     const stageBadge=stageBadgeHtml(c);
     const pendingBadge=pendingAppealBadge(c);
     // Третье лицо: на кассац. стадии — «Кассатор» если Сбер кассатор; иначе
@@ -2701,7 +2860,7 @@ function renderMobileCards(){
       <div class="mc-top">
         ${watchBtnHtml(c.caseNumber)}
         <span class="mc-case">${escHtml(c.caseNumber)}</span>
-        <span class="mc-badges">${stageBadge}${pendingBadge}${newBadge}${archived}</span>
+        <span class="mc-badges">${stageBadge}${pendingBadge}${writBadgeHtml(c)}${newBadge}${archived}</span>
       </div>
       ${courtLine?`<div class="mc-court-label" title="${escHtml(courtTip)}">${escHtml(courtLine)}${escHtml(courtJudgeShort)}</div>`:''}
       ${thirdBadge?`<div class="mc-third">${thirdBadge}</div>`:''}
@@ -3038,6 +3197,9 @@ function isWatched(caseNumber) {
 }
 
 function watchBtnHtml(caseNumber) {
+  // В режиме «Иски банка» звёзды скрыты: watchlist для track-дел не поддержан
+  // (Worker канонизирует номера только по основному cases.json).
+  if (bankViewActive) return '';
   const on = isWatched(caseNumber);
   const num = String(caseNumber).replace(/'/g, '&#39;');
   return `<button class="watch-btn${on ? ' on' : ''}" `
