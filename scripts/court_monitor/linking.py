@@ -27,7 +27,7 @@ from court_monitor.lifecycle import (
 from court_monitor.netutil import fetch_page, polite_delay
 from court_monitor.parsing import (
     parse_cassation_card, classify_cassation_outcome, cassation_remanded_to,
-    find_fi_case_link,
+    find_fi_case_link, parties_from_participants,
 )
 from court_monitor.storage import (
     load_cassation_acts, save_cassation_acts, _cassation_act_key,
@@ -749,6 +749,30 @@ def link_cassation_cases(
                     f"{old_cass['case_number']} замещается {cass_int_num}"
                 )
             case["cassation"] = cass_block
+            # ── Бэкфилл сторон из УЧАСТНИКОВ карточки 7kas ──
+            # Дела, заведённые discovery'ем до расширения разбора ролей (или с
+            # экзотическим составом участников), остались с пустыми
+            # plaintiff/defendant навсегда: карточку 1-й инст. на стадии
+            # cassation мы не парсим, а у капчёвых судов (search_gated) её и не
+            # найти. В дайджесте такая запись схлопывалась до голого 8Г-номера
+            # — юрист не понимал, по какому делу событие (инцидент 24.07.2026).
+            # Дозаполняем ТОЛЬКО пустые поля: карточка 1-й инстанции точнее.
+            _pl_new, _df_new = parties_from_participants(info.get("participants"))
+            _filled: list[str] = []
+            if not (case.get("plaintiff") or "").strip() and _pl_new:
+                case["plaintiff"] = _pl_new
+                _filled.append("истец")
+            if not (case.get("defendant") or "").strip() and _df_new:
+                case["defendant"] = _df_new
+                _filled.append("ответчик")
+            if not (case.get("bank_role") or "").strip() and info.get("bank_role"):
+                case["bank_role"] = info["bank_role"]
+                _filled.append("роль банка")
+            if _filled:
+                log.info(
+                    f"  7kas: {fi_num} — стороны дозаполнены из карточки "
+                    f"({', '.join(_filled)})"
+                )
             # Обновим стадию.
             prev_stage = case.get("current_stage", "")
             if prev_stage == "awaiting_relink":
@@ -865,15 +889,14 @@ def link_cassation_cases(
                 "appeal": None,
                 "cassation": cass_block,
             }
-            # Заполнить plaintiff/defendant из УЧАСТНИКОВ (если есть Сбербанк
-            # как ответчик/истец, противоположную сторону тоже сохраним).
-            for p in info.get("participants") or []:
-                role = (p.get("role") or "").upper()
-                name = p.get("name") or ""
-                if "ИСТЕЦ" in role and not new_case["plaintiff"]:
-                    new_case["plaintiff"] = name
-                elif "ОТВЕТЧИК" in role and not new_case["defendant"]:
-                    new_case["defendant"] = name
+            # Заполнить plaintiff/defendant из УЧАСТНИКОВ карточки 7kas.
+            # Разбор ролей — общий с бэкфиллом ниже (parties_from_participants:
+            # кроме ИСТЕЦ/ОТВЕТЧИК понимает ЗАЯВИТЕЛЬ/ВЗЫСКАТЕЛЬ и
+            # ЗАИНТЕРЕСОВАННОЕ ЛИЦО/ДОЛЖНИК — иначе у «прочих» категорий
+            # стороны оставались пустыми).
+            new_case["plaintiff"], new_case["defendant"] = (
+                parties_from_participants(info.get("participants"))
+            )
             cases.append(new_case)
             discovered.append(new_case)
             cass_changes.append({
@@ -942,12 +965,17 @@ def link_cassation_cases(
     return cases, cass_changes, discovered
 
 
-def rotate_cold_archive(hot_archive: list[dict]) -> list[dict]:
+def rotate_cold_archive(hot_archive: list[dict], path_builder=None) -> list[dict]:
     """Ротация архива по годам: дела старше COLD_ARCHIVE_DAYS (по `archived_at`)
     уезжают из горячего cases_archive.json в холодные годовые файлы
     cases_archive_YYYY.json (фронт их не грузит). Возвращает урезанный горячий
     список (только дела свежее года), который вызывающий код записывает обратно
     в JSON_ARCHIVE_PATH.
+
+    path_builder(year) — билдер пути холодного файла; по умолчанию
+    cold_archive_path (основной трек). Трек «Иски банка» передаёт
+    config.bank_cold_archive_path: его холодные файлы хранят полные записи
+    с inline events (вызывающий код обязан отдать сюда СКЛЕЕННЫЕ записи).
 
     Бэкфилл: делам без `archived_at` штамп выводится из дат стадий
     (_infer_archived_at) и записывается обратно — считается один раз.
@@ -962,6 +990,8 @@ def rotate_cold_archive(hot_archive: list[dict]) -> list[dict]:
     вернуть вручную через add_cases_manually.py. Для гражданских дел такое после
     года практически не встречается.
     """
+    if path_builder is None:
+        path_builder = cold_archive_path
     now = datetime.now()
     keep_hot: list[dict] = []
     to_cold_by_year: dict[int, list[dict]] = {}
@@ -980,27 +1010,42 @@ def rotate_cold_archive(hot_archive: list[dict]) -> list[dict]:
     if not to_cold_by_year:
         return keep_hot
 
+    def _numbers(c: dict) -> list[str]:
+        nums = [(c.get("id") or "").strip(),
+                ((c.get("first_instance") or {}).get("case_number") or "").strip()]
+        return [n for n in nums if n]
+
+    def _domain(c: dict) -> str:
+        return ((c.get("first_instance") or {}).get("court_domain") or "").strip()
+
     for year, moved in sorted(to_cold_by_year.items()):
-        path = cold_archive_path(year)
+        path = path_builder(year)
         cold = load_json(path)
         cold_cases = cold.get("cases", [])
-        seen = {(c.get("id") or "").strip() for c in cold_cases}
-        seen |= {
-            ((c.get("first_instance") or {}).get("case_number") or "").strip()
-            for c in cold_cases
-        }
-        seen.discard("")
+        seen = set()          # голые номера (legacy-поведение основного трека)
+        seen_comp = set()     # «домен|номер» — номера не уникальны между судами
+        for c in cold_cases:
+            dom = _domain(c)
+            for n in _numbers(c):
+                seen.add(n)
+                if dom:
+                    seen_comp.add(f"{dom}|{n}")
         added = 0
         for c in moved:
-            cid = (c.get("id") or "").strip()
-            fi_num = ((c.get("first_instance") or {}).get("case_number") or "").strip()
-            if cid in seen or (fi_num and fi_num in seen):
+            dom = _domain(c)
+            nums = _numbers(c)
+            if dom:
+                # у записи есть домен → сверяем строго по составному ключу,
+                # иначе дело из другого суда с тем же номером «прилипло» бы
+                if any(f"{dom}|{n}" in seen_comp for n in nums):
+                    continue
+            elif any(n in seen for n in nums):
                 continue
             cold_cases.append(c)
-            if cid:
-                seen.add(cid)
-            if fi_num:
-                seen.add(fi_num)
+            for n in nums:
+                seen.add(n)
+                if dom:
+                    seen_comp.add(f"{dom}|{n}")
             added += 1
         if added:
             cold["cases"] = cold_cases
