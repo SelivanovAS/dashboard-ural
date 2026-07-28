@@ -5,3 +5,16 @@ region_front.js merge=ours
 manifest.json merge=ours
 cloudflare-worker/wrangler.toml merge=ours
 data/** merge=ours
+
+# ── Трек «Иски банка» на территории не ведётся (решение 26.07.2026) ──
+# Код трека общий и остаётся в форке (BANK_TRACK, split_bank_track, тесты),
+# но он инертен: без data/cases_bank.json прогон его не грузит и файл не
+# создаёт. Из форка удалены ХМАО-шные данные и пилотные workflow'ы:
+#   data/cases_bank.json, ops/bank_registry/**, ops/writ_probe/**,
+#   .github/workflows/{import_bank_registry,collect_bank_claims,probe_writ_section}.yml
+# Два последних били по судам ХМАО и срабатывали на push — то есть на самой
+# синхронизации с эталоном.
+# ⚠ При merge из эталона git даст конфликт modify/delete по этим путям.
+# Решение — `git rm` (не «взять версию эталона»), если территория не завела
+# трек сама. Если заводит — нужен свой ops/bank_registry/registry.csv,
+# ХМАО-шный тянет дела Сургута.
