@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import logging
 import os
+import re
 import sys
 
 from court_monitor import ghlog
@@ -45,6 +46,31 @@ JSON_ARCHIVE_PATH = os.environ.get(
     "JSON_ARCHIVE_PATH",
     os.path.join(os.path.dirname(JSON_PATH) or "data", "cases_archive.json")
 )
+# Трек «Иски банка» (банк — истец): отдельный файл, чтобы основной cases.json
+# не рос (фронт грузит его лениво, Worker не парсит вовсе). Схема записей —
+# та же, что в cases.json, плюс маркер track="plaintiff_light".
+JSON_BANK_PATH = os.environ.get(
+    "JSON_BANK_PATH",
+    os.path.join(os.path.dirname(JSON_PATH) or "data", "cases_bank.json")
+)
+JSON_BANK_ARCHIVE_PATH = os.environ.get(
+    "JSON_BANK_ARCHIVE_PATH",
+    os.path.join(os.path.dirname(JSON_PATH) or "data", "cases_bank_archive.json")
+)
+# Хроника (events) bank-дел хранится отдельно от списка: events — ~64% веса
+# записи, а фронту они нужны только в drawer. Список (cases_bank.json) фронт
+# грузит при входе в картотеку банка, events-файл — лениво при первом
+# открытии карточки. Ключ мапы — «домен|номер» (номера дел не уникальны
+# между судами). Содержимое events не меняется — только место хранения.
+JSON_BANK_EVENTS_PATH = os.environ.get(
+    "JSON_BANK_EVENTS_PATH",
+    os.path.join(os.path.dirname(JSON_BANK_PATH) or "data", "cases_bank_events.json")
+)
+JSON_BANK_ARCHIVE_EVENTS_PATH = os.environ.get(
+    "JSON_BANK_ARCHIVE_EVENTS_PATH",
+    os.path.join(os.path.dirname(JSON_BANK_ARCHIVE_PATH) or "data",
+                 "cases_bank_archive_events.json")
+)
 
 
 def cold_archive_path(year: int) -> str:
@@ -60,6 +86,29 @@ def cold_archive_glob() -> str:
     в индекс дедупликации (см. main_json)."""
     base = os.path.dirname(JSON_ARCHIVE_PATH) or "data"
     return os.path.join(base, "cases_archive_*.json")
+
+
+def bank_cold_archive_path(year: int) -> str:
+    """Холодный годовой архив трека «Иски банка» cases_bank_archive_YYYY.json.
+    В отличие от горячих bank-файлов, холодные хранят ПОЛНЫЕ записи с inline
+    events (write-only: фронт их не грузит, прогон читает только в дедуп)."""
+    base = os.path.dirname(JSON_BANK_ARCHIVE_PATH) or "data"
+    return os.path.join(base, f"cases_bank_archive_{year}.json")
+
+
+def bank_cold_archive_glob() -> str:
+    """Glob холодных bank-архивов. ⚠️ Шаблон «cases_bank_archive_*.json»
+    матчит и events-файл горячего архива — потребители обязаны фильтровать
+    имена по годовому суффиксу через is_bank_cold_archive_file()."""
+    base = os.path.dirname(JSON_BANK_ARCHIVE_PATH) or "data"
+    return os.path.join(base, "cases_bank_archive_*.json")
+
+
+def is_bank_cold_archive_file(path: str) -> bool:
+    """True для cases_bank_archive_YYYY.json (и только для них): отсекает
+    cases_bank_archive_events.json, который тоже попадает под glob."""
+    name = os.path.basename(path)
+    return bool(re.fullmatch(r"cases_bank_archive_\d{4}\.json", name))
 DIGESTED_ACTS_PATH = os.environ.get(
     "DIGESTED_ACTS_PATH",
     os.path.join(os.path.dirname(CSV_PATH) or "data", ".digested_acts")
@@ -142,11 +191,53 @@ CASSATION_NO_ACT_PUBLISH_DAYS = 45   # 45 дней от даты вынесен�
 # годовые файлы cases_archive_YYYY.json, которые фронт не загружает. Так вес
 # того, что качает браузер, перестаёт расти безгранично. См. rotate_cold_archive.
 COLD_ARCHIVE_DAYS = 365
+# Трек «Иски банка» (банк — истец, data/cases_bank.json): свои окна — обычное
+# FI_ARCHIVE_DAYS=60 от резолютивки убивало бы ожидание исполнительного листа
+# (мотивировка ≤10 раб. дн → месяц на апелляцию → выдача ИЛ: реальный лист
+# появляется на +40..90+ день). См. is_case_archived / should_skip_case.
+BANK_TRACK = os.environ.get("BANK_TRACK", "1") == "1"  # мастер-выключатель трека
+BANK_WRIT_CHECK_DAYS = 7        # решённый иск банка: опрос карточки раз в 7 дн
+                                # (ловим апел. жалобу до вступления в силу и ИЛ
+                                # после; ежедневный парс бесполезен — события
+                                # там штучные).
+# Слагаемые расчётной даты вступления решения в силу (bank_legal_force_est).
+# Сроки в днях по ГПК — РАБОЧИЕ дни (ст. 107: нерабочие не включаются);
+# месячный срок апелляции (ст. 321) константы не требует — он календарный
+# (ст. 108, month_term_last_day).
+BANK_MOTIVATION_TERM_WORKDAYS = 10   # ст. 199 ГПК: изготовление мотивированного
+                                     # решения — расчётный фолбэк, когда нет ни
+                                     # act_date, ни события «Изготовлено
+                                     # мотивированное решение».
+BANK_DEFAULT_COPY_SEND_WORKDAYS = 3  # ст. 236 ГПК: направление копии заочного
+                                     # решения ответчику (формула ВС, Обзор №2
+                                     # (2015), вопрос 14).
+BANK_DEFAULT_CANCEL_WORKDAYS = 7     # ст. 237 ГПК: заявление об отмене заочного
+                                     # решения (от вручения копии либо в составе
+                                     # формулы ВС).
+BANK_WRIT_WAIT_MAX_DAYS = 180   # потолок ожидания ИЛ от расчётного вступления
+                                # в силу: лист так и не появился → архив (иначе
+                                # пул опрашивался бы вечно).
+BANK_WRIT_ARCHIVE_DAYS = 14     # ИЛ выдан → архив через 14 дн (окно на смену
+                                # статуса листа: «Отозван»/«Возвращен»).
+BANK_RETURNED_ARCHIVE_DAYS = 30  # иск возвращён/прекращён → архив через 30 дн
+                                 # (окно на частную жалобу банка).
+# Рутина track-дел в дайджесте (заседания, смены статусов, принятия): пилот
+# шлёт всё (решение юриста 25.07.2026); при масштабировании на ~1000 дел
+# рутина затопит Telegram-лимит (~7600 симв.) — выключается env=0, остаются
+# решение/итог, возврат, апел. жалоба и ИЛ. См. filter_bank_routine_events.
+BANK_DIGEST_ROUTINE = os.environ.get("BANK_DIGEST_ROUTINE", "1") == "1"
 # Legacy: CSV-ветка архивации (apelljatsiя в CSV) ещё использует старое
 # 30-дневное окно от «Даты события». Будет удалена вместе с CSV-веткой.
 LEGACY_CSV_ARCHIVE_DAYS = 30
 REQUEST_DELAY = (2, 3)  # Задержка между запросами к суду (сек)
-FETCH_MAX_RETRIES = 3   # Кол-во попыток загрузки страницы
+# Кол-во попыток загрузки страницы. Боевой прогон — ОДНА попытка (решение
+# юриста 26.07.2026): пропуск безопасен — карточка перечитается следующим
+# прогоном, сбой поиска пишется в журнал здоровья как HTTP-fail (алерт только
+# после 3 сбойных прогонов подряд), а ретраи при массовом сбое sudrf
+# растягивали страницу до 105 с (3×30 с таймаута + паузы 5/10 с). Ручным
+# пробам/импортам их workflow возвращают 3 через env — там запросов мало,
+# а повтор запуска — ручной труд оператора.
+FETCH_MAX_RETRIES = int(os.environ.get("FETCH_MAX_RETRIES", "1"))
 # Пер-кейсовый smart-skip (should_skip_case): пропуск карточек с известной
 # будущей датой (заседание / «без движения»). Выставляется в main_json из
 # флага --smart-skip / env SKIP_NON_WORKING_DAYS: крон передаёт его всегда,

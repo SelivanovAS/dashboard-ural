@@ -34,6 +34,11 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
+    # Страховка от молчаливого зависания: обычный прогон — 10-25 мин, с полным
+    # пулом исков банка — до ~1 ч; 2 часа хватает даже при массовых ретраях
+    # sudrf, а дефолтные 6 ч только оттягивали бы 🚨-алерт (шаг failure() при
+    # отсечке по таймауту не срабатывает — job отменяется, а не падает).
+    timeout-minutes: 120
 
     steps:
       - name: Checkout repository
@@ -54,6 +59,15 @@ jobs:
           # общий для всех территорий.
           REGION: ${{ vars.REGION }}
           DASHBOARD_URL: ${{ vars.DASHBOARD_URL }}
+          # Трек «Иски банка»: BANK_TRACK=0 в Variables выключает его для
+          # территории. Фолбэк '1' = сегодняшнее поведение, поэтому у эталона
+          # и территорий без переменной ничего не меняется.
+          # ⚠ Гасит только ПРОГОН. Сегмент «🏦 Иски банка» на дашборде прячется
+          # по отсутствию data/cases_bank.json (HEAD-проба probeBankFile), про
+          # флаг фронт не знает — файл территории всё равно надо удалять.
+          # Ручные import_bank_registry/collect_bank_claims флаг тоже не
+          # спрашивают и файл создадут: это их работа, запускают их осознанно.
+          BANK_TRACK: ${{ vars.BANK_TRACK || '1' }}
           # Гибрид — дефолт кода (с 03.07.2026): программный рендер + LLM
           # только на пересказ мотивировок актов. Откат на полный
           # LLM-дайджест — вернуть строку `DIGEST_FULL_LLM: "1"`.
@@ -132,6 +146,26 @@ jobs:
           fi
           if [ -f data/cases_archive.json ]; then
             git add data/cases_archive.json
+          fi
+          # Трек «Иски банка» (банк — истец): отдельные файлы, прогон
+          # перекладывает их на каждом запуске (раскладка 7c в main_json).
+          if [ -f data/cases_bank.json ]; then
+            git add data/cases_bank.json
+          fi
+          if [ -f data/cases_bank_archive.json ]; then
+            git add data/cases_bank_archive.json
+          fi
+          # Split-хранение трека: events лежат отдельно от списков (фронт
+          # грузит их лениво); плюс холодные годовые cases_bank_archive_YYYY
+          # (glob цепляет и events-файл архива — это не страшно, add идемпотентен).
+          if [ -f data/cases_bank_events.json ]; then
+            git add data/cases_bank_events.json
+          fi
+          if [ -f data/cases_bank_archive_events.json ]; then
+            git add data/cases_bank_archive_events.json
+          fi
+          if compgen -G "data/cases_bank_archive_*.json" > /dev/null; then
+            git add data/cases_bank_archive_*.json
           fi
           # Холодные годовые архивы (cases_archive_YYYY.json) — дела старше года,
           # вынесенные из горячего архива ротацией (rotate_cold_archive). Фронт
