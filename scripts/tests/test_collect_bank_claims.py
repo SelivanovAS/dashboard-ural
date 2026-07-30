@@ -53,6 +53,34 @@ class TestDiscoverPager:
         assert cbc.discover_page_urls(html, "https://x.sudrf.ru") == {}
 
 
+# ── resolve_court: пара (домен, srv_num) ─────────────────────────────────────
+
+class TestResolveCourt:
+    """На vartovray--hmao.sudrf.ru два суда: районный (srv 1) и постоянное
+    присутствие в Покачи (srv 2). Резолв по одному домену всегда отдавал
+    первый — Покачи собрать было нельзя."""
+
+    def test_default_server_gives_district_court(self):
+        court = cbc.resolve_court("vartovray--hmao.sudrf.ru", 1)
+        assert court is not None and court.name == "Нижневартовский районный суд"
+
+    def test_second_server_gives_pokachi(self):
+        court = cbc.resolve_court("vartovray--hmao.sudrf.ru", 2)
+        assert court is not None and court.srv_num == 2
+        assert "Покачи" in court.name
+
+    def test_domain_normalized(self):
+        court = cbc.resolve_court("  VARTOVRAY--HMAO.SUDRF.RU ", 2)
+        assert court is not None and "Покачи" in court.name
+
+    def test_missing_server_is_none(self):
+        """У обычного суда второго сервера нет — молча брать первый нельзя."""
+        assert cbc.resolve_court("megion--hmao.sudrf.ru", 2) is None
+
+    def test_unknown_domain_is_none(self):
+        assert cbc.resolve_court("nosuch--hmao.sudrf.ru", 1) is None
+
+
 # ── row_passes ───────────────────────────────────────────────────────────────
 
 class TestRowPasses:
@@ -187,3 +215,136 @@ class TestCollectE2E:
         counters = cbc.collect(_court(), 10, 0, False, "тест")
         assert counters["already"] == 1
         assert counters["added"] == 2
+
+
+class TestCardLevelFilters:
+    """Карточные фильтры: апелляция/кассация и ИЛ на исполнение решения
+    (решение юриста 30.07.2026, сбор по Нижневартовскому городскому).
+    До карточки в e2e-наборе доходят 3 кандидата — счётчики исключений = 3."""
+
+    @pytest.mark.parametrize("flag", [
+        "_fi_appeal_filed", "_fi_sent_to_appeal",
+        "_fi_cassation_filed", "_fi_sent_to_cassation",
+    ])
+    def test_appeal_flag_skips(self, env, monkeypatch, flag):
+        monkeypatch.setattr(
+            cbc, "parse_case_card",
+            lambda html, base_url: {"Результат": "Иск УДОВЛЕТВОРЕН", flag: True})
+        counters = cbc.collect(_court(), 10, 0, False, "тест")
+        assert counters["added"] == 0
+        assert counters["excluded_appeal"] == 3
+        assert _bank_cases(env) == []
+
+    @pytest.mark.parametrize("status", ["Выдан", "Отозван", "Возвращен"])
+    def test_enforcement_writ_skips_any_status(self, env, monkeypatch, status):
+        """Лист ПОСЛЕ решения — на исполнение; «Отозван»/«Возвращен» тоже
+        пропускаются: лист всё равно был выдан."""
+        monkeypatch.setattr(
+            cbc, "parse_case_card",
+            lambda html, base_url: {
+                "Статус": "Решено",
+                "Дата заседания": "12.02.2026",
+                "_events": [{"date": "12.02.2026",
+                             "text": "Вынесено решение по делу. Иск удовлетворён"}],
+                "_writs": [{"issue_date": "20.04.2026", "status": status}]})
+        counters = cbc.collect(_court(), 10, 0, False, "тест")
+        assert counters["added"] == 0
+        assert counters["excluded_writ"] == 3
+        assert _bank_cases(env) == []
+
+    def test_interim_writ_not_skipped(self, env, monkeypatch):
+        """Обеспечительный лист (выдан ДО решения) — дело ещё ждёт ИЛ."""
+        monkeypatch.setattr(
+            cbc, "parse_case_card",
+            lambda html, base_url: {
+                "Статус": "Решено",
+                "Дата заседания": "12.02.2026",
+                "_events": [{"date": "12.02.2026",
+                             "text": "Вынесено решение по делу. Иск удовлетворён"}],
+                "_writs": [{"issue_date": "01.11.2025", "status": "Выдан"}]})
+        counters = cbc.collect(_court(), 10, 0, False, "тест")
+        assert counters["added"] == 3
+        assert counters["excluded_writ"] == 0
+        # Лист перенесён в запись (make_bank_entry), а не потерян.
+        assert all(c["first_instance"].get("writs") for c in _bank_cases(env))
+
+    def test_writ_without_anchor_not_skipped(self, env, monkeypatch):
+        """Нет ни решения, ни терминального статуса → interim, не пропуск."""
+        monkeypatch.setattr(
+            cbc, "parse_case_card",
+            lambda html, base_url: {
+                "_writs": [{"issue_date": "20.04.2026", "status": "Выдан"}]})
+        assert cbc.collect(_court(), 10, 0, False, "тест")["added"] == 3
+
+    def test_pending_case_interim_writ_after_last_hearing_kept(self, env, monkeypatch):
+        """Дело «В производстве»: обеспечительный лист выдан ПОЗЖЕ последнего
+        зарегистрированного заседания (меры приняты в ходе процесса, следующее
+        заседание ещё не опубликовано). Решения нет → лист может быть только
+        обеспечительным, дело обязано попасть в трек.
+
+        Регресс ревизии 30.07.2026: якорь «Дата заседания» давал здесь
+        enforcement, и живое дело молча терялось — строка отчёта была
+        неотличима от честного исключения."""
+        monkeypatch.setattr(
+            cbc, "parse_case_card",
+            lambda html, base_url: {
+                "Статус": "В производстве",
+                "Дата заседания": "12.05.2026",
+                "_events": [{"date": "12.05.2026",
+                             "text": "Судебное заседание. Объявлен перерыв"},
+                            {"date": "15.05.2026",
+                             "text": "Заявление об обеспечении иска удовлетворено"}],
+                "_writs": [{"issue_date": "15.05.2026", "status": "Выдан"}]})
+        counters = cbc.collect(_court(), 10, 0, False, "тест")
+        assert counters["excluded_writ"] == 0
+        assert counters["added"] == 3
+
+    def test_enforcement_writ_skipped_despite_post_decision_hearing(self, env, monkeypatch):
+        """Решённое дело с ПОСТ-решенческим заседанием (заявление об отмене
+        заочного, судебные расходы): «Дата заседания» уехала за дату выдачи
+        листа. Якорь — решение, поэтому лист остаётся enforcement и дело
+        исключается (регресс ревизии 30.07.2026)."""
+        monkeypatch.setattr(
+            cbc, "parse_case_card",
+            lambda html, base_url: {
+                "Статус": "Решено",
+                "Дата заседания": "20.06.2026",
+                "_events": [{"date": "10.03.2026",
+                             "text": "Вынесено заочное решение по делу"},
+                            {"date": "20.06.2026",
+                             "text": "Судебное заседание. Заявление о судебных расходах"}],
+                "_writs": [{"issue_date": "05.05.2026", "status": "Выдан"}]})
+        counters = cbc.collect(_court(), 10, 0, False, "тест")
+        assert counters["excluded_writ"] == 3
+        assert counters["added"] == 0
+
+    def test_decided_card_without_decision_event_falls_back_to_hearing(self, env, monkeypatch):
+        """Решённая карточка без события решения в истории движения → фолбэк
+        на «Дату заседания» (прежнее поведение)."""
+        monkeypatch.setattr(
+            cbc, "parse_case_card",
+            lambda html, base_url: {
+                "Статус": "Решено",
+                "Дата заседания": "12.02.2026",
+                "_writs": [{"issue_date": "20.04.2026", "status": "Выдан"}]})
+        assert cbc.collect(_court(), 10, 0, False, "тест")["excluded_writ"] == 3
+
+    def test_real_card_with_enforcement_writs_skipped(self, env, monkeypatch):
+        """Сквозной путь через настоящий parse_case_card: заседание 19.01.2026,
+        листы 24.06/26.06.2026 (enforcement) + 21.11.2023 (interim) → пропуск."""
+        monkeypatch.setattr(
+            cbc, "fetch_card_checked",
+            lambda url, context=None: _fixture("case_card_fi_writs.html"))
+        counters = cbc.collect(_court(), 10, 0, False, "тест")
+        assert counters["excluded_writ"] == 3
+        assert counters["added"] == 0
+
+    def test_real_short_card_with_appeal_skipped(self, env, monkeypatch):
+        """Короткая карточка вкладки обжалования (_fi_appeal_filed=True) →
+        пропуск через настоящий parse_case_card."""
+        monkeypatch.setattr(
+            cbc, "fetch_card_checked",
+            lambda url, context=None: _fixture("case_card_fi_with_appeal.html"))
+        counters = cbc.collect(_court(), 10, 0, False, "тест")
+        assert counters["excluded_appeal"] == 3
+        assert counters["added"] == 0

@@ -8,6 +8,13 @@
 где банк — истец. Исключаются дела с итогами «оставлено без рассмотрения»,
 «передано по подсудности», «возвращено», «прекращено» (решение юриста
 26.07.2026; «отказано» вносится — по нему возможна апелляция банка).
+Также не берутся дела с признаком апелляции/кассации в карточке (первый же
+прогон увёл бы их из лёгкого трека в основной cases.json) и дела с уже
+выданным ИЛ на исполнение решения — цикл трека по ним пройден; обеспечительные
+листы не считаются (решение юриста 30.07.2026, сбор по Нижневартовскому
+городскому). Тип листа якорится на дату РЕШЕНИЯ из событий карточки
+(fi_decision_date_from_events): «Дата заседания» промахивается в обе стороны —
+см. комментарий у фильтра.
 
 Пагинация: формата пейджера sudrf в кодовой базе раньше не было — ссылки
 страниц ОБНАРУЖИВАЮТСЯ в HTML выдачи (href с sud_delo и page=N); если
@@ -23,12 +30,18 @@
 - [ALREADY]          — уже отслеживается (активные + архивы + bank-файлы)
 - [SKIPPED ROLE]     — банк в деле не истец
 - [EXCLUDED RESULT]  — итог из списка исключений юриста
+- [EXCLUDED APPEAL]  — жалоба/направление в апелляцию/кассацию — дело трек покинет
+- [EXCLUDED WRIT]    — выдан ИЛ на исполнение решения — цикл трека уже пройден
 - [NO LINK]          — в выдаче нет case_id|case_uid — карточку не открыть
 - [FETCH FAIL]       — сбой загрузки карточки
 
 Запуск:
     python3 scripts/collect_bank_claims.py --court surggor--hmao.sudrf.ru \
         --pages 10 [--limit N] [--dry-run]
+
+Суд резолвится парой (домен, srv_num): на одном домене может жить два суда —
+Нижневартовский районный (srv 1) и его постоянное присутствие в Покачи (srv 2).
+Для второго обязателен --srv 2, иначе выберется первый суд домена.
 """
 
 from __future__ import annotations
@@ -46,6 +59,10 @@ if _HERE not in sys.path:
 
 from court_monitor import config  # noqa: E402
 from court_monitor.config import log  # noqa: E402
+from court_monitor.lifecycle import (  # noqa: E402
+    classify_writ_kind,
+    fi_decision_date_from_events,
+)
 from court_monitor.linking import (  # noqa: E402
     collect_fi_dedup_index,
     is_fi_number_tracked,
@@ -187,7 +204,8 @@ def collect(court, pages_limit: int, limit: int, dry_run: bool, operator: str) -
     rows, pages_done = fetch_search_rows(court, pages_limit)
     counters = {
         "pages": pages_done, "rows": len(rows), "added": 0, "already": 0,
-        "role": 0, "excluded_result": 0, "no_link": 0, "fetch_fail": 0,
+        "role": 0, "excluded_result": 0, "excluded_appeal": 0,
+        "excluded_writ": 0, "no_link": 0, "fetch_fail": 0,
     }
     if not rows:
         return counters
@@ -235,6 +253,56 @@ def collect(court, pages_limit: int, limit: int, dry_run: bool, operator: str) -
                 f"{card_result[:60]} (итог из карточки)"
             )
             continue
+        # Дело уже ушло (или уходит) в апелляцию/кассацию — в лёгкий трек не
+        # берём: первый же прогон перевёл бы его в основной cases.json
+        # (bank_case_left_track), т.е. в треке оно побыло бы только мусорным
+        # транзитом (решение юриста 30.07.2026).
+        if (card_info.get("_fi_appeal_filed")
+                or card_info.get("_fi_sent_to_appeal")
+                or card_info.get("_fi_cassation_filed")
+                or card_info.get("_fi_sent_to_cassation")):
+            counters["excluded_appeal"] += 1
+            log.info(
+                f"[{i}/{len(rows)}] {num} — [EXCLUDED APPEAL] "
+                "жалоба/направление в вышестоящую инстанцию"
+            )
+            continue
+        # Уже выдан ИЛ на исполнение решения — жизненный цикл трека пройден,
+        # дело сразу ушло бы в bank-архив. Обеспечительные листы (выданы ДО
+        # решения) не считаются — такое дело ещё ждёт «настоящего» ИЛ. Статус
+        # листа не важен: «Отозван»/«Возвращен» — лист всё равно был выдан.
+        #
+        # ⚠️ Якорь — дата РЕШЕНИЯ из событий карточки, не «Дата заседания»
+        # (ревизия 30.07.2026). `fi.decision_date` записи на этапе сбора ещё
+        # нет, но фолбэк на hearing_date промахивается в обе стороны:
+        # • дело БЕЗ решения — «Дата заседания» непуста (последнее session-
+        #   событие), и обеспечительный лист, выданный ПОЗЖЕ последнего
+        #   заседания, читался бы как «на исполнение» → живое дело молча не
+        #   попало бы в трек, причём строка отчёта неотличима от честного
+        #   исключения (в боевом пайплайне такого не бывает: там у
+        #   нерешённого дела decision_date пуст → classify_writ_kind сразу
+        #   возвращает "interim");
+        # • дело С решением — «Дата заседания» уезжает вперёд, назначь суд
+        #   пост-решенческое заседание (отмена заочного по ст. 237 ГПК,
+        #   судебные расходы, индексация), и лист на исполнение стал бы
+        #   «обеспечительным» → дело с пройденным циклом попало бы в трек.
+        # Фолбэк на «Дату заседания» остаётся для решённой карточки без
+        # события решения в истории движения.
+        decision_date = fi_decision_date_from_events(card_info.get("_events"))
+        if decision_date:
+            fi_probe = {"decision_date": decision_date}
+        elif (card_info.get("Статус") or "").strip() in ("Решено", "Возвращено"):
+            fi_probe = {"hearing_date": card_info.get("Дата заседания", "")}
+        else:
+            fi_probe = {}
+        if any(classify_writ_kind(w, fi_probe) == "enforcement"
+               for w in card_info.get("_writs") or []):
+            counters["excluded_writ"] += 1
+            log.info(
+                f"[{i}/{len(rows)}] {num} — [EXCLUDED WRIT] "
+                "выдан ИЛ на исполнение решения"
+            )
+            continue
 
         entry = make_bank_entry(r, card_info, operator, now_iso, source="search_sweep")
         new_entries.append(entry)
@@ -259,15 +327,36 @@ def collect(court, pages_limit: int, limit: int, dry_run: bool, operator: str) -
         f"+{counters['added']} добавлено{' (dry-run, без записи)' if dry_run else ''} | "
         f"{counters['already']} уже в базе | {counters['role']} не истец | "
         f"{counters['excluded_result']} исключено по итогу | "
+        f"{counters['excluded_appeal']} ушло в апелляцию/кассацию | "
+        f"{counters['excluded_writ']} с ИЛ на исполнение | "
         f"{counters['no_link']} без ссылки | {counters['fetch_fail']} сбоев карточек"
     )
     return counters
+
+
+def resolve_court(domain: str, srv: int):
+    """CourtConfig суда 1-й инст. по паре (домен, srv_num); None — не нашёлся.
+
+    Пара, а не один домен: на vartovray--hmao.sudrf.ru живут два суда —
+    Нижневартовский районный (srv 1) и его постоянное присутствие в Покачи
+    (srv 2), — и резолв по домену всегда отдавал первый, т.е. Покачи собрать
+    было нельзя.
+    """
+    d = (domain or "").strip().lower()
+    return next(
+        (c for c in get_region().first_instance_courts
+         if c.domain == d and c.srv_num == srv),
+        None,
+    )
 
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="Разовый сбор исков банка с выдачи суда")
     ap.add_argument("--court", default="surggor--hmao.sudrf.ru",
                     help="домен суда 1-й инстанции (default: Сургутский городской)")
+    ap.add_argument("--srv", type=int, default=1,
+                    help="номер сервера суда (двухсерверные домены: Покачи на "
+                         "vartovray--hmao.sudrf.ru — srv 2; default 1)")
     ap.add_argument("--pages", type=int, default=10,
                     help="сколько страниц выдачи обойти (default 10)")
     ap.add_argument("--limit", type=int, default=0,
@@ -277,17 +366,22 @@ def main() -> int:
     ap.add_argument("--operator", default=os.environ.get("GITHUB_ACTOR", "manual"))
     args = ap.parse_args()
 
-    court = next(
-        (c for c in get_region().first_instance_courts
-         if c.domain == args.court.strip().lower()),
-        None,
-    )
+    domain = args.court.strip().lower()
+    court = resolve_court(domain, args.srv)
     if not court:
-        log.error(f"Домен не из реестра судов региона: {args.court}")
+        same_domain = [c for c in get_region().first_instance_courts
+                       if c.domain == domain]
+        if same_domain:
+            log.error(
+                f"На домене {domain} нет суда с srv_num={args.srv}; "
+                f"доступны: {', '.join(f'{c.srv_num} — {c.name}' for c in same_domain)}"
+            )
+        else:
+            log.error(f"Домен не из реестра судов региона: {args.court}")
         return EXIT_NO_COURT
 
     log.info(
-        f"Сбор исков банка: {court.name}, страниц ≤{args.pages}, "
+        f"Сбор исков банка: {court.name} (srv {court.srv_num}), страниц ≤{args.pages}, "
         f"лимит {args.limit or 'нет'}{', DRY-RUN' if args.dry_run else ''}"
     )
     counters = collect(court, args.pages, args.limit, args.dry_run, args.operator)
