@@ -2194,6 +2194,36 @@ class TestTextShorteners:
             "Иванов Иван Иванович, Петров Пётр Петрович"
         ) == "Иванов И.И., Петров П.П."
 
+    def test_fio_suffix_kyzy_ogly_kept(self):
+        """Четырёхсловные ФИО с «кызы»/«оглы» тоже сокращаются, суффикс
+        сохраняется (решение юриста 30.07.2026; до фикса «Гаджиева Лейла
+        Хандадаш кызы» уходила в дайджест полной)."""
+        assert uc.shorten_party_name(
+            "Гаджиева Лейла Хандадаш кызы, Меликов Аждар Гурбан оглы"
+        ) == "Гаджиева Л.Х. кызы, Меликов А.Г. оглы"
+
+    def test_fio_ip_prefix_kept(self):
+        """«ИП Фамилия И.О.» — маркер предпринимателя сохраняем, ФИО
+        сокращаем (в реестре банка: «ИП Меликов Аждар Гурбан оглы»)."""
+        assert uc.shorten_party_name(
+            "ИП Меликов Аждар Гурбан оглы"
+        ) == "ИП Меликов А.Г. оглы"
+        assert uc.shorten_party_name(
+            "Индивидуальный предприниматель Иванов Иван Иванович"
+        ) == "ИП Иванов И.И."
+
+    def test_fio_suffix_collision_expands_first_name(self):
+        """Развод коллизии инициалов работает и для ФИО с суффиксом."""
+        assert uc.shorten_party_name(
+            "Меликов Аждар Гурбан оглы, Меликов Азер Гурбан оглы"
+        ) == "Меликов Аждар Г. оглы, Меликов Азер Г. оглы"
+
+    def test_fio_three_token_suffix_not_mangled(self):
+        """Трёхсловное тюркское имя без отчества («Фамилия Имя кызы») не
+        сокращаем: суффикс — не отчество, «Гаджиева Л.К.» было бы враньём."""
+        assert uc.shorten_party_name(
+            "Гаджиева Лейла кызы") == "Гаджиева Лейла кызы"
+
     def test_category_short_cuts_at_word_boundary(self):
         """Обрезка по границе слова: «иные, связанные с на…» → «…с…»."""
         cut = uc.category_short(
@@ -2626,6 +2656,104 @@ class TestSmartSkipSwitch:
         assert config.SMART_SKIP_CASES is True
         case, today = TestShouldSkipMaterialGuard._case("2-1401/2026")
         assert uc.should_skip_case(case, today)[0] is True
+
+
+# ── «Единоличное рассмотрение» (Свердловский облсуд) как session-событие ──────
+
+class TestSoloSessionMarkers:
+    """«Единоличное рассмотрение (без вызова лиц…)» — апелляционная форма
+    рассмотрения без заседания: с 30.07.2026 работает как session-событие
+    (даёт «Дату заседания», smart-skip, тип заседания). До фикса апелляции
+    Урала были «невидимы» как заседания — дайджест цитировал склейку."""
+
+    def test_session_start_rx(self):
+        from court_monitor.lifecycle import _SESSION_START_RX
+        assert _SESSION_START_RX.match(
+            "Единоличное рассмотрение (без вызова лиц, участвующих в деле)")
+        assert _SESSION_START_RX.match("Единоличное рассмотрение")
+        # Интерлокутив «Вынесено определение о …» — не сессия (якорь ^).
+        assert not _SESSION_START_RX.match(
+            "Вынесено определение о единоличном рассмотрении")
+
+    def test_classify_hearing_type(self):
+        from court_monitor.lifecycle import classify_hearing_type
+        assert classify_hearing_type(
+            "Единоличное рассмотрение (без вызова лиц, участвующих в деле). "
+            "00:00. 3 этаж зал № 8. 15.07.2026"
+        ) == "единоличное рассмотрение"
+
+    def test_next_planned_date_from_solo_session(self):
+        from datetime import date as _date
+        from court_monitor.lifecycle import get_next_planned_date
+        d, kind = get_next_planned_date([{
+            "date": "29.07.2026", "time": "00:00",
+            "text": "Единоличное рассмотрение (без вызова лиц, участвующих "
+                    "в деле). 00:00. 3 этаж зал № 8. 15.07.2026",
+        }])
+        assert d == _date(2026, 7, 29)
+        assert kind == "hearing"
+
+
+# ── Апелляционный change: добор апеллянта из зеркала бэкфилла ─────────────────
+
+class TestAppealChangeAppellantFromMirror:
+    """Карточка апел. суда подателя жалобы не публикует (_appellant_raw
+    пуст) — поля апеллянта в details апел. change добираются из
+    appeal.appellant* (зеркало backfill_appeal_appellants). Без добора
+    суффикс «(жалоба …)» в «Вынесенных актах» пуст у ВСЕХ дел
+    (инцидент 30.07.2026)."""
+
+    @staticmethod
+    def _run(monkeypatch, mirror):
+        from court_monitor import runs as cm_runs
+        monkeypatch.setattr(cm_runs, "polite_delay", lambda: None)
+        monkeypatch.setattr(cm_runs, "load_digested_acts", lambda: set())
+        monkeypatch.setattr(cm_runs, "save_digested_acts", lambda acts: None)
+        monkeypatch.setattr(cm_runs, "should_skip_case",
+                            lambda shim, today, **kw: (False, ""))
+        monkeypatch.setattr(cm_runs, "card_breaker_allows", lambda dom: True)
+        monkeypatch.setattr(cm_runs, "fetch_card_checked",
+                            lambda url, **kw: "<html>карточка</html>")
+        card_info = {
+            "Последнее событие": "Судебное заседание. 10:00. 05.09.2099",
+            "Дата события": "05.09.2099",
+            "Статус": "В производстве",
+            "_appellant_raw": "",
+            "_events": [{"date": "05.09.2099", "time": "10:00",
+                         "text": "Судебное заседание. 10:00. 05.09.2099"}],
+        }
+        monkeypatch.setattr(cm_runs, "parse_case_card",
+                            lambda html, base: card_info)
+        monkeypatch.setattr(cm_runs, "card_is_empty_shell", lambda ci: False)
+        monkeypatch.setattr(cm_runs, "_warn_if_card_degraded",
+                            lambda ci, num: None)
+        case = {
+            "Номер дела": "33-100/2026", "Ссылка": "1|aaaa-bbbb",
+            "Истец": "ПАО Сбербанк",
+            "Ответчик": "Русских Алексей Владимирович",
+            "Последнее событие": "", "Статус": "В производстве",
+        }
+        _, changes, _ = cm_runs.update_active_cases(
+            [case], json_appeal_by_num={"33-100/2026": mirror})
+        assert changes and "new_event" in changes[0]["type"]
+        return changes[0]["details"]
+
+    def test_details_enriched_from_mirror(self, monkeypatch):
+        d = self._run(monkeypatch, {
+            "appellant": "Русских А.В.",
+            "appellant_status": "Ответчик",
+            "appellant_is_bank": False,
+        })
+        assert d["appellant_name"] == "Русских А.В."
+        assert d["appellant_role"] == "Ответчик"
+
+    def test_bank_mirror_sets_bank_label(self, monkeypatch):
+        d = self._run(monkeypatch, {
+            "appellant": "Сбербанк",
+            "appellant_status": "Истец",
+            "appellant_is_bank": True,
+        })
+        assert d["appellant"] == "Банк"
 
 
 # ── should_skip_case: кассация — день заседания N тоже скипается ──────────────
@@ -3639,6 +3767,112 @@ class TestFirstInstanceSearchStats:
         ])
         results = uc.parse_first_instance_search(html, self._court())
         assert len(results) == 1
+
+
+# ── Номера постоянных судебных присутствий (Покачи) ──────────────────────────
+
+class TestPermanentPresenceCaseNumbers:
+    """Трёхчастные номера постоянного судебного присутствия: «2-2-279/2026».
+
+    Покачи (вторая площадка Нижневартовского районного, srv_num=2) вставляет
+    в номер сегмент присутствия. Узкая регулярка `_FI_CASE_NUM_RE` такие строки
+    отбрасывала целиком: при 193 сберовских делах в выдаче парсер отдавал 0
+    строк (проверено вживую 30.07.2026), суд был невидим и сборщику исков
+    банка, и автопоиску ответчик-дел, а журнал здоровья по домену месяцами
+    показывал ноль.
+    """
+
+    _search_html = staticmethod(TestFirstInstanceSearchStats._search_html)
+
+    def _court(self):
+        """Покачи — единственный суд ХМАО со вторым сервером."""
+        return next(c for c in uc.FIRST_INSTANCE_COURTS if c.srv_num == 2)
+
+    def test_presence_number_parsed(self):
+        html = self._search_html([
+            ("2-2-279/2026", "ПАО Сбербанк", "Костинова Т.К."),
+        ])
+        rows = uc.parse_first_instance_search(html, self._court(),
+                                              keep_all_roles=True)
+        assert [r["case_number"] for r in rows] == ["2-2-279/2026"]
+        assert rows[0]["bank_role"] == "Истец"
+
+    def test_presence_material_combo_split(self):
+        """«9-2-65/2026 ~ М-2-309/2026»: номер и хвостовой материал разделены."""
+        html = self._search_html([
+            ("9-2-65/2026 ~ М-2-309/2026", "ПАО Сбербанк", "Кравец Б.В."),
+        ])
+        rows = uc.parse_first_instance_search(html, self._court(),
+                                              keep_all_roles=True)
+        assert rows[0]["case_number"] == "9-2-65/2026"
+        assert rows[0]["material_number"] == "М-2-309/2026"
+
+    def test_presence_defendant_row_visible_to_main_search(self):
+        """Боевой автопоиск (только банк-ответчик) тоже видит присутствие."""
+        html = self._search_html([
+            ("2-2-240/2025", "Магомедова А.М.", "ПАО Сбербанк"),
+        ])
+        rows = uc.parse_first_instance_search(html, self._court())
+        assert [r["case_number"] for r in rows] == ["2-2-240/2025"]
+
+    def test_plain_numbers_still_parsed(self):
+        """Обычные номера не сломаны широкой регуляркой."""
+        html = self._search_html([
+            ("2-100/2026", "ПАО Сбербанк", "Петров П.П."),
+            ("М-341/2026", "ПАО Сбербанк", "Шульга Н.Л."),
+        ])
+        rows = uc.parse_first_instance_search(html, self._court(),
+                                              keep_all_roles=True)
+        assert [r["case_number"] for r in rows] == ["2-100/2026", "М-341/2026"]
+
+    def test_non_case_row_still_skipped(self):
+        """Строка без номера дела по-прежнему не проходит."""
+        html = self._search_html([
+            ("Всего по запросу найдено — 193", "ПАО Сбербанк", "Петров П.П."),
+        ])
+        assert uc.parse_first_instance_search(html, self._court(),
+                                              keep_all_roles=True) == []
+
+    def test_target_search_finds_presence_number(self):
+        """Целевой поиск по номеру (add_cases_manually / импортёр реестра)
+        тоже должен видеть трёхчастный номер — иначе дело Покачи нельзя
+        завести вручную."""
+        from court_monitor.target_search import parse_search_row
+        html = _fi_number_search_html("2-2-279/2026")
+        row = parse_search_row(html, self._court(), "2-2-279/2026")
+        assert row is not None and row["case_number"] == "2-2-279/2026"
+
+    def test_target_search_keeps_number_boundary(self):
+        """Сервер ищет подстрокой: чужая строка не должна сойти за нужную."""
+        from court_monitor.target_search import parse_search_row
+        html = _fi_number_search_html("2-2-279/2026")
+        assert parse_search_row(html, self._court(), "2-2-27/2026") is None
+
+
+class TestFiHealthKey:
+    """Ключ журнала здоровья различает суды одного домена.
+
+    До 30.07.2026 ключом был голый домен: Покачи (srv 2) писал последним и
+    затирал наблюдение Нижневартовского районного (srv 1) — детектор молчаливой
+    поломки был слеп по обоим судам сразу.
+    """
+
+    def _courts(self):
+        pair = [c for c in uc.FIRST_INSTANCE_COURTS
+                if c.domain == "vartovray--hmao.sudrf.ru"]
+        return {c.srv_num: c for c in pair}
+
+    def test_keys_differ_within_domain(self):
+        from court_monitor import runs as cm_runs
+        courts = self._courts()
+        assert cm_runs.fi_health_key(courts[1]) != cm_runs.fi_health_key(courts[2])
+
+    def test_first_server_keeps_legacy_key(self):
+        """У srv 1 ключ прежний — накопленная история журнала не рвётся."""
+        from court_monitor import runs as cm_runs
+        courts = self._courts()
+        assert cm_runs.fi_health_key(courts[1]) == "fi:vartovray--hmao.sudrf.ru"
+        assert cm_runs.fi_health_key(courts[2]) == "fi:vartovray--hmao.sudrf.ru#2"
 
 
 class TestClassifyFiTermination:

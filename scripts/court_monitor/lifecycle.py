@@ -92,6 +92,7 @@ _RECESS_RE = re.compile(r"объявл\w*\s+перерыв", re.I)
 _SESSION_START_RX = re.compile(
     r"^\s*(судебное\s+заседани"
     r"|предварительн\w*\s+(?:судебн\w*\s+)?заседани"
+    r"|единоличн\w*\s+рассмотрени"
     r"|подготовк\w*\s+дела"
     r"|собеседовани"
     r"|беседа\b)",
@@ -570,6 +571,23 @@ _MOTIVATED_DECISION_RX = re.compile(r"изготовлено\s+мотивиро�
 _DEFAULT_COPY_RX = re.compile(r"копия\s+заочного\s+решения")
 _COPY_SERVED_RX = re.compile(r"вручена")
 _COPY_RETURNED_RX = re.compile(r"возвратилась\s+невручен")
+
+
+def fi_decision_date_from_events(events) -> str:
+    """Дата ПОСЛЕДНЕГО события «Вынесено (заочное) решение» — «ДД.ММ.ГГГГ»|"".
+
+    Якорь classify_writ_kind до того, как `fi.decision_date` заморожена эмитом
+    fi_resolved: разовому сборщику исков банка запись взять неоткуда, а
+    карточка несёт событие решения с первого же парса. Последнее решение
+    побеждает — после отмены заочного (ст. 241 ГПК) и нового рассмотрения
+    якорем должно быть решение текущего круга.
+    """
+    found = ""
+    for ev in events or []:
+        text = (ev.get("text") or "").lower().replace("ё", "е")
+        if text and _ANY_DECISION_RX.search(text) and ev.get("date"):
+            found = ev["date"]
+    return found
 
 
 def bank_default_judgment_info(fi: dict) -> dict:
@@ -1776,6 +1794,7 @@ def classify_hearing_type(event_text: str) -> str:
       «Предварительное судебное заседание. …» → «предварительное заседание»
       «Подготовка дела (собеседование). …»    → «подготовка дела»
       «Беседа. …»                              → «беседа»
+      «Единоличное рассмотрение (без вызова лиц…). …» → «единоличное рассмотрение»
       «Судебное заседание. …»                  → «заседание»
     Неизвестный/пустой текст — «заседание» (нейтральный дефолт).
     """
@@ -1788,6 +1807,8 @@ def classify_hearing_type(event_text: str) -> str:
         return "подготовка дела"
     if t.startswith("беседа"):
         return "беседа"
+    if t.startswith("единоличн"):
+        return "единоличное рассмотрение"
     return "заседание"
 
 
@@ -1797,6 +1818,7 @@ def classify_hearing_type(event_text: str) -> str:
 # логикой nextDateLabel в app.js:272-298.
 _HEARING_MARKERS_RX = re.compile(
     r"(судебное\s+заседани|предварительн\w*\s+(?:судебн\w*\s+)?заседани|"
+    r"единоличн\w*\s+рассмотрени|"
     r"подготовк\w*\s+дела|собеседовани|^\s*беседа\b)",
     re.IGNORECASE,
 )

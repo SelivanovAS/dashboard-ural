@@ -10,7 +10,8 @@ data/** merge=ours
 # Код трека общий и остаётся в форке (BANK_TRACK, split_bank_track, тесты),
 # но он инертен: без data/cases_bank.json прогон его не грузит и файл не
 # создаёт. Из форка удалены ХМАО-шные данные и пилотные workflow'ы:
-#   data/cases_bank.json, ops/bank_registry/**, ops/writ_probe/**,
+#   data/cases_bank*.json, data/bank_parse_report.json,
+#   ops/bank_registry/**, ops/writ_probe/**,
 #   .github/workflows/{import_bank_registry,collect_bank_claims,probe_writ_section}.yml
 # Два последних били по судам ХМАО и срабатывали на push — то есть на самой
 # синхронизации с эталоном.
@@ -18,3 +19,9 @@ data/** merge=ours
 # Решение — `git rm` (не «взять версию эталона»), если территория не завела
 # трек сама. Если заводит — нужен свой ops/bank_registry/registry.csv,
 # ХМАО-шный тянет дела Сургута.
+# ⚠ НОВЫЕ файлы данных трека правило `data/** merge=ours` НЕ ловит: своей
+# версии у форка нет, merge берёт эталонную молча, без конфликта. Так
+# 30.07.2026 в форк заезжал data/bank_parse_report.json (163 дела Сургута) —
+# админка Урала показала бы карточку «Парсинг исков банка» с чужими делами.
+# После каждого merge из эталона: `git diff --cached --diff-filter=A` и
+# удалять новые data/*bank*.

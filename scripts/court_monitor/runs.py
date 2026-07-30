@@ -117,6 +117,21 @@ def log_phase(num: int, total: int, title: str) -> None:
     log.info(f"— [{num}/{total}] {title} —")
 
 
+def fi_health_key(court) -> str:
+    """Ключ журнала здоровья для суда 1-й инстанции.
+
+    Обычно «fi:<домен>», но на одном домене может жить два суда — районный и
+    его постоянное присутствие (Покачи: vartovray--hmao.sudrf.ru, srv_num 1 и 2;
+    на Урале так же двухсерверные Камышловский/Красноуфимский). С общим ключом
+    второй суд затирал наблюдение первого, и детектор молчаливой поломки был
+    слеп по обоим: у vartovray счётчик месяцами стоял на нуле (Покачи писал
+    последним и всегда 0 — его трёхчастные номера не проходили регулярку).
+    Суффикс ставим только серверам ≠ 1: у прочих судов ключ остаётся прежним,
+    и накопленная история не рвётся.
+    """
+    return f"fi:{court.domain}" + (f"#{court.srv_num}" if court.srv_num != 1 else "")
+
+
 def _format_queue_balance(subject: str, total: int, to_parse: int,
                           parts: list[str]) -> str:
     """Строка-баланс очереди парсинга: «<субъект> N → парсим X (a; b; c)».
@@ -645,9 +660,11 @@ def update_active_cases(
         # Параллельно обновляем JSON-представление appeal-дела (если передано).
         # Старый список событий фиксируем для детектора «по правилам 1-й инст.».
         old_events_ap: list = []
+        ap_json: dict | None = None  # JSON-блок appeal — для добора апеллянта
         if json_appeal_by_num is not None:
             ap = json_appeal_by_num.get(case.get("Номер дела", "").strip())
             if ap is not None:
+                ap_json = ap
                 ap["last_checked_at"] = today.isoformat()
                 old_events_ap = list(ap.get("events") or [])
                 if card_info.get("_events"):
@@ -845,7 +862,10 @@ def update_active_cases(
                 change["details"]["old_hearing_time"] = old_hearing_time
                 change["details"]["new_hearing_date"] = new_hearing
                 change["details"]["new_hearing_time"] = new_hearing_time
-            else:
+            elif new_h_dt.date() >= today:
+                # Анонс прошедшего заседания — не новость (первый парс
+                # карточки после простоя): поля дела ниже обновятся, а в
+                # дайджест такой «hearing_new» не идёт.
                 change["type"].append("hearing_new")
                 change["details"]["new_hearing_date"] = new_hearing
                 change["details"]["new_hearing_time"] = new_hearing_time
@@ -909,6 +929,20 @@ def update_active_cases(
             change["details"]["appellant_name"] = appellant_name
             change["details"]["appellant_role"] = appellant_role
             change["details"]["_appellant_raw"] = appellant_raw
+            # Карточка апел. суда подателя жалобы НЕ публикует — при пустой
+            # карточке добираем зеркало тихого бэкфилла (appeal.appellant*,
+            # пишет _apply_fi_appellant из карточки 1-й инст.): без этого
+            # суффикс «(жалоба …)» в «Вынесенных актах» пуст у всех дел.
+            if not appellant_raw and ap_json is not None:
+                if (not change["details"]["appellant"]
+                        and ap_json.get("appellant_is_bank") is True):
+                    change["details"]["appellant"] = "Банк"
+                if not appellant_name:
+                    change["details"]["appellant_name"] = (
+                        ap_json.get("appellant") or "").strip()
+                if not appellant_role:
+                    change["details"]["appellant_role"] = (
+                        ap_json.get("appellant_status") or "").strip()
             change["details"]["case_url"] = case_card_url(case, _ap_court)
             # Имя апел-суда — только при нескольких апелляциях в регионе
             # (дайджест покажет его в строке дела; у ХМАО суд один — рендер
@@ -2059,14 +2093,15 @@ def main_json():
 
     for court_idx, court in enumerate(enabled_courts, 1):
         court_tag = f"[{court_idx}/{len(enabled_courts)}]"
-        health_labels[f"fi:{court.domain}"] = court.name
+        health_key = fi_health_key(court)
+        health_labels[health_key] = court.name
         polite_delay()
         # Тайминг суда — после polite_delay, чтобы случайная задержка
         # не зашумляла метрику «какой суд тормозит».
         _t_court = time.perf_counter()
         search_html = fetch_page(court.search_url(), context=shorten_court_name(court.name))
         if not search_html:
-            health_obs[f"fi:{court.domain}"] = None
+            health_obs[health_key] = None
             log.warning(
                 f"  {court_tag} {court.name}: не удалось загрузить поиск"
                 f" ({time.perf_counter() - _t_court:.1f}s)"
@@ -2078,7 +2113,7 @@ def main_json():
         # и len(fi_results)=0 выглядел бы поломкой (Октябрьский р/с, 14.07.2026).
         search_stats: dict = {}
         fi_results = parse_first_instance_search(search_html, court, stats=search_stats)
-        health_obs[f"fi:{court.domain}"] = search_stats.get("sber_rows", 0)
+        health_obs[health_key] = search_stats.get("sber_rows", 0)
         # 0 строк + маркеры проверочного кода → суд закрыт CAPTCHA, а не «нет дел».
         if not fi_results and detect_captcha_challenge(search_html):
             fi_challenge[court.domain] = court.name
