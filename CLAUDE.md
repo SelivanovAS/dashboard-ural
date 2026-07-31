@@ -65,7 +65,7 @@
 | `RegionConfig` (регион-конфиг: суды, маркеры, public_info) | [scripts/court_monitor/regions/base.py:170](scripts/court_monitor/regions/base.py:170) |
 | `CourtConfig.search_gated` (капча: поиск выкл., карточки мониторятся) | [scripts/court_monitor/regions/base.py:39](scripts/court_monitor/regions/base.py:39) |
 | `courts_for_search` (суды автопоиска: enabled и не gated) | [scripts/court_monitor/courts.py:43](scripts/court_monitor/courts.py:43) |
-| `_FI_CASE_NUM_RE` (номер дела 1-й инст.; средний сегмент — постоянное присутствие: Покачи «2-2-279/2026», без него суд невидим целиком) | [scripts/court_monitor/textutil.py:38](scripts/court_monitor/textutil.py:38) |
+| `_FI_CASE_NUM_RE` (номер дела 1-й инст.; средний сегмент — постоянное присутствие: Покачи «2-2-279/2026», без него суд невидим целиком) | [scripts/court_monitor/textutil.py:43](scripts/court_monitor/textutil.py:43) |
 | `fi_health_key` (ключ журнала здоровья; `#2` у второго сервера домена — иначе Покачи затирал наблюдение районного) | [scripts/court_monitor/runs.py:120](scripts/court_monitor/runs.py:120) |
 | `collect_existing_ids` (общий дедуп-индекс main_json/импортёра) | [scripts/court_monitor/linking.py:1058](scripts/court_monitor/linking.py:1058) |
 | `load_bank_json` / `save_bank_json` (split-хранение bank-трека: список + events) | [scripts/court_monitor/storage.py:174](scripts/court_monitor/storage.py:174) |
@@ -396,7 +396,11 @@ state-machine) под новую модель при каждом запуске
 ## Трек «Иски банка» (банк — истец, с 25.07.2026)
 
 Лёгкий трек для исков самого банка (~1000 дел по ХМАО, на Урале 2500–3500;
-пилот — Сургутский городской). Дела живут в **отдельных файлах** — с 26.07.2026
+пилот — Сургутский городской). На 30.07.2026 в треке **345 дел из 8 судов**:
+Сургутский городской 163, Нижневартовский городской 103, Сургутский районный 37,
+Радужнинский 11, Мегионский 10, Нижневартовский районный 10, Лангепасский 8,
+Покачи 3 (глубина сбора пер-судовая: 10 / 10 / 3 страницы, остальные по одной —
+решения юриста 26–30.07.2026). Дела живут в **отдельных файлах** — с 26.07.2026
 **split-хранение** ([storage.py](scripts/court_monitor/storage.py):
 `load_bank_json`/`save_bank_json`): [data/cases_bank.json](data/cases_bank.json) —
 лёгкий список записей **без `events`** (схема та же + маркер
