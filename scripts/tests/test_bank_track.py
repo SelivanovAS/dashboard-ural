@@ -542,6 +542,45 @@ class TestSplitBankTrack:
         assert "track" not in left
         assert left["track_origin"] == "plaintiff_light"
 
+    def test_gate_follows_data_not_load_counter(self):
+        """Гейт раскладки смотрит на дела, а не на «сколько загрузилось из
+        cases_bank.json»: на территории без файла трека (и при авто-подхвате
+        прогоном) счётчик загрузки нулевой, и дела утекли бы в cases.json."""
+        from court_monitor.runs import bank_track_pending
+        ordinary = {"id": "2-1/2026", "first_instance": {}}
+        assert bank_track_pending([ordinary]) is False
+        assert bank_track_pending([ordinary, _track_case()]) is True
+
+    def test_gate_off_when_track_disabled(self, monkeypatch):
+        from court_monitor import config as cm_config
+        from court_monitor.runs import bank_track_pending
+        monkeypatch.setattr(cm_config, "BANK_TRACK", False)
+        assert bank_track_pending([_track_case()]) is False
+
+    def test_court_ids_backfilled(self):
+        """Записи ручных каналов заведены без delo_id/srv_num — ссылку «в суд»
+        фронт собирал по фолбэку 1540005/1."""
+        from court_monitor.runs import split_bank_track
+        case = _track_case(status="В производстве")
+        split_bank_track([case])
+        fi = case["first_instance"]
+        assert fi["delo_id"] and fi["srv_num"] == 1
+
+    def test_two_court_domain_not_guessed(self):
+        """На vartovray--hmao.sudrf.ru два суда (районный srv 1 и Покачи srv 2):
+        по одному домену сервер не угадать — неверный хуже фолбэка."""
+        from court_monitor.runs import split_bank_track
+        case = _track_case(status="В производстве")
+        case["first_instance"]["court_domain"] = "vartovray--hmao.sudrf.ru"
+        split_bank_track([case])
+        assert "srv_num" not in case["first_instance"]
+
+    def test_existing_ids_not_overwritten(self):
+        from court_monitor.runs import split_bank_track
+        case = _track_case(status="В производстве", delo_id=1, srv_num=2)
+        split_bank_track([case])
+        assert case["first_instance"]["srv_num"] == 2
+
     def test_left_track_case_not_returned_to_bank_file(self):
         from court_monitor.runs import split_bank_track
         left = _track_case(appeal_filed_date="01.07.2026")
@@ -782,6 +821,29 @@ class TestBankDigestSection:
         assert "ИСКИ БАНКА" in html
         assert "Изменений нет" not in html
 
+    def test_auto_intake_announced(self):
+        """Авто-подхват пополняет картотеку сам — пополнение не должно быть
+        молчаливым (решение юриста 31.07.2026)."""
+        html = _digest([_bank_change(["fi_bank_claim_registered"],
+                                     {"filing_date": "28.07.2026"})])
+        assert "ИСКИ БАНКА (1)" in html
+        assert "иск банка взят на мониторинг" in html
+        assert "подан 28.07.2026" in html
+        assert "2-100/2026" in html
+
+    def test_auto_intake_with_appeal_says_where_case_went(self):
+        """Дело с жалобой тем же прогоном уезжает в основную картотеку —
+        иначе юрист ищет его в лёгком треке и не находит."""
+        html = _digest([_bank_change(["fi_bank_claim_registered"],
+                                     {"left_track": True})])
+        assert "подана жалоба, дело в общем треке" in html
+
+    def test_intake_line_counted_in_summary(self):
+        """Строка приёма считается в сводке как событие трека — иначе
+        счётчик «(N)» заголовка разойдётся с содержимым (сторож линтера)."""
+        html = _digest([_bank_change(["fi_bank_claim_registered"])])
+        assert "1 событие по искам банка" in html
+
 
 class TestBankRoutineFilter:
     def test_routine_dropped_substance_kept(self):
@@ -802,6 +864,16 @@ class TestBankRoutineFilter:
         assert "fi_writ_issued" not in BANK_ROUTINE_EVENT_TYPES
         assert "fi_writ_issued" not in FI_ECHO_CATCHUP_TYPES
         assert "fi_writ_status_changed" not in FI_ECHO_CATCHUP_TYPES
+
+    def test_intake_announcement_never_routine(self):
+        """Приём в трек переживает BANK_DIGEST_ROUTINE=0: это не рутина
+        карточки, а единственный сигнал, что картотека выросла сама."""
+        from court_monitor.lifecycle import (
+            BANK_ROUTINE_EVENT_TYPES, filter_bank_routine_events,
+        )
+        assert "fi_bank_claim_registered" not in BANK_ROUTINE_EVENT_TYPES
+        ch = _bank_change(["fi_bank_claim_registered"])
+        assert filter_bank_routine_events([ch]) == [ch]
 
 
 # ── Проводка мастер-выключателя ──────────────────────────────────────────────

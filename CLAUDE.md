@@ -41,7 +41,8 @@
 - `data/.digested_acts` — дедуп уже обработанных судебных актов (скрытый файл).
 - `data/.cassation_acts` — дедуп кассационных определений: ключи «8Г-номер|дата акта», чьи `new_act` уже уходили в дайджест. Гасит повторный `new_act` при «мигании» `act_published` (сбойный парс 7kas). Ведётся в `link_cassation_cases`.
 - `data/.act_summaries.json` — кэш LLM-пересказов мотивировок актов (ключ `sha1(act_text+"|v3-detailed")[:16]`; маркер стиля бампается только при смене формата пересказа — с 14.07.2026 это 2-3 предложения ≤450 симв.). Пополняется на GitHub-replay (на Mac ключа Anthropic нет), коммитится workflow'ами — без коммита каждый replay заново оплачивал бы пересказ тех же актов.
-- `data/parse_health.json` — журнал здоровья парсеров: пер-источник история количества результатов поиска (20 судов 1-й инст., апелляция, 7kas до/после HMAO-фильтра). Для судов 1-й инст. счётчик — сберовские строки ДО фильтра «банк-ответчик» (`stats["sber_rows"]` из `parse_first_instance_search`): вал исков самого банка вытесняет ответчик-дела со стр. 1 и обнулял бы метрику без поломки (ложный алерт по Октябрьскому р/с 14–15.07.2026). Детектор «молчаливой поломки» (`update_parse_health`, блок 4e в `main_json`) шлёт сервисный 🩺-алерт в Telegram: суд с медианой ≥1 вернул 0 (на 1-м и 3-м нулевом прогоне + сообщение о восстановлении), HTTP-фейл 3 прогона подряд, все источники разом по нулям, ≥5 карточек-«огрызков» за прогон.
+- `data/parse_health.json` — журнал здоровья парсеров: пер-источник история количества результатов поиска (20 судов 1-й инст., апелляция, 7kas до/после HMAO-фильтра). Для судов 1-й инст. счётчик — сберовские строки ДО фильтра ролей (`stats["sber_rows"]` из `parse_first_instance_search`; с 31.07.2026 прогон зовёт парсер с `keep_all_roles=True` и делит строки по роли сам — метрика от этого не изменилась): вал исков самого банка вытесняет ответчик-дела со стр. 1 и обнулял бы метрику без поломки (ложный алерт по Октябрьскому р/с 14–15.07.2026). Детектор «молчаливой поломки» (`update_parse_health`, блок 4e в `main_json`) шлёт сервисный 🩺-алерт в Telegram: суд с медианой ≥1 вернул 0 (на 1-м и 3-м нулевом прогоне + сообщение о восстановлении), HTTP-фейл 3 прогона подряд, все источники разом по нулям, ≥5 карточек-«огрызков» за прогон.
+- `data/.bank_intake_seen.json` — негативный кэш авто-подхвата исков банка: строки выдачи, отвергнутые по КАРТОЧКЕ (итог из списка исключений, уже выданный ИЛ) или без ссылки. В дедуп-индекс такие дела не попадают, и без памяти прогон качал бы их карточки каждый день (оценка по свипу 31.07 — 20–60 лишних HTTP в сутки). Пишутся только ВЕЧНЫЕ причины (сетевой сбой ретраится), прунинг по `BANK_INTAKE_SEEN_TTL_DAYS`=60 от последнего появления в выдаче.
 - [data/last_digest_context.json](data/last_digest_context.json) — снимок контекста для `--replay-last`.
 - [data/last_personal_pushes.json](data/last_personal_pushes.json) — журнал последней push-рассылки (что получила каждая подписка): variant, title, body, click_url. Перезаписывается на каждом прогоне `send_web_push`. Читается админкой подписчиков.
 - `data/bank_parse_report.json` — пер-кейсовый отчёт парсинга трека «Иски банка» за последний прогон: какое дело парсили / пропустили и почему (пишет `BankParseReport` из [scripts/court_monitor/bank_report.py](scripts/court_monitor/bank_report.py) в фазе 7c `main_json`; перезаписывается каждым прогоном, история — в git). Читает карточка «Парсинг исков банка» в админке; нет файла (трек выключен) — карточка скрыта.
@@ -70,6 +71,11 @@
 | `collect_existing_ids` (общий дедуп-индекс main_json/импортёра) | [scripts/court_monitor/linking.py:1071](scripts/court_monitor/linking.py:1071) |
 | `load_bank_json` / `save_bank_json` (split-хранение bank-трека: список + events) | [scripts/court_monitor/storage.py:174](scripts/court_monitor/storage.py:174) |
 | `bank_writ_expected` (ждём ли ИЛ: отказ/присоединение → нет) | [scripts/court_monitor/lifecycle.py:842](scripts/court_monitor/lifecycle.py:842) |
+| `intake_bank_rows` (блок 3b: приём исков банка с выдачи в прогоне) | [scripts/court_monitor/runs.py:1770](scripts/court_monitor/runs.py:1770) |
+| `card_rejects` (карточные правила приёма; флаг skip_appeal — ручные каналы vs прогон) | [scripts/court_monitor/bank_intake.py:57](scripts/court_monitor/bank_intake.py:57) |
+| `row_passes` (правила приёма по строке выдачи) | [scripts/court_monitor/bank_intake.py:47](scripts/court_monitor/bank_intake.py:47) |
+| `make_bank_entry` (сборка записи трека: маркеры, ИЛ, флаги жалобы, delo_id/srv_num) | [scripts/court_monitor/bank_intake.py:193](scripts/court_monitor/bank_intake.py:193) |
+| `bank_track_pending` (гейт раскладки 7c — по данным, не по счётчику загрузки) | [scripts/court_monitor/runs.py:1851](scripts/court_monitor/runs.py:1851) |
 | `_FI_MERGED_RX` (присоединение к делу; ТОЛЬКО поле «Результат») | [scripts/court_monitor/lifecycle.py:171](scripts/court_monitor/lifecycle.py:171) |
 | `repair_cancelled_merges` (объединение отменили → снять флаги) | [scripts/court_monitor/lifecycle.py:440](scripts/court_monitor/lifecycle.py:440) |
 | `resolve_bank_merged_targets` (подбор дела-приёмника по ФИО ответчика) | [scripts/court_monitor/linking.py:1251](scripts/court_monitor/linking.py:1251) |
@@ -88,7 +94,7 @@
 | `fetch_card_checked` (карточный fetch с детектом кода) | [scripts/court_monitor/netutil.py:182](scripts/court_monitor/netutil.py:182) |
 | `card_breaker_allows` (пер-суд предохранитель карточек: гейт пропуск/проба) | [scripts/court_monitor/netutil.py:100](scripts/court_monitor/netutil.py:100) |
 | `looks_like_outage_page` (URL-независимый детект заглушки — канарейка) | [scripts/court_monitor/parsing/search.py:432](scripts/court_monitor/parsing/search.py:432) |
-| `DIGESTED_ACTS_PATH` / `CASSATION_ACTS_PATH` / `PARSE_HEALTH_PATH` | [scripts/court_monitor/config.py:165](scripts/court_monitor/config.py:165) |
+| `DIGESTED_ACTS_PATH` / `CASSATION_ACTS_PATH` / `PARSE_HEALTH_PATH` | [scripts/court_monitor/config.py:173](scripts/court_monitor/config.py:173) |
 | Константы state-machine (`FI_ARCHIVE_DAYS`, `CASSATION_*`) | [scripts/court_monitor/config.py:99](scripts/court_monitor/config.py:99) |
 | `update_parse_health` — детектор молчаливой поломки парсеров | [scripts/court_monitor/health.py:42](scripts/court_monitor/health.py:42) |
 | `advance_case_stage` / `is_case_archived` / `migrate_stages` | [scripts/court_monitor/lifecycle.py:1360](scripts/court_monitor/lifecycle.py:1360) |
@@ -104,8 +110,8 @@
 | `link_cases` (FI ↔ апелляция) | [scripts/court_monitor/linking.py:52](scripts/court_monitor/linking.py:52) |
 | `link_cassation_cases` (link + discovery + remanded + архив + дедуп актов + бэкфилл сторон из УЧАСТНИКОВ 7kas; ⚠ признак «карточки ещё не было» для `new_cassation` — ОТСУТСТВИЕ `cassation.case_number`, а не пустота блока: `_apply_fi_cassator` кладёт туда заглушку с одним заявителем, и прежнее `if not old_cass` глушило объявление поступления в кассацию — 9 дел молча, 09–31.07.2026) | [scripts/court_monitor/linking.py:529](scripts/court_monitor/linking.py:529) |
 | `parties_from_participants` (УЧАСТНИКИ → истец/ответчик; кроме ИСТЕЦ/ОТВЕТЧИК понимает ЗАЯВИТЕЛЬ/ВЗЫСКАТЕЛЬ и ЗАИНТЕРЕСОВАННОЕ ЛИЦО/ДОЛЖНИК — иначе у «прочих» категорий стороны пусты и касс. запись дайджеста вырождается в голый 8Г-номер) | [scripts/court_monitor/parsing/search.py:142](scripts/court_monitor/parsing/search.py:142) |
-| `update_active_cases` (обход карточек активных дел) | [scripts/court_monitor/runs.py:528](scripts/court_monitor/runs.py:528) |
-| `main_json` (оркестрация полного прогона) | [scripts/court_monitor/runs.py:1837](scripts/court_monitor/runs.py:1837) |
+| `update_active_cases` (обход карточек активных дел) | [scripts/court_monitor/runs.py:532](scripts/court_monitor/runs.py:532) |
+| `main_json` (оркестрация полного прогона) | [scripts/court_monitor/runs.py:1957](scripts/court_monitor/runs.py:1957) |
 | `GIGACHAT_SYSTEM_PROMPT` | [scripts/court_monitor/digest/llm.py:76](scripts/court_monitor/digest/llm.py:76) |
 | `def generate_digest` — диспетчер дайджеста | [scripts/court_monitor/digest/core.py:333](scripts/court_monitor/digest/core.py:333) |
 | `summarize_act_motivation` — LLM-пересказ акта | [scripts/court_monitor/digest/llm.py:871](scripts/court_monitor/digest/llm.py:871) |
@@ -200,8 +206,8 @@
 ### Основной путь — облако (бесплатно, без включённой машины)
 
 - **Полный прогон на GitHub Actions:** [.github/workflows/update_cases.yml](.github/workflows/update_cases.yml)
-  — Cloudflare Worker по крону дёргает его через `workflow_dispatch` (03:45 UTC =
-  08:45 ХМАО, пн-пт) — гоняет `python scripts/update_cases.py --json` целиком: парсинг 20 судов +
+  — Cloudflare Worker по крону дёргает его через `workflow_dispatch` (03:30 UTC =
+  08:30 ХМАО, пн-пт) — гоняет `python scripts/update_cases.py --json` целиком: парсинг 20 судов +
   апелляция + 7kas → гибридный дайджест (программный рендер + Claude только на
   пересказ мотивировок; откат — `DIGEST_FULL_LLM: "1"` в env) → Telegram (личный
   чат `TELEGRAM_CHAT_ID_TEST`) + Web Push всем подписчикам → коммит данных.
@@ -224,7 +230,7 @@
   (ошибка 1010 → 403 до Worker'а) — так канал молчал 13–16.07.2026.
 - **Секреты** уже в repo secrets (`ANTHROPIC_API_KEY`, `TELEGRAM_*`, `PUSH_*`) —
   новых не нужно.
-- **Планировщик — Cloudflare Worker cron** (`crons = ["45 3 * * mon-fri"]` в
+- **Планировщик — Cloudflare Worker cron** (`crons = ["30 3 * * mon-fri"]` в
   [cloudflare-worker/wrangler.toml](cloudflare-worker/wrangler.toml); применяется
   только после `wrangler deploy`). Worker дёргает `workflow_dispatch`
   `update_cases.yml` с `smart_skip=true` (`worker.js:1139` — `scheduled`).
@@ -430,14 +436,46 @@ drawer; номера не уникальны между судами — пот�
 Выдан/Отозван/Возвращен, листов может быть несколько, вкладки нет — пустой
 список, таблица ищется по заголовку, не по индексу cont*).
 
-- **Ввод пула**: [scripts/import_bank_registry.py](scripts/import_bank_registry.py)
+- **Правила приёма в трек** (роль, исключаемые итоги, карточные фильтры, сборка
+  записи) — общий модуль [scripts/court_monitor/bank_intake.py](scripts/court_monitor/bank_intake.py)
+  для всех трёх каналов ввода: `row_passes` (строка выдачи), `card_rejects`
+  (карточка; флаг `skip_appeal` — см. ниже), `make_bank_entry`, негативный кэш
+  подхвата. Ручные скрипты зовут его ре-экспортом — `runs.py` из пакета не может
+  импортировать `scripts/*.py` (зависимости односторонние).
+- **Ввод пула — канал 1 (авто, с 31.07.2026)**: **блок 3b фазы 3 прогона**
+  (`intake_bank_rows`, runs.py) — истцовые строки той же страницы выдачи, которую
+  прогон уже качает ради ответчик-дел, заводятся в трек сами (`import.source =
+  "auto_search"`). До этого трек пополнялся только вручную, и новый иск вставал
+  на мониторинг лишь после того, как юрист вспомнит запустить сбор — ранние ИЛ
+  терялись. Отличие от ручных каналов: дела с признаком апелляции/кассации
+  **берутся** (`card_rejects(skip_appeal=False)`, решение юриста 31.07.2026) —
+  `make_bank_entry` переносит флаги жалобы из карточки в запись, и `split_bank_track`
+  тем же прогоном уводит дело в основной cases.json на полный мониторинг апелляции
+  (иначе апелляция по иску банка вне охвата: автопоиск 1-й инст. истцовые дела не
+  заводит). Глубина — **только страница 1** (решение юриста); если новой оказалась
+  и последняя строка выдачи, прогон предупреждает, что нужен добор ручным
+  `collect_bank_claims.yml`. Предохранители: негативный кэш отказников
+  `data/.bank_intake_seen.json` (в дедуп-индекс отвергнутые дела не попадают —
+  без кэша их карточки качались бы каждый прогон заново; пишутся только вечные
+  причины, сетевые сбои ретраятся), `BANK_INTAKE_MAX_PER_RUN`=30,
+  `BANK_INTAKE_MAX_CARDS_PER_COURT`=10 (фаза 3 идёт РАНЬШЕ FI-цикла — пачка
+  нечитаемых карточек открыла бы пер-судовый предохранитель и сняла суд с обхода
+  на весь прогон), пре-чек `card_breaker_allows` до `polite_delay`, 🩺-алерт при
+  `bank_intake_added > BANK_INTAKE_ALERT_ADDED`. Рубильники (Actions Variables,
+  прокинуты в update_cases.yml): `BANK_AUTO_INTAKE=0` — трек живёт, авто-приём
+  выключен; `BANK_INTAKE_DRY_RUN=1` — холостой прогон (кандидаты считаются,
+  карточки не качаются, записи не создаются). В дайджесте — строка
+  `fi_bank_claim_registered` в секции «🏦 ИСКИ БАНКА»; в админке — группа
+  «Заведено авто-подхватом» отчёта парсинга (исход `intake_new`).
+- **Ввод пула — канал 2 (реестр)**: [scripts/import_bank_registry.py](scripts/import_bank_registry.py)
   + workflow [import_bank_registry.yml](.github/workflows/import_bank_registry.yml) —
   реестр `ops/bank_registry/registry.csv` («домен;номер»), целевой поиск по
   номеру (общие функции — [scripts/court_monitor/target_search.py](scripts/court_monitor/target_search.py),
   вынесены из add_cases_manually), только роль «Истец», порционно `--limit`,
   идемпотентно; `import.announced=true` сразу и уже решённые получают
-  `resolved_emitted=True` — **иски банка в дайджесте не анонсируются**, и
-  старые решения задним числом не льются. **Второй канал — разовый сборщик
+  `resolved_emitted=True` — **старые решения задним числом не льются**, и как
+  «новые иски» основной картотеки track-дела не анонсируются (своя секция —
+  выше). **Канал 3 — разовый сборщик
   выдачи** [scripts/collect_bank_claims.py](scripts/collect_bank_claims.py)
   + workflow [collect_bank_claims.yml](.github/workflows/collect_bank_claims.yml)
   (галка dry_run, отчёт → `ops/bank_registry/collect_report.txt`): обходит
@@ -454,7 +492,7 @@ drawer; номера не уникальны между судами — пот�
   уже выданным ИЛ на исполнение решения (`classify_writ_kind == "enforcement"`
   с якорем «Дата заседания» карточки; обеспечительные листы не считаются,
   статус листа не важен). Общая сборка записи — `make_bank_entry`
-  (import_bank_registry.py). Суд резолвится ПАРОЙ (домен, `--srv`, вход
+  (bank_intake.py). Суд резолвится ПАРОЙ (домен, `--srv`, вход
   `srv_num` в workflow; `resolve_court`): на одном домене может жить два суда —
   Нижневартовский районный и его постоянное присутствие в Покачи
   (vartovray--hmao.sudrf.ru, srv 1 и 2), — и прежний резолв по домену всегда
@@ -515,7 +553,9 @@ drawer; номера не уникальны между судами — пот�
   строятся из cases.json, где bank-дел нет.
 - **Дайджест**: секция «🏦 ИСКИ БАНКА (N)» — компакт, одна строка на дело,
   ПОСЛЕДНЕЙ (при обрезке Telegram страдает первой); события `fi_writ_issued`/
-  `fi_writ_status_changed` (НЕ в эхо/stale-фильтрах); маркер `change["track"]`
+  `fi_writ_status_changed` (НЕ в эхо/stale-фильтрах) и `fi_bank_claim_registered`
+  (дело заведено авто-подхватом; НЕ рутина — переживает `BANK_DIGEST_ROUTINE=0`);
+  маркер `change["track"]`
   едет в данных fi_changes — сигнатуры/replay не тронуты. Рутина отключается
   `BANK_DIGEST_ROUTINE=0` (`filter_bank_routine_events`; дефолт 1 — пилот
   шлёт всё).
@@ -704,6 +744,10 @@ GitHub Actions workflows запускаются из UI репозитория (
 - `OWNER_SECRET` — секрет Worker'а для `POST /mark-owner` (пометка устройства владельцем).
 - `GITHUB_PAT` — в secrets Worker'а, для `workflow_dispatch`.
 - `DIGESTED_ACTS_PATH` — опционально переопределить путь к `.digested_acts`.
+- `BANK_AUTO_INTAKE` — авто-подхват исков банка в прогоне (дефолт 1; `0` — трек работает, но новые иски снова заводятся только вручную).
+- `BANK_INTAKE_DRY_RUN` — холостой прогон подхвата: кандидаты считаются и логируются, карточки не качаются, записи не создаются (дефолт 0). Для первого прогона после деплоя.
+- `BANK_INTAKE_MAX_PER_RUN` / `BANK_INTAKE_MAX_CARDS_PER_COURT` — потолки подхвата за прогон (30) и карточек на один суд (10: фаза 3 идёт раньше FI-цикла, пачка нечитаемых карточек открыла бы предохранитель суда).
+- `BANK_INTAKE_SEEN_TTL_DAYS` — сколько помним отказников негативного кэша (60).
 - `CARD_BREAKER_THRESHOLD` — пер-суд предохранитель карточек: столько не прочитанных карточек подряд (заглушка/код/сеть) снимают суд с обхода до конца прогона (дефолт 5; `0` — выключить, например для ручной пробы лежащего суда).
 - `CARD_BREAKER_PROBE_EVERY` — half-open: каждая K-я пропущенная карточка отключённого суда идёт пробой, успех возвращает суд в обход (дефолт 25; `0` — без проб).
 - `LOG_LEVEL` — уровень логов прогона (`DEBUG`/`INFO`/`WARNING`/`ERROR`, дефолт `INFO`); `DEBUG` показывает пер-кейсовые skip/«без изменений» и прочую диагностику.
