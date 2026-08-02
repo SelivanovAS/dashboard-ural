@@ -5,7 +5,7 @@ name: "📊 Основной прогон: парсинг + дайджест"
 on:
   # Автозапуск (с 05.07.2026 возвращён в облако): Cloudflare Worker по крону
   # дёргает этот workflow через workflow_dispatch (crons в cloudflare-worker/
-  # wrangler.toml, 03:45 UTC = 08:45 ХМАО, пн-пт). Суды снова пускают US-IP
+  # wrangler.toml, 03:30 UTC = 08:30 ХМАО, пн-пт). Суды снова пускают US-IP
   # GitHub (проверено probe_courts.yml), поэтому полный прогон идёт в облаке.
   workflow_dispatch:  # Запуск через Cloudflare Worker (cron) или вручную из UI
     inputs:
@@ -16,6 +16,11 @@ on:
         default: false
       smart_skip:
         description: 'Smart-skip: пропускать дела с известной будущей датой (заседание/без движения) и нерабочие дни РФ. Cron всегда true; ручной запуск — false для полного прогона.'
+        required: false
+        type: boolean
+        default: false
+      ignore_calendar:
+        description: 'Прогнать даже в выходной/праздник: режим ежедневного крона (smart-skip по делам сохраняется), но без проверки производственного календаря. Без этой галки прогон со smart_skip в нерабочий день завершается сразу.'
         required: false
         type: boolean
         default: false
@@ -68,6 +73,13 @@ jobs:
           # Ручные import_bank_registry/collect_bank_claims флаг тоже не
           # спрашивают и файл создадут: это их работа, запускают их осознанно.
           BANK_TRACK: ${{ vars.BANK_TRACK || '1' }}
+          # Авто-подхват исков банка со страницы выдачи (блок 3b фазы 3).
+          # BANK_AUTO_INTAKE=0 оставляет трек работать, но новые иски снова
+          # заводятся только вручную. BANK_INTAKE_DRY_RUN=1 — холостой прогон:
+          # кандидаты считаются и логируются, карточки не качаются, записи не
+          # создаются (для первого прогона после деплоя).
+          BANK_AUTO_INTAKE: ${{ vars.BANK_AUTO_INTAKE || '1' }}
+          BANK_INTAKE_DRY_RUN: ${{ vars.BANK_INTAKE_DRY_RUN || '0' }}
           # Гибрид — дефолт кода (с 03.07.2026): программный рендер + LLM
           # только на пересказ мотивировок актов. Откат на полный
           # LLM-дайджест — вернуть строку `DIGEST_FULL_LLM: "1"`.
@@ -98,6 +110,11 @@ jobs:
           # Smart-skip: при автозапуске Worker передаёт smart_skip=true →
           # парсер пропускает нерабочие дни и дела с известной будущей датой.
           SKIP_NON_WORKING_DAYS: ${{ inputs.smart_skip && '1' || '' }}
+          # Календарный гейт отдельно от пер-кейсового smart-skip: галка
+          # ignore_calendar даёт «режим крона» в выходной (проверка правок,
+          # добор после простоя суда). Крон её не передаёт — плановые прогоны
+          # в праздники по-прежнему завершаются сразу.
+          IGNORE_NON_WORKING_DAY: ${{ inputs.ignore_calendar && '1' || '' }}
           # Группы фаз (::group::) и аннотации WARNING/ERROR в UI Actions
           # (court_monitor/ghlog.py). Явный флаг, а не GITHUB_ACTIONS:
           # pytest-прогоны tests.yml не должны плодить аннотации.
@@ -123,6 +140,9 @@ jobs:
           fi
           if [ "${{ inputs.smart_skip }}" = "true" ]; then
             echo "🧠 SMART-SKIP: skip-нерабочих-дней + skip-будущих-заседаний"
+          fi
+          if [ "${{ inputs.ignore_calendar }}" = "true" ]; then
+            echo "📆 IGNORE-CALENDAR: прогон идёт и в нерабочий день (skip по делам сохранён)"
           fi
           # pipefail обязателен: дефолтный shell GitHub (bash -e) его НЕ
           # включает — без него пушер маскировал бы падение парсера, и
@@ -205,6 +225,13 @@ jobs:
           # Без коммита каждый прогон заново оплачивает пересказ тех же актов.
           if [ -f data/.act_summaries.json ]; then
             git add data/.act_summaries.json
+          fi
+          # Негативный кэш авто-подхвата исков банка: дела, отвергнутые по
+          # карточке (итог из списка исключений, уже выданный ИЛ). Без коммита
+          # прогон качал бы их карточки каждый день заново — в дедуп-индекс
+          # такие дела не попадают.
+          if [ -f data/.bank_intake_seen.json ]; then
+            git add data/.bank_intake_seen.json
           fi
           BEFORE_SHA=$(git rev-parse HEAD)
           git diff --cached --quiet || git commit -m "📊 Обновление данных $(date +'%d.%m.%Y %H:%M')"

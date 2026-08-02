@@ -20,6 +20,10 @@ import time
 from datetime import datetime, timedelta, date
 
 from court_monitor import config, ghlog, lifecycle
+from court_monitor.bank_intake import (
+    card_rejects, load_intake_seen, make_bank_entry, remember_rejection,
+    row_passes, save_intake_seen, seen_key,
+)
 from court_monitor.bank_report import (
     BankParseReport, classify_fetch_failure, metrics_snapshot,
     save_bank_parse_report,
@@ -1451,6 +1455,40 @@ def _lint_digest_and_alert(digest_html: str, *,
         log.warning(f"digest-lint: ошибка линтера: {exc}", exc_info=True)
 
 
+def _alert_llm_summary_failures() -> None:
+    """🩺-алерт, если пересказы мотивировок сорвались.
+
+    Мотивировки судебных актов пересказывает LLM; при отказе провайдера
+    (17.07.2026: free-пул OpenRouter отвечал 429 на каждый запрос) в дайджест
+    вместо пересказа уходит сырой текст акта. Счётчики жили только в stdout и
+    GITHUB_STEP_SUMMARY — юрист узнавал об этом, только открыв лог прогона.
+
+    ⚠️ Зовётся ПОСЛЕ отправки дайджеста, рядом с линтером: блок 4e (алерты
+    здоровья парсеров) выполняется до генерации дайджеста, и там счётчик
+    всегда 0. Ничего не блокирует и не имеет права ронять прогон.
+    """
+    try:
+        failed = config.METRICS.get("llm_summary_failed", 0)
+        if not failed:
+            return
+        calls = config.METRICS.get("llm_summary_calls", 0)
+        saved = config.METRICS.get("llm_summary_fallback_saved", 0)
+        line = (
+            f"пересказы мотивировок: сбоев {failed} из {calls} "
+            f"— в дайджест ушёл сырой текст акта"
+        )
+        if saved:
+            line += f" (спасено фолбэком: {saved})"
+        log.warning(f"llm-summary: {line}")
+        send_telegram(
+            "🩺 <b>Пересказы актов</b>\n"
+            f"• {escape_html(line)}\n"
+            f"• провайдер: {escape_html(_llm_digest_note())}"
+        )
+    except Exception as exc:
+        log.warning(f"llm-summary: ошибка алерта: {exc}", exc_info=True)
+
+
 def _filter_ctx_fi_changes_echo(
     fi_changes: list[dict], cases: list[dict]
 ) -> list[dict]:
@@ -1763,6 +1801,140 @@ def announce_imported_cases(cases: list[dict]) -> list[dict]:
     return to_announce
 
 
+def intake_bank_rows(court, rows: list[dict], *, dedup_exact: set,
+                     dedup_wildcard: set, seen: dict, budget: int,
+                     operator: str = "auto") -> tuple[list[dict], dict]:
+    """Завести иски банка со страницы выдачи суда (блок 3b фазы 3).
+
+    Возвращает (новые записи, счётчики). Правила приёма — общие для всех
+    каналов (bank_intake), но с skip_appeal=False: дело, по которому уже
+    подана жалоба, авто-подхват БЕРЁТ (решение юриста 31.07.2026) — тем же
+    прогоном оно уедет в основной cases.json на полный мониторинг апелляции.
+
+    `budget` — сколько ещё дел разрешено завести в этом прогоне (общий на все
+    суды кэп BANK_INTAKE_MAX_PER_RUN). Карточки на один суд ограничены
+    отдельно: фаза 3 идёт раньше FI-цикла, и пачка нечитаемых карточек
+    открыла бы пер-судовый предохранитель, сняв суд с обхода на весь прогон.
+    """
+    counters = {"candidates": 0, "cards": 0, "added": 0, "already": 0,
+                "seen_cached": 0, "role": 0, "excluded_result": 0,
+                "excluded_writ": 0, "no_link": 0, "fetch_fail": 0,
+                "breaker": 0, "capped": 0}
+    entries: list[dict] = []
+    if not rows or budget <= 0:
+        return entries, counters
+    now_iso = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
+
+    for r in rows:
+        num = r["case_number"]
+        ok, why = row_passes(r)
+        if not ok:
+            counters[why] += 1
+            if why in ("excluded_result", "no_link"):
+                remember_rejection(seen, court.domain, num, why)
+            continue
+        counters["candidates"] += 1
+        config.METRICS["bank_intake_candidates"] += 1
+        if is_fi_number_tracked(num, court.domain, dedup_exact, dedup_wildcard):
+            counters["already"] += 1
+            continue
+        if seen_key(court.domain, num) in seen:
+            # Отказник прошлых прогонов: причина вечная, карточку не трогаем.
+            counters["seen_cached"] += 1
+            seen[seen_key(court.domain, num)]["last_seen"] = date.today().isoformat()
+            continue
+        if len(entries) >= budget:
+            counters["capped"] += 1
+            continue
+        if counters["cards"] >= config.BANK_INTAKE_MAX_CARDS_PER_COURT:
+            counters["capped"] += 1
+            continue
+        if config.BANK_INTAKE_DRY_RUN:
+            continue
+        # Пре-чек предохранителя ДО polite_delay (иначе отключённый суд
+        # съедал бы задержку впустую), fetch — с breaker_gate=False: гейт
+        # вызывается ровно один раз на карточку.
+        if not card_breaker_allows(court.domain):
+            counters["breaker"] += 1
+            continue
+        cid, _, cuid = r["link"].partition("|")
+        polite_delay()
+        counters["cards"] += 1
+        config.METRICS["bank_intake_cards"] += 1
+        card_html = fetch_card_checked(court.card_url(cid, cuid), context=num,
+                                       breaker_gate=False)
+        if not card_html:
+            counters["fetch_fail"] += 1
+            continue
+        card_info = parse_case_card(card_html, court.base_url)
+        why_card = card_rejects(card_info, skip_appeal=False)
+        if why_card:
+            counters[why_card] += 1
+            remember_rejection(seen, court.domain, num, why_card)
+            log.debug(f"  Иски банка: {num} — не берём ({why_card})")
+            continue
+        entry = make_bank_entry(r, card_info, operator, now_iso,
+                                source="auto_search", court=court)
+        entries.append(entry)
+        dedup_exact.add((court.domain, num))
+        counters["added"] += 1
+        config.METRICS["bank_intake_added"] += 1
+    return entries, counters
+
+
+def skip_non_working_day(today: date, *, smart_skip: bool,
+                         ignore_calendar: bool) -> bool:
+    """Пропускать ли ВЕСЬ прогон: нерабочий день РФ при включённом smart-skip.
+
+    Гейт защищает крон от холостых прогонов в выходные и праздники (второй щит
+    поверх isHoliday() Worker'а — его JS-календарь знает не все годы).
+
+    `ignore_calendar` — явная просьба человека прогнать в нерабочий день
+    (проверка свежих правок, добор после простоя суда). Пер-кейсовый smart-skip
+    при этом СОХРАНЯЕТСЯ: флаг гасит только календарный гейт, а не пропуск
+    отдельных карточек — иначе единственным способом прогнать в выходной
+    оставался бы полный обход всех активных дел (сотни карточек вместе с
+    треком исков банка).
+    """
+    if not smart_skip or ignore_calendar:
+        return False
+    return not is_russian_working_day(today)
+
+
+def bank_track_pending(cases: list[dict]) -> bool:
+    """Есть ли в списке дела трека «Иски банка» — гейт раскладки (фаза 7c).
+
+    Смотрим на САМИ ДАННЫЕ, а не на «сколько дел загрузилось из cases_bank.json
+    в фазе 1»: трек пополняется ещё и авто-подхватом прогона, и на территории,
+    где файла трека пока нет, счётчик загрузки равен нулю — при гейте по нему
+    свежезаведённые иски банка утекли бы в основной cases.json и в общий архив
+    (заметно стало бы только через FI_ARCHIVE_DAYS).
+    """
+    return bool(config.BANK_TRACK) and any(
+        lifecycle.is_bank_plaintiff_track(c) for c in cases
+    )
+
+
+def _backfill_court_ids(fi: dict) -> None:
+    """Дописать delo_id/srv_num записи трека, заведённой до 31.07.2026.
+
+    Ссылку «в суд» фронт собирает как buildCourtLink(link, domain, delo_id,
+    srv_num) с фолбэком 1540005/1 — у записей ручных каналов этих ключей нет
+    вовсе. Резолвим по домену; на домене с ДВУМЯ судами (Покачи и
+    Нижневартовский районный) srv_num не угадать по одному домену, поэтому там
+    не трогаем: неверный сервер хуже честного фолбэка.
+    """
+    domain = (fi.get("court_domain") or "").strip().lower()
+    if not domain or (fi.get("delo_id") and fi.get("srv_num")):
+        return
+    same_domain = [ct for ct in FIRST_INSTANCE_COURTS if ct.domain == domain]
+    if len(same_domain) != 1:
+        return
+    court = same_domain[0]
+    fi.setdefault("delo_id", court.delo_id)
+    fi.setdefault("srv_num", court.srv_num)
+
+
 def split_bank_track(
     cases: list[dict],
 ) -> tuple[list[dict], list[dict], list[dict], int]:
@@ -1795,6 +1967,7 @@ def split_bank_track(
         # (в иске отказано, дело присоединено к другому). Пишем только False —
         # «ждём» и есть дефолт, лишний ключ в 345 записях ни к чему.
         _fi = c.get("first_instance") or {}
+        _backfill_court_ids(_fi)
         _writ_expected = lifecycle.bank_writ_expected(_fi)
         if _writ_expected:
             _fi.pop("writ_expected", None)
@@ -1847,10 +2020,26 @@ def main_json():
         "--smart-skip" in sys.argv
         or os.environ.get("SKIP_NON_WORKING_DAYS") == "1"
     )
+    # Явная просьба прогнать в нерабочий день, сохранив пер-кейсовый smart-skip
+    # (галка ignore_calendar в workflow / кнопка админки). Без неё «режим крона»
+    # в выходной недостижим: календарный гейт и пропуск карточек сидели на одном
+    # флаге, и оставался только полный обход всех дел (решение юриста 02.08.2026).
+    ignore_calendar = (
+        "--ignore-calendar" in sys.argv
+        or os.environ.get("IGNORE_NON_WORKING_DAY") == "1"
+    )
     today = date.today()
-    if smart_skip_mode and not is_russian_working_day(today):
+    if skip_non_working_day(today, smart_skip=smart_skip_mode,
+                            ignore_calendar=ignore_calendar):
         log.info(f"{today.isoformat()} — нерабочий день РФ, парсинг пропущен.")
         return
+    if ignore_calendar and not is_russian_working_day(today):
+        # Без этой строки по логу не отличить «сегодня рабочий день» от
+        # «выходной, но нас попросили прогнать».
+        log.info(
+            f"{today.isoformat()} — нерабочий день, но календарь отключён "
+            f"флагом: прогон идёт, smart-skip по делам сохранён"
+        )
     # Пер-кейсовый smart-skip (should_skip_case) подчиняется тому же флагу:
     # крон всегда передаёт smart_skip=true, ручной запуск без галки —
     # полный прогон всех активных карточек (как и обещает описание галки).
@@ -2106,6 +2295,19 @@ def main_json():
     # Используем список пар, а не dict — CourtConfig не хешируется.
     fi_results_by_court: list = []
 
+    # Авто-подхват исков банка (блок 3b ниже): негативный кэш отказников,
+    # накопитель записей и счётчики. Кэш нужен, чтобы карточки дел, которые
+    # правила приёма уже отвергли, не качались каждым прогоном заново —
+    # в дедуп-индекс такие дела не попадают.
+    bank_intake_on = config.BANK_TRACK and config.BANK_AUTO_INTAKE
+    bank_new_cases: list[dict] = []
+    bank_intake_totals: dict[str, int] = {}
+    bank_intake_seen: dict = load_intake_seen() if bank_intake_on else {}
+    intake_operator = os.environ.get("GITHUB_ACTOR", "auto")
+    if bank_intake_on and config.BANK_INTAKE_DRY_RUN:
+        log.info("Иски банка: подхват в режиме DRY-RUN — карточки не качаем, "
+                 "записи не создаём")
+
     for court_idx, court in enumerate(enabled_courts, 1):
         court_tag = f"[{court_idx}/{len(enabled_courts)}]"
         health_key = fi_health_key(court)
@@ -2123,26 +2325,40 @@ def main_json():
             )
             continue
 
-        # Здоровье меряем по сберовским строкам ДО фильтра «банк-ответчик»:
-        # вал исков самого банка выталкивает ответчик-дела со страницы 1,
-        # и len(fi_results)=0 выглядел бы поломкой (Октябрьский р/с, 14.07.2026).
+        # Здоровье меряем по сберовским строкам ДО фильтра ролей: вал исков
+        # самого банка выталкивает ответчик-дела со страницы 1, и
+        # len(fi_results)=0 выглядел бы поломкой (Октябрьский р/с, 14.07.2026).
         search_stats: dict = {}
-        fi_results = parse_first_instance_search(search_html, court, stats=search_stats)
+        all_rows = parse_first_instance_search(
+            search_html, court, stats=search_stats, keep_all_roles=True
+        )
         health_obs[health_key] = search_stats.get("sber_rows", 0)
+        # Основной трек — строго «банк-ответчик»: тот же контракт, что отдавал
+        # сам парсер без keep_all_roles. Иски самого банка идут своим путём
+        # (блок 3b), «третье лицо» в 1-й инстанции не отслеживаем.
+        fi_results = [r for r in all_rows if r.get("bank_role") == "Ответчик"]
+        bank_rows = [r for r in all_rows if r.get("bank_role") == "Истец"]
+        # Пустая страница считается по ВСЕМ ролям: суд, чья выдача целиком
+        # состоит из исков банка, не «молчит» — у него просто нет ответчик-дел
+        # на первой странице.
+        page_empty = not all_rows
         # 0 строк + маркеры проверочного кода → суд закрыт CAPTCHA, а не «нет дел».
-        if not fi_results and detect_captcha_challenge(search_html):
+        if page_empty and detect_captcha_challenge(search_html):
             fi_challenge[court.domain] = court.name
         # Канарейка предохранителя: поиск пришёл заглушкой недоступности
         # (аутейдж портала) → карточки этого суда не запрашиваем — фаза
         # поиска идёт раньше FI-цикла, пре-открытие не тратит ни карточки.
         # ⚠️ Капча выше предохранитель НЕ открывает: у капчёвых судов поиск
         # закрыт штатно, а карточки живут и мониторятся (search_gated).
-        if not fi_results and looks_like_outage_page(search_html):
+        if page_empty and looks_like_outage_page(search_html):
             card_breaker_preopen(court.domain, "заглушка на странице поиска")
         fi_results_by_court.append((court, fi_results))
 
-        # Промоушен материала → 2-XXX до фильтра new_fi.
-        for r in fi_results:
+        # Промоушен материала → 2-XXX до фильтра new_fi. Идём по ВСЕМ ролям:
+        # материал банка-истца живёт в лёгком треке, и его строка «2-XXX ~ М-…»
+        # приходит истцовой — иначе трек получил бы дубль (М-номер навсегда) и
+        # новое дело под 2-номером.
+        for r in all_rows:
             mat = (r.get("material_number") or "").strip()
             if not mat or mat == r["case_number"]:
                 continue
@@ -2228,6 +2444,45 @@ def main_json():
                 f" ({time.perf_counter() - _t_court:.1f}s)"
             )
 
+        # ── 3b. Подхват исков банка (лёгкий трек) ──
+        # Истцовые строки той же страницы — в трек «Иски банка». Раньше он
+        # пополнялся только вручную, и новый иск вставал на мониторинг лишь
+        # после того, как юрист вспомнит запустить сбор.
+        if bank_intake_on and bank_rows:
+            entries, bank_counters = intake_bank_rows(
+                court, bank_rows,
+                dedup_exact=fi_dedup_exact, dedup_wildcard=fi_dedup_wildcard,
+                seen=bank_intake_seen,
+                budget=config.BANK_INTAKE_MAX_PER_RUN - len(bank_new_cases),
+                operator=intake_operator,
+            )
+            bank_new_cases.extend(entries)
+            for k, v in bank_counters.items():
+                bank_intake_totals[k] = bank_intake_totals.get(k, 0) + v
+            if entries or bank_counters["candidates"]:
+                log.info(
+                    f"  {court_tag} {court.name}: иски банка — "
+                    f"кандидатов {bank_counters['candidates']}, "
+                    f"карточек {bank_counters['cards']}, "
+                    f"+{len(entries)} в трек"
+                    + (f", известных {bank_counters['already']}"
+                       if bank_counters["already"] else "")
+                    + (f", отказников из кэша {bank_counters['seen_cached']}"
+                       if bank_counters["seen_cached"] else "")
+                )
+            for e in entries:
+                existing_ids.add(e["id"])
+            # Страховка вместо пагинации (решение юриста 31.07.2026 — прогон
+            # читает только страницу 1): если неизвестной оказалась и самая
+            # старая строка выдачи, значит окна страницы могло не хватить.
+            if entries and bank_rows and bank_rows[-1]["case_number"] in {
+                    e["id"] for e in entries}:
+                log.warning(
+                    f"  {court_tag} {court.name}: новым оказалось и последнее "
+                    "дело страницы — часть исков банка могла не уместиться; "
+                    "добор — ручным collect_bank_claims.yml"
+                )
+
     # Re-link дел, вернувшихся из кассации в 1-ю инст. (awaiting_relink →
     # first_instance, новый раунд). Делается ПОСЛЕ накопления fi_results_by_court
     # и ДО фильтра new_fi, потому что таким делам нужен полный сброс блоков
@@ -2241,6 +2496,25 @@ def main_json():
 
     timings["first_instance"] = time.perf_counter() - t0
     log.info(f"Итого новых дел 1 инстанции: {len(fi_new_cases)}")
+    if bank_intake_on and bank_intake_totals:
+        log.info(
+            f"Итого исков банка подхвачено: {bank_intake_totals.get('added', 0)}"
+            f" из {bank_intake_totals.get('candidates', 0)} кандидатов "
+            f"(карточек {bank_intake_totals.get('cards', 0)}, "
+            f"известных {bank_intake_totals.get('already', 0)}, "
+            f"из кэша отказов {bank_intake_totals.get('seen_cached', 0)}, "
+            f"исключено по карточке "
+            f"{bank_intake_totals.get('excluded_result', 0) + bank_intake_totals.get('excluded_writ', 0)})"
+        )
+        if bank_intake_totals.get("capped"):
+            log.warning(
+                f"Иски банка: {bank_intake_totals['capped']} кандидатов не "
+                "заведены — упёрлись в потолок прогона, доберём следующим"
+            )
+        # Кэш отказников пишем всегда, когда подхват работал: отказы бывают и
+        # без единого заведённого дела — ради них он и нужен.
+        if not config.BANK_INTAKE_DRY_RUN:
+            save_intake_seen(bank_intake_seen)
 
     # ── 4. Обновление существующих дел ──
     # 4a. Апелляция: обновляем карточки апел. только для стадии "appeal".
@@ -3461,6 +3735,30 @@ def main_json():
             f"(дубли от записей одного FI-дела)"
         )
 
+    # Иски банка, подхваченные фазой 3b, объявляем строкой в своей секции:
+    # раньше пул заводился руками и юрист знал, что добавил, — теперь
+    # картотека растёт сама, и молчаливое пополнение осталось бы незамеченным
+    # (решение юриста 31.07.2026). Врезка ПОСЛЕ dedupe_fi_changes (это не
+    # событие карточки, дедуплицировать нечего) и ДО фильтра рутины.
+    for _bc in bank_new_cases:
+        _bfi = _bc.get("first_instance") or {}
+        fi_changes.append({
+            "case": _bc.get("id", ""),
+            "court": _bfi.get("court", ""),
+            "plaintiff": _bc.get("plaintiff", ""),
+            "defendant": _bc.get("defendant", ""),
+            "track": "plaintiff_light",
+            "type": ["fi_bank_claim_registered"],
+            "details": {
+                "court_domain": _bfi.get("court_domain", ""),
+                "link": _bfi.get("link", ""),
+                "delo_id": _bfi.get("delo_id", 0),
+                "srv_num": _bfi.get("srv_num", 1),
+                "filing_date": _bfi.get("filing_date", ""),
+                "left_track": lifecycle.bank_case_left_track(_bc),
+            },
+        })
+
     # Трек «Иски банка»: при BANK_DIGEST_ROUTINE=0 рутина track-дел
     # (заседания, статусы, принятия) в дайджест не идёт — остаются решение,
     # возврат, апел. жалоба и ИЛ. Фильтр стоит ДО save_digest_context, чтобы
@@ -3869,6 +4167,15 @@ def main_json():
             f"Кассация ({CASSATION_COURT.name})"
         )
         health_alerts.extend(_card_breaker_alert_lines(_breaker_names))
+        # Паводок авто-подхвата: столько исков банка разом бывает только при
+        # молча сломавшемся дедупе или при публикации судом архива задним
+        # числом — в обоих случаях трек надо смотреть руками.
+        if config.METRICS.get("bank_intake_added", 0) > config.BANK_INTAKE_ALERT_ADDED:
+            health_alerts.append(
+                f"авто-подхват завёл {config.METRICS['bank_intake_added']} исков "
+                f"банка за прогон (порог {config.BANK_INTAKE_ALERT_ADDED}) — "
+                f"проверить дедуп и выдачу судов"
+            )
         if health_alerts:
             log.warning(
                 "parse-health: " + "; ".join(health_alerts)
@@ -3904,6 +4211,23 @@ def main_json():
         log.info(
             f"Добавлено {len(fi_new_cases)} новых + "
             f"{len(fi_discovered_resolved)} завершённых-старых дел 1 инстанции в JSON"
+        )
+
+    # Иски банка, подхваченные фазой 3b, вливаем здесь же: FI-цикл уже прошёл
+    # (карточку каждого из них подхват прочитал сам, второй раз не тратим), а
+    # раскладка по файлам трека — впереди, в фазе 7c. В fi_new_cases они не
+    # идут: у основной картотеки своя секция «Новые иски», у трека — своя.
+    if bank_new_cases:
+        cases = bank_new_cases + cases
+        for _bc in bank_new_cases:
+            bank_report.record(
+                _bc, "intake_new",
+                detail=(_bc.get("first_instance") or {}).get("court", ""),
+            )
+        log.info(
+            f"Добавлено {len(bank_new_cases)} "
+            f"{plural_ru(len(bank_new_cases), 'иск', 'иска', 'исков')} банка "
+            "в трек (авто-подхват)"
         )
 
     # ── 6a. Анонс импортированных дел (капчёвые суды) ──
@@ -4001,7 +4325,7 @@ def main_json():
     # вероятного приёмника. Подбору нужен весь список дел, поэтому он идёт
     # после FI-цикла, а не в нём; он же дописывает номер приёмника в уже
     # собранное событие дайджеста (эмит завершения одноразовый).
-    if config.BANK_TRACK and bank_track_count:
+    if bank_track_pending(cases):
         merged_resolved = resolve_bank_merged_targets(cases, fi_changes)
         if merged_resolved:
             log.info(
@@ -4015,7 +4339,7 @@ def main_json():
     # ушла выше) остаются в основном cases.json навсегда: маркер track
     # снимается, след остаётся в track_origin. Архивация трека — свои окна
     # (_is_bank_track_archived), свой файл cases_bank_archive.json.
-    if config.BANK_TRACK and bank_track_count:
+    if bank_track_pending(cases):
         cases, bank_active, bank_newly_archived, moved_to_main = split_bank_track(cases)
         if moved_to_main:
             log.info(
@@ -4201,6 +4525,10 @@ def main_json():
         fi_new_cases=fi_new_cases, fi_changes=fi_changes,
         cass_changes=cass_changes, cass_discovered=cass_discovered,
     )
+    # Сорвавшиеся пересказы мотивировок — тоже сторож качества: юрист узнаёт
+    # в момент прогона, а не когда откроет лог. Только с боевого пути:
+    # test_digest.yml гоняет replay для экспериментов, алерты оттуда — шум.
+    _alert_llm_summary_failures()
 
     # Web Push — краткое уведомление при наличии изменений, разбивка по типам.
     # Числа берём из ФАКТИЧЕСКОГО HTML дайджеста (после _renumber_section_headers /
@@ -4287,6 +4615,11 @@ def main_json():
     if bank_track_count:
         _bt = bank_report.totals()
         bank_parse_extras["Bank parse"] = f"{_bt['parsed']}/{_bt['total']}"
+    if bank_intake_totals:
+        bank_parse_extras["Bank intake"] = (
+            f"+{bank_intake_totals.get('added', 0)}"
+            f"/{bank_intake_totals.get('candidates', 0)}"
+        )
 
     log_run_summary(
         mode="main-json",
