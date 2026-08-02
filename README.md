@@ -89,7 +89,7 @@ dashboard/
 │   ├── admin_page.js              # HTML/JS страницы админки
 │   └── wrangler.toml              # Конфигурация Worker (cron-расписание)
 ├── .github/workflows/
-│   ├── update_cases.yml           # Основной прогон (будни 6:45 МСК через Worker-cron)
+│   ├── update_cases.yml           # Основной прогон (будни 6:30 МСК через Worker-cron)
 │   ├── test_digest.yml            # Ручной тест дайджеста (replay + Telegram + PWA push)
 │   └── tests.yml                  # pytest на каждый push
 ├── scripts/tests/ + tests/        # pytest-набор (485 тестов)
@@ -234,7 +234,7 @@ python3 -m pytest
 GitHub Actions cron ненадёжен на бесплатных планах (задержки до 3-4 часов). Поэтому запуск workflow выполняется через Cloudflare Worker, который вызывает GitHub API `workflow_dispatch` точно по расписанию. Тот же Worker хранит push-подписки (KV) и отдаёт админку.
 
 - **Worker:** `court-monitor-trigger` (`cloudflare-worker/`)
-- **Расписание:** будни 3:45 UTC (6:45 МСК, `crons = ["45 3 * * mon-fri"]`); выходные и праздники РФ дополнительно отсекает `isHoliday()`. Плановый прогон идёт со `smart_skip=true`.
+- **Расписание:** будни 3:30 UTC (6:30 МСК, 8:30 ХМАО, `crons = ["30 3 * * mon-fri"]`); выходные и праздники РФ дополнительно отсекает `isHoliday()`. Плановый прогон идёт со `smart_skip=true`.
 - **Секреты:** `GITHUB_PAT` (GitHub API), `OWNER_SECRET` (админка), `PUSH_SECRET`, `PROGRESS_SECRET` (живой лог), `VAPID_PRIVATE_KEY` (тест-push)
 
 Изменить расписание можно:
@@ -245,7 +245,7 @@ GitHub Actions cron ненадёжен на бесплатных планах (�
 
 `https://court-monitor-trigger.<аккаунт>.workers.dev/admin?secret=<OWNER_SECRET>` — открывается в браузере, в том числе с телефона. Подробно — [docs/technical/09](docs/technical/09-cloudflare-worker.md).
 
-- **Запуск прогонов:** кнопка «▶ Полный прогон» (`smart_skip=false` — парсит всё) и «Стандартный прогон» (`smart_skip=true` — как ежедневный автозапуск; в нерабочий день сразу завершится пропуском). Рядом — мини-форма теста дайджеста с выбором LLM-провайдера.
+- **Запуск прогонов:** одна кнопка «▶ Запустить прогон» (`smart_skip=true` — ровно то, что делает ежедневный автозапуск; в нерабочий день спрашивает «прогнать всё равно?» и добавляет `ignore_calendar=true`). Полный обход без smart-skip — из GitHub Actions (Run workflow → снять галку). Рядом — мини-форма теста дайджеста с выбором LLM-провайдера.
 - **Живой лог прогона:** основной workflow гонит свой stdout через pass-through-пушер `scripts/gh_progress_pusher.py` → `POST /run-progress` → блок «Прогон (GitHub Actions)» обновляется каждые 15 с (батчи пушера уходят раз в ~60 с — экономия KV-writes free-tier). Лог свёрнут по фазам «[1/9]…[9/9]» (текущая фаза раскрыта, бейджи ⚠/✖ по WARNING/ERROR, итоговая сводка видна сразу), хранится 14 дней (текущий + предыдущий прогон) — можно смотреть и после завершения. Тот же блок показывает Mac-резерв.
 - **Мониторинг:** последние прогоны GitHub Actions со статусами, здоровье парсеров со спарклайнами, данные последнего дайджеста.
 - **Подписчики:** список push-подписок с именами и watchlist'ами, тест-push, удаление.

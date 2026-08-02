@@ -15,12 +15,12 @@ Actions, какие есть вспомогательные скрипты и т
 
 | Команда | Функция | Что делает |
 |---------|---------|-----------|
-| `--json` | `main_json` ([1837](../../scripts/court_monitor/runs.py#L1837)) | **Основной прогон**: парсинг + JSON + дайджест + рассылка + коммит. Запускается кроном. `--smart-skip` (env `SKIP_NON_WORKING_DAYS`) пропускает нерабочие дни и дела с известной будущей датой. |
-| _(без флага)_ | `main` ([1041](../../scripts/court_monitor/runs.py#L1041)) | Legacy CSV-прогон (апелляция). |
-| `--digest-only` | `main_digest_only` ([4631](../../scripts/court_monitor/runs.py#L4631)) | Только дайджест по текущим данным, без парсинга. |
-| `--replay-last [--push-all]` | `main_replay_last` ([4315](../../scripts/court_monitor/runs.py#L4315)) | Переиграть последний дайджест из `last_digest_context.json` с актуальным промптом. Push — владельцу (или всем при `--push-all`). |
-| `--push-last-digest [--owner-only]` | `main_push_last_digest` ([4492](../../scripts/court_monitor/runs.py#L4492)) | Повторно разослать уже сохранённый дайджест. |
-| `--backfill-appeal-anchors` | `main_backfill_appeal_anchors` ([1300](../../scripts/court_monitor/runs.py#L1300)) | Разовый бэкфилл якорей УИД/номеров из апел. карточек. |
+| `--json` | `main_json` ([2010](../../scripts/court_monitor/runs.py#L2010)) | **Основной прогон**: парсинг + JSON + дайджест + рассылка + коммит. Запускается кроном. `--smart-skip` (env `SKIP_NON_WORKING_DAYS`) пропускает нерабочие дни и дела с известной будущей датой. |
+| _(без флага)_ | `main` ([1045](../../scripts/court_monitor/runs.py#L1045)) | Legacy CSV-прогон (апелляция). |
+| `--digest-only` | `main_digest_only` ([4964](../../scripts/court_monitor/runs.py#L4964)) | Только дайджест по текущим данным, без парсинга. |
+| `--replay-last [--push-all]` | `main_replay_last` ([4648](../../scripts/court_monitor/runs.py#L4648)) | Переиграть последний дайджест из `last_digest_context.json` с актуальным промптом. Push — владельцу (или всем при `--push-all`). |
+| `--push-last-digest [--owner-only]` | `main_push_last_digest` ([4825](../../scripts/court_monitor/runs.py#L4825)) | Повторно разослать уже сохранённый дайджест. |
+| `--backfill-appeal-anchors` | `main_backfill_appeal_anchors` ([1304](../../scripts/court_monitor/runs.py#L1304)) | Разовый бэкфилл якорей УИД/номеров из апел. карточек. |
 
 ```bash
 # Полный боевой прогон локально
@@ -55,8 +55,8 @@ pip install -r scripts/requirements.txt   # requests, pywebpush
 
 В GitHub Actions задаются через **Settings → Secrets and variables → Actions**.
 
-`validate_environment` ([996](../../scripts/court_monitor/runs.py#L996)) проверяет
-наличие ключей на старте; `check_court_available` ([1028](../../scripts/court_monitor/runs.py#L1028))
+`validate_environment` ([1000](../../scripts/court_monitor/runs.py#L1000)) проверяет
+наличие ключей на старте; `check_court_available` ([1032](../../scripts/court_monitor/runs.py#L1032))
 — доступность сайта суда.
 
 ## Ежедневный прогон (временная схема D2, с 03.07.2026)
@@ -97,7 +97,7 @@ workflow.
 
 ### `update_cases.yml` — основной (cron Worker'а, с 05.07.2026 снова в облаке)
 [Файл](../../.github/workflows/update_cases.yml). Триггер — `workflow_dispatch`:
-его дёргает cron Cloudflare Worker'а (пн-пт 06:45 МСК, `smart_skip=true`),
+его дёргает cron Cloudflare Worker'а (пн-пт 06:30 МСК, `smart_skip=true`),
 вручную — GitHub UI или админка (кнопки «Полный прогон» / «Стандартный
 прогон»). Шаги: checkout → Python 3.12 → установка зависимостей →
 `python scripts/update_cases.py --json 2>&1 | python -u
@@ -117,7 +117,9 @@ workers.dev (ошибка 1010 → 403 до Worker'а), из-за чего ка�
 
 Входы: `to_group` (слать в корпоративную группу; иначе личный чат через
 `TELEGRAM_CHAT_ID_TEST`), `smart_skip` (cron передаёт `true`: пропуск
-нерабочих дней и дел с известной будущей датой; `false` = полный прогон).
+нерабочих дней и дел с известной будущей датой; `false` = полный прогон),
+`ignore_calendar` (прогнать в выходной/праздник, сохранив пер-кейсовый
+smart-skip → env `IGNORE_NON_WORKING_DAY`; cron его не передаёт).
 
 С 03.07.2026 дайджест и здесь гибридный (флаг `DIGEST_FULL_LLM` снят, дефолт
 кода); откат — вернуть `DIGEST_FULL_LLM: "1"` в env шага.
@@ -125,7 +127,9 @@ workers.dev (ошибка 1010 → 403 до Worker'а), из-за чего ка�
 Коммит-шаг добавляет: `cases.json`, `cases_archive.json`, `cases_archive_*.json`
 (холодные), `last_digest_context.json`, `last_digest.json`,
 `last_personal_pushes.json`, legacy CSV, `.digested_acts`, `.cassation_acts`,
-`parse_health.json`, `.act_summaries.json` (кэш пересказов).
+`parse_health.json`, `.act_summaries.json` (кэш пересказов),
+`.bank_intake_seen.json` (негативный кэш авто-подхвата исков банка — без
+коммита карточки отказников качались бы каждым прогоном заново).
 Сообщение коммита — `📊 Обновление данных ДД.ММ.ГГГГ ЧЧ:ММ`.
 
 Алерт о падении сделан через `curl` (не Python) — сработает, даже если упала
