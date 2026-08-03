@@ -11,6 +11,7 @@ data/** merge=ours
 # но он инертен: без data/cases_bank.json прогон его не грузит и файл не
 # создаёт. Из форка удалены ХМАО-шные данные и пилотные workflow'ы:
 #   data/cases_bank*.json, data/bank_parse_report.json,
+#   data/.bank_intake_seen.json,
 #   ops/bank_registry/**, ops/writ_probe/**,
 #   .github/workflows/{import_bank_registry,collect_bank_claims,probe_writ_section}.yml
 # Два последних били по судам ХМАО и срабатывали на push — то есть на самой
@@ -24,4 +25,6 @@ data/** merge=ours
 # 30.07.2026 в форк заезжал data/bank_parse_report.json (163 дела Сургута) —
 # админка Урала показала бы карточку «Парсинг исков банка» с чужими делами.
 # После каждого merge из эталона: `git diff --cached --diff-filter=A` и
-# удалять новые data/*bank*.
+# удалять новые data/*bank*. Так 03.08.2026 приезжал негативный кэш
+# авто-подхвата data/.bank_intake_seen.json (170+ дел 14 судов ХМАО) —
+# после первого `git rm` путь уже даёт громкий конфликт modify/delete.
