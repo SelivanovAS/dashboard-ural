@@ -1380,6 +1380,42 @@ class TestLinkCassationCases:
         )
         assert changes == [] and discovered == []
 
+    def test_uid_prefers_record_awaiting_cassation(self):
+        """Кейс 8Г-11947/2026 (12.08.2026): два апел. производства одного
+        дела 1-й инст. штатно делят УИД (основная жалоба + частная), а
+        `setdefault` выбирал якорь «первым по файлу» — новая кассация
+        прицепилась к записи частной жалобы, ждавшая кассацию запись
+        осталась висеть в cassation_pending. Якорь по УИД — запись,
+        ЖДУЩАЯ кассацию (_uid_priority)."""
+        uid = "86RS0004-01-2024-005924-75"
+        private = {  # частная жалоба, своя кассация уже связана
+            "id": "33-4383/2026",
+            "current_stage": "cassation",
+            "first_instance": {"case_number": "2-8029/2025",
+                               "judicial_uid": uid},
+            "cassation": {"case_number": "8Г-1000/2026",
+                          "act_published": False},
+        }
+        main = {  # основная апелляция, ждёт кассацию
+            "id": "33-1458/2026",
+            "current_stage": "cassation_pending",
+            "first_instance": {"case_number": "2-8029/2025",
+                               "judicial_uid": uid},
+            "cassation": None,
+        }
+        cases = [private, main]  # частная жалоба ПЕРВОЙ по файлу
+        out, changes, discovered = uc.link_cassation_cases(
+            cases,
+            [_cass_find("2-8029/2025", cass_num="8Г-11947/2026",
+                        judicial_uid=uid)],
+        )
+        assert discovered == []
+        assert out[1]["id"] == "33-1458/2026"
+        assert out[1]["current_stage"] == "cassation"
+        assert out[1]["cassation"]["case_number"] == "8Г-11947/2026"
+        # Запись частной жалобы не тронута.
+        assert out[0]["cassation"]["case_number"] == "8Г-1000/2026"
+
     def test_past_round_card_does_not_resurrect(self):
         """После remanded + re-link старая карточка 7kas (её 8Г уже в
         history) не должна воскрешать кассацию и утаскивать дело из
@@ -3068,6 +3104,74 @@ class TestSoloSessionMarkers:
         assert kind == "hearing"
 
 
+# ── Огрызок апелляционной карточки не считается прочитанной ──────────────────
+
+class TestAppealDegradedCardNotChecked:
+    """Огрызок апел. карточки (<6 таблиц, движение не распозналось — sudrf
+    отдал вкладку «обжалование» вместо «ДЕЛО») не считается прочитанной:
+    last_checked_at не бумпается, parsed не растёт, «Время заседания» не
+    затирается пустотой (33-2042/2026, Урал, 12.08.2026). Ожидаемый огрызок
+    suspended-дела, напротив, ОБЯЗАН бампать last_checked_at — на нём живёт
+    недельный ритм suspended_weekly."""
+
+    _DEGRADED_CARD = {
+        "Последнее событие": "", "Дата события": "",
+        "Статус": "В производстве",
+        "Время заседания": "",
+        "_appellant_raw": "",
+        "_events": [],
+        "_table_count": 4,
+    }
+
+    @staticmethod
+    def _run(monkeypatch, mirror):
+        from court_monitor import runs as cm_runs
+        monkeypatch.setattr(cm_runs, "polite_delay", lambda: None)
+        monkeypatch.setattr(cm_runs, "load_digested_acts", lambda: set())
+        monkeypatch.setattr(cm_runs, "save_digested_acts", lambda acts: None)
+        monkeypatch.setattr(cm_runs, "should_skip_case",
+                            lambda shim, today, **kw: (False, ""))
+        monkeypatch.setattr(cm_runs, "card_breaker_allows", lambda dom: True)
+        monkeypatch.setattr(cm_runs, "fetch_card_checked",
+                            lambda url, **kw: "<html>огрызок</html>")
+        monkeypatch.setattr(
+            cm_runs, "parse_case_card",
+            lambda html, base: dict(TestAppealDegradedCardNotChecked._DEGRADED_CARD),
+        )
+        case = {
+            "Номер дела": "33-2042/2026", "Ссылка": "1|aaaa-bbbb",
+            "Истец": "ПАО Сбербанк", "Ответчик": "Иванов Иван Иванович",
+            "Последнее событие": "", "Статус": "В производстве",
+            "Время заседания": "10:30",
+        }
+        _, changes, stats = cm_runs.update_active_cases(
+            [case], json_appeal_by_num={"33-2042/2026": mirror})
+        return case, changes, stats
+
+    def test_degraded_card_skipped_without_bump(self, monkeypatch):
+        mirror = {"case_number": "33-2042/2026",
+                  "events": [{"date": "01.08.2026",
+                              "text": "Передача дела судье"}]}
+        before = cm_config.METRICS.get("cards_degraded", 0)
+        case, changes, stats = self._run(monkeypatch, mirror)
+        assert stats["parsed"] == 0
+        assert "last_checked_at" not in mirror
+        assert case["Время заседания"] == "10:30"
+        assert changes == []
+        assert cm_config.METRICS["cards_degraded"] == before + 1
+
+    def test_suspended_expected_shell_still_bumps(self, monkeypatch):
+        mirror = {"case_number": "33-2042/2026",
+                  "events": [{"date": "01.08.2026",
+                              "text": "Жалоба оставлена без движения"}]}
+        before = cm_config.METRICS.get("cards_degraded", 0)
+        case, changes, stats = self._run(monkeypatch, mirror)
+        assert stats["parsed"] == 1
+        assert mirror.get("last_checked_at")
+        # Ожидаемый огрызок — не деградация: метрика не растёт.
+        assert cm_config.METRICS["cards_degraded"] == before
+
+
 # ── Апелляционный change: добор апеллянта из зеркала бэкфилла ─────────────────
 
 class TestAppealChangeAppellantFromMirror:
@@ -3100,7 +3204,7 @@ class TestAppealChangeAppellantFromMirror:
                             lambda html, base: card_info)
         monkeypatch.setattr(cm_runs, "card_is_empty_shell", lambda ci: False)
         monkeypatch.setattr(cm_runs, "_warn_if_card_degraded",
-                            lambda ci, num: None)
+                            lambda ci, num, **kw: "")
         case = {
             "Номер дела": "33-100/2026", "Ссылка": "1|aaaa-bbbb",
             "Истец": "ПАО Сбербанк",
@@ -3218,7 +3322,7 @@ class TestMatchHmaoFirstInstance:
 
 from court_monitor import linking as cm_linking  # noqa: E402
 from court_monitor.courts import (  # noqa: E402
-    APPEAL_COURT, match_fi_court_by_short_name,
+    APPEAL_COURT, CourtConfig, match_fi_court_by_short_name,
 )
 from court_monitor.parsing import find_fi_case_link  # noqa: E402
 
@@ -3430,6 +3534,116 @@ class TestBackfillFiLinks:
         assert len(fetched) == 1
         # Второе дело не тронуто — доберётся на следующем прогоне.
         assert cases[1]["first_instance"]["link"] == ""
+
+    def test_material_number_skipped_no_fetch(self, monkeypatch):
+        """«13-…» — материалы исполнения (номер с апел. карточки частной
+        жалобы): раздел g1_case их не содержит, поиск структурно вернёт
+        пустоту — HTTP не тратим (13-228/2026, Урал, 12.08.2026)."""
+        def boom(url, **kw):
+            raise AssertionError("fetch_page не должен вызываться")
+
+        monkeypatch.setattr(cm_linking, "fetch_page", boom)
+        cases = [self._case(num="13-228/2026")]
+        assert cm_linking.backfill_fi_links(cases) == 0
+
+    def test_hybrid_number_searched_bare(self, monkeypatch):
+        """Гибридный номер «2-716/2025 (2-9422/2024;)» ищется bare-формой —
+        поиск полной строкой не находит ничего (зеркало апеллянт-бэкфилла)."""
+        fetched_urls = []
+
+        def fake_fetch(url, **kw):
+            fetched_urls.append(url)
+            return _fi_number_search_html("2-716/2025 (2-9422/2024;)")
+
+        monkeypatch.setattr(cm_linking, "fetch_page", fake_fetch)
+        cases = [self._case(num="2-716/2025 (2-9422/2024;)")]
+        assert cm_linking.backfill_fi_links(cases) == 1
+        assert "G1_CASE__CASE_NUMBERSS=2-716%2F2025" in fetched_urls[0]
+        assert "9422" not in fetched_urls[0]
+
+    def test_gated_court_skipped_no_fetch(self, monkeypatch):
+        """Капчёвый суд: поиск автоматике недоступен — HTTP и кэп не жжём."""
+        gated = CourtConfig(
+            "Академический районный суд", "akademichesky--svd.sudrf.ru",
+            1540005, "first_instance", search_gated=True,
+        )
+        monkeypatch.setattr(
+            cm_linking, "match_fi_court_by_short_name", lambda name: gated
+        )
+
+        def boom(url, **kw):
+            raise AssertionError("fetch_page не должен вызываться")
+
+        monkeypatch.setattr(cm_linking, "fetch_page", boom)
+        cases = [self._case(court="Академический районный суд")]
+        assert cm_linking.backfill_fi_links(cases) == 0
+
+    def test_no_data_page_stamps_without_warning(self, monkeypatch, caplog):
+        """«Данных по запросу не обнаружено» — штатная пустая выдача:
+        INFO (не WARNING) + штамп повторной попытки."""
+        monkeypatch.setattr(
+            cm_linking, "fetch_page",
+            lambda url, **kw: "<html>Данных по запросу не обнаружено</html>",
+        )
+        cases = [self._case()]
+        with caplog.at_level(logging.INFO, logger="court-monitor"):
+            assert cm_linking.backfill_fi_links(cases) == 0
+        fi = cases[0]["first_instance"]
+        assert fi["link_backfill_checked_at"] == date.today().isoformat()
+        warns = [r for r in caplog.records
+                 if r.levelno >= logging.WARNING and "backfill" in r.getMessage()]
+        assert not warns, [r.getMessage() for r in warns]
+
+    def test_not_found_stamps_and_skips_until_retry_window(self, monkeypatch):
+        """Не найдено в выдаче → штамп; внутри окна LINK_BACKFILL_RETRY_DAYS
+        HTTP не тратим, по истечении — пробуем снова."""
+        monkeypatch.setattr(
+            cm_linking, "fetch_page",
+            lambda url, **kw: _fi_number_search_html("2-9999/2025"),
+        )
+        cases = [self._case()]
+        assert cm_linking.backfill_fi_links(cases) == 0
+        fi = cases[0]["first_instance"]
+        assert fi["link_backfill_checked_at"] == date.today().isoformat()
+
+        # Свежий штамп: повторный вызов — без единого fetch.
+        def boom(url, **kw):
+            raise AssertionError("fetch_page не должен вызываться")
+
+        monkeypatch.setattr(cm_linking, "fetch_page", boom)
+        assert cm_linking.backfill_fi_links(cases) == 0
+
+        # Протухший штамп: пробуем снова (и на этот раз находим).
+        fi["link_backfill_checked_at"] = (
+            date.today()
+            - timedelta(days=cm_config.LINK_BACKFILL_RETRY_DAYS + 1)
+        ).isoformat()
+        monkeypatch.setattr(
+            cm_linking, "fetch_page",
+            lambda url, **kw: _fi_number_search_html("2-716/2025"),
+        )
+        assert cm_linking.backfill_fi_links(cases) == 1
+        assert fi["link"] == f"{_BF_CASE_ID}|{_BF_CASE_UID}"
+
+    def test_network_failure_does_not_stamp(self, monkeypatch):
+        """Сетевой сбой — не «пустая выдача»: штампа нет, ретрай следующим
+        прогоном."""
+        monkeypatch.setattr(cm_linking, "fetch_page", lambda url, **kw: "")
+        cases = [self._case()]
+        assert cm_linking.backfill_fi_links(cases) == 0
+        assert "link_backfill_checked_at" not in cases[0]["first_instance"]
+
+    def test_outage_page_does_not_stamp(self, monkeypatch):
+        """Заглушка аутейджа (HTTP 200 без таблиц, класс 20.07.2026) — сбой
+        инфраструктуры, а не «дела нет»: недельный штамп не ставится, иначе
+        однодневный аутейдж откладывал бы дослинк у всей очереди."""
+        outage = ("<html>Информация временно недоступна. "
+                  "Приносим свои извинения. "
+                  "Обратитесь непосредственно в суд.</html>")
+        monkeypatch.setattr(cm_linking, "fetch_page", lambda url, **kw: outage)
+        cases = [self._case()]
+        assert cm_linking.backfill_fi_links(cases) == 0
+        assert "link_backfill_checked_at" not in cases[0]["first_instance"]
 
 
 # ── classify_appellant_role: слово-роль vs имя ──────────────────────────────
