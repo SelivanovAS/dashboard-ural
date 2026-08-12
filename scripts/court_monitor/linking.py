@@ -28,7 +28,8 @@ from court_monitor.lifecycle import (
 from court_monitor.netutil import fetch_page, polite_delay
 from court_monitor.parsing import (
     parse_cassation_card, classify_cassation_outcome, cassation_remanded_to,
-    find_fi_case_link, parties_from_participants,
+    detect_captcha_challenge, find_fi_case_link, is_no_data_page,
+    looks_like_outage_page, parties_from_participants,
 )
 from court_monitor.storage import (
     load_cassation_acts, save_cassation_acts, _cassation_act_key,
@@ -298,6 +299,14 @@ def relink_awaiting_relink_first_instance(
     return relinked
 
 
+# Номенклатура, по которой целевой поиск гражданского раздела (g1_case,
+# delo_id 1-й инст.) в принципе может найти дело: иски «2-…» (включая
+# постоянные присутствия «2-2-…»), отказы в принятии «9-…», материалы до
+# принятия «М-…». Прочие индексы («13-…» — материалы исполнения и т.п.)
+# живут в других разделах sud_delo с другими delo_id/delo_table.
+_FI_CIVIL_NUM_RX = re.compile(r"^(?:2|9|М)-", re.IGNORECASE)
+
+
 def backfill_fi_links(cases: list[dict], max_per_run: int = 60) -> int:
     """Достроить `first_instance.link`/`court_domain` целевым поиском по номеру.
 
@@ -322,24 +331,59 @@ def backfill_fi_links(cases: list[dict], max_per_run: int = 60) -> int:
     max_per_run — кэп запросов на прогон (защита от лавины на первом прогоне
     с накопленным долгом ~55 дел); хвост доберётся на следующих прогонах.
 
+    Зеркало — `backfill_appeal_appellants` (runs.py, шаг 1): bare-номер,
+    пропуск капчёвых судов, is_no_data_page — правки синхронизировать.
+    Отличие: тут есть штамп повторной попытки `fi.link_backfill_checked_at`
+    (config.LINK_BACKFILL_RETRY_DAYS) — ссылка может появиться в выдаче
+    позже, но долбить суд каждый прогон нельзя (13-228/2026 жёг HTTP +
+    WARNING ежедневно).
+
     Возвращает число дел, которым достроили ссылку.
     """
     filled = 0
     attempted = 0
+    today = date.today()
     for case in cases:
         if not should_parse_fi_card(case):
             continue
         fi = case.get("first_instance")
         if not isinstance(fi, dict):
             continue
-        num = (fi.get("case_number") or "").strip()
+        # Bare-форма обязательна: у дел «с апелляции» номер бывает гибридным
+        # «2-193/2026 (2-1133/2025;)» — поиск полной строкой не найдёт ничего.
+        num = _bare_case_number((fi.get("case_number") or "").strip())
         if not num or (fi.get("link") or "").strip():
             continue
+        if not _FI_CIVIL_NUM_RX.match(num):
+            # Не гражданская номенклатура 1-й инст. (например «13-…» —
+            # материалы исполнения с апел. карточки частной жалобы): раздел
+            # g1_case такого номера не содержит, поиск структурно вернёт
+            # пустоту — HTTP не тратим (13-228/2026, Урал, 12.08.2026).
+            log.debug(
+                f"  backfill_fi_links: {num} — номер вне гражданской "
+                f"номенклатуры (не 2-/9-/М-), поиск бесполезен, пропуск"
+            )
+            continue
+        checked_raw = (fi.get("link_backfill_checked_at") or "").strip()
+        if checked_raw:
+            checked = _parse_iso_date(checked_raw)
+            if checked and (
+                (today - checked.date()).days < config.LINK_BACKFILL_RETRY_DAYS
+            ):
+                continue
         court = match_fi_court_by_short_name(fi.get("court") or "")
         if court is None:
             log.debug(
                 f"  backfill_fi_links: {num} — суд «{fi.get('court', '')}» "
                 f"не из реестра 1-й инст., пропуск"
+            )
+            continue
+        if court.search_gated:
+            # Поиск капчёвого суда автоматике недоступен — HTTP не тратим и
+            # кэп не жжём (на Урале 54 таких суда; зеркало апеллянт-бэкфилла).
+            log.debug(
+                f"  backfill_fi_links: {num} — поиск {court.name} за капчей, "
+                f"пропуск"
             )
             continue
         if attempted >= max_per_run:
@@ -352,17 +396,38 @@ def backfill_fi_links(cases: list[dict], max_per_run: int = 60) -> int:
         polite_delay()
         html = fetch_page(court.search_by_number_url(num), context=f"{num} ({court.name})")
         if not html:
+            # Сетевой сбой: штамп не ставим, ретрай следующим прогоном.
             log.warning(
                 f"  backfill_fi_links: {num} ({court.name}) — поиск по номеру "
                 f"не загрузился"
             )
             continue
+        if looks_like_outage_page(html) or detect_captcha_challenge(html):
+            # Заглушка недоступности (HTTP 200 «Информация временно
+            # недоступна», аутейдж класса 20.07.2026) или проверочный код —
+            # сбой инфраструктуры, а не «дела нет»: штамп не ставим, как и
+            # при сетевом сбое, иначе однодневный аутейдж откладывал бы
+            # дослинк на LINK_BACKFILL_RETRY_DAYS у всей очереди.
+            log.warning(
+                f"  backfill_fi_links: {num} ({court.name}) — поиск пришёл "
+                f"заглушкой/кодом, ретрай следующим прогоном"
+            )
+            continue
+        if is_no_data_page(html):
+            log.info(
+                f"  backfill_fi_links: {num} — в выдаче {court.name} нет "
+                f"данных, повтор через {config.LINK_BACKFILL_RETRY_DAYS} дн."
+            )
+            fi["link_backfill_checked_at"] = today.isoformat()
+            continue
         link = find_fi_case_link(html, num)
         if not link:
             log.warning(
                 f"  backfill_fi_links: {num} ({court.name}) — дело не найдено "
-                f"в выдаче поиска по номеру, ссылка не достроена"
+                f"в выдаче поиска по номеру, ссылка не достроена "
+                f"(повтор через {config.LINK_BACKFILL_RETRY_DAYS} дн.)"
             )
+            fi["link_backfill_checked_at"] = today.isoformat()
             continue
         fi["link"] = link
         fi["court_domain"] = court.domain
@@ -643,10 +708,31 @@ def link_cassation_cases(
     # проставил «Номер дела в первой инстанции»). Закрывает класс discovery-
     # дублей вида `2-278/2025` ↔ `33-2082/2026`.
     uid_index: dict[str, int] = {}
+    uid_prio: dict[str, int] = {}
+
+    def _uid_priority(c: dict) -> int:
+        """Приоритет записи как якоря матча по УИД (меньше — лучше).
+
+        УИД принадлежит делу 1-й инст., а апел. производств (33-…) у него
+        может быть несколько (основная жалоба + частная) — «первая по файлу»
+        через setdefault выбирала якорь произвольно: 8Г-11947/2026 прицепился
+        к записи частной жалобы 33-4383/2026 вместо ждавшей кассацию
+        33-1458/2026 (12.08.2026). Новая касс. жалоба почти наверняка
+        относится к записи, ЖДУЩЕЙ кассацию; запись с уже заполненным
+        8Г-номером матчится первичным cass_index, и новый 8Г того же УИД —
+        про соседа. При равном приоритете побеждает первая по файлу
+        (детерминизм прежнего поведения)."""
+        if c.get("current_stage") in ("cassation_pending", "cassation_watch"):
+            return 0
+        cass = c.get("cassation") or {}
+        if not (cass.get("case_number") or "").strip():
+            return 1
+        return 2
 
     def _index_case(
         c: dict, i: int,
         fi_idx: dict[str, int], cs_idx: dict[str, int], u_idx: dict[str, int],
+        u_prio: dict[str, int],
     ) -> None:
         _put_idx(fi_idx, c.get("id", ""), i)
         fi = c.get("first_instance") or {}
@@ -668,11 +754,15 @@ def link_cassation_cases(
             cass.get("judicial_uid"),
         ):
             uid = (uid or "").strip()
-            if uid:
-                u_idx.setdefault(uid, i)
+            if not uid:
+                continue
+            p = _uid_priority(c)
+            if uid not in u_idx or p < u_prio.get(uid, 99):
+                u_idx[uid] = i
+                u_prio[uid] = p
 
     for i, c in enumerate(cases):
-        _index_case(c, i, fi_index, cass_index, uid_index)
+        _index_case(c, i, fi_index, cass_index, uid_index, uid_prio)
 
     # Параллельные индексы горячего архива (если передан): касс. жалоба на
     # дело, уже ушедшее в архив (например, из cassation_watch по 120-дневному
@@ -680,9 +770,11 @@ def link_cassation_cases(
     arch_fi_index: dict[str, int] = {}
     arch_cass_index: dict[str, int] = {}
     arch_uid_index: dict[str, int] = {}
+    arch_uid_prio: dict[str, int] = {}
     if archived_cases:
         for i, c in enumerate(archived_cases):
-            _index_case(c, i, arch_fi_index, arch_cass_index, arch_uid_index)
+            _index_case(c, i, arch_fi_index, arch_cass_index,
+                        arch_uid_index, arch_uid_prio)
     resurrected: set[int] = set()  # позиции archived_cases, изъятые в активные
 
     # Дедуп определений (.cassation_acts): повторный new_act по тому же
@@ -750,7 +842,8 @@ def link_cassation_cases(
                 idx = len(cases) - 1
                 # Регистрируем ключи в активных индексах: повторная находка
                 # по этому делу в том же прогоне сматчится уже с активным.
-                _index_case(arch_case, idx, fi_index, cass_index, uid_index)
+                _index_case(arch_case, idx, fi_index, cass_index,
+                            uid_index, uid_prio)
                 log.info(
                     f"  7kas: {fi_num} восстановлено из архива "
                     f"(стадия была {arch_case.get('current_stage') or '—'})"
