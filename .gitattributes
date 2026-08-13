@@ -6,25 +6,24 @@ manifest.json merge=ours
 cloudflare-worker/wrangler.toml merge=ours
 data/** merge=ours
 
-# ── Трек «Иски банка» на территории не ведётся (решение 26.07.2026) ──
-# Код трека общий и остаётся в форке (BANK_TRACK, split_bank_track, тесты),
-# но он инертен: без data/cases_bank.json прогон его не грузит и файл не
-# создаёт. Из форка удалены ХМАО-шные данные и пилотные workflow'ы:
-#   data/cases_bank*.json, data/bank_parse_report.json,
-#   data/.bank_intake_seen.json,
-#   ops/bank_registry/**, ops/writ_probe/**,
-#   .github/workflows/{import_bank_registry,collect_bank_claims,probe_writ_section}.yml
-# Два последних били по судам ХМАО и срабатывали на push — то есть на самой
-# синхронизации с эталоном.
+# ── Трек «Иски банка» на Урале ВЕДЁТСЯ (разгон с 13.08.2026) ──
+# Данные трека — СВОИ (создаёт первый боевой авто-подхват / дамповый импорт /
+# точечное добавление); правило data/** merge=ours бережёт их при merge.
+# Из форка по-прежнему удалены ХМАО-шные данные и один пилотный workflow:
+#   ops/bank_registry/** (свой создаст сборщик; ХМАО-шный registry.csv
+#   тянет дела Сургута), ops/writ_probe/**,
+#   .github/workflows/{import_bank_registry,probe_writ_section}.yml
 # ⚠ При merge из эталона git даст конфликт modify/delete по этим путям.
-# Решение — `git rm` (не «взять версию эталона»), если территория не завела
-# трек сама. Если заводит — нужен свой ops/bank_registry/registry.csv,
-# ХМАО-шный тянет дела Сургута.
+# Решение — `git rm` (не «взять версию эталона»).
+# collect_bank_claims.yml с 13.08.2026 ВОССТАНОВЛЕН (добор ЯНАО): его
+# push-триггер запинен на эталон (github.repository), REGION идёт из vars —
+# инцидент 26.07.2026 «сбор судов ХМАО на самой синхронизации» невозможен;
+# при конфликте брать версию ЭТАЛОНА.
 # ⚠ НОВЫЕ файлы данных трека правило `data/** merge=ours` НЕ ловит: своей
 # версии у форка нет, merge берёт эталонную молча, без конфликта. Так
 # 30.07.2026 в форк заезжал data/bank_parse_report.json (163 дела Сургута) —
 # админка Урала показала бы карточку «Парсинг исков банка» с чужими делами.
-# После каждого merge из эталона: `git diff --cached --diff-filter=A` и
-# удалять новые data/*bank*. Так 03.08.2026 приезжал негативный кэш
-# авто-подхвата data/.bank_intake_seen.json (170+ дел 14 судов ХМАО) —
-# после первого `git rm` путь уже даёт громкий конфликт modify/delete.
+# После каждого merge из эталона: `git diff --cached --diff-filter=A` —
+# ХМАО-шные data/*bank* удалять git rm, ПОКА свой файл не создан (дальше
+# data/** merge=ours держит версию форка сам). Так 03.08.2026 приезжал
+# негативный кэш data/.bank_intake_seen.json (170+ дел 14 судов ХМАО).
