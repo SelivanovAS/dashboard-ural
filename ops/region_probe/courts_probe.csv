@@ -55,3 +55,9 @@ fi;Чкаловский районный суд г. Екатеринбурга;h
 fi;Шалинский районный суд;https://shalinsky--svd.sudrf.ru/modules.php?name=sud_delo
 # Вариант домена из списка юриста (проверка опечатки cvd/svd):
 fi;Кировградский городской суд (вариант cvd);https://kirovgradsky--cvd.sudrf.ru/modules.php?name=sud_delo
+
+# ЯНАО, найден 14.08.2026 сверкой с перечнем ГАС «Правосудие» (court_subj=89):
+# у портала 13 судов округа, в конфиге региона было 12 — Приуральский не был
+# заведён вовсе. Проба проверит delo_id и наличие капчи, после чего суд
+# добавляется в regions/sverdlovsk_yanao.py.
+fi;Приуральский районный суд;https://priuralsky--ynao.sudrf.ru/modules.php?name=sud_delo
