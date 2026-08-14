@@ -496,6 +496,54 @@ class TestBankTrackArchive:
         case.pop("track")
         assert self._archived(case) is True
 
+    # ── Процессуальное завершение со статусом «Решено» (разгон 14.08.2026) ──
+    # Карточка отдаёт «Решено» с терминальным «Результатом» — до фикса такие
+    # дела уходили в ветку «Решено без ИЛ» и 180 дней ждали лист, которого не
+    # будет. Кейсы: 9-125/2026 (Пуровский, отказ в принятии), 9-31/2026
+    # (Берёзовский, возврат), 2-1588/2026 и 2-8088/2026 (передача по
+    # подсудности).
+
+    REFUSAL_RESULT = ("ОТКАЗАНО в принятии заявленияЗАЯВЛЕНИЕ НЕ ПОДЛЕЖИТ "
+                      "РАССМОТРЕНИЮ и разрешению в порядке гражданского "
+                      "судопроизводства")
+
+    def test_refusal_to_accept_archived_after_30_days(self):
+        case = _track_case(status="Решено", result=self.REFUSAL_RESULT,
+                           event_date=self._dmy(56), hearing_date="")
+        assert self._archived(case) is True
+
+    def test_refusal_to_accept_kept_within_30_days(self):
+        """Окно на частную жалобу — дело живо."""
+        case = _track_case(status="Решено", result=self.REFUSAL_RESULT,
+                           event_date=self._dmy(10), hearing_date="")
+        assert self._archived(case) is False
+
+    def test_refusal_anchor_falls_back_to_event_date(self):
+        """У такой карточки нет ни решения, ни заседания, ни мотивировки —
+        якорем работает последний фолбэк event_date. Без него дело осталось
+        бы активным навсегда (`bool(anchor)` = False)."""
+        fi = _track_case(status="Решено", result=self.REFUSAL_RESULT,
+                         event_date="", hearing_date="")["first_instance"]
+        assert lifecycle._is_bank_track_archived(fi, datetime.now()) is False
+        fi["event_date"] = self._dmy(56)
+        assert lifecycle._is_bank_track_archived(fi, datetime.now()) is True
+
+    def test_transfer_by_jurisdiction_not_waiting_for_writ(self):
+        case = _track_case(status="Решено",
+                           result="Передано по подсудности, подведомственности",
+                           event_date=self._dmy(56), hearing_date="")
+        assert lifecycle.bank_writ_expected(case["first_instance"]) is False
+        assert self._archived(case) is True
+
+    def test_returned_with_decided_status_archived(self):
+        """Кейс 9-31/2026: возврат, но статус карточки «Решено» — ветка
+        «Возвращено» его не ловит, ловит ветка «листа не будет»."""
+        case = _track_case(
+            status="Решено",
+            result="Заявление ВОЗВРАЩЕНО заявителюНЕВЫПОЛНЕНИЕ УКАЗАНИЙ судьи",
+            event_date=self._dmy(56), hearing_date="")
+        assert self._archived(case) is True
+
 
 # ── Гейт приёма: дело, уже отработавшее свой цикл ────────────────────────────
 
@@ -541,6 +589,28 @@ class TestEntryIsSpentGate:
     def test_pending_case_taken(self):
         assert bank_intake.entry_is_spent(
             _track_case(status="В производстве")) is False
+
+    def test_old_refusal_to_accept_is_spent(self):
+        """Побочный эффект фикса 14.08.2026: старый отказ в принятии больше
+        не заводится — раньше он проходил приём и полгода качался каждую
+        неделю в ожидании листа, которого не будет. Отказ вечный
+        (`already_spent` в PERMANENT_REJECTIONS), карточка не перекачивается.
+        """
+        entry = _track_case(
+            status="Решено", hearing_date="", event_date=self._dmy(56),
+            result="ОТКАЗАНО в принятии заявленияЗАЯВЛЕНИЕ НЕ ПОДЛЕЖИТ "
+                   "РАССМОТРЕНИЮ",
+        )
+        assert bank_intake.entry_is_spent(entry) is True
+
+    def test_fresh_refusal_to_accept_taken(self):
+        """Свежий отказ в принятии берём — окно на частную жалобу открыто."""
+        entry = _track_case(
+            status="Решено", hearing_date="", event_date=self._dmy(10),
+            result="ОТКАЗАНО в принятии заявленияЗАЯВЛЕНИЕ НЕ ПОДЛЕЖИТ "
+                   "РАССМОТРЕНИЮ",
+        )
+        assert bank_intake.entry_is_spent(entry) is False
 
     def test_appeal_flag_never_spent(self):
         """Признак жалобы гасит архивные окна первой же веткой — авто-подхват
@@ -725,6 +795,29 @@ class TestSplitBankTrack:
         assert left in rest and ordinary in rest
         assert "track" not in left
         assert left["track_origin"] == "plaintiff_light"
+
+    def test_refusal_stamps_writ_expected_false_and_drops_est(self):
+        """Отказ в принятии: фронт получает готовый штамп «листа не будет».
+
+        Без штампа дело попадает в KPI и чип «Ждут ИЛ» (`awaitsWrit` в app.js
+        читает только его), а расчётная дата вступления в силу рисовала бы
+        строку «Вступило в силу (расч.)» там, где исполнять нечего.
+        Разовая миграция данных не нужна — штамп пересчитывается каждым
+        прогоном, здесь это и проверяется: поле снимается с записи, где оно
+        осталось от прошлых прогонов.
+        """
+        from court_monitor.runs import split_bank_track
+        case = _track_case(
+            status="Решено", hearing_date="", event_date=self._dmy(10),
+            result="ОТКАЗАНО в принятии заявленияЗАЯВЛЕНИЕ НЕ ПОДЛЕЖИТ "
+                   "РАССМОТРЕНИЮ",
+            legal_force_est="2026-09-18",  # штамп прошлых прогонов
+        )
+        _, bank_active, _, _ = split_bank_track([case])
+        assert bank_active == [case]
+        fi = case["first_instance"]
+        assert fi["writ_expected"] is False
+        assert "legal_force_est" not in fi
 
     def test_gate_follows_data_not_load_counter(self):
         """Гейт раскладки смотрит на дела, а не на «сколько загрузилось из
@@ -941,11 +1034,12 @@ class TestBankArchiveReactivation:
 
 # ── Дайджест: секция «Иски банка» ────────────────────────────────────────────
 
-def _bank_change(types: list[str], details: dict | None = None) -> dict:
+def _bank_change(types: list[str], details: dict | None = None,
+                 case: str = "2-100/2026") -> dict:
     d = {"link": "111|aaaa-1111", "court_domain": "surggor--hmao.sudrf.ru"}
     d.update(details or {})
     return {
-        "case": "2-100/2026",
+        "case": case,
         "court": "Сургутский городской суд",
         "plaintiff": "ПАО Сбербанк",
         "defendant": "Иванов Иван Иванович",
@@ -1370,6 +1464,113 @@ class TestBankDigestSection:
         assert "1 дело с событиями по искам банка" in html
 
 
+class TestBankIntakeDigestFold:
+    """Свёртка «заведено N новых исков банка» (разгон Урала 14.08.2026).
+
+    Первый боевой прогон авто-подхвата завёл 116 исков разом, и секция стала
+    стеной одинаковых строк «взят на мониторинг» (HTML 60 КБ): решения, ИЛ и
+    заседания в ней утонули. Порог — BANK_INTAKE_DIGEST_FOLD (25), условие
+    «больше порога».
+    """
+
+    @staticmethod
+    def _intake(n: int) -> list[dict]:
+        return [_bank_change(["fi_bank_claim_registered"],
+                             case=f"2-{1000 + i}/2026") for i in range(n)]
+
+    def test_at_threshold_rendered_per_case(self):
+        """Ровно порог — ещё подельно (условие «больше 25»)."""
+        html = _digest(self._intake(25))
+        assert "ИСКИ БАНКА (25)" in html
+        assert "2-1000/2026" in html
+        assert "заведено" not in html
+
+    def test_above_threshold_folded(self):
+        html = _digest(self._intake(26))
+        assert "заведено 26 новых исков банка" in html
+        assert "2-1000/2026" not in html
+        assert "2-1025/2026" not in html
+        # Все дела свёрнуты — заголовок без счётчика.
+        assert "ИСКИ БАНКА:" in html and "ИСКИ БАНКА (" not in html
+
+    def test_mixed_run_keeps_real_events(self):
+        """Настоящие события печатаются подробно и только они в счётчике."""
+        html = _digest(self._intake(30) + [
+            _bank_change(["fi_writ_issued"], {"writs": [
+                {"issue_date": "26.06.2026", "status": "Выдан"}]},
+                case="2-500/2026"),
+            _bank_change(["fi_resolved"], {"result": "Иск УДОВЛЕТВОРЕН"},
+                         case="2-501/2026"),
+        ])
+        assert "ИСКИ БАНКА (2)" in html
+        assert "2-500/2026" in html and "2-501/2026" in html
+        assert html.count("взят на мониторинг") == 0
+        assert "заведено 30 новых исков банка" in html
+
+    def test_case_with_registration_and_event_not_folded(self):
+        """Заведено И получило решение тем же прогоном — подробно."""
+        html = _digest(self._intake(30) + [
+            _bank_change(["fi_bank_claim_registered", "fi_resolved"],
+                         {"result": "Иск УДОВЛЕТВОРЕН"}, case="2-777/2026"),
+        ])
+        assert "ИСКИ БАНКА (1)" in html
+        assert "2-777/2026" in html
+
+    def test_left_track_registration_kept_detailed(self):
+        """Дело, тем же прогоном уехавшее в общий трек, — подробно: это
+        единственный сигнал, что искать его надо уже не в лёгком треке."""
+        html = _digest(self._intake(30) + [
+            _bank_change(["fi_bank_claim_registered"], {"left_track": True},
+                         case="2-888/2026"),
+        ])
+        assert "ИСКИ БАНКА (1)" in html
+        assert "2-888/2026" in html
+        assert "подана жалоба, дело в общем треке" in html
+
+    def test_fold_off_by_zero(self, monkeypatch):
+        monkeypatch.setattr(config, "BANK_INTAKE_DIGEST_FOLD", 0)
+        html = _digest(self._intake(200))
+        assert "ИСКИ БАНКА (200)" in html
+        assert "заведено" not in html
+
+    def test_summary_splits_counts(self):
+        html = _digest(self._intake(30) + [
+            _bank_change(["fi_resolved"], {"result": "Иск УДОВЛЕТВОРЕН"},
+                         case="2-501/2026"),
+        ])
+        assert "1 дело с событиями по искам банка" in html
+        assert "30 новых исков банка заведено" in html
+
+    def test_summary_unchanged_below_threshold(self):
+        """Регресс формата: без свёртки сводка прежняя."""
+        html = _digest([_bank_change(["fi_bank_claim_registered"])])
+        assert "1 дело с событиями по искам банка" in html
+        assert "заведено" not in html
+
+    def test_folded_line_has_no_case_number(self):
+        """Иначе её посчитает _check_section_counters — счётчик разойдётся."""
+        from court_monitor.digest.postprocess import _line_has_case_number
+        from court_monitor.digest.template import _bank_intake_fold_line
+        line = _bank_intake_fold_line(self._intake(30))
+        assert _line_has_case_number(line) is False
+
+    def test_folded_line_is_not_a_header(self):
+        """Заголовком её принимать нельзя: машина состояний секций оборвала бы
+        счёт соседней секции (инцидент 12.08.2026 с наследованием режима)."""
+        from court_monitor.digest.postprocess import _DIGEST_HEADER_RE
+        from court_monitor.digest.template import _bank_intake_fold_line
+        line = _bank_intake_fold_line(self._intake(30))
+        assert _DIGEST_HEADER_RE.match(line) is None
+
+    def test_folded_line_counts_courts(self):
+        """На разгоне юрист хочет видеть охват — хвост «в N судах»."""
+        from court_monitor.digest.template import _bank_intake_fold_line
+        changes = self._intake(30)
+        for i, ch in enumerate(changes):
+            ch["court"] = f"Суд №{i % 12}"
+        assert "в 12 судах" in _bank_intake_fold_line(changes)
+
+
 class TestBankRoutineFilter:
     def test_routine_dropped_substance_kept(self):
         from court_monitor.lifecycle import filter_bank_routine_events
@@ -1470,6 +1671,7 @@ class TestBankIntakeCapsWiring:
         "BANK_INTAKE_MAX_PER_RUN": "30",
         "BANK_INTAKE_MAX_CARDS_PER_COURT": "10",
         "BANK_INTAKE_ALERT_ADDED": "50",
+        "BANK_INTAKE_DIGEST_FOLD": "25",
     }
 
     @staticmethod
@@ -1504,6 +1706,31 @@ class TestBankIntakeCapsWiring:
             os.environ.pop("BANK_INTAKE_ALERT_ADDED", None)
             importlib.reload(config)
         assert config.BANK_INTAKE_ALERT_ADDED == 50
+
+    def test_fold_threshold_reads_env(self):
+        import importlib
+        os.environ["BANK_INTAKE_DIGEST_FOLD"] = "0"
+        try:
+            importlib.reload(config)
+            assert config.BANK_INTAKE_DIGEST_FOLD == 0
+        finally:
+            os.environ.pop("BANK_INTAKE_DIGEST_FOLD", None)
+            importlib.reload(config)
+        assert config.BANK_INTAKE_DIGEST_FOLD == 25
+
+    def test_fold_forwarded_to_replay_workflows(self):
+        """Порог свёртки обязан быть и в replay-путях: иначе тестовый или
+        резервный дайджест разойдётся с боевым кроном."""
+        import re
+        root = os.path.dirname(SCRIPTS_DIR)
+        for name in ("test_digest.yml", "replay_on_push.yml"):
+            path = os.path.join(root, ".github", "workflows", name)
+            with open(path, encoding="utf-8") as f:
+                yml = f.read()
+            m = re.search(r"^\s*BANK_INTAKE_DIGEST_FOLD:\s*(.+)$", yml, re.M)
+            assert m, f"{name} не прокидывает BANK_INTAKE_DIGEST_FOLD"
+            assert "vars.BANK_INTAKE_DIGEST_FOLD" in m.group(1)
+            assert re.search(r"\|\|\s*'25'", m.group(1))
 
 
 # ── Особый порядок отмены заочного решения (ст. 237-243 ГПК) ────────────────
@@ -2285,6 +2512,17 @@ class TestBankCalendarEvents:
     def test_denied_gate(self, monkeypatch):
         """В иске отказано — листа не будет (bank_writ_expected)."""
         case = self._case(result="В удовлетворении иска ОТКАЗАНО")
+        assert self._run([case], monkeypatch) == (0, [])
+
+    def test_refusal_to_accept_gate(self, monkeypatch):
+        """Отказ в принятии — тот же гейт (разгон 14.08.2026, 9-125/2026).
+
+        До фикса такое дело числилось ждущим ИЛ, и календарный проход слал бы
+        по нему «✅ решение вступило в силу» и «⚠️ ИЛ не выдан N дн.» —
+        события про лист, которого не будет.
+        """
+        case = self._case(result="ОТКАЗАНО в принятии заявленияЗАЯВЛЕНИЕ НЕ "
+                                 "ПОДЛЕЖИТ РАССМОТРЕНИЮ")
         assert self._run([case], monkeypatch) == (0, [])
 
     def test_enforcement_writ_gate(self, monkeypatch):
