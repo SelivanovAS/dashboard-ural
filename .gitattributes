@@ -5,6 +5,11 @@ region_front.js merge=ours
 manifest.json merge=ours
 cloudflare-worker/wrangler.toml merge=ours
 data/** merge=ours
+# Отчёты проб — тоже СВОИ: каждая территория пробует свои суды, и версия
+# эталона (ХМАО) в форке — дезинформация. Без правила merge даёт конфликт
+# add/add при каждой синхронизации после пробы.
+ops/court_probe/report.txt merge=ours
+ops/region_probe/** merge=ours
 
 # ── Трек «Иски банка» на Урале ВЕДЁТСЯ (разгон с 13.08.2026) ──
 # Данные трека — СВОИ (создаёт первый боевой авто-подхват / дамповый импорт /
