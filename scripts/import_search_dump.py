@@ -360,6 +360,11 @@ def _fetch_main_card(r: dict, domain: str, bank_state: dict,
     # Заглушка sudrf (HTTP 200, ноль таблиц) карточкой не считается — иначе
     # запись получит штамп «проверено» и не будет перечитана до заседания.
     if card_is_empty_shell(card_info):
+        # Диагноз этого же запроса: fetch прошёл (kind="ok"), но карточки в
+        # ответе нет. Без уточнения fetch_fail_reason_ru() промолчит, причина
+        # не накопится, и админка подставит ложное «суд не ответил» (ревью
+        # Fable 16.08.2026 — класс empty_shell был недостижим).
+        config.FETCH_DIAG["kind"] = "empty_shell"
         return None, "failed"
     return card_info, ""
 
@@ -368,21 +373,42 @@ def _note_card_failure(bank_state: dict) -> str:
     """Записать причину только что провалившегося запроса и вернуть её текст.
 
     Читает `config.FETCH_DIAG` СРАЗУ после отказа (следующий запрос затрёт) и
-    копит причины в `bank_state`: сводка импорта покажет самую частую. Пустая
-    строка — класс неизвестен, вызыватель оставит прежнюю формулировку.
+    копит в `bank_state` ПАРЫ (класс, текст): сводке нужен не просто самый
+    частый текст, а самая частая НАСТОЯЩАЯ причина — см. `_top_card_fail_reason`.
+    Пустая строка — класс неизвестен, вызыватель оставит прежнюю формулировку.
     """
     reason = fetch_fail_reason_ru()
     if reason:
-        bank_state.setdefault("fail_reasons", []).append(reason)
+        kind = str(config.FETCH_DIAG.get("kind", ""))
+        bank_state.setdefault("fail_reasons", []).append((kind, reason))
     return reason
 
 
 def _top_card_fail_reason(bank_state: dict) -> str:
-    """Самая частая причина отказа за импорт — одна строка для сводки."""
+    """Причина отказа за импорт — одна строка для сводки оператору.
+
+    ⚠️ «Суд снят с обхода» (класс breaker) — НАШЕ СЛЕДСТВИЕ, а не причина:
+    предохранитель открывается после `CARD_BREAKER_THRESHOLD`=3 отказов подряд
+    и дальше пропускает карточки БЕЗ запроса. На дампе из 10 истцовых строк это
+    7 «предохранитель» против 3 настоящих — и голое большинство показывало
+    оператору «суд снят с обхода» там, где ответом было «нас блокируют по
+    адресу» (импорт Урала 16.08.2026). Поэтому большинство считаем по
+    причинам С ЗАПРОСОМ, а предохранитель добавляем хвостом: сколько карточек
+    мы не спросили вовсе. Одни лишь пропуски (порог открыт канарейкой поиска
+    ещё до первой карточки) — тогда он и есть весь ответ.
+    """
     reasons = bank_state.get("fail_reasons") or []
     if not reasons:
         return ""
-    return Counter(reasons).most_common(1)[0][0]
+    real = [text for kind, text in reasons if kind != "breaker"]
+    skipped = len(reasons) - len(real)
+    if not real:
+        return Counter(text for _, text in reasons).most_common(1)[0][0]
+    top = Counter(real).most_common(1)[0][0]
+    if skipped:
+        top += f"; ещё {skipped} карточек не запрашивали — суд снят с обхода"
+    # Worker режет строку на 200 символов: длинный хвост съел бы саму причину.
+    return top[:200]
 
 
 def _apply_main_card(fi: dict, r: dict, card_info: dict, now_iso: str) -> None:
@@ -416,6 +442,11 @@ def _card_blind_case(case: dict | None, r: dict) -> dict | None:
     if not r.get("link"):
         return None
     fi = case.get("first_instance") or {}
+    # Пришиваем блок обратно: при отсутствующем/None first_instance «or {}»
+    # даёт НОВЫЙ dict, и дозаполнение ушло бы в никуда — отчёт сказал бы
+    # [REFILLED], а запись осталась пустой (ревью Fable 16.08.2026; сейчас
+    # таких записей ноль, класс латентный).
+    case["first_instance"] = fi
     if fi.get("last_checked_at") or fi.get("intake_card_parse"):
         return None
     if fi.get("events"):
@@ -620,6 +651,11 @@ def import_rows(
             reason = _note_card_failure(bank_state)
             note = (f" ({reason or 'карточка недоступна'} — дозаполнит прогон "
                     "или повторная вставка дампа)")
+        elif why == "capped":
+            # За кэпом карточек дело тоже заводится card-blind — без пометки
+            # хвост большого дампа выглядел бы полноценно заведённым (ревью
+            # Fable 16.08.2026). В card_failed НЕ считаем: запроса не было.
+            note = " (за кэпом карточек — дозаполнит повторная вставка дампа)"
         # Служебный блок: кто и когда завёл дело (история импортов, бейдж
         # «импортировано» на фронте — задел).
         entry["import"] = {"operator": operator, "at": now_iso, "source": "dump"}
