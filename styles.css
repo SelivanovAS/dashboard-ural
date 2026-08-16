@@ -1,9 +1,55 @@
 /* ============================================================
    Мониторинг дел · v2 design system
    Белый фон, сберовский зелёный — только акцент. Плотный B2B-интерфейс.
-   Шрифт: IBM Plex Sans (цифры — основным шрифтом + tabular-nums) + IBM Plex Mono для <code>.
+   Шрифт: IBM Plex Sans (цифры — основным шрифтом + tabular-nums).
    Класс-имена сохранены — app.js рендерит без правок.
    ============================================================ */
+
+/* ---------- 0. Шрифты (свои woff2, с 15.08.2026) ----------
+   До этого IBM Plex Sans тянулся render-blocking `<link>` с Google Fonts:
+   офлайн при непрогретом кэше страница ждала сетевой таймаут ОС (defer-скрипты
+   не исполняются, пока висит стилевой лист) — главный вклад в «белый экран»
+   из жалобы юриста. Файлы вариативные (один woff2 на 400-700, проверено по
+   css2: 4 веса → 1 URL на подмножество), суммарно ~110 КБ, живут в APP_SHELL
+   service worker'а. IBM Plex Mono выброшен: единственным потребителем был
+   `.setup-body code` экрана настройки, который юрист не видит. unicode-range
+   скопированы из ответа css2 — браузер качает только нужные подмножества. */
+/* cyrillic-ext */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('fonts/ibm-plex-sans-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('fonts/ibm-plex-sans-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('fonts/ibm-plex-sans-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('fonts/ibm-plex-sans-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 /* ---------- 1. Base palette ---------- */
 :root {
@@ -106,6 +152,19 @@
   --seg-active-bg:       var(--accent);
   --seg-active-fg:       #fff;
   --seg-active-count-bg: rgba(255, 255, 255, 0.25);
+
+  /* Верхняя навигация разделов в духе системного tab bar: общий нейтральный
+     док и отдельная приподнятая поверхность активного пункта. Эти токены не
+     переиспользуют --seg-active-*: фильтры остаются зелёными смысловыми
+     переключателями, а Основные / Иски банка / Мои читаются как навигация. */
+  --scope-nav-bg:              var(--gray-200);
+  --scope-nav-muted-fg:        var(--gray-500);
+  --scope-nav-active-bg:       var(--white);
+  --scope-nav-active-fg:       var(--gray-900);
+  --scope-nav-active-border:   rgba(13, 17, 22, 0.09);
+  --scope-nav-active-shadow:   0 2px 7px rgba(13, 17, 22, 0.10), 0 1px 2px rgba(13, 17, 22, 0.07);
+  --scope-nav-count-bg:        var(--gray-150);
+  --scope-nav-count-fg:        var(--gray-600);
 
   /* «Без движения» — рыжая ветка тёплой оси (не путать с амбер «Отложено»).
      Токенами, потому что цвет обязан иметь тёмный вариант: литералами он
@@ -211,7 +270,8 @@
   --font-body: var(--font-sans);
   /* Цифры и номера дел рендерим основным шрифтом с tabular-nums (см. body) — --font-mono наследует sans для совместимости */
   --font-mono: var(--font-sans);
-  --font-code: 'IBM Plex Mono', 'SF Mono', Menlo, Consolas, monospace;
+  /* IBM Plex Mono не грузим (см. блок шрифтов вверху) — системный mono-стек */
+  --font-code: 'SF Mono', Menlo, Consolas, monospace;
 
   --fs-2xs: 11px;
   --fs-xs:  12px;
@@ -327,6 +387,17 @@
   --seg-active-bg:       #1e7a34;
   --seg-active-fg:       #eaf7ec;
   --seg-active-count-bg: rgba(255, 255, 255, 0.18);
+
+  /* Тёмный tab bar: активная поверхность чуть светлее общего дока, тень
+     глубже, но без яркой зелёной плашки на всю ширину сегмента. */
+  --scope-nav-bg:              #171b21;
+  --scope-nav-muted-fg:        #9299a4;
+  --scope-nav-active-bg:       #2a3039;
+  --scope-nav-active-fg:       #f2f3f5;
+  --scope-nav-active-border:   rgba(255, 255, 255, 0.09);
+  --scope-nav-active-shadow:   0 3px 10px rgba(0, 0, 0, 0.42), 0 1px 2px rgba(0, 0, 0, 0.35);
+  --scope-nav-count-bg:        rgba(255, 255, 255, 0.09);
+  --scope-nav-count-fg:        #c9cdd4;
 
   /* «Без движения» — рыжий в тон urgency-tomorrow, приглушённой заливкой. */
   --state-suspended-bg:  rgba(249, 115, 22, 0.18);
@@ -525,6 +596,8 @@ body {
 .setup-body ol li:last-child { border-bottom:none; }
 .setup-body ol li::before { content:counter(steps); display:flex; align-items:center; justify-content:center; min-width:26px; height:26px; border-radius:50%; background:var(--accent-bg-soft); color:var(--accent-active); font-weight:var(--fw-bold); font-size:var(--fs-sm); flex-shrink:0; margin-top:1px; }
 .setup-body code { font-family:var(--font-code); font-size:var(--fs-xs); background:var(--bg-3); padding:2px 7px; border-radius:var(--radius-xs); color:var(--fg-1); }
+/* Причина на экране «Нет сохранённых данных» (#nodata-screen) */
+.nodata-reason { margin:0 0 12px; font-size:var(--fs-sm); color:var(--fg-3); }
 .setup-input-group { margin-top:20px; }
 .setup-input-group label { font-weight:var(--fw-semibold); font-size:var(--fs-sm); color:var(--fg-2); display:block; margin-bottom:6px; }
 .setup-input { width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:var(--radius); font-size:var(--fs-md); font-family:var(--font-mono); transition:all 120ms var(--ease-out); background:var(--bg-1); color:var(--fg-1); }
@@ -549,6 +622,12 @@ body {
 .header-actions { display:flex; align-items:center; gap:12px; }
 .header-meta { font-family:var(--font-mono); font-size:var(--fs-xs); color:var(--fg-3); text-align:right; }
 .header-meta b { color:var(--fg-1); font-weight:var(--fw-semibold); }
+/* Метка «данные из офлайн-кэша» — живёт внутри .header-meta перед
+   «Данные от: …», второго механизма штампа не заводим (см. renderMeta).
+   Токены warning-* объявлены в обеих темах. */
+.meta-offline { display:inline-block; padding:1px 7px; margin-right:6px; border-radius:var(--radius-pill);
+                background:var(--warning-bg); color:var(--warning-fg);
+                font-size:var(--fs-2xs); font-weight:var(--fw-semibold); }
 
 .btn-refresh { display:inline-flex; align-items:center; gap:8px; padding:9px 16px; background:var(--bg-1); color:var(--fg-1); border:1px solid var(--border); border-radius:var(--radius); font-size:var(--fs-md); font-weight:var(--fw-semibold); font-family:var(--font-sans); cursor:pointer; transition:all 120ms var(--ease-out); }
 .btn-refresh:hover { background:var(--bg-3); border-color:var(--border-strong); }
@@ -600,10 +679,6 @@ body {
 .cat-bar-track { flex:1; height:6px; background:var(--bg-3); border-radius:3px; overflow:hidden; }
 .cat-bar-fill { height:100%; border-radius:3px; transition:width .5s var(--ease-out); }
 .cat-bar-count { width:28px; text-align:right; font-weight:var(--fw-semibold); color:var(--fg-2); font-family:var(--font-mono); font-size:var(--fs-2xs); }
-
-/* ★-кнопка тулбара живёт только на мобиле (стилизуется в @media max-width:768px).
-   На десктопе её роль играет фильтр-чип и тоггл в шапке дайджеста. */
-.toolbar-mine-btn { display: none; }
 
 /* Upcoming hearings */
 .up-title { display:flex; align-items:center; gap:10px; }
@@ -672,6 +747,7 @@ body {
 .toolbar-row-search { gap:12px; }
 .toolbar-row-segments { width:100%; }
 .toolbar-hidden-selects { display:contents; }
+.toolbar-mine-btn { display:none; }
 /* Старые .toolbar-left/.toolbar-right больше не используются на десктопе,
    но классы могут встретиться в drawer/sheet — оставляем безобидными. */
 .toolbar-left { display:flex; gap:8px; align-items:center; flex:1; flex-wrap:wrap; }
@@ -693,7 +769,7 @@ body {
 /* ========== Chip filters ========== */
 .chip-bar { display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
 .chip-bar-quick { flex:1 1 auto; min-width:0; }                    /* быстрые статус-чипы заполняют остаток ряда после поиска */
-.chip-bar-segments { display:flex; gap:12px; flex-wrap:wrap; align-items:stretch; width:100%; }
+.chip-bar-segments { display:flex; gap:10px 16px; flex-wrap:wrap; align-items:flex-end; width:100%; }
 .chip-bar .chip-divider { width:1px; height:22px; background:var(--border); margin:0 4px; }
 .chip-btn { display:inline-flex; align-items:center; gap:6px; padding:6px 12px; border:1px solid var(--border); border-radius:var(--radius-pill); background:var(--bg-1); color:var(--fg-2); font-size:var(--fs-sm); font-weight:var(--fw-semibold); cursor:pointer; transition:all 120ms var(--ease-out); font-family:var(--font-sans); white-space:nowrap; line-height:1.3; }
 /* Hover — только устройства с курсором: на тач-экранах iOS «залипает» hover
@@ -719,6 +795,8 @@ body {
      - в мобильном bottom-sheet — растягивается на всю ширину листа (.sheet-body .seg-ctrl). */
 .seg-ctrl { display:flex; border:1px solid var(--border); border-radius:var(--radius-pill); overflow:hidden; background:var(--bg-1); }
 .chip-bar-segments .seg-ctrl { flex:0 0 auto; min-width:280px; }
+.filter-group { display:flex; flex-direction:column; gap:4px; min-width:0; }
+.filter-group-label { padding-left:10px; color:var(--fg-4); font-size:var(--fs-2xs); font-weight:var(--fw-semibold); letter-spacing:.04em; text-transform:uppercase; }
 /* inline-flex + gap: счётчик .chip-count не липнет к подписи («Иски банка163»). */
 .seg-btn { flex:1 1 0; display:inline-flex; align-items:center; justify-content:center; gap:6px; padding:6px 12px; border:none; background:transparent; color:var(--fg-2); font-size:var(--fs-sm); font-weight:var(--fw-semibold); cursor:pointer; font-family:var(--font-sans); transition:all 120ms var(--ease-out); white-space:nowrap; text-align:center; }
 /* На активном (заливка --seg-active-bg) серый счётчик тонул — как у .chip-btn.active. */
@@ -737,17 +815,64 @@ body {
 .btn-outline:hover { border-color:var(--border-strong); background:var(--bg-3); }
 .btn-outline svg { width:14px; height:14px; }
 
-/* Table counter */
-/* Переключатель картотек «Основные | Иски банка» (#dataset-switch): свой ряд
-   над счётчиком таблицы, в потоке контента — виден и на мобильном (тулбар
-   там — плавающая капсула внизу). Сегмент — существующие .seg-ctrl/.seg-btn. */
-/* Полоса списка: капсула картотек слева, счётчик справа — одной строкой
-   (раньше это были два ряда, причём справа от капсулы пусто). На телефоне
-   липнет под шапкой, см. .list-bar.is-sticky в мобильном медиа-блоке. */
+/* Table counter + верхний выбор раздела. Три области равноправны и стоят
+   перед поиском: Основные / Иски банка / Мои. */
 .list-bar { display:flex; align-items:center; gap:12px; margin-bottom:10px; }
-.dataset-switch { display:flex; align-items:center; }
+.dataset-switch { display:flex; align-items:center; flex:0 1 520px; min-width:360px; }
 .dataset-switch[hidden] { display:none; }
-.dataset-switch .seg-ctrl { flex:0 0 auto; }
+.dataset-switch .seg-ctrl { flex:1 1 auto; width:100%; }
+/* Верхний переключатель — не группа фильтров, а единая навигационная
+   платформа, как в системных tab bars: без внутренних разделителей, с
+   небольшим inset и отдельной карточкой активного раздела. */
+.scope-switch {
+  gap:3px;
+  padding:3px;
+  overflow:visible;
+  border:0;
+  border-radius:16px;
+  background:var(--scope-nav-bg);
+}
+.scope-switch .seg-btn {
+  min-width:0;
+  min-height:42px;
+  padding:8px 12px;
+  border:1px solid transparent;
+  border-radius:13px;
+  color:var(--scope-nav-muted-fg);
+  font-weight:var(--fw-medium);
+  transition:background 150ms var(--ease-out), color 150ms var(--ease-out),
+             border-color 150ms var(--ease-out), box-shadow 150ms var(--ease-out),
+             transform 120ms var(--ease-out);
+}
+.scope-switch .seg-btn:not(:last-child) { border-right-color:transparent; }
+.scope-switch .seg-btn.active {
+  background:var(--scope-nav-active-bg);
+  color:var(--scope-nav-active-fg);
+  border-color:var(--scope-nav-active-border);
+  box-shadow:var(--scope-nav-active-shadow);
+  font-weight:var(--fw-semibold);
+}
+.scope-switch .seg-btn.active .chip-count {
+  background:var(--scope-nav-count-bg);
+  color:var(--scope-nav-count-fg);
+}
+.scope-nav-icon {
+  width:16px;
+  height:16px;
+  flex:0 0 auto;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.9;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+@media (hover:hover) {
+  .scope-switch .seg-btn:hover:not(:disabled):not(.active) {
+    background:transparent;
+    color:var(--fg-2);
+  }
+}
+.scope-switch .seg-btn:active { transform:translateY(1px); }
 /* min-width:0 — иначе длинный счётчик распирает полосу и выдавливает капсулу. */
 .table-counter { flex:1 1 auto; min-width:0; text-align:right; font-size:var(--fs-sm); color:var(--fg-3); animation:fadeUp .55s var(--ease-out); }
 /* nowrap обязателен: fitCounter подбирает ступень по scrollWidth, а перенос
@@ -1143,9 +1268,8 @@ tr.group-header + tr td { padding-top:14px; }
 .mc-group-header.gh-awaiting .group-dot { background:var(--gray-400); }
 .mc-group-header.gh-decided .group-dot { background:var(--gray-500); }
 .mc-group-header.gh-archive .group-dot { background:var(--gray-300); }
-/* Хвост кросс-поиска: дела соседней картотеки. Зелёная точка — не статус
-   дела, а «другая картотека»; отбивка сверху крупнее, чтобы группа читалась
-   как отдельный блок, а не продолжение своей выдачи. */
+/* Группы глобального поиска из других разделов. Зелёная точка — не статус
+   дела, а граница области данных; отбивка сверху отделяет её от текущей. */
 tr.group-header.cross-group td { padding-top:20px; }
 tr.group-header.cross-group td .group-dot,
 .mc-group-header.gh-cross .group-dot { background:var(--green-500); }
@@ -1159,7 +1283,8 @@ tr.detail-row { display:none; }
 
 .empty-state { text-align:center; padding:60px 20px; color:var(--fg-4); }
 .empty-state svg { width:40px; height:40px; margin-bottom:12px; opacity:.4; }
-.empty-state p { font-size:var(--fs-md); }
+.empty-state p { font-size:var(--fs-md); color:var(--fg-3); }
+.empty-state span { display:block; margin-top:6px; font-size:var(--fs-sm); color:var(--fg-4); }
 
 /* ========== Drawer ========== */
 .drawer-scrim { position:fixed; inset:0; background:rgba(13, 17, 22, 0.32); opacity:0; pointer-events:none; transition:opacity 200ms var(--ease-out); z-index:200; }
@@ -1307,8 +1432,11 @@ tr.detail-row { display:none; }
 .sheet-body { display:flex; flex-wrap:wrap; gap:6px; }
 .sheet-body .chip-btn { font-size:var(--fs-sm); padding:5px 12px; }
 .sheet-body .chip-btn .chip-count { font-size:var(--fs-2xs); padding:1px 6px; }
-.sheet-body .seg-ctrl { flex-basis:100%; margin-top:2px; }
-.sheet-body .seg-btn { font-size:var(--fs-sm); padding:5px 10px; }
+.sheet-body .filter-group { flex-basis:100%; width:100%; gap:5px; margin-top:2px; }
+.sheet-body .filter-group-label { padding-left:8px; }
+.sheet-body .seg-ctrl { width:100%; min-width:0; }
+.sheet-body .seg-btn { min-width:0; font-size:var(--fs-xs); padding:5px 5px; gap:3px; }
+.sheet-body .seg-btn .chip-count { min-width:16px; padding:0 4px; }
 .sheet-body .chip-divider { flex-basis:100%; height:1px; background:var(--divider); margin:2px 0; }
 .sheet-footer { display:flex; gap:10px; padding:10px 20px; background:var(--bg-1); border-top:1px solid var(--border); }
 .sheet-btn-reset, .sheet-btn-done { flex:1; padding:10px 20px; border-radius:var(--radius-pill); font-size:var(--fs-md); font-weight:var(--fw-semibold); cursor:pointer; font-family:var(--font-sans); transition:transform 120ms var(--ease-out), background 120ms var(--ease-out); }
@@ -1317,6 +1445,20 @@ tr.detail-row { display:none; }
 .sheet-btn-done { background:var(--accent); color:#fff; border:1px solid var(--accent); }
 .sheet-btn-reset:active { transform:scale(0.97); }
 .sheet-btn-done:active { background:var(--accent-active); transform:scale(0.97); }
+
+/* На телефонной ширине четыре банковских режима с числовыми бейджами не помещаются
+   в одну строку без обрезания подписей. Две равные строки сохраняют крупные
+   touch-target'ы и цельную форму сегментированного переключателя. */
+@media (max-width:480px) {
+  .sheet-body .filter-group-bank-control .seg-ctrl {
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    border-radius:14px;
+  }
+  .sheet-body .filter-group-bank-control .seg-btn { border-right:0; }
+  .sheet-body .filter-group-bank-control .seg-btn:nth-child(odd) { border-right:1px solid var(--border); }
+  .sheet-body .filter-group-bank-control .seg-btn:nth-child(-n+2) { border-bottom:1px solid var(--border); }
+}
 
 /* ========== Mobile cards ========== */
 .mobile-cards { display:none; }
@@ -1449,10 +1591,9 @@ tr.detail-row { display:none; }
      на телефоне не работал вовсе. Правило дублировало `html, body
      { overflow-x:hidden }` (в начале файла), а реальные переполнения лечат
      overflow-wrap:anywhere у строк выше — поэтому снято 13.08.2026. */
-  /* Полоса списка липнет к самому верху экрана: на телефоне карточки
-     скроллятся страницей, и картотека с счётчиком уезжали из виду. Класс
-     is-sticky ставит renderDatasetSwitch — только вне режима «★ Мои»
-     (решение юриста).
+  /* Полоса разделов липнет к самому верху экрана: на телефоне карточки
+     скроллятся страницей, а Основные / Иски банка / Мои должны оставаться
+     одинаково доступными во всех трёх режимах.
      ⚠️ top:0, а не под шапку: с 14.08.2026 шапка на телефоне статична
      (position:static выше) и уезжает вместе с контентом — липнуть под неё
      нечему. Прежний `top:var(--header-h, 73px)` открыл бы над полосой щель
@@ -1471,10 +1612,21 @@ tr.detail-row { display:none; }
      делами. На совсем узких экранах счётчик скрывается целиком
      (.is-squeezed), поэтому flex-wrap здесь — просто страховка. */
   .list-bar { flex-wrap:wrap; gap:6px 10px; }
-  .list-bar .seg-btn { padding:6px 8px; gap:4px; font-size:var(--fs-md); }
-  /* Числа в сегментах крупнее базовых 10px (решение юриста 14.08.2026):
-     размер картотеки читается с расстояния руки наравне с подписью. */
-  .list-bar .chip-count { padding:1px 6px; height:18px; font-size:var(--fs-xs); }
+  .dataset-switch { flex:0 1 440px; min-width:0; max-width:100%; }
+  /* Плавная шкала 320→390px: на самом узком экране подписи и числа не
+     сталкиваются, на широком телефоне кегль возвращается к комфортным 15px.
+     Сегменты при этом всегда занимают всю ширину капсулы поровну. */
+  .list-bar .seg-btn {
+    padding:6px clamp(3px, calc(7.14vw - 19.85px), 8px);
+    gap:clamp(2px, calc(2.86vw - 7.15px), 4px);
+    font-size:clamp(12px, calc(4.29vw - 1.73px), 15px);
+  }
+  .list-bar .chip-count {
+    min-width:16px;
+    height:clamp(16px, calc(2.86vw + 6.85px), 18px);
+    padding:1px clamp(2px, calc(4.29vw - 11.73px), 5px);
+    font-size:clamp(9px, calc(4.29vw - 4.73px), 12px);
+  }
   /* Мобильное переопределение: на десктопе .up-time-value 16px, на мобиле 15 — экономит ширину карточки. */
   .up-time-value { font-size:var(--fs-md); }
   /* Мобильный «toolbar» — невидимый контейнер, который позиционирует floating-
@@ -1514,7 +1666,7 @@ tr.detail-row { display:none; }
     padding:0 16px;
     min-height:52px;
   }
-  /* Круглые иконки-капсулы рядом с поиском (★ и фильтр) — общий glass-shape. */
+  /* Звезда подписок и фильтры — две одинаковые круглые glass-капсулы. */
   .toolbar-row-search .filters-btn,
   .toolbar-mine-btn {
     width:52px; height:52px; padding:0;
@@ -1535,9 +1687,12 @@ tr.detail-row { display:none; }
     position:absolute; top:-4px; right:-4px;
   }
   .toolbar-mine-btn {
-    display:inline-flex; align-items:center; justify-content:center;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
     flex:0 0 auto;
-    font-size:22px; line-height:1;
+    font-size:22px;
+    line-height:1;
     color:var(--amber-500);
     cursor:pointer;
   }
@@ -1559,7 +1714,9 @@ tr.detail-row { display:none; }
   .search-box { flex:1 1 0; min-width:0; }
   .search-box input { min-width:0; }
   .filters-btn { flex:0 0 auto; }
-  #filter-status, #filter-role, #filter-category { display:none; }
+  #filter-status, #filter-role, #filter-stage, #filter-bank-control,
+  #filter-mine-source, #filter-mine-role, #filter-mine-stage,
+  #filter-category { display:none; }
   .toolbar-right { justify-content:flex-end; }
   .chip-bar { display:none; }
   .filters-btn { display:inline-flex; flex-shrink:0; }
@@ -1709,7 +1866,8 @@ tr.detail-row { display:none; }
     .app-header .theme-toggle,
     .app-header .btn-refresh { background:var(--bg-1); border-color:var(--border); box-shadow:none; }
     .toolbar-row-search .search-box,
-    .toolbar-row-search .filters-btn { background:var(--bg-2); -webkit-backdrop-filter:none; backdrop-filter:none; border:1px solid var(--border-strong); }
+    .toolbar-row-search .filters-btn,
+    .toolbar-mine-btn { background:var(--bg-2); -webkit-backdrop-filter:none; backdrop-filter:none; border:1px solid var(--border-strong); }
   }
 }
 
@@ -2053,6 +2211,7 @@ body.beacon-open { overflow: hidden; }
 .digest-body a:focus-visible,
 .watch-btn:focus-visible,
 .chip-btn:focus-visible,
+.seg-btn:focus-visible,
 .mobile-card:focus-visible,
 .stat-card.clickable:focus-visible,
 .upcoming-item:focus-visible {
