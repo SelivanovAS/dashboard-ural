@@ -51,6 +51,46 @@ from court_monitor.textutil import (
 
 # ── Claude API — генерация дайджеста ─────────────────────────────────────────
 
+# Дельта-списки контекста: копятся при накоплении дня. «cases» сюда НЕ входит
+# осознанно — это СНИМОК картотеки для рендера (lookups), а не дельта: при
+# merge берётся свежий.
+_CTX_DELTA_KEYS = (
+    "new_cases", "changes", "fi_new_cases", "stage_transitions",
+    "fi_changes", "cass_changes", "cass_discovered",
+)
+
+
+def _load_prev_context() -> dict | None:
+    if not os.path.exists(config.LAST_DIGEST_CONTEXT_PATH):
+        return None
+    try:
+        with open(config.LAST_DIGEST_CONTEXT_PATH, "r", encoding="utf-8") as f:
+            prev = json.load(f)
+    except (OSError, ValueError):
+        return None
+    return prev if isinstance(prev, dict) else None
+
+
+def _merge_day_context(prev: dict, payload: dict) -> dict:
+    """Накопление дня + свежая дельта. Дельты попыток дизъюнктны по построению
+    (события уже влиты в данные, флаги «объявлено» поставлены — повторный парс
+    той же карточки изменений не даёт); дедуп по json-идентичности — пояс."""
+    merged = dict(payload)  # свежие totals и снимок cases
+    for key in _CTX_DELTA_KEYS:
+        seen = {
+            json.dumps(x, ensure_ascii=False, sort_keys=True)
+            for x in (prev.get(key) or [])
+        }
+        combined = list(prev.get(key) or [])
+        for x in (payload.get(key) or []):
+            sig = json.dumps(x, ensure_ascii=False, sort_keys=True)
+            if sig not in seen:
+                combined.append(x)
+                seen.add(sig)
+        merged[key] = combined
+    return merged
+
+
 def save_digest_context(
     new_cases: list[dict],
     changes: list[dict],
@@ -65,15 +105,31 @@ def save_digest_context(
     total_active_bank: int = 0,
     cass_changes: list[dict] | None = None,
     cass_discovered: list[dict] | None = None,
-) -> None:
+    will_deliver: bool = False,
+) -> str:
     """Сохранить входные данные дайджеста в LAST_DIGEST_CONTEXT_PATH.
 
-    Файл перезаписывается на каждом прогоне и нужен для режима --replay-last,
-    чтобы прогнать дайджест заново на тех же данных (например, после правки
-    промпта) без повторного парсинга сайтов суда.
+    Нужен для --replay-last (переиграть дайджест без повторного парсинга) и —
+    с 20.08.2026 — как ДНЕВНОЙ НАКОПИТЕЛЬ (решение юриста «один дайджест в
+    день»): неотправленный контекст того же дня не перезаписывается, а
+    ПОПОЛНЯЕТСЯ дельтой попытки. Отправку решает Mac-обёртка выбором сообщения
+    коммита (replay_on_push стреляет только по маркеру «(Mac-парсинг)»), а
+    факт отправки фиксирует `delivered_at`: его ставит либо `will_deliver=True`
+    (облачный прогон — доставляет сам, у него есть TELEGRAM_BOT_TOKEN), либо
+    `cloud_run_ok.py --mark-delivered` перед доставочным коммитом на Mac.
+    После delivered_at контекст дня закрыт — следующий прогон начинает свежий
+    (ручной дневной прогон даст отдельный выпуск, не переотправит утро).
+
+    `issue_key` — стабильный ключ ВЫПУСКА для save_last_digest: живёт с первой
+    попытки накопления, пере-рендер того же контекста замещает свой выпуск на
+    дашборде, а не дописывает второй.
+
+    ⚠️ Пустая дельта НЕ трогает накопление (и файл байт-в-байт): холостой
+    перезапис бампал бы saved_at и плодил коммиты каждые полчаса.
     """
+    saved_at = datetime.now().isoformat(timespec="seconds")
     payload = {
-        "saved_at": datetime.now().isoformat(timespec="seconds"),
+        "saved_at": saved_at,
         "new_cases": new_cases or [],
         "changes": changes or [],
         "cases": cases or [],
@@ -87,6 +143,28 @@ def save_digest_context(
         "cass_changes": cass_changes or [],
         "cass_discovered": cass_discovered or [],
     }
+    issue_key = saved_at
+    today = {
+        datetime.now().date().isoformat(),
+        datetime.utcnow().date().isoformat(),
+    }
+    prev = _load_prev_context()
+    if (
+        prev
+        and str(prev.get("saved_at", ""))[:10] in today
+        and not prev.get("delivered_at")
+    ):
+        if not any(payload[k] for k in _CTX_DELTA_KEYS):
+            log.info("Контекст дайджеста: дельта пуста — накопление дня не тронуто")
+            return str(prev.get("issue_key") or prev.get("saved_at") or saved_at)
+        payload = _merge_day_context(prev, payload)
+        payload["saved_at"] = saved_at
+        issue_key = str(prev.get("issue_key") or prev.get("saved_at") or saved_at)
+        merged_n = sum(len(payload[k]) for k in _CTX_DELTA_KEYS)
+        log.info(f"Контекст дайджеста: дельта влита в накопление дня ({merged_n} записей)")
+    payload["issue_key"] = issue_key
+    if will_deliver:
+        payload["delivered_at"] = saved_at
     try:
         save_json(payload, config.LAST_DIGEST_CONTEXT_PATH)
         log.info(f"Контекст дайджеста сохранён: {config.LAST_DIGEST_CONTEXT_PATH}")
@@ -94,30 +172,108 @@ def save_digest_context(
         # Сохранение контекста — вспомогательная операция, не должна ронять
         # основной прогон. Ошибку залогируем и поедем дальше.
         log.warning(f"Не удалось сохранить контекст дайджеста: {exc}")
+    return issue_key
 
 
-def save_last_digest(html: str, summary: str = "", *, is_empty: bool = False) -> None:
+def _load_prev_issues() -> list[dict]:
+    """Выпуски из существующего last_digest.json (легаси-файл без issues —
+    один выпуск с ключом legacy:*). Ошибка чтения = пустой список: накопитель
+    не должен ронять сохранение дайджеста."""
+    if not os.path.exists(config.LAST_DIGEST_PATH):
+        return []
+    try:
+        with open(config.LAST_DIGEST_PATH, "r", encoding="utf-8") as f:
+            prev = json.load(f)
+    except (OSError, ValueError):
+        return []
+    if not isinstance(prev, dict):
+        return []
+    issues = prev.get("issues")
+    if isinstance(issues, list):
+        return [i for i in issues if isinstance(i, dict) and i.get("html")]
+    if prev.get("html"):
+        return [{
+            "key": "legacy:" + str(prev.get("generated_at") or ""),
+            "at": str(prev.get("generated_at") or ""),
+            "summary": prev.get("summary") or "",
+            "is_empty": bool(prev.get("is_empty")),
+            "html": prev.get("html"),
+        }]
+    return []
+
+
+def save_last_digest(
+    html: str, summary: str = "", *, is_empty: bool = False, issue_key: str = ""
+) -> None:
     """Сохранить готовый HTML дайджеста в LAST_DIGEST_PATH.
 
     Фронт читает этот файл, чтобы показать блок «Последний дайджест»
     в дашборде. Вызывается после успешной отправки в Telegram.
 
+    **Дневной накопитель (20.08.2026, решение юриста).** Выпуски одного дня
+    складываются, а не затирают друг друга: с гейтом-дочиткой утро может дать
+    два прогона (частичный + дочитку), и второй выпуск стирал первый с
+    дашборда — утренние новости оставались только в Telegram. `issue_key` —
+    `saved_at` контекста дайджеста: пере-рендер ТОГО ЖЕ контекста
+    (Mac-черновик → полированный replay через минуту; повторный replay)
+    замещает свой выпуск на месте, НОВЫЙ контекст того же дня дописывается,
+    другой день начинает файл заново. Верхнеуровневый `html` — склейка
+    выпусков хронологически (перед 2-м и далее — строка «➕ Дополнение»),
+    фронт и mine-фильтр читают его как раньше. Telegram/push этим файлом не
+    пользуются — туда уходит только дельта прогона, дублей нет.
+
+    ⚠️ День сравнивается с допуском UTC/локаль (приём cloud_run_ok): файл
+    пишут два автора — раннер GitHub (UTC) и Mac (+05), оба naive-ISO.
+
     `is_empty=True` — дайджест-заглушка (изменений не было). Используется
     `load_last_meaningful_digest()`, чтобы не цитировать «пустой» дайджест
-    в качестве «предыдущего» в следующий тихий день.
+    в качестве «предыдущего» в следующий тихий день. У файла с выпусками
+    is_empty = «все выпуски пустые».
     """
     if not html:
         return
+    now = datetime.now().isoformat(timespec="seconds")
+    today = {
+        datetime.now().date().isoformat(),
+        datetime.utcnow().date().isoformat(),
+    }
+    issue = {
+        "key": issue_key or ("solo:" + now),
+        "at": now,
+        "summary": summary or "",
+        "is_empty": bool(is_empty),
+        "html": html,
+    }
+    issues = [i for i in _load_prev_issues() if str(i.get("at", ""))[:10] in today]
+    for idx, it in enumerate(issues):
+        if it.get("key") == issue["key"]:
+            issues[idx] = issue  # пере-рендер того же контекста — на месте
+            break
+    else:
+        issues.append(issue)
+    parts: list[str] = []
+    for idx, it in enumerate(issues):
+        if idx:
+            hhmm = str(it.get("at", ""))[11:16]
+            parts.append(f"\n\n➕ <b>Дополнение ({hhmm})</b>\n\n")
+        parts.append(it["html"])
     payload = {
         "version": 1,
-        "generated_at": datetime.now().isoformat(timespec="seconds"),
-        "summary": summary or "",
-        "html": html,
-        "is_empty": bool(is_empty),
+        "generated_at": issues[-1]["at"],
+        "summary": issues[-1]["summary"],
+        "html": "".join(parts),
+        "is_empty": all(i.get("is_empty") for i in issues),
+        "issues": issues,
     }
     try:
         save_json(payload, config.LAST_DIGEST_PATH)
-        log.info(f"Дайджест сохранён для фронта: {config.LAST_DIGEST_PATH}")
+        if len(issues) > 1:
+            log.info(
+                f"Дайджест сохранён для фронта: {config.LAST_DIGEST_PATH} "
+                f"(выпусков за день: {len(issues)})"
+            )
+        else:
+            log.info(f"Дайджест сохранён для фронта: {config.LAST_DIGEST_PATH}")
     except Exception as exc:
         log.warning(f"Не удалось сохранить дайджест для фронта: {exc}")
 
