@@ -1,5 +1,5 @@
 {
-  "saved_at": "2026-08-25T07:44:10",
+  "saved_at": "2026-08-25T08:41:38",
   "new_cases": [
     {
       "Номер дела": "33-15496/2026",
@@ -5529,12 +5529,280 @@
         "overdue_days": 39,
         "legal_force_date": "17.07.2026"
       }
+    },
+    {
+      "case": "2-1474/2026",
+      "court": "Академический районный суд г. Екатеринбурга",
+      "plaintiff": "ПАО Сбербанк",
+      "defendant": "ООО \"ХАНТЕР\", Яброва Юлия Анатольевна",
+      "bank_role": "Истец",
+      "category": "Споры, связанные с имущественными правами → Иски о взыскании сумм по договору займа, кредитному договору",
+      "type": [
+        "fi_act_text_published"
+      ],
+      "details": {
+        "link": "571345341|d97358cd-a7c4-4a44-8e0d-fe0f367802b9",
+        "court_domain": "akademicheskiy--svd.sudrf.ru",
+        "act_date": "",
+        "act_text": "ПАО Сбербанк в лице филиала – Уральский Банк ПАО Сбербанк (далее – истец) обратилось в суд с указанным исковым заявлением, в обоснование которого указало, что между ПАО «Сбербанк России» на основании заявления о присоединении к общим условиям кредитования № 685029182-24-1 от 27.05.2024 выдало кредит ООО «ХАНТЕР» с лимитом кредитной линии, рассчитанной на 36 периодов, в соответствии с п. 1 заявления о присоединении к общим условиям кредитования с конечной датой погашения по истечении 36 месяцев с даты заключения договора под 25% годовых. Для обеспечения исполнения обязательств по кредитному договору был заключен договор поручительства № 6685029182-24-1П01 от 27.05.2024, поручитель Яковлева Юлия Анатольевна. Ответчики свои обязательства по кредитному договору не исполнили.",
+        "decision_date": "04.08.2026",
+        "verdict_label": "удовлетворено",
+        "raw_result": "Иск (заявление, жалоба) УДОВЛЕТВОРЕН",
+        "bank_outcome": "в пользу банка",
+        "category": "Споры, связанные с имущественными правами → Иски о взыскании сумм по договору займа, кредитному договору",
+        "last_event": "Дело сдано в отдел судебного делопроизводства. 17:13. 17.08.2026",
+        "default_judgment": true
+      },
+      "track": "plaintiff_light"
+    },
+    {
+      "case": "2-4388/2026",
+      "court": "Верх-Исетский районный суд г. Екатеринбурга",
+      "plaintiff": "ПАО Сбербанк в лице филиала - Уральский банк ПАО Сбербанк",
+      "defendant": "Бельская Юлия Владимировна, ООО \"Октава\"",
+      "bank_role": "Истец",
+      "category": "Споры, связанные с имущественными правами → Иски о взыскании сумм по договору займа, кредитному договору",
+      "type": [
+        "fi_hearing_new"
+      ],
+      "details": {
+        "link": "584417002|14a1e6f4-733c-4abc-8710-9f7e3a19be8c",
+        "court_domain": "verhisetsky--svd.sudrf.ru",
+        "hearing_date_unpublished": true
+      },
+      "track": "plaintiff_light"
+    },
+    {
+      "case": "2-4122/2026",
+      "court": "Верх-Исетский районный суд г. Екатеринбурга",
+      "plaintiff": "ПАО Сбербанк в лице филиала - Уральский банк ПАО Сбербанк",
+      "defendant": "Пономарев Владимир Александрович",
+      "bank_role": "Истец",
+      "category": "Споры, связанные с имущественными правами → Иски о взыскании сумм по договору займа, кредитному договору",
+      "type": [
+        "fi_act_text_published"
+      ],
+      "details": {
+        "link": "581706599|64e610e4-4290-42d0-9e2d-a1a68aa2f30d",
+        "court_domain": "verhisetsky--svd.sudrf.ru",
+        "act_text": "..._docs(n, m) { for(i = 1; i = 10) { s = s * 100 + a } else { s = s * 10 + a; } // Чтобы избежать переполнения - берём остаток по модулю от частичной суммы if (s > maxS) { s = s % modulus } } var result = s % modulus; return result; } function validateJuid(juid) { const minJuidLen = 2; var code = juid.replace(/\\W/g, ''); if(code.length ' + ' ' + placeholder + ' ' + input.outerHTML + ' ';*/ text = ' ' + input.outerHTML + ' Неверный формат ввода ' + ' '; input.outerHTML = text; }, setValueOfMask : function (e) { var value = e.target.value, placeholder = e.target.getAttribute('data-placeholder'); return \" \" + value + \" \" + placeholder.substr(value.length); }, // add event listeners activateMasking : function (inputs) { var i, l; for (i = 0, l = inputs.length; i = 0; matchesLetter = masking.maskedLetter.indexOf(placeholder[i]) >= 0; if ((matchesNumber && isInt) || (isCharsetPresent && matchesLetter && isLetter)) { newValue += strippedValue[j++]; } else if ((!isCharsetPresent && !isInt && matchesNumber) || (isCharsetPresent && ((matchesLetter && !isLetter) || (matchesNumber && !isInt)))) { //masking.errorOnKeyEntry(e); // write your own error handling function return newValue; } else { newValue += placeholder[i]; } // break if no characters left and the pattern is non-special character if (strippedValue[j] == undefined) { break; } } if (e.target.getAttribute('data-valid-example')) { return masking.validateProgress(e, newValue); } return newValue; }, validateProgress : function (e, value) { var validExample = e.target.getAttribute('data-valid-example'), pattern = new RegExp(e.target.getAttribute('pattern')), placeholder = e.target.getAttribute('data-placeholder'), l = value.length, testValue = '', id = e.target.getAttribute('id'), maskErrorId = document.getElementById(id + '",
+        "act_date": "",
+        "decision_date": "14.08.2026",
+        "verdict_label": "удовлетворено",
+        "raw_result": "Иск (заявление, жалоба) УДОВЛЕТВОРЕН",
+        "bank_outcome": "в пользу банка",
+        "category": "Споры, связанные с имущественными правами → Иски о взыскании сумм по договору займа, кредитному договору",
+        "last_event": "Дело сдано в отдел судебного делопроизводства. 12:07. 14.08.2026"
+      },
+      "track": "plaintiff_light"
+    },
+    {
+      "case": "2-1958/2026",
+      "court": "Академический районный суд г. Екатеринбурга",
+      "plaintiff": "ПАО Сбербанк",
+      "defendant": "Иванус Салба Лациевна",
+      "bank_role": "Истец",
+      "category": "Споры, связанные с имущественными правами → Иски о взыскании сумм по договору займа, кредитному договору",
+      "type": [
+        "fi_default_copy_returned",
+        "fi_act_text_published"
+      ],
+      "details": {
+        "link": "580247921|9161de0c-5838-477f-bfee-c5d68626b19a",
+        "court_domain": "akademicheskiy--svd.sudrf.ru",
+        "copy_returned_date": "05.08.2026",
+        "act_date": "",
+        "act_text": "ПАО «Сбербанк России» обратился в суд с исковым заявлением к ответчику Иванус С.Л., в обоснование исковых требований указано, что между истцом и ответчиком был заключен кредитный договор 08.07.2023 на сумму 2 787 681,28 рублей, кредит выдавался на приобретение недвижимости, а именно квартиры, расположенной по адресу: &lt;адрес&gt; . Заемщиком неоднократно нарушался срок погашения основного долга и процентов.",
+        "decision_date": "13.07.2026",
+        "verdict_label": "удовлетворено",
+        "raw_result": "Иск (заявление, жалоба) УДОВЛЕТВОРЕН",
+        "bank_outcome": "в пользу банка",
+        "category": "Споры, связанные с имущественными правами → Иски о взыскании сумм по договору займа, кредитному договору",
+        "last_event": "Копия заочного решения возвратилась невручённой. 11:24. 19.08.2026",
+        "default_judgment": true
+      },
+      "track": "plaintiff_light"
+    },
+    {
+      "case": "2-1878/2026",
+      "court": "Академический районный суд г. Екатеринбурга",
+      "plaintiff": "ПАО Сбербанк",
+      "defendant": "Петрова Лидия Олеговна",
+      "bank_role": "Истец",
+      "category": "Споры, связанные с наследственными отношениями → Споры, связанные с наследованием имущества → об ответственности наследников по долгам наследодателя",
+      "type": [
+        "fi_hearing_postponed"
+      ],
+      "details": {
+        "link": "579453500|7249896f-d22e-41ca-bfdc-aab400bf5de9",
+        "court_domain": "akademicheskiy--svd.sudrf.ru",
+        "old_hearing_date": "20.08.2026",
+        "old_hearing_time": "12:10",
+        "hearing_date": "02.09.2026",
+        "hearing_time": "14:30",
+        "hearing_type": "заседание"
+      },
+      "track": "plaintiff_light"
+    },
+    {
+      "case": "2-1950/2026",
+      "court": "Академический районный суд г. Екатеринбурга",
+      "plaintiff": "ПАО Сбербанк",
+      "defendant": "Клевакина Кристина Александровна, ООО \"ЛИГА КРАСОТЫ\"",
+      "bank_role": "Истец",
+      "category": "Споры, связанные с имущественными правами → Иски о взыскании сумм по договору займа, кредитному договору",
+      "type": [
+        "fi_hearing_postponed"
+      ],
+      "details": {
+        "link": "579565601|761e0fa1-8fd4-4129-85fa-e0c8dffe390d",
+        "court_domain": "akademicheskiy--svd.sudrf.ru",
+        "old_hearing_date": "20.08.2026",
+        "old_hearing_time": "16:30",
+        "hearing_date": "26.08.2026",
+        "hearing_time": "17:30",
+        "hearing_type": "заседание"
+      },
+      "track": "plaintiff_light"
+    },
+    {
+      "case": "2-1698/2026",
+      "court": "Академический районный суд г. Екатеринбурга",
+      "plaintiff": "ПАО Сбербанк",
+      "defendant": "Чувакова Екатерина Олеговна",
+      "bank_role": "Истец",
+      "category": "Споры, связанные с имущественными правами → Иски о взыскании сумм по договору займа, кредитному договору",
+      "type": [
+        "fi_act_text_published"
+      ],
+      "details": {
+        "link": "576076314|30ab5cbb-225e-4e7a-ba91-5856645dce69",
+        "court_domain": "akademicheskiy--svd.sudrf.ru",
+        "act_text": "ПАО Сбербанк в лице филиала – Уральский Банк ПАО Сбербанк (далее – истец) обратилось в суд с указанным исковым заявлением, в обоснование которого указало, что 13.11.2017 между ПАО Сбербанк и Чуваковой Е.О. заключен кредитный договор № 1203-Р-9494289380 на предоставление кредитной карты. Во исполнение заключенного договора ответчику была выдана кредитная карта № по эмиссионному контракту № 1203-Р-9494289380 от 13.11.2017. Также, ответчику был открыт счет № . Ответчик свои обязательства по кредитному договору не исполнила, в связи с чем, образовалась задолженность за период с 12.08.2024 по 15.09.2025 в размере 288 262 руб. 90 коп. 01.07.2025 был вынесен судебный приказ о взыскании задолженности по данной карте, который отменен определением от 28.08.2025",
+        "act_date": "",
+        "decision_date": "14.07.2026",
+        "verdict_label": "удовлетворено",
+        "raw_result": "Иск (заявление, жалоба) УДОВЛЕТВОРЕН",
+        "bank_outcome": "в пользу банка",
+        "category": "Споры, связанные с имущественными правами → Иски о взыскании сумм по договору займа, кредитному договору",
+        "last_event": "Дело сдано в отдел судебного делопроизводства. 10:51. 17.08.2026"
+      },
+      "track": "plaintiff_light"
+    },
+    {
+      "case": "2-3341/2026",
+      "court": "Чкаловский районный суд г. Екатеринбурга",
+      "plaintiff": "ПАО Сбербанк",
+      "defendant": "Волкова Оксана Анатольевна, ИП Габова Анастасия Владимировна",
+      "bank_role": "Истец",
+      "category": "Споры, связанные с имущественными правами → Иски о взыскании сумм по договору займа, кредитному договору",
+      "type": [
+        "fi_hearing_postponed"
+      ],
+      "details": {
+        "link": "566840398|d82f0c2c-33ad-46c0-a7de-7e7ba94975a2",
+        "court_domain": "chkalovsky--svd.sudrf.ru",
+        "old_hearing_date": "24.08.2026",
+        "old_hearing_time": "16:15",
+        "hearing_date": "15.09.2026",
+        "hearing_time": "12:00",
+        "hearing_type": "заседание"
+      },
+      "track": "plaintiff_light"
+    },
+    {
+      "case": "2-3687/2026",
+      "court": "Чкаловский районный суд г. Екатеринбурга",
+      "plaintiff": "ПАО Сбербанк",
+      "defendant": "Ширеева Светлана Владимировна",
+      "bank_role": "Истец",
+      "category": "Споры, связанные с имущественными правами → Иски о взыскании сумм по договору займа, кредитному договору",
+      "type": [
+        "fi_hearing_postponed"
+      ],
+      "details": {
+        "link": "569450264|d1b7faec-421a-4f8a-b26d-167a5416f8de",
+        "court_domain": "chkalovsky--svd.sudrf.ru",
+        "old_hearing_date": "21.08.2026",
+        "old_hearing_time": "14:00",
+        "hearing_date": "09.10.2026",
+        "hearing_time": "12:20",
+        "hearing_type": "заседание"
+      },
+      "track": "plaintiff_light"
+    },
+    {
+      "case": "2-3762/2026",
+      "court": "Чкаловский районный суд г. Екатеринбурга",
+      "plaintiff": "ПАО Сбербанк",
+      "defendant": "Бородулина Любовь Александровна, наследственное имущество Бородулина Максима Владимировича",
+      "bank_role": "Истец",
+      "category": "Споры, связанные с наследственными отношениями → Споры, связанные с наследованием имущества → об ответственности наследников по долгам наследодателя",
+      "type": [
+        "fi_resolved",
+        "fi_status_change"
+      ],
+      "details": {
+        "link": "568805997|84157c2b-8388-466b-82aa-79f744f0d133",
+        "court_domain": "chkalovsky--svd.sudrf.ru",
+        "raw_result": "Иск (заявление, жалоба) УДОВЛЕТВОРЕН ЧАСТИЧНО",
+        "verdict_label": "удовлетворено частично",
+        "bank_outcome": "частично в пользу банка",
+        "decision_date": "24.08.2026",
+        "last_event": "Судебное заседание. 17:40. № 43, ул. Малышева, 2-ж. Вынесено решение по делу. Иск (заявление, жалоба) УДОВЛЕТВОРЕН ЧАСТИЧНО. 28.07.2026",
+        "category": "Споры, связанные с наследственными отношениями → Споры, связанные с наследованием имущества → об ответственности наследников по долгам наследодателя",
+        "old_status": "В производстве",
+        "new_status": "Решено"
+      },
+      "track": "plaintiff_light"
+    },
+    {
+      "case": "2-4371/2026",
+      "court": "Чкаловский районный суд г. Екатеринбурга",
+      "plaintiff": "ПАО Сбербанк",
+      "defendant": "Воробьев Евгений Борисович, наследственное имущество Воробьев Б.Ю.",
+      "bank_role": "Истец",
+      "category": "Споры, связанные с наследственными отношениями → Споры, связанные с наследованием имущества → об ответственности наследников по долгам наследодателя",
+      "type": [
+        "fi_returned"
+      ],
+      "details": {
+        "link": "574073418|d9fbe96b-c093-4ffa-919a-577574d071d6",
+        "court_domain": "chkalovsky--svd.sudrf.ru",
+        "termination_kind": "transfer",
+        "return_reason": "",
+        "event_text": "Судебное заседание. 15:00. № 43, ул. Малышева, 2-ж. Дело передано на рассмотрение другого суда. 01.07.2026",
+        "bank_outcome": "",
+        "termination_date": "18.08.2026"
+      },
+      "track": "plaintiff_light"
+    },
+    {
+      "case": "2-5921/2026",
+      "court": "Чкаловский районный суд г. Екатеринбурга",
+      "plaintiff": "ПАО Сбербанк",
+      "defendant": "Джунковская Алена Юрьевна, Джунковский Евгений Викторович",
+      "bank_role": "Истец",
+      "category": "Споры, связанные с имущественными правами → Иски о взыскании сумм по договору займа, кредитному договору",
+      "type": [
+        "fi_hearing_postponed"
+      ],
+      "details": {
+        "link": "588995102|d79c2545-c448-4ea8-a9f3-c51a5c108f07",
+        "court_domain": "chkalovsky--svd.sudrf.ru",
+        "old_hearing_date": "20.08.2026",
+        "old_hearing_time": "09:05",
+        "hearing_date": "10.09.2026",
+        "hearing_time": "12:50",
+        "hearing_type": "заседание"
+      },
+      "track": "plaintiff_light"
     }
   ],
   "total_active_appeal": 106,
   "total_active_fi": 96,
   "total_active_cassation": 30,
-  "total_active_bank": 609,
+  "total_active_bank": 607,
   "cass_changes": [
     {
       "case": "2-195/2023",
@@ -5906,5 +6174,5 @@
     }
   ],
   "issue_key": "2026-08-25T06:53:37",
-  "updated_at": "2026-08-25T07:44:10"
+  "updated_at": "2026-08-25T08:41:38"
 }
