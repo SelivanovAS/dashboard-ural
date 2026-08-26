@@ -4,12 +4,12 @@
   "smart_skip": true,
   "totals": {
     "total": 1012,
-    "parsed": 101,
-    "skip": 895,
-    "failed": 16,
+    "parsed": 42,
+    "skip": 969,
+    "failed": 0,
     "no_card": 0,
     "not_in_queue": 0,
-    "intake_new": 0
+    "intake_new": 1
   },
   "cases": [
     {
@@ -427,9 +427,9 @@
       "last_checked_at": "2026-08-25"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "parsed",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -442,12 +442,12 @@
       "court": "Надымский городской суд",
       "court_domain": "nadymsky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-08-25"
+      "last_checked_at": "2026-08-26"
     },
     {
-      "outcome": "fetch_blocked",
+      "outcome": "parsed",
       "reason": "",
-      "reason_ru": "портал суда отдал заглушку/блокировку вместо карточки",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -460,12 +460,12 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-08-25"
+      "last_checked_at": "2026-08-26"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "parsed",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -478,12 +478,12 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-08-25"
+      "last_checked_at": "2026-08-26"
     },
     {
-      "outcome": "fetch_blocked",
+      "outcome": "parsed",
       "reason": "",
-      "reason_ru": "портал суда отдал заглушку/блокировку вместо карточки",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -496,7 +496,7 @@
       "court": "Пуровский районный суд",
       "court_domain": "purovsky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-08-25"
+      "last_checked_at": "2026-08-26"
     },
     {
       "outcome": "skip",
@@ -1291,16 +1291,14 @@
       "last_checked_at": "2026-08-26"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [
-        "fi_act_text_published"
-      ],
-      "changed": true,
+      "events": [],
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "bogdanovichsky--svd.sudrf.ru|2-379/2026",
@@ -1311,9 +1309,9 @@
       "last_checked_at": "2026-08-26"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -1329,9 +1327,9 @@
       "last_checked_at": "2026-08-26"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -1365,9 +1363,9 @@
       "last_checked_at": "2026-08-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -1437,9 +1435,9 @@
       "last_checked_at": "2026-08-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -1509,9 +1507,9 @@
       "last_checked_at": "2026-08-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -1527,9 +1525,9 @@
       "last_checked_at": "2026-08-26"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -1563,9 +1561,9 @@
       "last_checked_at": "2026-08-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -1581,9 +1579,9 @@
       "last_checked_at": "2026-08-26"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -1599,9 +1597,9 @@
       "last_checked_at": "2026-08-26"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -1617,9 +1615,9 @@
       "last_checked_at": "2026-08-26"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -1635,14 +1633,14 @@
       "last_checked_at": "2026-08-26"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": true,
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "krasnoturinsky--svd.sudrf.ru|2-349/2026",
@@ -1653,14 +1651,14 @@
       "last_checked_at": "2026-08-26"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": true,
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "verhotursky--svd.sudrf.ru|2-171/2026",
@@ -1707,16 +1705,14 @@
       "last_checked_at": "2026-08-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [
-        "fi_act_text_published"
-      ],
-      "changed": true,
+      "events": [],
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "tavdinsky--svd.sudrf.ru|2-573/2026",
@@ -1799,9 +1795,9 @@
       "last_checked_at": "2026-08-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -1871,9 +1867,9 @@
       "last_checked_at": "2026-08-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -1961,9 +1957,9 @@
       "last_checked_at": "2026-08-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -1997,9 +1993,9 @@
       "last_checked_at": "2026-08-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -2033,16 +2029,14 @@
       "last_checked_at": "2026-08-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [
-        "fi_act_text_published"
-      ],
-      "changed": true,
+      "events": [],
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "nizhneserginsky--svd.sudrf.ru|2-472/2026",
@@ -2251,9 +2245,9 @@
       "last_checked_at": "2026-08-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -2305,9 +2299,9 @@
       "last_checked_at": "2026-08-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -2323,14 +2317,14 @@
       "last_checked_at": "2026-08-26"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": true,
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "sysertsky--svd.sudrf.ru|2-1439/2026",
@@ -2395,16 +2389,14 @@
       "last_checked_at": "2026-08-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [
-        "fi_act_text_published"
-      ],
-      "changed": true,
+      "events": [],
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "novouralsky--svd.sudrf.ru|2-950/2026",
@@ -2451,9 +2443,9 @@
       "last_checked_at": "2026-08-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -2505,9 +2497,9 @@
       "last_checked_at": "2026-08-21"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -2523,14 +2515,14 @@
       "last_checked_at": "2026-08-26"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": true,
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "novouralsky--svd.sudrf.ru|2-873/2026",
@@ -2577,16 +2569,14 @@
       "last_checked_at": "2026-08-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [
-        "fi_act_text_published"
-      ],
-      "changed": true,
+      "events": [],
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "karpinsky--svd.sudrf.ru|2-427/2026",
@@ -2597,14 +2587,14 @@
       "last_checked_at": "2026-08-26"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": true,
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "karpinsky--svd.sudrf.ru|2-372/2026",
@@ -2615,16 +2605,14 @@
       "last_checked_at": "2026-08-26"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [
-        "fi_act_text_published"
-      ],
-      "changed": true,
+      "events": [],
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "karpinsky--svd.sudrf.ru|2-352/2026",
@@ -2635,14 +2623,14 @@
       "last_checked_at": "2026-08-26"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": true,
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "karpinsky--svd.sudrf.ru|2-311/2026",
@@ -2653,30 +2641,9 @@
       "last_checked_at": "2026-08-26"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
-      "detail": "",
-      "degraded": false,
-      "force_parsed": false,
-      "events": [
-        "fi_act_text_published",
-        "fi_appeal_filed"
-      ],
-      "changed": true,
-      "left_track": true,
-      "archived": false,
-      "key": "karpinsky--svd.sudrf.ru|2-310/2026",
-      "number": "2-310/2026",
-      "court": "Карпинский городской суд",
-      "court_domain": "karpinsky--svd.sudrf.ru",
-      "case_status": "Решено",
-      "last_checked_at": "2026-08-26"
-    },
-    {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -2692,14 +2659,14 @@
       "last_checked_at": "2026-08-26"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": true,
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "krasnouralsky--svd.sudrf.ru|2-631/2026",
@@ -7120,9 +7087,9 @@
       "last_checked_at": "2026-08-17"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -7156,16 +7123,14 @@
       "last_checked_at": "2026-08-17"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [
-        "fi_hearing_new"
-      ],
-      "changed": true,
+      "events": [],
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "tagilstroevsky--svd.sudrf.ru|2-1142/2026",
@@ -7194,9 +7159,9 @@
       "last_checked_at": "2026-08-17"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -7248,9 +7213,9 @@
       "last_checked_at": "2026-08-17"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8148,9 +8113,9 @@
       "last_checked_at": "2026-08-21"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8652,9 +8617,9 @@
       "last_checked_at": "2026-08-17"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8688,9 +8653,9 @@
       "last_checked_at": "2026-08-18"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8724,16 +8689,14 @@
       "last_checked_at": "2026-08-25"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [
-        "fi_hearing_new"
-      ],
-      "changed": true,
+      "events": [],
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "tagilstroevsky--svd.sudrf.ru|2-1385/2026",
@@ -8744,9 +8707,9 @@
       "last_checked_at": "2026-08-26"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8780,9 +8743,9 @@
       "last_checked_at": "2026-08-25"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8924,9 +8887,9 @@
       "last_checked_at": "2026-08-26"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8960,9 +8923,9 @@
       "last_checked_at": "2026-08-17"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8996,9 +8959,9 @@
       "last_checked_at": "2026-08-17"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9014,9 +8977,9 @@
       "last_checked_at": "2026-08-26"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9050,9 +9013,9 @@
       "last_checked_at": "2026-08-17"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9086,9 +9049,9 @@
       "last_checked_at": "2026-08-17"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9374,16 +9337,14 @@
       "last_checked_at": "2026-08-17"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [
-        "fi_hearing_postponed"
-      ],
-      "changed": true,
+      "events": [],
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "polevskoy--svd.sudrf.ru|2-976/2026",
@@ -9628,16 +9589,14 @@
       "last_checked_at": "2026-08-18"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [
-        "fi_hearing_new"
-      ],
-      "changed": true,
+      "events": [],
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "alapaevsky--svd.sudrf.ru|2-848/2026",
@@ -10152,9 +10111,9 @@
       "last_checked_at": "2026-08-25"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -10170,9 +10129,9 @@
       "last_checked_at": "2026-08-26"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -10314,9 +10273,9 @@
       "last_checked_at": "2026-08-17"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -10350,9 +10309,9 @@
       "last_checked_at": "2026-08-25"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -10386,9 +10345,9 @@
       "last_checked_at": "2026-08-21"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -10404,9 +10363,9 @@
       "last_checked_at": "2026-08-26"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -10620,9 +10579,9 @@
       "last_checked_at": "2026-08-25"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -10656,9 +10615,9 @@
       "last_checked_at": "2026-08-25"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -10782,9 +10741,9 @@
       "last_checked_at": "2026-08-25"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -10926,9 +10885,9 @@
       "last_checked_at": "2026-08-16"
     },
     {
-      "outcome": "fetch_blocked",
+      "outcome": "parsed",
       "reason": "",
-      "reason_ru": "портал суда отдал заглушку/блокировку вместо карточки",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -10941,7 +10900,7 @@
       "court": "Ноябрьский городской суд",
       "court_domain": "noyabrsky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-08-25"
+      "last_checked_at": "2026-08-26"
     },
     {
       "outcome": "skip",
@@ -11034,16 +10993,14 @@
       "last_checked_at": "2026-08-16"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [
-        "fi_hearing_new"
-      ],
-      "changed": true,
+      "events": [],
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "akademicheskiy--svd.sudrf.ru|2-2740/2026",
@@ -11144,16 +11101,14 @@
       "last_checked_at": "2026-08-16"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [
-        "fi_hearing_postponed"
-      ],
-      "changed": true,
+      "events": [],
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "akademicheskiy--svd.sudrf.ru|2-2287/2026",
@@ -11182,9 +11137,9 @@
       "last_checked_at": "2026-08-16"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -11218,9 +11173,9 @@
       "last_checked_at": "2026-08-21"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -11290,9 +11245,9 @@
       "last_checked_at": "2026-08-16"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -11308,9 +11263,9 @@
       "last_checked_at": "2026-08-26"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -11362,9 +11317,9 @@
       "last_checked_at": "2026-08-25"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -11524,16 +11479,14 @@
       "last_checked_at": "2026-08-25"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [
-        "fi_hearing_recess"
-      ],
-      "changed": true,
+      "events": [],
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "akademicheskiy--svd.sudrf.ru|2-1816/2026",
@@ -11580,9 +11533,9 @@
       "last_checked_at": "2026-08-25"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -14694,9 +14647,9 @@
       "last_checked_at": "2026-08-21"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -14874,9 +14827,9 @@
       "last_checked_at": "2026-08-14"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -15468,9 +15421,9 @@
       "last_checked_at": "2026-08-25"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -15864,14 +15817,16 @@
       "last_checked_at": "2026-08-14"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "parsed",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_hearing_new"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "labytnangsky--ynao.sudrf.ru|2-934/2026",
@@ -15879,7 +15834,7 @@
       "court": "Лабытнангский городской суд",
       "court_domain": "labytnangsky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-08-25"
+      "last_checked_at": "2026-08-26"
     },
     {
       "outcome": "skip",
@@ -16134,9 +16089,9 @@
       "last_checked_at": "2026-08-25"
     },
     {
-      "outcome": "fetch_blocked",
+      "outcome": "parsed",
       "reason": "",
-      "reason_ru": "портал суда отдал заглушку/блокировку вместо карточки",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -16149,7 +16104,7 @@
       "court": "Муравленковский городской суд",
       "court_domain": "muravlenkovsky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-08-14"
+      "last_checked_at": "2026-08-26"
     },
     {
       "outcome": "skip",
@@ -16170,9 +16125,9 @@
       "last_checked_at": "2026-08-14"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "parsed",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -16185,7 +16140,7 @@
       "court": "Муравленковский городской суд",
       "court_domain": "muravlenkovsky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-08-14"
+      "last_checked_at": "2026-08-26"
     },
     {
       "outcome": "skip",
@@ -16260,9 +16215,9 @@
       "last_checked_at": "2026-08-25"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "parsed",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -16275,12 +16230,12 @@
       "court": "Надымский городской суд",
       "court_domain": "nadymsky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-08-25"
+      "last_checked_at": "2026-08-26"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "parsed",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -16293,7 +16248,7 @@
       "court": "Надымский городской суд",
       "court_domain": "nadymsky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-08-25"
+      "last_checked_at": "2026-08-26"
     },
     {
       "outcome": "skip",
@@ -16476,14 +16431,14 @@
       "last_checked_at": "2026-08-25"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "parsed",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": false,
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "novourengoysky--ynao.sudrf.ru|2-2683/2026",
@@ -16491,7 +16446,7 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-08-16"
+      "last_checked_at": "2026-08-26"
     },
     {
       "outcome": "skip",
@@ -16584,9 +16539,9 @@
       "last_checked_at": "2026-08-25"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "parsed",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -16599,12 +16554,12 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-08-25"
+      "last_checked_at": "2026-08-26"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "parsed",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -16617,7 +16572,7 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-08-25"
+      "last_checked_at": "2026-08-26"
     },
     {
       "outcome": "skip",
@@ -16710,14 +16665,17 @@
       "last_checked_at": "2026-08-25"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "parsed",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_default_copy_returned",
+        "fi_act_text_published"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "novourengoysky--ynao.sudrf.ru|2-2440/2026",
@@ -16725,7 +16683,7 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-08-19"
+      "last_checked_at": "2026-08-26"
     },
     {
       "outcome": "skip",
@@ -16746,22 +16704,25 @@
       "last_checked_at": "2026-08-25"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "parsed",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_resolved",
+        "fi_status_change"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "novourengoysky--ynao.sudrf.ru|2-2071/2026",
       "number": "2-2071/2026",
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
-      "case_status": "В производстве",
-      "last_checked_at": "2026-08-25"
+      "case_status": "Решено",
+      "last_checked_at": "2026-08-26"
     },
     {
       "outcome": "skip",
@@ -16998,9 +16959,9 @@
       "last_checked_at": "2026-08-24"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "parsed",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -17013,7 +16974,7 @@
       "court": "Пуровский районный суд",
       "court_domain": "purovsky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-08-19"
+      "last_checked_at": "2026-08-26"
     },
     {
       "outcome": "skip",
@@ -18042,9 +18003,9 @@
       "last_checked_at": "2026-08-16"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -18060,9 +18021,9 @@
       "last_checked_at": "2026-08-26"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -18114,17 +18075,14 @@
       "last_checked_at": "2026-08-14"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [
-        "fi_resolved",
-        "fi_status_change"
-      ],
-      "changed": true,
+      "events": [],
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "ordzhonikidzevsky--svd.sudrf.ru|2-3633/2026",
@@ -18259,7 +18217,25 @@
       "court_domain": "ordzhonikidzevsky--svd.sudrf.ru",
       "case_status": "В производстве",
       "last_checked_at": "2026-08-14"
+    },
+    {
+      "outcome": "intake_new",
+      "reason": "",
+      "reason_ru": "дело заведено авто-подхватом с выдачи суда в этом прогоне (карточка прочитана при заведении)",
+      "detail": "Новоуренгойский городской суд",
+      "degraded": false,
+      "force_parsed": false,
+      "events": [],
+      "changed": false,
+      "left_track": false,
+      "archived": false,
+      "key": "novourengoysky--ynao.sudrf.ru|2-2864/2026",
+      "number": "2-2864/2026",
+      "court": "Новоуренгойский городской суд",
+      "court_domain": "novourengoysky--ynao.sudrf.ru",
+      "case_status": "В производстве",
+      "last_checked_at": "2026-08-26"
     }
   ],
-  "updated_at": "2026-08-26T08:10:40"
+  "updated_at": "2026-08-26T08:54:09"
 }
