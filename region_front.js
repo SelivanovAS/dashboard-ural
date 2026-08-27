@@ -4,7 +4,13 @@
 // wrangler.toml форка; private — в GH-секрете VAPID_PRIVATE_KEY форка и
 // секрете Worker'а). app.js читает window.REGION_FRONT и остаётся общим.
 window.REGION_FRONT = {
-  PUSH_WORKER_URL: 'https://court-monitor-ural.7selivanov-a.workers.dev',
+  // Основной адрес — свой домен (27.08.2026): часть операторов связи режет
+  // *.workers.dev по имени (SNI), с их сетей не работали синк и админка.
+  PUSH_WORKER_URL: 'https://api-ural.delosud.ru',
+  // Фолбэк-адреса ТОГО ЖЕ Worker'а (перебор в app.js/workerFetch при
+  // недоступности основного). Пустой PUSH_WORKER_URL по-прежнему значит
+  // «синк выключен» — фолбэки при нём не используются.
+  PUSH_WORKER_FALLBACKS: ['https://court-monitor-ural.7selivanov-a.workers.dev'],
   VAPID_PUBLIC_KEY: 'BHjYv0QmRYDkdwqvERpsbWi8wWkmwqMkn78Q-TN9gK7awAVjeQ7u2LebeUKFyiT_BTlJOVD3YB6E3MLUKe43d7k',
   // Подпись региона в шапке до загрузки данных (данные перекрывают её
   // значением name_short из блока region).
