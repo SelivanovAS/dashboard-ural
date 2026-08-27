@@ -10,12 +10,11 @@ window.REGION_FRONT = {
   // Фолбэк-адреса ТОГО ЖЕ Worker'а (перебор в app.js/workerFetch при
   // недоступности основного). Пустой PUSH_WORKER_URL по-прежнему значит
   // «синк выключен» — фолбэки при нём не используются.
-  // api2-ural — шлюз на Cloud.ru (nginx → Cloudflare): МТС/Мегафон режут
-  // TLS к адресам Cloudflare целиком, для них живёт только он; ПЕРВЫМ.
-  PUSH_WORKER_FALLBACKS: [
-    'https://api2-ural.delosud.ru',
-    'https://court-monitor-ural.7selivanov-a.workers.dev',
-  ],
+  // ⚠️ Шлюз api2-ural.delosud.ru здесь НЕ держим (был в v185, убран
+  // 27.08.2026): тот же молодой delosud.ru, SNI-фильтр МТС режет наравне с
+  // основным; канал VPS→CF душит большие POST (дампы → 502). Сам VPS —
+  // инфраструктура на будущее, во фронте от него лишний таймаут.
+  PUSH_WORKER_FALLBACKS: ['https://court-monitor-ural.7selivanov-a.workers.dev'],
   VAPID_PUBLIC_KEY: 'BHjYv0QmRYDkdwqvERpsbWi8wWkmwqMkn78Q-TN9gK7awAVjeQ7u2LebeUKFyiT_BTlJOVD3YB6E3MLUKe43d7k',
   // Подпись региона в шапке до загрузки данных (данные перекрывают её
   // значением name_short из блока region).
