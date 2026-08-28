@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated_at": "2026-08-28T06:29:39",
+ "updated_at": "2026-08-28T06:35:58",
  "sources": {
   "appeal:oblsud--svd.sudrf.ru": {
    "counts": [
@@ -20,11 +20,11 @@
     0
    ],
    "zero_streak": 1,
-   "fail_streak": 10,
+   "fail_streak": 11,
    "alerted_zero": true,
    "label": "Апелляция (Свердловский областной суд)",
    "last_count": 0,
-   "last_run_at": "2026-08-28T06:29:39"
+   "last_run_at": "2026-08-28T06:35:58"
   },
   "appeal:oblsud--ynao.sudrf.ru": {
    "counts": [
@@ -40,15 +40,15 @@
     23,
     23,
     23,
-    23,
-    0
+    0,
+    23
    ],
-   "zero_streak": 1,
+   "zero_streak": 0,
    "fail_streak": 0,
-   "alerted_zero": true,
+   "alerted_zero": false,
    "label": "Апелляция (Суд Ямало-Ненецкого автономного округа)",
-   "last_count": 0,
-   "last_run_at": "2026-08-28T06:29:39"
+   "last_count": 23,
+   "last_run_at": "2026-08-28T06:35:58"
   },
   "fi:gubkinskiy--ynao.sudrf.ru": {
    "counts": [
@@ -388,130 +388,89 @@
   }
  },
  "last_run": {
-  "at": "2026-08-28T06:29:39",
-  "requests_ok": 449,
+  "at": "2026-08-28T06:35:58",
+  "requests_ok": 95,
   "requests_failed": 0,
-  "requests_retried": 2,
-  "cards_breaker_skipped": 32,
-  "cards_breaker_unrequested": 32,
+  "requests_retried": 0,
+  "cards_breaker_skipped": 0,
+  "cards_breaker_unrequested": 0,
   "cards_breaker_recovered": 0,
-  "cards_blocked": 31,
-  "cards_read": 403,
-  "cards_planned": 466,
-  "cards_read_today": 403,
+  "cards_blocked": 4,
+  "cards_read": 88,
+  "cards_planned": 93,
+  "cards_read_today": 462,
   "cards_planned_today": 466,
-  "daily_attempts": 1,
+  "daily_attempts": 2,
   "instances": {
    "first_instance": {
-    "read": 354,
-    "planned": 381,
-    "read_today": 354,
+    "read": 54,
+    "planned": 57,
+    "read_today": 379,
     "planned_today": 381
    },
    "appeal": {
-    "read": 44,
-    "planned": 80,
-    "read_today": 44,
+    "read": 34,
+    "planned": 36,
+    "read_today": 78,
     "planned_today": 80
    },
    "cassation": {
-    "read": 5,
-    "planned": 5,
+    "read": 0,
+    "planned": 0,
     "read_today": 5,
     "planned_today": 5
    }
   },
   "latency": {
-   "n": 449,
-   "p50": 0.8,
-   "p90": 2.2,
-   "max": 5.9
+   "n": 95,
+   "p50": 0.6,
+   "p90": 1.9,
+   "max": 4.0
   },
   "failure_latency": {
    "captcha_search": {
     "n": 1,
-    "p50": 0.7,
-    "p90": 0.7,
-    "max": 0.7
+    "p50": 0.4,
+    "p90": 0.4,
+    "max": 0.4
    },
-   "connection_reset": {
-    "n": 2,
-    "p50": 3.6,
-    "p90": 3.8,
-    "max": 3.8
-   },
-   "outage_search": {
+   "degraded_card": {
     "n": 1,
-    "p50": 3.9,
-    "p90": 3.9,
-    "max": 3.9
+    "p50": 0.2,
+    "p90": 0.2,
+    "max": 0.2
    },
    "portal_placeholder": {
-    "n": 31,
-    "p50": 3.4,
-    "p90": 4.1,
-    "max": 5.9
+    "n": 4,
+    "p50": 3.3,
+    "p90": 4.0,
+    "max": 4.0
    }
   },
   "fail_kinds": {
    "captcha_search": 1,
-   "outage_search": 1,
-   "portal_placeholder": 31,
-   "connection_reset": 2
+   "portal_placeholder": 4,
+   "degraded_card": 1
   },
   "breaker": {
    "mode": "time",
-   "opened_hosts": 2,
-   "open_hosts": 2,
+   "opened_hosts": 0,
+   "open_hosts": 0,
    "recovered_hosts": 0,
-   "deferred_total": 33,
-   "deferred_remaining": 33,
+   "deferred_total": 0,
+   "deferred_remaining": 0,
    "deferred_recovered": 0,
    "probes": 0,
    "probe_successes": 0,
    "probe_failures": 0,
-   "by_kind": {
-    "outage_search": 1,
-    "portal_placeholder": 1
-   },
-   "hosts": [
-    {
-     "host": "oblsud--svd.sudrf.ru",
-     "state": "open",
-     "kind": "portal_placeholder",
-     "family": "portal_outage",
-     "reason": "вместо карточки пришла заглушка портала",
-     "preopened": false,
-     "skipped": 18,
-     "probes": 0,
-     "deferred_total": 19,
-     "deferred_remaining": 19,
-     "deferred_recovered": 0,
-     "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 0.0
-    },
-    {
-     "host": "oblsud--ynao.sudrf.ru",
-     "state": "open",
-     "kind": "outage_search",
-     "family": "portal_outage",
-     "reason": "вместо поиска суд вернул заглушку портала",
-     "preopened": true,
-     "skipped": 14,
-     "probes": 0,
-     "deferred_total": 14,
-     "deferred_remaining": 14,
-     "deferred_recovered": 0,
-     "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 0.0
-    }
-   ]
+   "by_kind": {},
+   "hosts": []
   },
-  "courts_unavailable": 2,
-  "courts_with_unrequested": 2,
-  "courts_outage": 1,
-  "cards_unreachable": 32,
-  "cards_unread_other": 31,
+  "courts_unavailable": 0,
+  "courts_with_unrequested": 0,
+  "courts_outage": 0,
+  "cards_unreachable": 0,
+  "cards_unread_other": 5,
   "run_deadline_seconds": 3300.0,
   "run_deadline_reached": false
  }
