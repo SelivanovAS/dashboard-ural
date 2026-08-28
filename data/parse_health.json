@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated_at": "2026-08-28T06:35:58",
+ "updated_at": "2026-08-28T07:02:32",
  "sources": {
   "appeal:oblsud--svd.sudrf.ru": {
    "counts": [
@@ -20,11 +20,11 @@
     0
    ],
    "zero_streak": 1,
-   "fail_streak": 11,
+   "fail_streak": 12,
    "alerted_zero": true,
    "label": "Апелляция (Свердловский областной суд)",
    "last_count": 0,
-   "last_run_at": "2026-08-28T06:35:58"
+   "last_run_at": "2026-08-28T07:02:32"
   },
   "appeal:oblsud--ynao.sudrf.ru": {
    "counts": [
@@ -388,30 +388,30 @@
   }
  },
  "last_run": {
-  "at": "2026-08-28T06:35:58",
-  "requests_ok": 95,
+  "at": "2026-08-28T07:02:32",
+  "requests_ok": 39,
   "requests_failed": 0,
   "requests_retried": 0,
   "cards_breaker_skipped": 0,
   "cards_breaker_unrequested": 0,
   "cards_breaker_recovered": 0,
-  "cards_blocked": 4,
-  "cards_read": 88,
-  "cards_planned": 93,
-  "cards_read_today": 462,
+  "cards_blocked": 1,
+  "cards_read": 36,
+  "cards_planned": 38,
+  "cards_read_today": 465,
   "cards_planned_today": 466,
-  "daily_attempts": 2,
+  "daily_attempts": 3,
   "instances": {
    "first_instance": {
-    "read": 54,
-    "planned": 57,
-    "read_today": 379,
+    "read": 35,
+    "planned": 36,
+    "read_today": 381,
     "planned_today": 381
    },
    "appeal": {
-    "read": 34,
-    "planned": 36,
-    "read_today": 78,
+    "read": 1,
+    "planned": 2,
+    "read_today": 79,
     "planned_today": 80
    },
    "cassation": {
@@ -422,10 +422,10 @@
    }
   },
   "latency": {
-   "n": 95,
+   "n": 39,
    "p50": 0.6,
-   "p90": 1.9,
-   "max": 4.0
+   "p90": 1.6,
+   "max": 3.5
   },
   "failure_latency": {
    "captcha_search": {
@@ -441,16 +441,16 @@
     "max": 0.2
    },
    "portal_placeholder": {
-    "n": 4,
-    "p50": 3.3,
-    "p90": 4.0,
-    "max": 4.0
+    "n": 1,
+    "p50": 3.5,
+    "p90": 3.5,
+    "max": 3.5
    }
   },
   "fail_kinds": {
    "captcha_search": 1,
-   "portal_placeholder": 4,
-   "degraded_card": 1
+   "degraded_card": 1,
+   "portal_placeholder": 1
   },
   "breaker": {
    "mode": "time",
@@ -470,7 +470,7 @@
   "courts_with_unrequested": 0,
   "courts_outage": 0,
   "cards_unreachable": 0,
-  "cards_unread_other": 5,
+  "cards_unread_other": 2,
   "run_deadline_seconds": 3300.0,
   "run_deadline_reached": false
  }
