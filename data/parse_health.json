@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated_at": "2026-08-28T08:02:27",
+ "updated_at": "2026-08-28T08:32:26",
  "sources": {
   "appeal:oblsud--svd.sudrf.ru": {
    "counts": [
@@ -20,11 +20,11 @@
     0
    ],
    "zero_streak": 1,
-   "fail_streak": 14,
+   "fail_streak": 15,
    "alerted_zero": true,
    "label": "Апелляция (Свердловский областной суд)",
    "last_count": 0,
-   "last_run_at": "2026-08-28T08:02:27"
+   "last_run_at": "2026-08-28T08:32:26"
   },
   "appeal:oblsud--ynao.sudrf.ru": {
    "counts": [
@@ -388,22 +388,22 @@
   }
  },
  "last_run": {
-  "at": "2026-08-28T08:02:27",
+  "at": "2026-08-28T08:32:26",
   "requests_ok": 36,
   "requests_failed": 0,
   "requests_retried": 0,
   "cards_breaker_skipped": 0,
   "cards_breaker_unrequested": 0,
   "cards_breaker_recovered": 0,
-  "cards_blocked": 2,
-  "cards_read": 32,
+  "cards_blocked": 1,
+  "cards_read": 33,
   "cards_planned": 35,
   "cards_read_today": 465,
   "cards_planned_today": 466,
-  "daily_attempts": 5,
+  "daily_attempts": 6,
   "instances": {
    "first_instance": {
-    "read": 32,
+    "read": 33,
     "planned": 34,
     "read_today": 381,
     "planned_today": 381
@@ -424,8 +424,8 @@
   "latency": {
    "n": 36,
    "p50": 0.7,
-   "p90": 2.5,
-   "max": 4.0
+   "p90": 2.3,
+   "max": 3.2
   },
   "failure_latency": {
    "captcha_search": {
@@ -436,21 +436,21 @@
    },
    "degraded_card": {
     "n": 1,
-    "p50": 0.4,
-    "p90": 0.4,
-    "max": 0.4
+    "p50": 0.3,
+    "p90": 0.3,
+    "max": 0.3
    },
    "portal_placeholder": {
-    "n": 2,
+    "n": 1,
     "p50": 3.2,
-    "p90": 4.0,
-    "max": 4.0
+    "p90": 3.2,
+    "max": 3.2
    }
   },
   "fail_kinds": {
    "captcha_search": 1,
    "degraded_card": 1,
-   "portal_placeholder": 2
+   "portal_placeholder": 1
   },
   "breaker": {
    "mode": "time",
@@ -470,7 +470,7 @@
   "courts_with_unrequested": 0,
   "courts_outage": 0,
   "cards_unreachable": 0,
-  "cards_unread_other": 3,
+  "cards_unread_other": 2,
   "run_deadline_seconds": 3300.0,
   "run_deadline_reached": false
  }
