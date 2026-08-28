@@ -4,9 +4,9 @@
   "smart_skip": true,
   "totals": {
     "total": 1024,
-    "parsed": 23,
+    "parsed": 22,
     "skip": 1001,
-    "failed": 0,
+    "failed": 1,
     "no_card": 0,
     "not_in_queue": 0,
     "intake_new": 0
@@ -337,9 +337,9 @@
       "last_checked_at": "2026-08-28"
     },
     {
-      "outcome": "parsed",
+      "outcome": "fetch_blocked",
       "reason": "",
-      "reason_ru": "",
+      "reason_ru": "портал суда отдал заглушку/блокировку вместо карточки",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -18445,5 +18445,5 @@
       "last_checked_at": "2026-08-14"
     }
   ],
-  "updated_at": "2026-08-28T07:32:34"
+  "updated_at": "2026-08-28T08:02:28"
 }
