@@ -4,9 +4,9 @@
   "smart_skip": true,
   "totals": {
     "total": 1024,
-    "parsed": 24,
-    "skip": 999,
-    "failed": 1,
+    "parsed": 23,
+    "skip": 1001,
+    "failed": 0,
     "no_card": 0,
     "not_in_queue": 0,
     "intake_new": 0
@@ -373,9 +373,9 @@
       "last_checked_at": "2026-08-26"
     },
     {
-      "outcome": "fetch_blocked",
+      "outcome": "parsed",
       "reason": "",
-      "reason_ru": "портал суда отдал заглушку/блокировку вместо карточки",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -3829,9 +3829,9 @@
       "last_checked_at": "2026-08-27"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -13405,9 +13405,9 @@
       "last_checked_at": "2026-08-28"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -18445,5 +18445,5 @@
       "last_checked_at": "2026-08-14"
     }
   ],
-  "updated_at": "2026-08-28T07:02:33"
+  "updated_at": "2026-08-28T07:32:34"
 }
