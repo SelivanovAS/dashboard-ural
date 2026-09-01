@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated_at": "2026-09-01T07:10:21",
+ "updated_at": "2026-09-01T07:37:00",
  "sources": {
   "appeal:oblsud--ynao.sudrf.ru": {
    "counts": [
@@ -317,7 +317,6 @@
   "cassation:7kas:total": {
    "counts": [
     25,
-    25,
     0,
     25,
     25,
@@ -327,21 +326,21 @@
     25,
     25,
     25,
+    0,
     0,
     0,
     0
    ],
-   "zero_streak": 3,
+   "zero_streak": 4,
    "fail_streak": 0,
    "alerted_zero": true,
    "label": "Кассация 7kas (вся выдача)",
    "last_count": 0,
-   "last_run_at": "2026-09-01T07:10:21"
+   "last_run_at": "2026-09-01T07:37:00"
   },
   "cassation:7kas:sverdlovsk_yanao": {
    "counts": [
     9,
-    9,
     0,
     10,
     10,
@@ -351,37 +350,38 @@
     10,
     10,
     9,
+    0,
     0,
     0,
     0
    ],
-   "zero_streak": 3,
+   "zero_streak": 4,
    "fail_streak": 0,
    "alerted_zero": true,
    "label": "Кассация 7kas (фильтр региона)",
    "last_count": 0,
-   "last_run_at": "2026-09-01T07:10:21"
+   "last_run_at": "2026-09-01T07:37:00"
   }
  },
  "last_run": {
-  "at": "2026-09-01T07:10:21",
-  "requests_ok": 193,
+  "at": "2026-09-01T07:37:00",
+  "requests_ok": 121,
   "requests_failed": 0,
   "requests_retried": 0,
-  "cards_breaker_skipped": 99,
-  "cards_breaker_unrequested": 70,
-  "cards_breaker_recovered": 22,
-  "cards_blocked": 82,
-  "cards_read": 109,
-  "cards_planned": 249,
-  "cards_read_today": 456,
+  "cards_breaker_skipped": 62,
+  "cards_breaker_unrequested": 52,
+  "cards_breaker_recovered": 7,
+  "cards_blocked": 63,
+  "cards_read": 56,
+  "cards_planned": 166,
+  "cards_read_today": 498,
   "cards_planned_today": 585,
-  "daily_attempts": 3,
+  "daily_attempts": 4,
   "instances": {
    "first_instance": {
-    "read": 109,
-    "planned": 245,
-    "read_today": 378,
+    "read": 56,
+    "planned": 162,
+    "read_today": 420,
     "planned_today": 503
    },
    "appeal": {
@@ -398,43 +398,43 @@
    }
   },
   "latency": {
-   "n": 193,
+   "n": 121,
    "p50": 0.3,
-   "p90": 1.4,
-   "max": 6.3
+   "p90": 1.6,
+   "max": 3.3
   },
   "failure_latency": {
    "outage_search": {
     "n": 1,
-    "p50": 6.3,
-    "p90": 6.3,
-    "max": 6.3
+    "p50": 0.1,
+    "p90": 0.1,
+    "max": 0.1
    },
    "portal_placeholder": {
-    "n": 82,
-    "p50": 0.1,
-    "p90": 1.2,
-    "max": 5.3
+    "n": 63,
+    "p50": 0.2,
+    "p90": 2.2,
+    "max": 3.3
    }
   },
   "fail_kinds": {
    "outage_search": 1,
-   "portal_placeholder": 82
+   "portal_placeholder": 63
   },
   "breaker": {
    "mode": "time",
-   "opened_hosts": 19,
-   "open_hosts": 11,
-   "recovered_hosts": 10,
-   "deferred_total": 114,
-   "deferred_remaining": 92,
-   "deferred_recovered": 22,
-   "probes": 17,
-   "probe_successes": 10,
-   "probe_failures": 7,
+   "opened_hosts": 16,
+   "open_hosts": 13,
+   "recovered_hosts": 5,
+   "deferred_total": 75,
+   "deferred_remaining": 68,
+   "deferred_recovered": 7,
+   "probes": 7,
+   "probe_successes": 5,
+   "probe_failures": 2,
    "by_kind": {
     "outage_search": 1,
-    "portal_placeholder": 27
+    "portal_placeholder": 19
    },
    "hosts": [
     {
@@ -459,13 +459,28 @@
      "family": "portal_outage",
      "reason": "вместо карточки пришла заглушка портала",
      "preopened": false,
-     "skipped": 11,
+     "skipped": 12,
      "probes": 1,
-     "deferred_total": 13,
-     "deferred_remaining": 13,
+     "deferred_total": 9,
+     "deferred_remaining": 6,
+     "deferred_recovered": 3,
+     "cooldown_seconds": 180.0,
+     "next_probe_in_seconds": 173.4
+    },
+    {
+     "host": "alapaevsky--svd.sudrf.ru",
+     "state": "open",
+     "kind": "portal_placeholder",
+     "family": "portal_outage",
+     "reason": "вместо карточки пришла заглушка портала",
+     "preopened": false,
+     "skipped": 0,
+     "probes": 0,
+     "deferred_total": 1,
+     "deferred_remaining": 1,
      "deferred_recovered": 0,
      "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 11.5
+     "next_probe_in_seconds": 106.7
     },
     {
      "host": "artemovsky--svd.sudrf.ru",
@@ -474,13 +489,13 @@
      "family": "portal_outage",
      "reason": "вместо карточки пришла заглушка портала",
      "preopened": false,
-     "skipped": 4,
-     "probes": 1,
-     "deferred_total": 5,
+     "skipped": 2,
+     "probes": 0,
+     "deferred_total": 3,
      "deferred_remaining": 3,
-     "deferred_recovered": 2,
+     "deferred_recovered": 0,
      "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 130.5
+     "next_probe_in_seconds": 14.0
     },
     {
      "host": "asbestovsky--svd.sudrf.ru",
@@ -489,31 +504,16 @@
      "family": "portal_outage",
      "reason": "вместо карточки пришла заглушка портала",
      "preopened": false,
-     "skipped": 4,
-     "probes": 1,
-     "deferred_total": 5,
-     "deferred_remaining": 5,
+     "skipped": 5,
+     "probes": 0,
+     "deferred_total": 6,
+     "deferred_remaining": 6,
      "deferred_recovered": 0,
      "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 133.4
+     "next_probe_in_seconds": 22.3
     },
     {
-     "host": "chkalovsky--svd.sudrf.ru",
-     "state": "closed",
-     "kind": "portal_placeholder",
-     "family": "portal_outage",
-     "reason": "вместо карточки пришла заглушка портала",
-     "preopened": false,
-     "skipped": 3,
-     "probes": 1,
-     "deferred_total": 4,
-     "deferred_remaining": 2,
-     "deferred_recovered": 2,
-     "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 0.0
-    },
-    {
-     "host": "kirovsky--svd.sudrf.ru",
+     "host": "beloyarsky--svd.sudrf.ru",
      "state": "open",
      "kind": "portal_placeholder",
      "family": "portal_outage",
@@ -525,41 +525,11 @@
      "deferred_remaining": 2,
      "deferred_recovered": 0,
      "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 26.9
+     "next_probe_in_seconds": 5.5
     },
     {
-     "host": "krasnogorsky--svd.sudrf.ru",
-     "state": "closed",
-     "kind": "portal_placeholder",
-     "family": "portal_outage",
-     "reason": "вместо карточки пришла заглушка портала",
-     "preopened": false,
-     "skipped": 2,
-     "probes": 1,
-     "deferred_total": 3,
-     "deferred_remaining": 1,
-     "deferred_recovered": 2,
-     "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 0.0
-    },
-    {
-     "host": "leninskyeka--svd.sudrf.ru",
+     "host": "chkalovsky--svd.sudrf.ru",
      "state": "open",
-     "kind": "portal_placeholder",
-     "family": "portal_outage",
-     "reason": "вместо карточки пришла заглушка портала",
-     "preopened": false,
-     "skipped": 13,
-     "probes": 1,
-     "deferred_total": 15,
-     "deferred_remaining": 15,
-     "deferred_recovered": 0,
-     "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 15.5
-    },
-    {
-     "host": "leninskytag--svd.sudrf.ru",
-     "state": "closed",
      "kind": "portal_placeholder",
      "family": "portal_outage",
      "reason": "вместо карточки пришла заглушка портала",
@@ -567,28 +537,13 @@
      "skipped": 4,
      "probes": 1,
      "deferred_total": 5,
-     "deferred_remaining": 1,
-     "deferred_recovered": 4,
+     "deferred_remaining": 5,
+     "deferred_recovered": 0,
      "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 0.0
+     "next_probe_in_seconds": 149.6
     },
     {
-     "host": "novouralsky--svd.sudrf.ru",
-     "state": "closed",
-     "kind": "portal_placeholder",
-     "family": "portal_outage",
-     "reason": "вместо карточки пришла заглушка портала",
-     "preopened": false,
-     "skipped": 3,
-     "probes": 1,
-     "deferred_total": 4,
-     "deferred_remaining": 0,
-     "deferred_recovered": 4,
-     "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 0.0
-    },
-    {
-     "host": "polevskoy--svd.sudrf.ru",
+     "host": "irbitsky--svd.sudrf.ru",
      "state": "closed",
      "kind": "portal_placeholder",
      "family": "portal_outage",
@@ -603,61 +558,76 @@
      "next_probe_in_seconds": 0.0
     },
     {
+     "host": "kirovsky--svd.sudrf.ru",
+     "state": "open",
+     "kind": "portal_placeholder",
+     "family": "portal_outage",
+     "reason": "вместо карточки пришла заглушка портала",
+     "preopened": false,
+     "skipped": 2,
+     "probes": 0,
+     "deferred_total": 3,
+     "deferred_remaining": 3,
+     "deferred_recovered": 0,
+     "cooldown_seconds": 180.0,
+     "next_probe_in_seconds": 132.6
+    },
+    {
+     "host": "leninskyeka--svd.sudrf.ru",
+     "state": "open",
+     "kind": "portal_placeholder",
+     "family": "portal_outage",
+     "reason": "вместо карточки пришла заглушка портала",
+     "preopened": false,
+     "skipped": 12,
+     "probes": 1,
+     "deferred_total": 14,
+     "deferred_remaining": 14,
+     "deferred_recovered": 0,
+     "cooldown_seconds": 180.0,
+     "next_probe_in_seconds": 122.6
+    },
+    {
+     "host": "oktiabrsky--svd.sudrf.ru",
+     "state": "open",
+     "kind": "portal_placeholder",
+     "family": "portal_outage",
+     "reason": "вместо карточки пришла заглушка портала",
+     "preopened": false,
+     "skipped": 0,
+     "probes": 0,
+     "deferred_total": 1,
+     "deferred_remaining": 1,
+     "deferred_recovered": 0,
+     "cooldown_seconds": 180.0,
+     "next_probe_in_seconds": 117.4
+    },
+    {
      "host": "revdinsky--svd.sudrf.ru",
      "state": "open",
      "kind": "portal_placeholder",
      "family": "portal_outage",
      "reason": "вместо карточки пришла заглушка портала",
      "preopened": false,
-     "skipped": 15,
-     "probes": 1,
-     "deferred_total": 16,
-     "deferred_remaining": 16,
+     "skipped": 3,
+     "probes": 0,
+     "deferred_total": 4,
+     "deferred_remaining": 4,
      "deferred_recovered": 0,
      "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 172.3
-    },
-    {
-     "host": "suholozhsky--svd.sudrf.ru",
-     "state": "closed",
-     "kind": "portal_placeholder",
-     "family": "portal_outage",
-     "reason": "вместо карточки пришла заглушка портала",
-     "preopened": false,
-     "skipped": 0,
-     "probes": 1,
-     "deferred_total": 1,
-     "deferred_remaining": 0,
-     "deferred_recovered": 1,
-     "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 0.0
+     "next_probe_in_seconds": 98.2
     },
     {
      "host": "tagilstroevsky--svd.sudrf.ru",
-     "state": "open",
-     "kind": "portal_placeholder",
-     "family": "portal_outage",
-     "reason": "вместо карточки пришла заглушка портала",
-     "preopened": false,
-     "skipped": 3,
-     "probes": 1,
-     "deferred_total": 5,
-     "deferred_remaining": 5,
-     "deferred_recovered": 0,
-     "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 0.0
-    },
-    {
-     "host": "tavdinsky--svd.sudrf.ru",
      "state": "closed",
      "kind": "portal_placeholder",
      "family": "portal_outage",
      "reason": "вместо карточки пришла заглушка портала",
      "preopened": false,
-     "skipped": 0,
+     "skipped": 1,
      "probes": 1,
-     "deferred_total": 1,
-     "deferred_remaining": 0,
+     "deferred_total": 2,
+     "deferred_remaining": 1,
      "deferred_recovered": 1,
      "cooldown_seconds": 180.0,
      "next_probe_in_seconds": 0.0
@@ -669,13 +639,13 @@
      "family": "portal_outage",
      "reason": "вместо карточки пришла заглушка портала",
      "preopened": false,
-     "skipped": 10,
+     "skipped": 8,
      "probes": 1,
-     "deferred_total": 12,
-     "deferred_remaining": 12,
+     "deferred_total": 10,
+     "deferred_remaining": 10,
      "deferred_recovered": 0,
      "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 0.0
+     "next_probe_in_seconds": 114.3
     },
     {
      "host": "verhnepyshminsky--svd.sudrf.ru",
@@ -684,51 +654,36 @@
      "family": "portal_outage",
      "reason": "вместо карточки пришла заглушка портала",
      "preopened": false,
-     "skipped": 19,
-     "probes": 1,
-     "deferred_total": 12,
-     "deferred_remaining": 10,
-     "deferred_recovered": 2,
+     "skipped": 7,
+     "probes": 0,
+     "deferred_total": 8,
+     "deferred_remaining": 8,
+     "deferred_recovered": 0,
      "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 145.0
+     "next_probe_in_seconds": 29.8
     },
     {
-     "host": "verhnesaldinsky--svd.sudrf.ru",
+     "host": "zheleznodorozhny--svd.sudrf.ru",
      "state": "closed",
      "kind": "portal_placeholder",
      "family": "portal_outage",
      "reason": "вместо карточки пришла заглушка портала",
      "preopened": false,
-     "skipped": 1,
+     "skipped": 0,
      "probes": 1,
-     "deferred_total": 2,
+     "deferred_total": 1,
      "deferred_remaining": 0,
-     "deferred_recovered": 2,
+     "deferred_recovered": 1,
      "cooldown_seconds": 180.0,
      "next_probe_in_seconds": 0.0
-    },
-    {
-     "host": "zheleznodorozhny--svd.sudrf.ru",
-     "state": "open",
-     "kind": "portal_placeholder",
-     "family": "portal_outage",
-     "reason": "вместо карточки пришла заглушка портала",
-     "preopened": false,
-     "skipped": 1,
-     "probes": 1,
-     "deferred_total": 3,
-     "deferred_remaining": 3,
-     "deferred_recovered": 0,
-     "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 18.1
     }
    ]
   },
-  "courts_unavailable": 11,
-  "courts_with_unrequested": 10,
+  "courts_unavailable": 13,
+  "courts_with_unrequested": 11,
   "courts_outage": 1,
-  "cards_unreachable": 70,
-  "cards_unread_other": 70,
+  "cards_unreachable": 52,
+  "cards_unread_other": 58,
   "run_deadline_seconds": 3300.0,
   "run_deadline_reached": false
  }
