@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated_at": "2026-09-02T07:34:05",
+ "updated_at": "2026-09-02T08:03:37",
  "sources": {
   "appeal:oblsud--ynao.sudrf.ru": {
    "counts": [
@@ -318,7 +318,7 @@
    "counts": [
     25,
     25,
-    25,
+    0,
     0,
     0,
     0,
@@ -336,13 +336,13 @@
    "alerted_zero": true,
    "label": "Кассация 7kas (вся выдача)",
    "last_count": 0,
-   "last_run_at": "2026-09-02T07:34:05"
+   "last_run_at": "2026-09-02T08:03:37"
   },
   "cassation:7kas:sverdlovsk_yanao": {
    "counts": [
     10,
-    10,
     9,
+    0,
     0,
     0,
     0,
@@ -360,26 +360,26 @@
    "alerted_zero": true,
    "label": "Кассация 7kas (фильтр региона)",
    "last_count": 0,
-   "last_run_at": "2026-09-02T07:34:05"
+   "last_run_at": "2026-09-02T08:03:37"
   }
  },
  "last_run": {
-  "at": "2026-09-02T07:34:05",
+  "at": "2026-09-02T08:03:37",
   "requests_ok": 42,
   "requests_failed": 1,
   "requests_retried": 0,
   "cards_breaker_skipped": 6,
   "cards_breaker_unrequested": 6,
   "cards_breaker_recovered": 0,
-  "cards_blocked": 0,
-  "cards_read": 41,
+  "cards_blocked": 2,
+  "cards_read": 39,
   "cards_planned": 48,
   "cards_read_today": 419,
   "cards_planned_today": 425,
-  "daily_attempts": 4,
+  "daily_attempts": 5,
   "instances": {
    "first_instance": {
-    "read": 41,
+    "read": 39,
     "planned": 42,
     "read_today": 342,
     "planned_today": 342
@@ -399,9 +399,9 @@
   },
   "latency": {
    "n": 42,
-   "p50": 1.5,
-   "p90": 3.6,
-   "max": 7.8
+   "p50": 1.4,
+   "p90": 3.5,
+   "max": 9.8
   },
   "failure_latency": {
    "connect_timeout": {
@@ -412,14 +412,21 @@
    },
    "outage_search": {
     "n": 1,
-    "p50": 6.2,
-    "p90": 6.2,
-    "max": 6.2
+    "p50": 0.1,
+    "p90": 0.1,
+    "max": 0.1
+   },
+   "portal_placeholder": {
+    "n": 2,
+    "p50": 2.2,
+    "p90": 9.4,
+    "max": 9.4
    }
   },
   "fail_kinds": {
    "outage_search": 1,
-   "connect_timeout": 1
+   "connect_timeout": 1,
+   "portal_placeholder": 2
   },
   "breaker": {
    "mode": "time",
@@ -457,7 +464,7 @@
   "courts_with_unrequested": 1,
   "courts_outage": 1,
   "cards_unreachable": 6,
-  "cards_unread_other": 1,
+  "cards_unread_other": 3,
   "run_deadline_seconds": 3300.0,
   "run_deadline_reached": false
  }
