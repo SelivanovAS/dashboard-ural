@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated_at": "2026-09-02T07:03:52",
+ "updated_at": "2026-09-02T07:34:05",
  "sources": {
   "appeal:oblsud--ynao.sudrf.ru": {
    "counts": [
@@ -319,7 +319,7 @@
     25,
     25,
     25,
-    25,
+    0,
     0,
     0,
     0,
@@ -336,14 +336,14 @@
    "alerted_zero": true,
    "label": "Кассация 7kas (вся выдача)",
    "last_count": 0,
-   "last_run_at": "2026-09-02T07:03:52"
+   "last_run_at": "2026-09-02T07:34:05"
   },
   "cassation:7kas:sverdlovsk_yanao": {
    "counts": [
     10,
     10,
-    10,
     9,
+    0,
     0,
     0,
     0,
@@ -360,26 +360,26 @@
    "alerted_zero": true,
    "label": "Кассация 7kas (фильтр региона)",
    "last_count": 0,
-   "last_run_at": "2026-09-02T07:03:52"
+   "last_run_at": "2026-09-02T07:34:05"
   }
  },
  "last_run": {
-  "at": "2026-09-02T07:03:52",
-  "requests_ok": 43,
-  "requests_failed": 0,
+  "at": "2026-09-02T07:34:05",
+  "requests_ok": 42,
+  "requests_failed": 1,
   "requests_retried": 0,
   "cards_breaker_skipped": 6,
   "cards_breaker_unrequested": 6,
   "cards_breaker_recovered": 0,
-  "cards_blocked": 2,
-  "cards_read": 40,
+  "cards_blocked": 0,
+  "cards_read": 41,
   "cards_planned": 48,
   "cards_read_today": 419,
   "cards_planned_today": 425,
-  "daily_attempts": 3,
+  "daily_attempts": 4,
   "instances": {
    "first_instance": {
-    "read": 40,
+    "read": 41,
     "planned": 42,
     "read_today": 342,
     "planned_today": 342
@@ -398,43 +398,42 @@
    }
   },
   "latency": {
-   "n": 43,
-   "p50": 1.3,
-   "p90": 4.5,
-   "max": 12.6
+   "n": 42,
+   "p50": 1.5,
+   "p90": 3.6,
+   "max": 7.8
   },
   "failure_latency": {
+   "connect_timeout": {
+    "n": 1,
+    "p50": 10.0,
+    "p90": 10.0,
+    "max": 10.0
+   },
    "outage_search": {
     "n": 1,
-    "p50": 6.1,
-    "p90": 6.1,
-    "max": 6.1
-   },
-   "portal_placeholder": {
-    "n": 2,
-    "p50": 2.2,
-    "p90": 2.3,
-    "max": 2.3
+    "p50": 6.2,
+    "p90": 6.2,
+    "max": 6.2
    }
   },
   "fail_kinds": {
    "outage_search": 1,
-   "portal_placeholder": 2
+   "connect_timeout": 1
   },
   "breaker": {
    "mode": "time",
-   "opened_hosts": 2,
-   "open_hosts": 2,
+   "opened_hosts": 1,
+   "open_hosts": 1,
    "recovered_hosts": 0,
-   "deferred_total": 7,
-   "deferred_remaining": 7,
+   "deferred_total": 6,
+   "deferred_remaining": 6,
    "deferred_recovered": 0,
    "probes": 0,
    "probe_successes": 0,
    "probe_failures": 0,
    "by_kind": {
-    "outage_search": 1,
-    "portal_placeholder": 1
+    "outage_search": 1
    },
    "hosts": [
     {
@@ -451,29 +450,14 @@
      "deferred_recovered": 0,
      "cooldown_seconds": 180.0,
      "next_probe_in_seconds": 0.0
-    },
-    {
-     "host": "ordzhonikidzevsky--svd.sudrf.ru",
-     "state": "open",
-     "kind": "portal_placeholder",
-     "family": "portal_outage",
-     "reason": "вместо карточки пришла заглушка портала",
-     "preopened": false,
-     "skipped": 0,
-     "probes": 0,
-     "deferred_total": 1,
-     "deferred_remaining": 1,
-     "deferred_recovered": 0,
-     "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 179.7
     }
    ]
   },
-  "courts_unavailable": 2,
+  "courts_unavailable": 1,
   "courts_with_unrequested": 1,
   "courts_outage": 1,
   "cards_unreachable": 6,
-  "cards_unread_other": 2,
+  "cards_unread_other": 1,
   "run_deadline_seconds": 3300.0,
   "run_deadline_reached": false
  }
