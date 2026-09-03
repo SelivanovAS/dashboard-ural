@@ -1334,7 +1334,7 @@ async function loadFromSheet(url,opts){
   // quiet — фоновое обновление по сигналу SW: экран загрузки не показываем,
   // данные и так придут из уже обновлённого кэша, мгновенно.
   if(!(opts&&opts.quiet))showLoading();
-  const btn=document.getElementById('btn-refresh');
+  const btn=document.getElementById('st-item-refresh');
   if(btn)btn.classList.add('is-loading');
   try{
     if(isJsonUrl(url)){
@@ -1373,6 +1373,7 @@ async function loadFromSheet(url,opts){
       allCases=main.concat(archiveOnly);
     }
     if(allCases.length===0)throw new Error('Таблица пуста');
+    _lastDataLoadAt=Date.now(); // якорь автообновления при возврате во вкладку
     showApp();hideError();renderAll();
   }catch(e){
     console.warn('Ошибка загрузки:',e.message);
@@ -1480,6 +1481,9 @@ function uiBusyForRefresh(){
   // Анонс «Что нового» открыт — фоновая перерисовка подождёт.
   const wnSheet=document.getElementById('whatsnew-sheet');
   if(wnSheet&&wnSheet.classList.contains('open'))return true;
+  // Шторка «Настройки» (03.09.2026): те же правила, что у синка.
+  const stSheet=document.getElementById('settings-sheet');
+  if(stSheet&&stSheet.classList.contains('open'))return true;
   return document.body.classList.contains('beacon-open');
 }
 
@@ -4871,16 +4875,20 @@ function clearProfileLink() {
   clearCalFeedToken(); // календарная ссылка принадлежит покинутому профилю
   updateSyncButton();
 }
-// Подсветка кнопки шапки: связанное устройство — как включённый колокольчик.
-// Точка .pending — есть недопушенные правки ★ (Worker недоступен/офлайн);
-// только у связанных устройств: без профиля dirty-флаг никогда не снимается
-// (легаси-путь его не чистит) и точка горела бы вечно.
+// Точка .pending на шестерёнке шапки (#btn-settings) — есть недопушенные
+// правки ★ (Worker недоступен/офлайн); только у связанных устройств: без
+// профиля dirty-флаг никогда не снимается (легаси-путь его не чистит) и точка
+// горела бы вечно. Зелёной подсветки «связано» у шестерёнки нет — статус
+// живёт строкой в шторке «Настройки» (03.09.2026: кнопка 🔗 из шапки
+// переехала за ⚙ вместе с колокольчиком push и календарём).
 function updateSyncButton() {
-  const btn = document.getElementById('btn-sync');
+  const btn = document.getElementById('btn-settings');
   if (!btn) return;
   const pid = !!getProfileId();
-  btn.classList.toggle('on', pid);
   btn.classList.toggle('pending', pid && isProfileDirty());
+  // Открытая шторка настроек показывает тот же статус строкой.
+  const sheet = document.getElementById('settings-sheet');
+  if (sheet && sheet.classList.contains('open')) renderSettingsSheet();
 }
 
 // ── Календарный фид (webcal): токен подписки «Мои заседания» ───────────────
@@ -4912,18 +4920,9 @@ function calFeedGoogleUrl(token) {
   return 'https://calendar.google.com/calendar/render?cid='
     + encodeURIComponent(calFeedWebcalUrl(token));
 }
-// Веб-Outlook (личные аккаунты Microsoft: outlook.com / M365): открывает
-// форму «Подписаться из Интернета» с уже заполненной ссылкой и именем.
-// Корпоративный Exchange в закрытом контуре до фида не достучится — это
-// путь для личных ящиков.
-function calFeedOutlookUrl(token) {
-  return 'https://outlook.live.com/calendar/0/addfromweb?url='
-    + encodeURIComponent(calFeedWebcalUrl(token))
-    + '&name=' + encodeURIComponent('Мои заседания');
-}
 // Платформы Apple понимают webcal:— системный диалог «Подписаться на
 // календарь» (iPhone/iPad и Mac с Calendar.app). Тот же детект, что у
-// подсказки-колокольчика iOS (injectPushBell).
+// детекта iOS в setupPushNotifications.
 function calIsApplePlatform() {
   const ua = navigator.userAgent || '';
   return /iPad|iPhone|iPod|Macintosh/.test(ua);
@@ -5427,6 +5426,211 @@ function closeSyncSheet() {
 }
 window.closeSyncSheet = closeSyncSheet;
 
+// ── Шторка «Настройки» (⚙ в шапке, 03.09.2026) ─────────────────────────
+// Сюда переехали вещи «настроил один раз»: push-уведомления (раньше
+// колокольчик в шапке), синхронизация устройств (кнопка 🔗), календарный
+// фид (жил внутри шторки синка) и «Обновить данные» (кнопка шапки; данные
+// теперь перечитываются сами при возврате во вкладку — см.
+// AUTO_REFRESH_MIN_MS). В шапке остались ⚙ и тема. Форма — та же шторка,
+// что у синка (bottom-sheet на телефоне, мини-окно по центру на десктопе —
+// общее CSS-переопределение #sync-sheet/#whatsnew-sheet/#settings-sheet).
+// Вёрстка — список строк в духе системных настроек (разбор юриста
+// 03.09.2026: первая версия была «стеной текста»): строка = значок,
+// название, короткий статус, шеврон; тап раскрывает ОДИН раздел с одной
+// главной кнопкой, пояснения — в свёртке «Как это работает». Значки —
+// inline-SVG на currentColor, эмодзи в кнопках нет (выпадают из палитры
+// темы). Рендер конкатенацией строк, без template literal.
+let _pushUi = { state: 'none', onReadyClick: null };
+let _settingsOpenSection = null; // id раскрытого раздела (один за раз)
+
+const ST_ICONS = {
+  bell: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>',
+  link: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>',
+  calendar: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>',
+  refresh: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>',
+  info: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>',
+  chevron: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>',
+};
+
+function openSettingsSheet() {
+  const sheet = document.getElementById('settings-sheet');
+  const scrim = document.getElementById('settings-scrim');
+  if (!sheet) return;
+  renderSettingsSheet();
+  sheet.classList.add('open');
+  sheet.setAttribute('aria-hidden', 'false');
+  if (scrim) scrim.classList.add('open');
+  // Тело шторки переживает закрытие вместе со своим scrollTop — открываем
+  // всегда с первого раздела. ⚠️ Сброс ПОСЛЕ .open: у закрытой шторки
+  // присвоение scrollTop не держится (проверено 03.09.2026).
+  const body = document.getElementById('settings-sheet-body');
+  if (body) body.scrollTop = 0;
+}
+window.openSettingsSheet = openSettingsSheet;
+
+function closeSettingsSheet() {
+  const sheet = document.getElementById('settings-sheet');
+  const scrim = document.getElementById('settings-scrim');
+  if (!sheet) return;
+  sheet.classList.remove('open');
+  sheet.setAttribute('aria-hidden', 'true');
+  if (scrim) scrim.classList.remove('open');
+  _settingsOpenSection = null; // повторное открытие — свёрнутый список
+  applyPendingDataRefresh();
+}
+window.closeSettingsSheet = closeSettingsSheet;
+
+// Раскрыть/свернуть раздел (один за раз — «аккордеон»).
+function settingsToggle(id) {
+  _settingsOpenSection = (_settingsOpenSection === id) ? null : id;
+  renderSettingsSheet();
+}
+window.settingsToggle = settingsToggle;
+
+// «Открыть» в разделе синхронизации: шторка поверх шторки не нужна —
+// закрываем настройки и открываем прежнюю шторку синка (коды, QR, сканер).
+function settingsOpenSync() {
+  closeSettingsSheet();
+  openSyncSheet();
+}
+window.settingsOpenSync = settingsOpenSync;
+
+// «Обновить данные»: та же пара загрузок, что у прежней кнопки шапки.
+function settingsRefreshData() {
+  closeSettingsSheet();
+  refreshData();
+}
+window.settingsRefreshData = settingsRefreshData;
+
+// Строка списка: значок · название · статус · шеврон; раскрытый раздел
+// получает панель под строкой. opts.action — строка-действие без панели.
+function settingsRowHtml(id, icon, title, status, statusCls, panelHtml, opts) {
+  const direct = !!(opts && opts.action);
+  const open = !direct && _settingsOpenSection === id;
+  return '<div class="st-item' + (open ? ' is-open' : '') + '" id="st-item-' + id + '">'
+    + '<button type="button" class="st-row" '
+    + (direct
+      ? 'onclick="' + opts.action + '"'
+      : 'onclick="settingsToggle(\'' + id + '\')" aria-expanded="' + (open ? 'true' : 'false') + '"')
+    + '>'
+    + '<span class="st-row-icon">' + (ST_ICONS[icon] || '') + '</span>'
+    + '<span class="st-row-main"><span class="st-row-title">' + title + '</span>'
+    + '<span class="st-row-status' + (statusCls ? ' ' + statusCls : '') + '">' + status + '</span></span>'
+    + (direct ? '' : '<span class="st-row-chev">' + ST_ICONS.chevron + '</span>')
+    + '</button>'
+    + (open ? '<div class="st-panel">' + panelHtml + '</div>' : '')
+    + '</div>';
+}
+
+function settingsFoldHtml(text) {
+  return '<details class="st-fold"><summary>Как это работает</summary>'
+    + '<div class="st-note">' + text + '</div></details>';
+}
+
+// Раздел «Уведомления»: статус словами + действие (см. setPushUiState).
+function settingsPushSectionHtml() {
+  const st = _pushUi.state;
+  let status = 'Недоступны в этом браузере', cls = '', panel = '';
+  const how = settingsFoldHtml('Пуш о новых делах и о событиях по делам со ★ приходит на это '
+    + 'устройство сразу после утреннего прогона. Разрешение общее на сайт, включается только '
+    + 'по вашему нажатию.');
+  if (st === 'on') {
+    status = 'Включены'; cls = 'is-on';
+    panel = '<div class="st-note">Приходят на это устройство. Отключить — запретить уведомления '
+      + 'для сайта в настройках браузера (или удалить приложение).</div>' + how;
+  } else if (st === 'ready') {
+    status = 'Выключены';
+    panel = '<button class="st-btn st-btn-primary" id="st-push-btn" onclick="settingsPushEnable()">Включить уведомления</button>' + how;
+  } else if (st === 'ios-install') {
+    status = 'Только из установленного приложения'; cls = 'is-warn';
+    panel = '<div class="st-note">На iPhone уведомления работают из приложения на экране «Домой»: '
+      + 'Поделиться → «На экран “Домой”», затем открыть с иконки и включить их здесь.</div>';
+  } else if (st === 'denied') {
+    status = 'Запрещены в браузере'; cls = 'is-warn';
+    panel = '<div class="st-note">Разрешите уведомления для сайта в настройках браузера и '
+      + 'обновите страницу.</div>';
+  } else {
+    panel = '<div class="st-note">Этот браузер не поддерживает push-уведомления или у территории '
+      + 'нет сервера уведомлений.</div>';
+  }
+  return settingsRowHtml('push', 'bell', 'Уведомления', status, cls, panel);
+}
+
+// Раздел «Синхронизация устройств»: статус + переход в шторку синка.
+function settingsSyncSectionHtml() {
+  const pid = getProfileId();
+  const dirty = !!pid && isProfileDirty();
+  const status = pid
+    ? ('Связано · профиль ' + escHtml(pid.slice(0, 8)) + (dirty ? ' · есть неотправленные ★' : ''))
+    : 'Не связано';
+  let panel = '';
+  if (dirty) {
+    panel += '<div class="sync-status-pending">⏳ Есть неотправленные изменения ★ — '
+      + 'уйдут сами при появлении связи с сервером</div>';
+  }
+  panel += '<div class="st-note">' + (pid
+    ? 'Подписки на дела (★, сейчас: ' + watchlist.size + ') общие для всех связанных устройств.'
+    : 'Свяжите телефон и компьютер — подписки на дела (★) станут общими. Push не обязателен.')
+    + '</div>'
+    + '<button class="st-btn' + (pid ? '' : ' st-btn-primary') + '" onclick="settingsOpenSync()">'
+    + (pid ? 'Подключить ещё / отвязать' : 'Связать устройства') + '</button>'
+    + settingsFoldHtml('Устройства связываются шестизначным кодом или QR (10 минут, один раз). '
+      + 'После связки постановка и снятие ★ зеркалятся на всех устройствах территории; '
+      + 'календарная ссылка общая.');
+  return settingsRowHtml('sync', 'link', 'Синхронизация устройств', status,
+    dirty ? 'is-warn' : (pid ? 'is-on' : ''), panel);
+}
+
+function settingsCalendarSectionHtml() {
+  const token = getCalFeedToken();
+  return settingsRowHtml('calendar', 'calendar', 'Календарь заседаний',
+    token ? 'Подключён' : 'Не подключён', token ? 'is-on' : '', calFeedBlockHtml());
+}
+
+// Строка-действие «Обновить данные»: статус — штамп данных, как в шапке.
+function settingsRefreshRowHtml() {
+  let status = 'Перечитать с сервера';
+  try {
+    const stamp = currentDataStamp();
+    if (stamp) {
+      status = 'Данные от ' + stamp.toLocaleString('ru-RU',
+        { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
+    }
+  } catch (_) {}
+  return settingsRowHtml('refresh', 'refresh', 'Обновить данные', status, '', '',
+    { action: 'settingsRefreshData()' });
+}
+
+// Раздел «О приложении»: версия сборки (из ?v= у app.js), территория,
+// повторный показ анонса.
+function settingsAboutSectionHtml() {
+  let ver = '';
+  try {
+    const sc = document.querySelector('script[src*="app.js?v="]');
+    const m = sc && /[?&]v=([^&]+)/.exec(sc.getAttribute('src') || '');
+    if (m) ver = m[1];
+  } catch (_) {}
+  const regionEl = document.getElementById('header-region');
+  const region = regionEl ? regionEl.textContent : '';
+  const status = 'СберСуд' + (region ? ' · ' + escHtml(region) : '') + (ver ? ' · версия ' + escHtml(ver) : '');
+  const panel = '<div class="st-note">Данные обновляются сами при возврате на страницу; '
+    + 'дайджест и пуш — после утреннего прогона.</div>'
+    + '<button class="st-btn" onclick="showWhatsNewAgain()">Показать «Что нового»</button>';
+  return settingsRowHtml('about', 'info', 'О приложении', status, '', panel);
+}
+
+function renderSettingsSheet() {
+  const body = document.getElementById('settings-sheet-body');
+  if (!body) return;
+  body.innerHTML = '<div class="st-list">'
+    + settingsPushSectionHtml()
+    + settingsSyncSectionHtml()
+    + settingsCalendarSectionHtml()
+    + settingsRefreshRowHtml()
+    + settingsAboutSectionHtml()
+    + '</div>';
+}
+
 function fmtPairCode(code) {
   // Код цифровой, 6 знаков — показываем группами: «123-456». Дефис только
   // для чтения, вводить его не нужно (поле чистит нецифры само).
@@ -5437,25 +5641,54 @@ function fmtPairCode(code) {
 // Блок «Календарь заседаний» внутри модалки синка: единый для связанных и
 // несвязанных устройств. ОДНА умная кнопка (subscribeCalendar): токен
 // добывается сам, календарь открывается сразу — 1 тап + системное
-// «Подписаться». Сервисный ряд (копия/перевыпуск/ссылка) — только когда
-// токен уже есть, тихо под кнопкой.
-const CAL_SUBSCRIBE_LABEL = '📅 Добавить заседания в календарь';
+// Панель раздела «Календарь заседаний» шторки настроек (03.09.2026).
+// Главная кнопка зависит от УСТРОЙСТВА: телефон → «Добавить в календарь»
+// (subscribeCalendar: подписка по ссылке, обновляется сама); компьютер →
+// «Скачать файл (.ics)» — в банке рабочие станции Linux с веб-OWA, где
+// «Добавить календарь → Из Интернета» исполняет сервер Exchange без выхода
+// в интернет (проверка 03.09.2026: не открыл даже публичный ICS Google),
+// единственный путь туда — импорт «Из файла» (снимок без обновлений).
+// Кнопка «Outlook» (outlook.live.com — личные ящики Microsoft) удалена: в
+// банке она не открывалась и вводила в заблуждение. Пояснения — в свёртке
+// «Как это работает», чтобы панель читалась за секунду.
+const CAL_SUBSCRIBE_LABEL = 'Добавить в календарь';
+function calIsMobileDevice() {
+  const ua = navigator.userAgent || '';
+  return /iPhone|iPad|iPod|Android/i.test(ua)
+    || (ua.indexOf('Macintosh') !== -1 && 'ontouchend' in document);
+}
 function calFeedBlockHtml() {
   const token = getCalFeedToken();
-  let html = '<div class="sync-divider">календарь</div>'
-    + '<div class="sync-note">Заседания дел со ★ добавятся в календарь телефона и будут '
-    + 'обновляться сами (с задержкой до суток; срочные изменения — пуш и дашборд).</div>'
-    + '<button class="sheet-btn-done sync-btn" id="cal-subscribe-btn" '
-    + 'onclick="subscribeCalendar()">' + CAL_SUBSCRIBE_LABEL + '</button>';
-  if (token) {
-    html += '<div class="cal-service-row">'
-      + '<button class="sync-btn cal-quiet-btn" onclick="copyCalFeedUrl()">⧉ Скопировать ссылку</button>'
-      + '<button class="sync-btn cal-quiet-btn" onclick="addCalToOutlook()">Outlook</button>'
-      + '<button class="sync-btn cal-quiet-btn cal-quiet-danger" onclick="regenerateCalFeed()">Перевыпустить</button>'
-      + '</div>'
-      + '<details class="cal-url-details"><summary>Показать ссылку (для Outlook / ручной вставки)</summary>'
-      + '<div class="sync-feed-url">' + escHtml(calFeedWebcalUrl(token)) + '</div></details>';
+  const mobile = calIsMobileDevice();
+  let html = '';
+  if (mobile) {
+    html += '<div class="st-note">Заседания дел со ★ появятся в календаре телефона и будут '
+      + 'обновляться сами (с задержкой до суток; срочное — пуш и дашборд).</div>'
+      + '<button class="st-btn st-btn-primary" id="cal-subscribe-btn" '
+      + 'onclick="subscribeCalendar()">' + CAL_SUBSCRIBE_LABEL + '</button>';
+  } else {
+    html += '<div class="st-note">Для рабочего компьютера: скачайте файл и загрузите его в OWA '
+      + '(Календарь → Добавить календарь → Из файла). Это снимок на момент загрузки, '
+      + 'обновляться он не будет — при переносах повторите.</div>'
+      + '<button class="st-btn st-btn-primary" onclick="downloadCalFeed()">Скачать файл (.ics)</button>';
   }
+  html += '<div class="st-btn-row">'
+    + (mobile
+      ? '<button class="st-btn" onclick="downloadCalFeed()">Скачать файл (.ics)</button>'
+      : '<button class="st-btn" id="cal-subscribe-btn" onclick="subscribeCalendar()">' + CAL_SUBSCRIBE_LABEL + '</button>')
+    + '<button class="st-btn" onclick="copyCalFeedUrl()">Скопировать ссылку</button>'
+    + (token
+      ? '<button class="st-btn st-btn-danger" onclick="regenerateCalFeed()">Перевыпустить ссылку</button>'
+      : '')
+    + '</div>'
+    + '<details class="st-fold"><summary>Как это работает</summary>'
+    + '<div class="st-note">Телефон: подписка по ссылке — календарь сам перечитывает расписание, '
+    + 'переносы обновляются, отпавшие дела исчезают. Корпоративный OWA: подписка по ссылке не '
+    + 'работает (почтовый сервер банка не выходит в интернет), поэтому только файл через '
+    + '«Добавить календарь → Из файла». «Скопировать ссылку» — для календарей с подпиской по '
+    + 'адресу (Google, Thunderbird и т.п.); в OWA ссылку вставлять бесполезно.</div>'
+    + (token ? '<div class="sync-feed-url">' + escHtml(calFeedWebcalUrl(token)) + '</div>' : '')
+    + '</details>';
   return html;
 }
 
@@ -5467,8 +5700,8 @@ function renderSyncSheet() {
   let html = '';
   if (_syncCodeShown) {
     html = '<div class="sync-block">'
-      + '<div class="sync-note">Введите этот код на втором устройстве (кнопка '
-      + '🔗 в шапке дашборда → «Связать»). Код действует 10 минут и работает один раз.</div>'
+      + '<div class="sync-note">Введите этот код на втором устройстве (⚙ Настройки → '
+      + 'Синхронизация → «Связать»). Код действует 10 минут и работает один раз.</div>'
       + '<div class="sync-code" id="sync-code-display">' + fmtPairCode(_syncCodeShown) + '</div>'
       + '<div class="sync-qr" id="sync-qr"></div>'
       + '<div class="sync-note sync-qr-note">Или наведите камеру телефона на QR — '
@@ -5480,7 +5713,7 @@ function renderSyncSheet() {
       + '<div class="sync-status-on">✓ Устройство связано</div>'
       + '<div class="sync-quiet">профиль ' + pid.slice(0, 8) + '</div>'
       // Недопушенные правки ★ (Worker недоступен/офлайн) — честно говорим,
-      // что звёзды пока локальные; та же причина зажигает точку на кнопке 🔗.
+      // что звёзды пока локальные; та же причина зажигает точку на ⚙ в шапке.
       + (isProfileDirty()
         ? '<div class="sync-status-pending">⏳ Есть неотправленные изменения ★ — '
           + 'уйдут сами при появлении связи с сервером</div>'
@@ -5489,7 +5722,6 @@ function renderSyncSheet() {
       + 'связанных устройств территории — и постановка ★, и снятие.</div>'
       + '<button class="sheet-btn-done sync-btn" onclick="requestPairCode()">Подключить ещё устройство</button>'
       + '<button class="sync-btn sync-btn-danger" onclick="unlinkThisDevice()">Отвязать это устройство</button>'
-      + calFeedBlockHtml()
       + '</div>';
   } else {
     html = '<div class="sync-block">'
@@ -5511,7 +5743,6 @@ function renderSyncSheet() {
       + (canScanQr()
         ? '<button class="sync-btn sync-btn-scan" onclick="startSyncScan()">📷 Сканировать QR</button>'
         : '')
-      + calFeedBlockHtml()
       + '</div>';
   }
   body.innerHTML = html;
@@ -5555,7 +5786,7 @@ async function maybeHandlePairParam() {
   } catch (_) {}
   if (!code) return;
   if (getProfileId()) {
-    showToast('Устройство уже связано — чтобы сменить профиль, сначала отвяжите его (кнопка 🔗)', { type: 'error' });
+    showToast('Устройство уже связано — чтобы сменить профиль, сначала отвяжите его (⚙ Настройки → Синхронизация)', { type: 'error' });
     return;
   }
   openSyncSheet();
@@ -5677,7 +5908,7 @@ window.startSyncScan = startSyncScan;
 // действий и скрим.
 
 const WHATSNEW_KEY = lsKey('whatsnew_seen');
-const WHATSNEW_ID = 'sync-2026-08'; // бампать при следующем анонсе
+const WHATSNEW_ID = 'settings-2026-09'; // бампать при следующем анонсе
 
 function maybeShowWhatsNew() {
   try {
@@ -5703,38 +5934,21 @@ function closeWhatsNew() {
 }
 window.closeWhatsNew = closeWhatsNew;
 
-// Живая демонстрация: открываем карточку первого дела и подсвечиваем плашку
-// «Проверено на сайте суда» пульсацией (класс .spotlight, снимается сам).
-function whatsNewShowFreshness() {
+// Кнопка анонса: показать, куда переехали настройки (шторка ⚙).
+function whatsNewOpenSettings() {
   closeWhatsNew();
-  // Пример — дело, у которого дата сверки ЕСТЬ: свежезаведённое без
-  // last_checked_at показало бы «не зафиксирована» — худшая демонстрация.
-  const pool = []
-    .concat((typeof filteredCases !== 'undefined' && filteredCases.length) ? filteredCases : [])
-    .concat((typeof allCases !== 'undefined' && allCases.length) ? allCases : []);
-  const hasCheck = (x) => !!((x._fi && x._fi.last_checked_at)
-    || (x._ap && x._ap.last_checked_at) || (x._cs && x._cs.last_checked_at));
-  const c = pool.find(hasCheck) || pool[0] || null;
-  if (!c) {
-    showToast('Откройте любую карточку дела — строка «Проверено на сайте суда» в её шапке', { type: 'info' });
-    return;
-  }
-  openDrawer(c.caseNumber);
-  setTimeout(() => {
-    const el = document.querySelector('.drawer-freshness');
-    if (!el) return;
-    try { el.scrollIntoView({ block: 'center', behavior: 'smooth' }); } catch (_) {}
-    el.classList.add('spotlight');
-    setTimeout(() => el.classList.remove('spotlight'), 3600);
-  }, 450);
+  openSettingsSheet();
 }
-window.whatsNewShowFreshness = whatsNewShowFreshness;
+window.whatsNewOpenSettings = whatsNewOpenSettings;
 
-function whatsNewOpenSync() {
-  closeWhatsNew();
-  openSyncSheet();
+// «Показать «Что нового» снова» из раздела «О приложении»: снимаем маркер
+// показа и открываем анонс поверх закрытой шторки настроек.
+function showWhatsNewAgain() {
+  try { localStorage.removeItem(WHATSNEW_KEY); } catch (_) {}
+  closeSettingsSheet();
+  maybeShowWhatsNew();
 }
-window.whatsNewOpenSync = whatsNewOpenSync;
+window.showWhatsNewAgain = showWhatsNewAgain;
 
 async function requestPairCode() {
   if (!PUSH_WORKER_URL) {
@@ -5883,7 +6097,7 @@ async function requestCalendarFeed(regenerate) {
     if (r.status === 404 && data && data.error === 'profile_not_found') {
       clearProfileLink();
       showToast('Профиль не найден на сервере — связка сброшена, подпишитесь заново', { type: 'error' });
-      renderSyncSheet();
+      renderSettingsSheet();
       return '';
     }
     if (!r.ok || !data || !data.ok || !data.token) {
@@ -5893,7 +6107,7 @@ async function requestCalendarFeed(regenerate) {
     }
     if (!pid) setProfileLink(data.profile_id, data.updated_at);
     setCalFeedToken(data.token);
-    renderSyncSheet();
+    renderSettingsSheet();
     if (regenerate) showToast('Ссылка перевыпущена — старая больше не работает', { type: 'success' });
     return data.token;
   } catch (_) {
@@ -5939,7 +6153,7 @@ async function copyCalFeedUrl() {
   const url = calFeedWebcalUrl(token);
   try {
     await navigator.clipboard.writeText(url);
-    showToast('Ссылка скопирована — вставьте её в «Добавить календарь по URL»', { type: 'success' });
+    showToast('Ссылка скопирована — вставьте её в календарь с подпиской по адресу (в OWA не работает, там — «Скачать файл»)', { type: 'success', duration: 6000 });
   } catch (_) {
     // Фолбэк без Clipboard API: юрист скопирует из строки «Показать ссылку».
     showToast('Скопируйте ссылку из строки «Показать ссылку»', { type: 'info' });
@@ -5947,18 +6161,20 @@ async function copyCalFeedUrl() {
 }
 window.copyCalFeedUrl = copyCalFeedUrl;
 
-// «Добавить в Outlook»: веб-Outlook с заполненной формой подписки. Тот же
+// «Скачать файл (.ics)»: путь для корпоративного OWA (импорт «Из файла»).
+// Открываем https-форму ссылки (не webcal: — её перехватил бы календарь):
+// тип text/calendar браузер сохраняет файлом, Worker не меняем. Тот же
 // паттерн, что subscribeCalendar: токен сам, window.open + фолбэк от
 // попап-блокера (жест «остывает» за await).
-async function addCalToOutlook() {
+async function downloadCalFeed() {
   let token = getCalFeedToken();
   if (!token) token = await requestCalendarFeed();
   if (!token) return;
-  const url = calFeedOutlookUrl(token);
+  const url = calFeedHttpsUrl(token);
   const w = window.open(url, '_blank');
   if (!w) window.location.href = url;
 }
-window.addCalToOutlook = addCalToOutlook;
+window.downloadCalFeed = downloadCalFeed;
 
 async function regenerateCalFeed() {
   if (!confirm('Перевыпустить ссылку календаря? Старая перестанет работать на всех '
@@ -6184,48 +6400,29 @@ async function subscribeToPush(reg) {
   }
 }
 
-// Колокольчик в шапке — видимый индикатор состояния push на ЭТОМ устройстве.
-// Раньше кнопка исчезала после подписки, а там, где подписка невозможна
-// (iOS Safari без установки на «Домой», запрещённые уведомления), не
-// появлялась вовсе — юрист не мог понять, подписан ли он (вопрос 17.07.2026).
-// Состояния: 'ready' — можно подписаться (клик = подписка); 'on' — подписка
-// активна; 'ios-install' — нужен ярлык на «Домой»; 'denied' — уведомления
-// запрещены для сайта в браузере.
-function injectPushBell(state, onReadyClick) {
-  const actions = document.querySelector('.header-actions');
-  if (!actions) return null;
-  let btn = document.getElementById('btn-push');
-  if (!btn) {
-    btn = document.createElement('button');
-    btn.id = 'btn-push';
-    btn.className = 'theme-toggle';
-    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>';
-    // Вставляем перед .theme-toggle
-    const themeBtn = actions.querySelector('.theme-toggle');
-    actions.insertBefore(btn, themeBtn);
-  }
-  btn.classList.toggle('on', state === 'on');
-  btn.classList.toggle('off', state === 'ios-install' || state === 'denied');
-  btn.disabled = false;
-  const titles = {
-    'ready': 'Включить push-уведомления',
-    'on': 'Push включён на этом устройстве',
-    'ios-install': 'Push доступен после установки на экран «Домой»',
-    'denied': 'Уведомления запрещены для сайта',
-  };
-  btn.title = titles[state] || titles['ready'];
-  btn.setAttribute('aria-label', btn.title);
-  if (state === 'ready') {
-    btn.onclick = onReadyClick || null;
-  } else if (state === 'on') {
-    btn.onclick = () => showToast('🔔 Push включён на этом устройстве. Отписка — удалить приложение или запретить уведомления для сайта.', { type: 'success', duration: 6000 });
-  } else if (state === 'ios-install') {
-    btn.onclick = () => showToast('Push на iPhone работает из установленного приложения: Поделиться → На экран «Домой», затем открыть с иконки и нажать колокольчик.', { duration: 8000 });
-  } else if (state === 'denied') {
-    btn.onclick = () => showToast('Уведомления для сайта запрещены — разрешите их в настройках браузера и обновите страницу.', { duration: 8000 });
-  }
-  return btn;
+// Состояние push на ЭТОМ устройстве — строка в шторке «Настройки» (до
+// 03.09.2026 — колокольчик в шапке, injectPushBell). Раньше кнопка исчезала
+// после подписки, а там, где подписка невозможна (iOS Safari без установки
+// на «Домой», запрещённые уведомления), не появлялась вовсе — юрист не мог
+// понять, подписан ли он (вопрос 17.07.2026); теперь состояние всегда
+// написано словами. Состояния: 'ready' — можно подписаться (кнопка =
+// подписка); 'on' — подписка активна; 'ios-install' — нужен ярлык на
+// «Домой»; 'denied' — уведомления запрещены для сайта в браузере; 'none' —
+// push недоступен (нет Worker'а / нет Push API). ⚠️ В шапку ничего не
+// вставляется: капсул там ровно три (⚙, тема, «Обновить»).
+function setPushUiState(state, onReadyClick) {
+  _pushUi = { state: state || 'none', onReadyClick: onReadyClick || null };
+  const sheet = document.getElementById('settings-sheet');
+  if (sheet && sheet.classList.contains('open')) renderSettingsSheet();
 }
+
+// Клик «Включить уведомления» в настройках — обработчик, переданный
+// setupPushNotifications (подписка ТОЛЬКО по явному клику, см. там).
+function settingsPushEnable() {
+  if (_pushUi.state !== 'ready' || typeof _pushUi.onReadyClick !== 'function') return;
+  _pushUi.onReadyClick();
+}
+window.settingsPushEnable = settingsPushEnable;
 
 async function setupPushNotifications(reg) {
   if (!PUSH_WORKER_URL) return; // push у территории отключён (нет Worker'а)
@@ -6239,11 +6436,11 @@ async function setupPushNotifications(reg) {
       || (ua.indexOf('Macintosh') !== -1 && 'ontouchend' in document);
     const standalone = window.navigator.standalone === true
       || (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches);
-    if (isIOS && !standalone) injectPushBell('ios-install');
+    if (isIOS && !standalone) setPushUiState('ios-install');
     return;
   }
   if (Notification.permission === 'denied') {
-    injectPushBell('denied');
+    setPushUiState('denied');
     return;
   }
 
@@ -6260,25 +6457,28 @@ async function setupPushNotifications(reg) {
       .catch(() => {});
     // Если в URL есть ?owner=<secret> — пометим существующую подписку как owner.
     markAsOwner(reg);
-    injectPushBell('on');
+    setPushUiState('on');
     return;
   }
 
-  // Подписки нет → показываем колокольчик и ждём ЯВНОГО клика — даже если
+  // Подписки нет → строка «Выключены» + кнопка, ждём ЯВНОГО клика — даже если
   // разрешение на уведомления уже выдано. Разрешение общее на весь домен
   // selivanovas.github.io, а дашбордов на нём два (ХМАО и Урал): тихая
   // автоподписка при granted означала бы, что сотрудник одной территории,
   // случайно открывший дашборд другой, незаметно подписывается на её пуши
   // (решение юриста 16.07.2026 — только по клику). Побочный эффект: если
-  // браузер потерял подписку, для восстановления тоже нужен клик — колокольчик
+  // браузер потерял подписку, для восстановления тоже нужен клик — кнопка
   // просто появится снова. При уже выданном разрешении клик проходит без
   // системного диалога.
-  injectPushBell('ready', async () => {
-    const btn = document.getElementById('btn-push');
+  setPushUiState('ready', async () => {
+    const btn = document.getElementById('st-push-btn');
     if (btn) btn.disabled = true;
     const ok = await subscribeToPush(reg);
-    if (ok) injectPushBell('on');
-    else if (btn) btn.disabled = false;
+    if (ok) setPushUiState('on');
+    else {
+      const b = document.getElementById('st-push-btn');
+      if (b) b.disabled = false;
+    }
   });
 }
 
@@ -6308,6 +6508,25 @@ document.addEventListener('visibilitychange',()=>{
 // вкладку следующий день не засчитался бы вовсе (шторма нет: гейт 30 минут).
 document.addEventListener('visibilitychange',()=>{
   if(document.visibilityState==='visible'){try{pingVisit();}catch(_){}}
+});
+// Автообновление данных при возврате во вкладку (03.09.2026). SW освежает
+// data/*.json только на fetch, а установленный PWA живёт открытым сутками:
+// утренний снимок висел бы до перезагрузки, и единственным выходом была
+// кнопка «Обновить» в шапке — теперь она в настройках как страховка. Гейт
+// 10 минут от последней загрузки; офлайн и занятый UI (drawer/шторки —
+// uiBusyForRefresh) — пропуск, следующий возврат подхватит. Сам fetch идёт
+// через SW (stale-while-revalidate): свежий снимок доедет сообщением
+// data-updated штатным путём.
+const AUTO_REFRESH_MIN_MS=10*60*1000;
+let _lastDataLoadAt=0;
+document.addEventListener('visibilitychange',()=>{
+  if(document.visibilityState!=='visible')return;
+  if(!allCases.length||navigator.onLine===false)return;
+  if(Date.now()-_lastDataLoadAt<AUTO_REFRESH_MIN_MS)return;
+  if(uiBusyForRefresh())return;
+  _lastDataLoadAt=Date.now();
+  loadFromSheet(resolveSheetUrl(),{quiet:true});
+  reloadBankDataset();
 });
 
 // Постоянное хранилище: ~7 МБ данных живут в Cache Storage, и best-effort
