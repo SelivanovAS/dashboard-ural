@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated_at": "2026-09-03T08:34:55",
+ "updated_at": "2026-09-03T08:49:23",
  "sources": {
   "appeal:oblsud--ynao.sudrf.ru": {
    "counts": [
@@ -364,22 +364,22 @@
   }
  },
  "last_run": {
-  "at": "2026-09-03T08:34:55",
-  "requests_ok": 41,
-  "requests_failed": 3,
+  "at": "2026-09-03T08:49:23",
+  "requests_ok": 43,
+  "requests_failed": 1,
   "requests_retried": 0,
   "cards_breaker_skipped": 0,
   "cards_breaker_unrequested": 0,
   "cards_breaker_recovered": 0,
-  "cards_blocked": 0,
-  "cards_read": 41,
+  "cards_blocked": 1,
+  "cards_read": 42,
   "cards_planned": 44,
   "cards_read_today": 377,
   "cards_planned_today": 377,
-  "daily_attempts": 6,
+  "daily_attempts": 7,
   "instances": {
    "first_instance": {
-    "read": 41,
+    "read": 42,
     "planned": 44,
     "read_today": 290,
     "planned_today": 290
@@ -398,21 +398,28 @@
    }
   },
   "latency": {
-   "n": 41,
-   "p50": 1.8,
-   "p90": 7.6,
-   "max": 9.6
+   "n": 43,
+   "p50": 2.6,
+   "p90": 6.7,
+   "max": 8.9
   },
   "failure_latency": {
    "connect_timeout": {
-    "n": 3,
-    "p50": 11.1,
-    "p90": 12.1,
-    "max": 12.1
+    "n": 1,
+    "p50": 10.0,
+    "p90": 10.0,
+    "max": 10.0
+   },
+   "portal_placeholder": {
+    "n": 1,
+    "p50": 3.3,
+    "p90": 3.3,
+    "max": 3.3
    }
   },
   "fail_kinds": {
-   "connect_timeout": 3
+   "connect_timeout": 1,
+   "portal_placeholder": 1
   },
   "breaker": {
    "mode": "time",
@@ -432,7 +439,7 @@
   "courts_with_unrequested": 0,
   "courts_outage": 0,
   "cards_unreachable": 0,
-  "cards_unread_other": 3,
+  "cards_unread_other": 2,
   "run_deadline_seconds": 3300.0,
   "run_deadline_reached": false
  }
