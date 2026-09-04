@@ -4,8 +4,8 @@
   "smart_skip": true,
   "totals": {
     "total": 1068,
-    "parsed": 44,
-    "skip": 1024,
+    "parsed": 43,
+    "skip": 1025,
     "failed": 0,
     "no_card": 0,
     "not_in_queue": 0,
@@ -5485,16 +5485,14 @@
       "last_checked_at": "2026-09-01"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [
-        "fi_hearing_new"
-      ],
-      "changed": true,
+      "events": [],
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "berezovsky--svd.sudrf.ru|2-1512/2026",
@@ -19239,5 +19237,5 @@
       "last_checked_at": "2026-09-04"
     }
   ],
-  "updated_at": "2026-09-04T06:36:03"
+  "updated_at": "2026-09-04T07:03:30"
 }
