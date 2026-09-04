@@ -4,9 +4,9 @@
   "smart_skip": true,
   "totals": {
     "total": 1068,
-    "parsed": 42,
+    "parsed": 41,
     "skip": 1025,
-    "failed": 1,
+    "failed": 2,
     "no_card": 0,
     "not_in_queue": 0,
     "intake_new": 0
@@ -49,9 +49,9 @@
       "last_checked_at": "2026-09-04"
     },
     {
-      "outcome": "parsed",
+      "outcome": "fetch_http",
       "reason": "",
-      "reason_ru": "",
+      "reason_ru": "HTTP-ошибка при загрузке карточки",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -121,9 +121,9 @@
       "last_checked_at": "2026-09-04"
     },
     {
-      "outcome": "parsed",
+      "outcome": "fetch_http",
       "reason": "",
-      "reason_ru": "",
+      "reason_ru": "HTTP-ошибка при загрузке карточки",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -3451,9 +3451,9 @@
       "last_checked_at": "2026-09-03"
     },
     {
-      "outcome": "fetch_blocked",
+      "outcome": "parsed",
       "reason": "",
-      "reason_ru": "портал суда отдал заглушку/блокировку вместо карточки",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -19237,5 +19237,5 @@
       "last_checked_at": "2026-09-04"
     }
   ],
-  "updated_at": "2026-09-04T07:33:20"
+  "updated_at": "2026-09-04T08:04:54"
 }
