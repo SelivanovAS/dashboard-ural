@@ -4,9 +4,9 @@
   "smart_skip": true,
   "totals": {
     "total": 1087,
-    "parsed": 44,
+    "parsed": 47,
     "skip": 1040,
-    "failed": 3,
+    "failed": 0,
     "no_card": 0,
     "not_in_queue": 0,
     "intake_new": 0
@@ -769,9 +769,9 @@
       "last_checked_at": "2026-09-02"
     },
     {
-      "outcome": "fetch_blocked",
+      "outcome": "parsed",
       "reason": "",
-      "reason_ru": "портал суда отдал заглушку/блокировку вместо карточки",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -1255,9 +1255,9 @@
       "last_checked_at": "2026-08-28"
     },
     {
-      "outcome": "fetch_blocked",
+      "outcome": "parsed",
       "reason": "",
-      "reason_ru": "портал суда отдал заглушку/блокировку вместо карточки",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -1273,9 +1273,9 @@
       "last_checked_at": "2026-09-07"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "parsed",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -19579,5 +19579,5 @@
       "last_checked_at": "2026-09-03"
     }
   ],
-  "updated_at": "2026-09-07T07:04:11"
+  "updated_at": "2026-09-07T07:34:39"
 }
