@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated_at": "2026-09-07T06:30:34",
+ "updated_at": "2026-09-07T06:35:25",
  "sources": {
   "appeal:oblsud--ynao.sudrf.ru": {
    "counts": [
@@ -320,7 +320,6 @@
     0,
     0,
     0,
-    0,
     25,
     0,
     0,
@@ -329,18 +328,18 @@
     0,
     0,
     0,
-    0
+    0,
+    25
    ],
    "zero_streak": 0,
    "fail_streak": 0,
    "alerted_zero": false,
    "label": "Кассация 7kas (вся выдача)",
-   "last_count": 0,
-   "last_run_at": "2026-09-07T06:30:34"
+   "last_count": 25,
+   "last_run_at": "2026-09-07T06:35:25"
   },
   "cassation:7kas:sverdlovsk_yanao": {
    "counts": [
-    0,
     0,
     0,
     0,
@@ -353,119 +352,79 @@
     0,
     0,
     0,
-    0
+    0,
+    5
    ],
    "zero_streak": 0,
    "fail_streak": 0,
    "alerted_zero": false,
    "label": "Кассация 7kas (фильтр региона)",
-   "last_count": 0,
-   "last_run_at": "2026-09-07T06:30:34"
+   "last_count": 5,
+   "last_run_at": "2026-09-07T06:35:25"
   }
  },
  "last_run": {
-  "at": "2026-09-07T06:30:34",
+  "at": "2026-09-07T06:35:25",
   "alerts": [],
-  "requests_ok": 420,
-  "requests_failed": 1,
+  "requests_ok": 72,
+  "requests_failed": 0,
   "requests_retried": 0,
-  "cards_breaker_skipped": 8,
-  "cards_breaker_unrequested": 8,
+  "cards_breaker_skipped": 0,
+  "cards_breaker_unrequested": 0,
   "cards_breaker_recovered": 0,
-  "cards_blocked": 1,
-  "cards_read": 400,
-  "cards_planned": 410,
-  "cards_read_today": 400,
-  "cards_planned_today": 410,
-  "daily_attempts": 1,
+  "cards_blocked": 0,
+  "cards_read": 70,
+  "cards_planned": 70,
+  "cards_read_today": 417,
+  "cards_planned_today": 417,
+  "daily_attempts": 2,
   "instances": {
    "first_instance": {
-    "read": 318,
-    "planned": 319,
-    "read_today": 318,
-    "planned_today": 319
+    "read": 59,
+    "planned": 59,
+    "read_today": 324,
+    "planned_today": 324
    },
    "appeal": {
-    "read": 82,
-    "planned": 83,
-    "read_today": 82,
+    "read": 1,
+    "planned": 1,
+    "read_today": 83,
     "planned_today": 83
    },
    "cassation": {
-    "read": 0,
-    "planned": 8,
-    "read_today": 0,
-    "planned_today": 8
+    "read": 10,
+    "planned": 10,
+    "read_today": 10,
+    "planned_today": 10
    }
   },
   "latency": {
-   "n": 420,
-   "p50": 1.4,
-   "p90": 3.1,
-   "max": 28.2
+   "n": 72,
+   "p50": 1.1,
+   "p90": 1.8,
+   "max": 4.2
   },
-  "failure_latency": {
-   "http_504": {
-    "n": 1,
-    "p50": 30.0,
-    "p90": 30.0,
-    "max": 30.0
-   },
-   "outage_search": {
-    "n": 1,
-    "p50": 5.3,
-    "p90": 5.3,
-    "max": 5.3
-   },
-   "portal_placeholder": {
-    "n": 1,
-    "p50": 3.0,
-    "p90": 3.0,
-    "max": 3.0
-   }
-  },
-  "fail_kinds": {
-   "outage_search": 1,
-   "http_504": 1,
-   "portal_placeholder": 1
-  },
+  "failure_latency": {},
+  "fail_kinds": {},
   "breaker": {
    "mode": "time",
-   "opened_hosts": 1,
-   "open_hosts": 1,
+   "opened_hosts": 0,
+   "open_hosts": 0,
    "recovered_hosts": 0,
-   "deferred_total": 8,
-   "deferred_remaining": 8,
+   "deferred_total": 0,
+   "deferred_remaining": 0,
    "deferred_recovered": 0,
    "probes": 0,
    "probe_successes": 0,
    "probe_failures": 0,
-   "by_kind": {
-    "outage_search": 1
-   },
-   "hosts": [
-    {
-     "host": "7kas.sudrf.ru",
-     "state": "open",
-     "kind": "outage_search",
-     "family": "portal_outage",
-     "reason": "вместо поиска суд вернул заглушку портала",
-     "preopened": true,
-     "skipped": 8,
-     "probes": 0,
-     "deferred_total": 8,
-     "deferred_remaining": 8,
-     "deferred_recovered": 0,
-     "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 0.0
-    }
-   ]
+   "by_kind": {},
+   "hosts": []
   },
-  "courts_unavailable": 1,
-  "courts_with_unrequested": 1,
-  "courts_outage": 1,
-  "cards_unreachable": 8,
-  "cards_unread_other": 2,
+  "courts_unavailable": 0,
+  "courts_with_unrequested": 0,
+  "courts_outage": 0,
+  "cards_unreachable": 0,
+  "cards_unread_other": 0,
   "run_deadline_seconds": 3300.0,
   "run_deadline_reached": false
  }
