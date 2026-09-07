@@ -4,9 +4,9 @@
   "smart_skip": true,
   "totals": {
     "total": 1087,
-    "parsed": 47,
+    "parsed": 37,
     "skip": 1040,
-    "failed": 0,
+    "failed": 10,
     "no_card": 0,
     "not_in_queue": 0,
     "intake_new": 0
@@ -229,9 +229,9 @@
       "last_checked_at": "2026-09-07"
     },
     {
-      "outcome": "parsed",
+      "outcome": "fetch_blocked",
       "reason": "",
-      "reason_ru": "",
+      "reason_ru": "портал суда отдал заглушку/блокировку вместо карточки",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -247,9 +247,9 @@
       "last_checked_at": "2026-09-07"
     },
     {
-      "outcome": "parsed",
+      "outcome": "fetch_blocked",
       "reason": "",
-      "reason_ru": "",
+      "reason_ru": "портал суда отдал заглушку/блокировку вместо карточки",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -265,9 +265,9 @@
       "last_checked_at": "2026-09-07"
     },
     {
-      "outcome": "parsed",
+      "outcome": "court_breaker",
       "reason": "",
-      "reason_ru": "",
+      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -391,9 +391,9 @@
       "last_checked_at": "2026-09-07"
     },
     {
-      "outcome": "parsed",
+      "outcome": "fetch_blocked",
       "reason": "",
-      "reason_ru": "",
+      "reason_ru": "портал суда отдал заглушку/блокировку вместо карточки",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -427,9 +427,9 @@
       "last_checked_at": "2026-09-07"
     },
     {
-      "outcome": "parsed",
+      "outcome": "fetch_blocked",
       "reason": "",
-      "reason_ru": "",
+      "reason_ru": "портал суда отдал заглушку/блокировку вместо карточки",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -715,9 +715,9 @@
       "last_checked_at": "2026-09-07"
     },
     {
-      "outcome": "parsed",
+      "outcome": "fetch_blocked",
       "reason": "",
-      "reason_ru": "",
+      "reason_ru": "портал суда отдал заглушку/блокировку вместо карточки",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -1219,9 +1219,9 @@
       "last_checked_at": "2026-09-01"
     },
     {
-      "outcome": "parsed",
+      "outcome": "fetch_blocked",
       "reason": "",
-      "reason_ru": "",
+      "reason_ru": "портал суда отдал заглушку/блокировку вместо карточки",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -1309,9 +1309,9 @@
       "last_checked_at": "2026-08-31"
     },
     {
-      "outcome": "parsed",
+      "outcome": "fetch_blocked",
       "reason": "",
-      "reason_ru": "",
+      "reason_ru": "портал суда отдал заглушку/блокировку вместо карточки",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -1651,9 +1651,9 @@
       "last_checked_at": "2026-08-27"
     },
     {
-      "outcome": "parsed",
+      "outcome": "fetch_blocked",
       "reason": "",
-      "reason_ru": "",
+      "reason_ru": "портал суда отдал заглушку/блокировку вместо карточки",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -19381,9 +19381,9 @@
       "last_checked_at": "2026-09-07"
     },
     {
-      "outcome": "parsed",
+      "outcome": "fetch_blocked",
       "reason": "",
-      "reason_ru": "",
+      "reason_ru": "портал суда отдал заглушку/блокировку вместо карточки",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -19579,5 +19579,5 @@
       "last_checked_at": "2026-09-03"
     }
   ],
-  "updated_at": "2026-09-07T07:34:39"
+  "updated_at": "2026-09-07T08:03:53"
 }
