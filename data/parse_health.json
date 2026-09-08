@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated_at": "2026-09-08T07:33:11",
+ "updated_at": "2026-09-08T08:03:14",
  "sources": {
   "appeal:oblsud--ynao.sudrf.ru": {
    "counts": [
@@ -364,7 +364,7 @@
   }
  },
  "last_run": {
-  "at": "2026-09-08T07:33:11",
+  "at": "2026-09-08T08:03:14",
   "alerts": [],
   "requests_ok": 54,
   "requests_failed": 0,
@@ -372,15 +372,15 @@
   "cards_breaker_skipped": 0,
   "cards_breaker_unrequested": 0,
   "cards_breaker_recovered": 0,
-  "cards_blocked": 3,
-  "cards_read": 50,
+  "cards_blocked": 2,
+  "cards_read": 51,
   "cards_planned": 53,
   "cards_read_today": 588,
   "cards_planned_today": 588,
-  "daily_attempts": 4,
+  "daily_attempts": 5,
   "instances": {
    "first_instance": {
-    "read": 50,
+    "read": 51,
     "planned": 53,
     "read_today": 500,
     "planned_today": 500
@@ -400,20 +400,20 @@
   },
   "latency": {
    "n": 54,
-   "p50": 0.6,
+   "p50": 0.5,
    "p90": 0.9,
    "max": 1.1
   },
   "failure_latency": {
    "portal_placeholder": {
-    "n": 3,
-    "p50": 0.5,
-    "p90": 0.5,
-    "max": 0.5
+    "n": 2,
+    "p50": 0.2,
+    "p90": 0.3,
+    "max": 0.3
    }
   },
   "fail_kinds": {
-   "portal_placeholder": 3
+   "portal_placeholder": 2
   },
   "breaker": {
    "mode": "time",
@@ -431,7 +431,7 @@
    },
    "hosts": [
     {
-     "host": "pervouralsky--svd.sudrf.ru",
+     "host": "ordzhonikidzevsky--svd.sudrf.ru",
      "state": "open",
      "kind": "portal_placeholder",
      "family": "portal_outage",
@@ -443,7 +443,7 @@
      "deferred_remaining": 1,
      "deferred_recovered": 0,
      "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 96.9
+     "next_probe_in_seconds": 179.8
     }
    ]
   },
@@ -451,7 +451,7 @@
   "courts_with_unrequested": 0,
   "courts_outage": 0,
   "cards_unreachable": 0,
-  "cards_unread_other": 3,
+  "cards_unread_other": 2,
   "run_deadline_seconds": 3300.0,
   "run_deadline_reached": false
  }
