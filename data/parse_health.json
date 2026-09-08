@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated_at": "2026-09-08T06:32:31",
+ "updated_at": "2026-09-08T06:35:54",
  "sources": {
   "appeal:oblsud--ynao.sudrf.ru": {
    "counts": [
@@ -364,109 +364,67 @@
   }
  },
  "last_run": {
-  "at": "2026-09-08T06:32:31",
+  "at": "2026-09-08T06:35:54",
   "alerts": [],
-  "requests_ok": 605,
+  "requests_ok": 57,
   "requests_failed": 0,
   "requests_retried": 0,
-  "cards_breaker_skipped": 9,
+  "cards_breaker_skipped": 0,
   "cards_breaker_unrequested": 0,
-  "cards_breaker_recovered": 11,
-  "cards_blocked": 5,
-  "cards_read": 581,
-  "cards_planned": 584,
-  "cards_read_today": 581,
-  "cards_planned_today": 584,
-  "daily_attempts": 1,
+  "cards_breaker_recovered": 0,
+  "cards_blocked": 0,
+  "cards_read": 56,
+  "cards_planned": 56,
+  "cards_read_today": 588,
+  "cards_planned_today": 588,
+  "daily_attempts": 2,
   "instances": {
    "first_instance": {
-    "read": 493,
-    "planned": 496,
-    "read_today": 493,
-    "planned_today": 496
+    "read": 56,
+    "planned": 56,
+    "read_today": 500,
+    "planned_today": 500
    },
    "appeal": {
-    "read": 78,
-    "planned": 78,
+    "read": 0,
+    "planned": 0,
     "read_today": 78,
     "planned_today": 78
    },
    "cassation": {
-    "read": 10,
-    "planned": 10,
+    "read": 0,
+    "planned": 0,
     "read_today": 10,
     "planned_today": 10
    }
   },
   "latency": {
-   "n": 605,
+   "n": 57,
    "p50": 0.6,
    "p90": 1.0,
-   "max": 2.2
+   "max": 1.4
   },
-  "failure_latency": {
-   "portal_placeholder": {
-    "n": 5,
-    "p50": 0.3,
-    "p90": 0.8,
-    "max": 0.8
-   }
-  },
-  "fail_kinds": {
-   "portal_placeholder": 5
-  },
+  "failure_latency": {},
+  "fail_kinds": {},
   "breaker": {
    "mode": "time",
-   "opened_hosts": 2,
+   "opened_hosts": 0,
    "open_hosts": 0,
-   "recovered_hosts": 2,
-   "deferred_total": 11,
+   "recovered_hosts": 0,
+   "deferred_total": 0,
    "deferred_remaining": 0,
-   "deferred_recovered": 11,
-   "probes": 2,
-   "probe_successes": 2,
+   "deferred_recovered": 0,
+   "probes": 0,
+   "probe_successes": 0,
    "probe_failures": 0,
-   "by_kind": {
-    "portal_placeholder": 2
-   },
-   "hosts": [
-    {
-     "host": "serovsky--svd.sudrf.ru",
-     "state": "closed",
-     "kind": "portal_placeholder",
-     "family": "portal_outage",
-     "reason": "вместо карточки пришла заглушка портала",
-     "preopened": false,
-     "skipped": 2,
-     "probes": 1,
-     "deferred_total": 3,
-     "deferred_remaining": 0,
-     "deferred_recovered": 3,
-     "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 0.0
-    },
-    {
-     "host": "sinarsky--svd.sudrf.ru",
-     "state": "closed",
-     "kind": "portal_placeholder",
-     "family": "portal_outage",
-     "reason": "вместо карточки пришла заглушка портала",
-     "preopened": false,
-     "skipped": 7,
-     "probes": 1,
-     "deferred_total": 8,
-     "deferred_remaining": 0,
-     "deferred_recovered": 8,
-     "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 0.0
-    }
-   ]
+   "by_kind": {},
+   "hosts": []
   },
   "courts_unavailable": 0,
   "courts_with_unrequested": 0,
   "courts_outage": 0,
   "cards_unreachable": 0,
-  "cards_unread_other": 3,
+  "cards_unread_other": 0,
   "run_deadline_seconds": 3300.0,
   "run_deadline_reached": false
  }
