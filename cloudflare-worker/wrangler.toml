@@ -44,6 +44,16 @@ CRON_UTC = ""
 # ⚠️ Из эталона этот var НЕ приезжает: cloudflare-worker/wrangler.toml стоит
 # в .gitattributes как merge=ours — заводить руками при синхронизации.
 VISITS_ENABLED = "1"
+
+# Исполнитель операторских импортов (08.09.2026, решение юриста): "vps" —
+# Worker кладёт запись в KV со статусом "queued", забирает VPS по слотам
+# court-import.timer (обе территории на одном сервере). "github" — аварийный
+# откат (прежний workflow_dispatch). Пометки «лист не нужен» всегда GitHub.
+IMPORT_EXECUTOR = "vps"
+# Слоты VPS (местное время +05) — ДЕРЖАТЬ В СИНХРОНЕ с
+# ops/vps-run/systemd/court-import.timer: из них админка обещает оператору
+# «сервер обработает в ЧЧ:ММ».
+IMPORT_SLOTS_LOCAL = "12:00,14:00,16:00,18:00,20:00"
 # VAPID-пара территории (16.07.2026): public обязан совпадать с
 # region_front.js форка; private — секрет VAPID_PRIVATE_KEY (тот же PEM,
 # что в GH-секрете форка). Нужен кнопке «Тест push» админки.
