@@ -4,8 +4,8 @@
   "smart_skip": true,
   "totals": {
     "total": 1085,
-    "parsed": 44,
-    "skip": 1041,
+    "parsed": 42,
+    "skip": 1043,
     "failed": 0,
     "no_card": 0,
     "not_in_queue": 0,
@@ -6925,9 +6925,9 @@
       "last_checked_at": "2026-09-08"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9355,9 +9355,9 @@
       "last_checked_at": "2026-09-08"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -19543,5 +19543,5 @@
       "last_checked_at": "2026-09-03"
     }
   ],
-  "updated_at": "2026-09-08T06:35:55"
+  "updated_at": "2026-09-08T07:03:41"
 }
