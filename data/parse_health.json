@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated_at": "2026-09-09T07:33:57",
+ "updated_at": "2026-09-09T08:03:41",
  "sources": {
   "appeal:oblsud--ynao.sudrf.ru": {
    "counts": [
@@ -364,23 +364,23 @@
   }
  },
  "last_run": {
-  "at": "2026-09-09T07:33:57",
+  "at": "2026-09-09T08:03:41",
   "alerts": [],
-  "requests_ok": 73,
+  "requests_ok": 58,
   "requests_failed": 0,
   "requests_retried": 0,
   "cards_breaker_skipped": 0,
   "cards_breaker_unrequested": 0,
   "cards_breaker_recovered": 0,
-  "cards_blocked": 0,
-  "cards_read": 71,
-  "cards_planned": 71,
+  "cards_blocked": 3,
+  "cards_read": 54,
+  "cards_planned": 57,
   "cards_read_today": 492,
   "cards_planned_today": 492,
-  "daily_attempts": 4,
+  "daily_attempts": 5,
   "instances": {
    "first_instance": {
-    "read": 57,
+    "read": 54,
     "planned": 57,
     "read_today": 392,
     "planned_today": 392
@@ -392,39 +392,66 @@
     "planned_today": 86
    },
    "cassation": {
-    "read": 14,
-    "planned": 14,
+    "read": 0,
+    "planned": 0,
     "read_today": 14,
     "planned_today": 14
    }
   },
   "latency": {
-   "n": 73,
-   "p50": 0.5,
-   "p90": 1.1,
-   "max": 1.5
+   "n": 58,
+   "p50": 0.6,
+   "p90": 0.9,
+   "max": 1.3
   },
-  "failure_latency": {},
-  "fail_kinds": {},
+  "failure_latency": {
+   "portal_placeholder": {
+    "n": 3,
+    "p50": 0.3,
+    "p90": 0.4,
+    "max": 0.4
+   }
+  },
+  "fail_kinds": {
+   "portal_placeholder": 3
+  },
   "breaker": {
    "mode": "time",
-   "opened_hosts": 0,
-   "open_hosts": 0,
+   "opened_hosts": 1,
+   "open_hosts": 1,
    "recovered_hosts": 0,
-   "deferred_total": 0,
-   "deferred_remaining": 0,
+   "deferred_total": 1,
+   "deferred_remaining": 1,
    "deferred_recovered": 0,
    "probes": 0,
    "probe_successes": 0,
    "probe_failures": 0,
-   "by_kind": {},
-   "hosts": []
+   "by_kind": {
+    "portal_placeholder": 1
+   },
+   "hosts": [
+    {
+     "host": "tagilstroevsky--svd.sudrf.ru",
+     "state": "open",
+     "kind": "portal_placeholder",
+     "family": "portal_outage",
+     "reason": "вместо карточки пришла заглушка портала",
+     "preopened": false,
+     "skipped": 0,
+     "probes": 0,
+     "deferred_total": 1,
+     "deferred_remaining": 1,
+     "deferred_recovered": 0,
+     "cooldown_seconds": 180.0,
+     "next_probe_in_seconds": 106.4
+    }
+   ]
   },
-  "courts_unavailable": 0,
+  "courts_unavailable": 1,
   "courts_with_unrequested": 0,
   "courts_outage": 0,
   "cards_unreachable": 0,
-  "cards_unread_other": 0,
+  "cards_unread_other": 3,
   "run_deadline_seconds": 3300.0,
   "run_deadline_reached": false
  }
