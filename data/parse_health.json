@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated_at": "2026-09-09T08:33:26",
+ "updated_at": "2026-09-09T08:48:24",
  "sources": {
   "appeal:oblsud--ynao.sudrf.ru": {
    "counts": [
@@ -364,7 +364,7 @@
   }
  },
  "last_run": {
-  "at": "2026-09-09T08:33:26",
+  "at": "2026-09-09T08:48:24",
   "alerts": [],
   "requests_ok": 58,
   "requests_failed": 0,
@@ -372,15 +372,15 @@
   "cards_breaker_skipped": 0,
   "cards_breaker_unrequested": 0,
   "cards_breaker_recovered": 0,
-  "cards_blocked": 1,
-  "cards_read": 56,
+  "cards_blocked": 0,
+  "cards_read": 57,
   "cards_planned": 57,
   "cards_read_today": 492,
   "cards_planned_today": 492,
-  "daily_attempts": 6,
+  "daily_attempts": 7,
   "instances": {
    "first_instance": {
-    "read": 56,
+    "read": 57,
     "planned": 57,
     "read_today": 392,
     "planned_today": 392
@@ -401,20 +401,11 @@
   "latency": {
    "n": 58,
    "p50": 0.4,
-   "p90": 0.6,
-   "max": 0.8
+   "p90": 0.7,
+   "max": 4.0
   },
-  "failure_latency": {
-   "portal_placeholder": {
-    "n": 1,
-    "p50": 0.2,
-    "p90": 0.2,
-    "max": 0.2
-   }
-  },
-  "fail_kinds": {
-   "portal_placeholder": 1
-  },
+  "failure_latency": {},
+  "fail_kinds": {},
   "breaker": {
    "mode": "time",
    "opened_hosts": 0,
@@ -433,7 +424,7 @@
   "courts_with_unrequested": 0,
   "courts_outage": 0,
   "cards_unreachable": 0,
-  "cards_unread_other": 1,
+  "cards_unread_other": 0,
   "run_deadline_seconds": 3300.0,
   "run_deadline_reached": false
  }
