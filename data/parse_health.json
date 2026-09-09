@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated_at": "2026-09-09T07:03:49",
+ "updated_at": "2026-09-09T07:33:57",
  "sources": {
   "appeal:oblsud--ynao.sudrf.ru": {
    "counts": [
@@ -316,7 +316,6 @@
   },
   "cassation:7kas:total": {
    "counts": [
-    25,
     0,
     0,
     0,
@@ -329,18 +328,18 @@
     25,
     0,
     0,
-    0
+    0,
+    25
    ],
    "zero_streak": 0,
    "fail_streak": 0,
    "alerted_zero": false,
    "label": "Кассация 7kas (вся выдача)",
-   "last_count": 0,
-   "last_run_at": "2026-09-09T07:03:49"
+   "last_count": 25,
+   "last_run_at": "2026-09-09T07:33:57"
   },
   "cassation:7kas:sverdlovsk_yanao": {
    "counts": [
-    6,
     0,
     0,
     0,
@@ -353,34 +352,35 @@
     5,
     0,
     0,
-    0
+    0,
+    7
    ],
    "zero_streak": 0,
    "fail_streak": 0,
    "alerted_zero": false,
    "label": "Кассация 7kas (фильтр региона)",
-   "last_count": 0,
-   "last_run_at": "2026-09-09T07:03:49"
+   "last_count": 7,
+   "last_run_at": "2026-09-09T07:33:57"
   }
  },
  "last_run": {
-  "at": "2026-09-09T07:03:49",
+  "at": "2026-09-09T07:33:57",
   "alerts": [],
-  "requests_ok": 59,
+  "requests_ok": 73,
   "requests_failed": 0,
   "requests_retried": 0,
-  "cards_breaker_skipped": 10,
-  "cards_breaker_unrequested": 10,
+  "cards_breaker_skipped": 0,
+  "cards_breaker_unrequested": 0,
   "cards_breaker_recovered": 0,
-  "cards_blocked": 1,
-  "cards_read": 56,
-  "cards_planned": 67,
-  "cards_read_today": 478,
-  "cards_planned_today": 488,
-  "daily_attempts": 3,
+  "cards_blocked": 0,
+  "cards_read": 71,
+  "cards_planned": 71,
+  "cards_read_today": 492,
+  "cards_planned_today": 492,
+  "daily_attempts": 4,
   "instances": {
    "first_instance": {
-    "read": 56,
+    "read": 57,
     "planned": 57,
     "read_today": 392,
     "planned_today": 392
@@ -392,73 +392,39 @@
     "planned_today": 86
    },
    "cassation": {
-    "read": 0,
-    "planned": 10,
-    "read_today": 0,
-    "planned_today": 10
+    "read": 14,
+    "planned": 14,
+    "read_today": 14,
+    "planned_today": 14
    }
   },
   "latency": {
-   "n": 59,
-   "p50": 0.6,
+   "n": 73,
+   "p50": 0.5,
    "p90": 1.1,
-   "max": 5.7
+   "max": 1.5
   },
-  "failure_latency": {
-   "outage_search": {
-    "n": 1,
-    "p50": 5.7,
-    "p90": 5.7,
-    "max": 5.7
-   },
-   "portal_placeholder": {
-    "n": 1,
-    "p50": 1.1,
-    "p90": 1.1,
-    "max": 1.1
-   }
-  },
-  "fail_kinds": {
-   "outage_search": 1,
-   "portal_placeholder": 1
-  },
+  "failure_latency": {},
+  "fail_kinds": {},
   "breaker": {
    "mode": "time",
-   "opened_hosts": 1,
-   "open_hosts": 1,
+   "opened_hosts": 0,
+   "open_hosts": 0,
    "recovered_hosts": 0,
-   "deferred_total": 10,
-   "deferred_remaining": 10,
+   "deferred_total": 0,
+   "deferred_remaining": 0,
    "deferred_recovered": 0,
    "probes": 0,
    "probe_successes": 0,
    "probe_failures": 0,
-   "by_kind": {
-    "outage_search": 1
-   },
-   "hosts": [
-    {
-     "host": "7kas.sudrf.ru",
-     "state": "open",
-     "kind": "outage_search",
-     "family": "portal_outage",
-     "reason": "вместо поиска суд вернул заглушку портала",
-     "preopened": true,
-     "skipped": 10,
-     "probes": 0,
-     "deferred_total": 10,
-     "deferred_remaining": 10,
-     "deferred_recovered": 0,
-     "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 0.0
-    }
-   ]
+   "by_kind": {},
+   "hosts": []
   },
-  "courts_unavailable": 1,
-  "courts_with_unrequested": 1,
-  "courts_outage": 1,
-  "cards_unreachable": 10,
-  "cards_unread_other": 1,
+  "courts_unavailable": 0,
+  "courts_with_unrequested": 0,
+  "courts_outage": 0,
+  "cards_unreachable": 0,
+  "cards_unread_other": 0,
   "run_deadline_seconds": 3300.0,
   "run_deadline_reached": false
  }
