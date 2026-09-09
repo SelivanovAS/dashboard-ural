@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated_at": "2026-09-09T06:30:48",
+ "updated_at": "2026-09-09T06:35:00",
  "sources": {
   "appeal:oblsud--ynao.sudrf.ru": {
    "counts": [
@@ -317,7 +317,6 @@
   "cassation:7kas:total": {
    "counts": [
     0,
-    0,
     25,
     0,
     0,
@@ -329,6 +328,7 @@
     0,
     25,
     25,
+    0,
     0
    ],
    "zero_streak": 0,
@@ -336,11 +336,10 @@
    "alerted_zero": false,
    "label": "Кассация 7kas (вся выдача)",
    "last_count": 0,
-   "last_run_at": "2026-09-09T06:30:48"
+   "last_run_at": "2026-09-09T06:35:00"
   },
   "cassation:7kas:sverdlovsk_yanao": {
    "counts": [
-    0,
     0,
     6,
     0,
@@ -353,6 +352,7 @@
     0,
     5,
     5,
+    0,
     0
    ],
    "zero_streak": 0,
@@ -360,36 +360,36 @@
    "alerted_zero": false,
    "label": "Кассация 7kas (фильтр региона)",
    "last_count": 0,
-   "last_run_at": "2026-09-09T06:30:48"
+   "last_run_at": "2026-09-09T06:35:00"
   }
  },
  "last_run": {
-  "at": "2026-09-09T06:30:48",
+  "at": "2026-09-09T06:35:00",
   "alerts": [],
-  "requests_ok": 488,
-  "requests_failed": 5,
+  "requests_ok": 72,
+  "requests_failed": 0,
   "requests_retried": 0,
   "cards_breaker_skipped": 10,
   "cards_breaker_unrequested": 10,
   "cards_breaker_recovered": 0,
   "cards_blocked": 0,
-  "cards_read": 467,
-  "cards_planned": 482,
-  "cards_read_today": 467,
-  "cards_planned_today": 482,
-  "daily_attempts": 1,
+  "cards_read": 65,
+  "cards_planned": 75,
+  "cards_read_today": 478,
+  "cards_planned_today": 488,
+  "daily_attempts": 2,
   "instances": {
    "first_instance": {
-    "read": 384,
-    "planned": 389,
-    "read_today": 384,
-    "planned_today": 389
+    "read": 62,
+    "planned": 62,
+    "read_today": 392,
+    "planned_today": 392
    },
    "appeal": {
-    "read": 83,
-    "planned": 83,
-    "read_today": 83,
-    "planned_today": 83
+    "read": 3,
+    "planned": 3,
+    "read_today": 86,
+    "planned_today": 86
    },
    "cassation": {
     "read": 0,
@@ -399,28 +399,21 @@
    }
   },
   "latency": {
-   "n": 488,
+   "n": 72,
    "p50": 0.5,
    "p90": 1.2,
-   "max": 49.1
+   "max": 5.2
   },
   "failure_latency": {
-   "http_504": {
-    "n": 5,
-    "p50": 30.1,
-    "p90": 60.0,
-    "max": 60.0
-   },
    "outage_search": {
     "n": 1,
-    "p50": 5.3,
-    "p90": 5.3,
-    "max": 5.3
+    "p50": 5.2,
+    "p90": 5.2,
+    "max": 5.2
    }
   },
   "fail_kinds": {
-   "outage_search": 1,
-   "http_504": 5
+   "outage_search": 1
   },
   "breaker": {
    "mode": "time",
@@ -458,7 +451,7 @@
   "courts_with_unrequested": 1,
   "courts_outage": 1,
   "cards_unreachable": 10,
-  "cards_unread_other": 5,
+  "cards_unread_other": 0,
   "run_deadline_seconds": 3300.0,
   "run_deadline_reached": false
  }
