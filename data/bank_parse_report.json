@@ -4,8 +4,8 @@
   "smart_skip": true,
   "totals": {
     "total": 1085,
-    "parsed": 20,
-    "skip": 1037,
+    "parsed": 19,
+    "skip": 1038,
     "failed": 28,
     "no_card": 0,
     "not_in_queue": 0,
@@ -11821,9 +11821,9 @@
       "last_checked_at": "2026-09-16"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -19543,5 +19543,5 @@
       "last_checked_at": "2026-09-14"
     }
   ],
-  "updated_at": "2026-09-16T06:54:57"
+  "updated_at": "2026-09-16T07:10:32"
 }
