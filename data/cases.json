@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-09-23T06:43:16+05:00",
+  "updated_at": "2026-09-23T06:46:05+05:00",
   "cases": [
     {
       "id": "33-2753/2026",
@@ -22,12 +22,15 @@
         "event_date": "",
         "hearing_date": "",
         "hearing_time": "",
-        "link": "",
+        "link": "127831259|116ac526-1f8f-4c29-a47f-5a2109f73c7c",
         "act_published": false,
         "act_date": "",
         "events": [],
         "judicial_uid": "89RS0001-01-2026-001475-55",
-        "srv_num": 1
+        "srv_num": 1,
+        "appeal_appellant_checked_at": "2026-09-23",
+        "appeal_appellant": "ПРЕДСТАВИТЕЛЬ",
+        "appeal_appellant_is_bank": null
       },
       "appeal": {
         "case_number": "33-2753/2026",
@@ -45,9 +48,20 @@
         "link": "12727482|766d2f43-f512-4121-ba6a-f5399ceffe10",
         "act_published": false,
         "act_date": "",
-        "appellant": "",
-        "events": []
-      }
+        "appellant": "ПРЕДСТАВИТЕЛЬ",
+        "events": [
+          {
+            "date": "22.09.2026",
+            "time": "11:04",
+            "text": "Передача дела судье. 11:04. 22.09.2026",
+            "name": "Передача дела судье",
+            "posted_at": "22.09.2026"
+          }
+        ],
+        "last_checked_at": "2026-09-23",
+        "appellant_is_bank": null
+      },
+      "initial_bank_role": "Истец"
     },
     {
       "id": "33-2739/2026",
@@ -69,12 +83,16 @@
         "event_date": "",
         "hearing_date": "",
         "hearing_time": "",
-        "link": "",
+        "link": "123371774|1ce7782b-0c61-448d-a5d9-852dc44c9631",
         "act_published": false,
         "act_date": "",
         "events": [],
         "judicial_uid": "89RS0005-01-2026-000618-86",
-        "srv_num": 1
+        "srv_num": 1,
+        "appeal_appellant_checked_at": "2026-09-23",
+        "appeal_appellant": "Истец",
+        "appeal_appellant_is_bank": true,
+        "appeal_appellant_status": "Истец"
       },
       "appeal": {
         "case_number": "33-2739/2026",
@@ -92,9 +110,21 @@
         "link": "12728014|181b9006-5352-422d-b382-c42db4e80c0e",
         "act_published": false,
         "act_date": "",
-        "appellant": "",
-        "events": []
-      }
+        "appellant": "Истец",
+        "events": [
+          {
+            "date": "22.09.2026",
+            "time": "11:04",
+            "text": "Передача дела судье. 11:04. 22.09.2026",
+            "name": "Передача дела судье",
+            "posted_at": "22.09.2026"
+          }
+        ],
+        "last_checked_at": "2026-09-23",
+        "appellant_is_bank": true,
+        "appellant_status": "Истец"
+      },
+      "initial_bank_role": "Истец"
     },
     {
       "id": "М-2702/2026",
@@ -115,15 +145,32 @@
         "filing_date": "22.09.2026",
         "status": "В производстве",
         "result": "",
-        "last_event": "",
-        "event_date": "",
+        "last_event": "Передача материалов судье. 15:27. 22.09.2026",
+        "event_date": "22.09.2026",
         "hearing_date": "",
         "hearing_time": "",
         "link": "134715638|5de678c6-94d4-4a26-905a-4640257b26ef",
         "act_published": false,
         "act_date": "",
         "act_text": "",
-        "events": []
+        "events": [
+          {
+            "date": "22.09.2026",
+            "time": "12:16",
+            "text": "Регистрация иска (заявления, жалобы) в суде. 12:16. 22.09.2026",
+            "name": "Регистрация иска (заявления, жалобы) в суде",
+            "posted_at": "22.09.2026"
+          },
+          {
+            "date": "22.09.2026",
+            "time": "15:27",
+            "text": "Передача материалов судье. 15:27. 22.09.2026",
+            "name": "Передача материалов судье",
+            "posted_at": "22.09.2026"
+          }
+        ],
+        "last_checked_at": "2026-09-23",
+        "judicial_uid": "89RS0004-01-2026-004675-93"
       },
       "appeal": null
     },
@@ -42529,7 +42576,8 @@
         "act_published": false,
         "act_date": "",
         "act_text": "",
-        "events": []
+        "events": [],
+        "decision_date": "25.03.2026"
       },
       "appeal": null,
       "cassation": {
@@ -42566,7 +42614,8 @@
         "link": "16498901|c0581975-5583-43c5-a90d-e5e0c0b963c3",
         "last_checked_at": "2026-09-23",
         "discovered_via_cassation": true
-      }
+      },
+      "initial_bank_role": "Третье лицо"
     }
   ],
   "region": {
