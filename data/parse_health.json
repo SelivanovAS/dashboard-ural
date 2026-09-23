@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated_at": "2026-09-23T06:43:16+05:00",
+ "updated_at": "2026-09-23T06:46:05+05:00",
  "sources": {
   "appeal:oblsud--ynao.sudrf.ru": {
    "counts": [
@@ -364,48 +364,57 @@
   }
  },
  "last_run": {
-  "at": "2026-09-23T06:43:16",
+  "at": "2026-09-23T06:46:05",
   "alerts": [],
-  "requests_ok": 506,
-  "requests_failed": 0,
+  "requests_ok": 26,
+  "requests_failed": 1,
   "requests_retried": 0,
   "cards_breaker_skipped": 0,
   "cards_breaker_unrequested": 0,
   "cards_breaker_recovered": 0,
   "cards_blocked": 0,
-  "cards_read": 490,
-  "cards_planned": 490,
-  "cards_read_today": 490,
-  "cards_planned_today": 490,
-  "daily_attempts": 1,
+  "cards_read": 22,
+  "cards_planned": 23,
+  "cards_read_today": 493,
+  "cards_planned_today": 493,
+  "daily_attempts": 2,
   "instances": {
    "first_instance": {
-    "read": 363,
-    "planned": 363,
-    "read_today": 363,
-    "planned_today": 363
+    "read": 20,
+    "planned": 21,
+    "read_today": 364,
+    "planned_today": 364
    },
    "appeal": {
-    "read": 108,
-    "planned": 108,
-    "read_today": 108,
-    "planned_today": 108
+    "read": 2,
+    "planned": 2,
+    "read_today": 110,
+    "planned_today": 110
    },
    "cassation": {
-    "read": 19,
-    "planned": 19,
+    "read": 0,
+    "planned": 0,
     "read_today": 19,
     "planned_today": 19
    }
   },
   "latency": {
-   "n": 506,
-   "p50": 2.2,
-   "p90": 5.5,
-   "max": 12.8
+   "n": 26,
+   "p50": 2.0,
+   "p90": 6.1,
+   "max": 6.5
   },
-  "failure_latency": {},
-  "fail_kinds": {},
+  "failure_latency": {
+   "connect_timeout": {
+    "n": 1,
+    "p50": 10.1,
+    "p90": 10.1,
+    "max": 10.1
+   }
+  },
+  "fail_kinds": {
+   "connect_timeout": 1
+  },
   "breaker": {
    "mode": "time",
    "opened_hosts": 0,
@@ -424,7 +433,7 @@
   "courts_with_unrequested": 0,
   "courts_outage": 0,
   "cards_unreachable": 0,
-  "cards_unread_other": 0,
+  "cards_unread_other": 1,
   "run_deadline_seconds": 3300.0,
   "run_deadline_reached": false
  }
