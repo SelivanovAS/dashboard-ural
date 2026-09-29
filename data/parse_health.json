@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated_at": "2026-09-29T06:55:14+05:00",
+ "updated_at": "2026-09-29T06:58:04+05:00",
  "sources": {
   "appeal:oblsud--ynao.sudrf.ru": {
    "counts": [
@@ -364,95 +364,68 @@
   }
  },
  "last_run": {
-  "at": "2026-09-29T06:55:14",
+  "at": "2026-09-29T06:58:04",
   "alerts": [],
-  "requests_ok": 615,
-  "requests_failed": 5,
+  "requests_ok": 42,
+  "requests_failed": 0,
   "requests_retried": 0,
   "cards_breaker_skipped": 0,
   "cards_breaker_unrequested": 0,
   "cards_breaker_recovered": 0,
   "cards_blocked": 0,
-  "cards_read": 593,
-  "cards_planned": 610,
-  "cards_read_today": 592,
-  "cards_planned_today": 609,
-  "daily_attempts": 1,
+  "cards_read": 42,
+  "cards_planned": 42,
+  "cards_read_today": 612,
+  "cards_planned_today": 612,
+  "daily_attempts": 2,
   "instances": {
    "first_instance": {
-    "read": 470,
-    "planned": 487,
-    "read_today": 470,
-    "planned_today": 487
+    "read": 41,
+    "planned": 41,
+    "read_today": 490,
+    "planned_today": 490
    },
    "appeal": {
-    "read": 103,
-    "planned": 103,
+    "read": 0,
+    "planned": 0,
     "read_today": 103,
     "planned_today": 103
    },
    "cassation": {
-    "read": 20,
-    "planned": 20,
+    "read": 1,
+    "planned": 1,
     "read_today": 19,
     "planned_today": 19
    }
   },
   "latency": {
-   "n": 615,
-   "p50": 2.4,
-   "p90": 5.9,
-   "max": 12.6
+   "n": 42,
+   "p50": 0.8,
+   "p90": 2.2,
+   "max": 3.2
   },
-  "failure_latency": {
-   "read_timeout": {
-    "n": 5,
-    "p50": 0.2,
-    "p90": 0.4,
-    "max": 0.4
-   }
-  },
-  "fail_kinds": {
-   "read_timeout": 5
-  },
+  "failure_latency": {},
+  "fail_kinds": {},
   "breaker": {
    "mode": "time",
-   "opened_hosts": 1,
-   "open_hosts": 1,
+   "opened_hosts": 0,
+   "open_hosts": 0,
    "recovered_hosts": 0,
-   "deferred_total": 1,
-   "deferred_remaining": 1,
+   "deferred_total": 0,
+   "deferred_remaining": 0,
    "deferred_recovered": 0,
    "probes": 0,
    "probe_successes": 0,
    "probe_failures": 0,
-   "by_kind": {
-    "read_timeout": 1
-   },
-   "hosts": [
-    {
-     "host": "akademicheskiy--svd.sudrf.ru",
-     "state": "open",
-     "kind": "read_timeout",
-     "family": "slow_unavailable",
-     "reason": "суд не отдал данные до таймаута чтения",
-     "preopened": false,
-     "skipped": 0,
-     "probes": 0,
-     "deferred_total": 1,
-     "deferred_remaining": 1,
-     "deferred_recovered": 0,
-     "cooldown_seconds": 300.0,
-     "next_probe_in_seconds": 297.7
-    }
-   ]
+   "by_kind": {},
+   "hosts": []
   },
-  "courts_unavailable": 1,
+  "courts_unavailable": 0,
   "courts_with_unrequested": 0,
   "courts_outage": 0,
   "cards_unreachable": 0,
-  "cards_unread_other": 17,
+  "cards_unread_other": 0,
   "run_deadline_seconds": 3300.0,
-  "run_deadline_reached": true
+  "run_deadline_reached": false
  }
 }
