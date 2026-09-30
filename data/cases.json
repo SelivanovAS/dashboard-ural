@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-09-30T06:55:37+05:00",
+  "updated_at": "2026-09-30T07:55:54+05:00",
   "cases": [
     {
       "id": "33-2808/2026",
@@ -22,12 +22,16 @@
         "event_date": "",
         "hearing_date": "",
         "hearing_time": "",
-        "link": "",
+        "link": "127557613|59af8c37-3ef9-4ac5-83fa-f1f50f776fc2",
         "act_published": false,
         "act_date": "",
         "events": [],
         "judicial_uid": "89RS0006-01-2026-000400-08",
-        "srv_num": 1
+        "srv_num": 1,
+        "appeal_appellant_checked_at": "2026-09-30",
+        "appeal_appellant": "Ответчик",
+        "appeal_appellant_is_bank": false,
+        "appeal_appellant_status": "Ответчик"
       },
       "appeal": {
         "case_number": "33-2808/2026",
@@ -45,9 +49,21 @@
         "link": "12737814|b5379d8b-3f6e-4ab3-bf0b-503451a0248f",
         "act_published": false,
         "act_date": "",
-        "appellant": "",
-        "events": []
-      }
+        "appellant": "Ответчик",
+        "events": [
+          {
+            "date": "29.09.2026",
+            "time": "12:20",
+            "text": "Передача дела судье. 12:20. 29.09.2026",
+            "name": "Передача дела судье",
+            "posted_at": "29.09.2026"
+          }
+        ],
+        "last_checked_at": "2026-09-30",
+        "appellant_is_bank": false,
+        "appellant_status": "Ответчик"
+      },
+      "initial_bank_role": "Истец"
     },
     {
       "id": "М-1309/2026",
@@ -39118,7 +39134,16 @@
         "act_published": false,
         "act_date": "",
         "appellant": "",
-        "events": []
+        "events": [
+          {
+            "date": "29.09.2026",
+            "time": "12:20",
+            "text": "Передача дела судье. 12:20. 29.09.2026",
+            "name": "Передача дела судье",
+            "posted_at": "29.09.2026"
+          }
+        ],
+        "last_checked_at": "2026-09-30"
       },
       "initial_bank_role": "Истец",
       "import": {
@@ -46305,7 +46330,8 @@
         "link": "16547786|9b5d4acd-295c-4035-b48c-54f28489a4a5",
         "last_checked_at": "2026-09-30",
         "discovered_via_cassation": true
-      }
+      },
+      "initial_bank_role": "Ответчик"
     }
   ],
   "region": {
