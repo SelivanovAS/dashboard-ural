@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated_at": "2026-10-01T06:55:20+05:00",
+ "updated_at": "2026-10-01T08:01:19+05:00",
  "sources": {
   "appeal:oblsud--ynao.sudrf.ru": {
    "counts": [
@@ -223,7 +223,6 @@
     0,
     0,
     0,
-    0,
     13,
     13,
     13,
@@ -233,14 +232,15 @@
     12,
     12,
     13,
-    13
+    13,
+    14
    ],
    "zero_streak": 0,
-   "fail_streak": 1,
+   "fail_streak": 0,
    "alerted_zero": false,
    "label": "Салехардский городской суд",
-   "last_count": 13,
-   "last_run_at": "2026-10-01T06:55:20+05:00"
+   "last_count": 14,
+   "last_run_at": "2026-10-01T08:01:19+05:00"
   },
   "fi:tazovsky--ynao.sudrf.ru": {
    "counts": [
@@ -364,83 +364,116 @@
   }
  },
  "last_run": {
-  "at": "2026-10-01T06:55:21",
+  "at": "2026-10-01T08:01:19",
   "alerts": [],
-  "requests_ok": 187,
-  "requests_failed": 9,
+  "requests_ok": 149,
+  "requests_failed": 15,
   "requests_retried": 0,
-  "cards_breaker_skipped": 0,
-  "cards_breaker_unrequested": 0,
+  "cards_breaker_skipped": 6,
+  "cards_breaker_unrequested": 6,
   "cards_breaker_recovered": 0,
   "cards_blocked": 0,
-  "cards_read": 172,
-  "cards_planned": 476,
-  "cards_read_today": 172,
+  "cards_read": 147,
+  "cards_planned": 306,
+  "cards_read_today": 316,
   "cards_planned_today": 476,
-  "daily_attempts": 1,
+  "daily_attempts": 2,
   "instances": {
    "first_instance": {
-    "read": 41,
-    "planned": 344,
-    "read_today": 41,
+    "read": 145,
+    "planned": 304,
+    "read_today": 184,
     "planned_today": 344
    },
    "appeal": {
-    "read": 108,
-    "planned": 109,
-    "read_today": 108,
+    "read": 1,
+    "planned": 1,
+    "read_today": 109,
     "planned_today": 109
    },
    "cassation": {
-    "read": 23,
-    "planned": 23,
+    "read": 1,
+    "planned": 1,
     "read_today": 23,
     "planned_today": 23
    }
   },
   "latency": {
-   "n": 187,
-   "p50": 14.5,
-   "p90": 24.1,
-   "max": 29.7
+   "n": 149,
+   "p50": 17.9,
+   "p90": 23.5,
+   "max": 34.6
   },
   "failure_latency": {
    "http_504": {
-    "n": 4,
+    "n": 10,
     "p50": 30.0,
     "p90": 30.1,
-    "max": 30.1
+    "max": 37.1
    },
    "read_timeout": {
     "n": 5,
     "p50": 0.2,
-    "p90": 6.0,
-    "max": 6.0
+    "p90": 9.3,
+    "max": 9.3
    }
   },
   "fail_kinds": {
-   "http_504": 4,
+   "http_504": 10,
    "read_timeout": 5
   },
   "breaker": {
    "mode": "time",
-   "opened_hosts": 0,
-   "open_hosts": 0,
+   "opened_hosts": 2,
+   "open_hosts": 2,
    "recovered_hosts": 0,
-   "deferred_total": 0,
-   "deferred_remaining": 0,
+   "deferred_total": 8,
+   "deferred_remaining": 8,
    "deferred_recovered": 0,
    "probes": 0,
    "probe_successes": 0,
    "probe_failures": 0,
-   "by_kind": {},
-   "hosts": []
+   "by_kind": {
+    "read_timeout": 2
+   },
+   "hosts": [
+    {
+     "host": "asbestovsky--svd.sudrf.ru",
+     "state": "open",
+     "kind": "read_timeout",
+     "family": "slow_unavailable",
+     "reason": "суд не отдал данные до таймаута чтения",
+     "preopened": false,
+     "skipped": 2,
+     "probes": 0,
+     "deferred_total": 3,
+     "deferred_remaining": 3,
+     "deferred_recovered": 0,
+     "cooldown_seconds": 300.0,
+     "next_probe_in_seconds": 292.6
+    },
+    {
+     "host": "dzerzhinsky--svd.sudrf.ru",
+     "state": "open",
+     "kind": "read_timeout",
+     "family": "slow_unavailable",
+     "reason": "суд не отдал данные до таймаута чтения",
+     "preopened": false,
+     "skipped": 4,
+     "probes": 0,
+     "deferred_total": 5,
+     "deferred_remaining": 5,
+     "deferred_recovered": 0,
+     "cooldown_seconds": 300.0,
+     "next_probe_in_seconds": 298.2
+    }
+   ]
   },
-  "courts_unavailable": 0,
-  "courts_with_unrequested": 0,
+  "courts_unavailable": 2,
+  "courts_with_unrequested": 2,
   "courts_outage": 0,
-  "cards_unreachable": 0,
-  "cards_unread_other": 304,
+  "cards_unreachable": 6,
+  "cards_unread_other": 153,
   "run_deadline_seconds": 3300.0,
   "run_deadline_reached": true
  }
