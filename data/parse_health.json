@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated_at": "2026-10-02T08:01:42+05:00",
+ "updated_at": "2026-10-02T08:06:33+05:00",
  "sources": {
   "appeal:oblsud--ynao.sudrf.ru": {
    "counts": [
@@ -364,25 +364,25 @@
   }
  },
  "last_run": {
-  "at": "2026-10-02T08:01:42",
+  "at": "2026-10-02T08:06:33",
   "alerts": [],
-  "requests_ok": 257,
-  "requests_failed": 9,
+  "requests_ok": 11,
+  "requests_failed": 0,
   "requests_retried": 0,
   "cards_breaker_skipped": 0,
   "cards_breaker_unrequested": 0,
   "cards_breaker_recovered": 0,
   "cards_blocked": 0,
-  "cards_read": 257,
-  "cards_planned": 267,
-  "cards_read_today": 542,
+  "cards_read": 11,
+  "cards_planned": 11,
+  "cards_read_today": 552,
   "cards_planned_today": 554,
-  "daily_attempts": 2,
+  "daily_attempts": 3,
   "instances": {
    "first_instance": {
-    "read": 256,
-    "planned": 266,
-    "read_today": 410,
+    "read": 10,
+    "planned": 10,
+    "read_today": 420,
     "planned_today": 422
    },
    "appeal": {
@@ -399,29 +399,13 @@
    }
   },
   "latency": {
-   "n": 257,
-   "p50": 10.0,
-   "p90": 16.2,
-   "max": 28.5
+   "n": 11,
+   "p50": 10.8,
+   "p90": 15.1,
+   "max": 15.9
   },
-  "failure_latency": {
-   "http_504": {
-    "n": 4,
-    "p50": 30.1,
-    "p90": 60.0,
-    "max": 60.0
-   },
-   "read_timeout": {
-    "n": 5,
-    "p50": 0.2,
-    "p90": 6.3,
-    "max": 6.3
-   }
-  },
-  "fail_kinds": {
-   "http_504": 4,
-   "read_timeout": 5
-  },
+  "failure_latency": {},
+  "fail_kinds": {},
   "breaker": {
    "mode": "time",
    "opened_hosts": 0,
@@ -440,8 +424,8 @@
   "courts_with_unrequested": 0,
   "courts_outage": 0,
   "cards_unreachable": 0,
-  "cards_unread_other": 10,
+  "cards_unread_other": 0,
   "run_deadline_seconds": 3300.0,
-  "run_deadline_reached": true
+  "run_deadline_reached": false
  }
 }
