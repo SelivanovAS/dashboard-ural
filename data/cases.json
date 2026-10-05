@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T06:55:44+05:00",
+  "updated_at": "2026-10-05T07:29:15+05:00",
   "cases": [
     {
       "id": "33-2820/2026",
@@ -22,12 +22,16 @@
         "event_date": "",
         "hearing_date": "",
         "hearing_time": "",
-        "link": "",
+        "link": "132173919|cec0e852-b589-4f92-99b1-17b28c232062",
         "act_published": false,
         "act_date": "",
         "events": [],
         "judicial_uid": "89RS0005-01-2026-003325-16",
-        "srv_num": 1
+        "srv_num": 1,
+        "appeal_appellant_checked_at": "2026-10-05",
+        "appeal_appellant": "Истец",
+        "appeal_appellant_is_bank": false,
+        "appeal_appellant_status": "Истец"
       },
       "appeal": {
         "case_number": "33-2820/2026",
@@ -45,9 +49,21 @@
         "link": "12743263|aa71d301-373d-4f05-a73d-4a28e47474d6",
         "act_published": false,
         "act_date": "",
-        "appellant": "",
-        "events": []
-      }
+        "appellant": "Истец",
+        "events": [
+          {
+            "date": "02.10.2026",
+            "time": "09:56",
+            "text": "Передача дела судье. 09:56. 02.10.2026",
+            "name": "Передача дела судье",
+            "posted_at": "02.10.2026"
+          }
+        ],
+        "last_checked_at": "2026-10-05",
+        "appellant_is_bank": false,
+        "appellant_status": "Истец"
+      },
+      "initial_bank_role": "Третье лицо"
     },
     {
       "id": "33-2808/2026",
@@ -4679,7 +4695,7 @@
             "posted_at": "08.09.2026"
           }
         ],
-        "last_checked_at": "2026-10-02"
+        "last_checked_at": "2026-10-05"
       },
       "import": {
         "operator": "Селиванов А.С.",
@@ -9320,7 +9336,7 @@
             "posted_at": "29.09.2026"
           }
         ],
-        "last_checked_at": "2026-10-02",
+        "last_checked_at": "2026-10-05",
         "judicial_uid": "66RS0062-01-2026-001589-62",
         "decision_date": "26.08.2026",
         "resolved_emitted": true,
@@ -9435,7 +9451,7 @@
             "posted_at": "10.07.2026"
           }
         ],
-        "last_checked_at": "2026-10-02",
+        "last_checked_at": "2026-10-05",
         "judicial_uid": "66RS0004-01-2026-002318-76",
         "decision_date": "21.08.2026",
         "resolved_emitted": true
@@ -17234,7 +17250,7 @@
             "posted_at": "21.08.2026"
           }
         ],
-        "last_checked_at": "2026-10-02"
+        "last_checked_at": "2026-10-05"
       },
       "initial_bank_role": "Третье лицо"
     },
@@ -40114,7 +40130,7 @@
             "posted_at": "28.09.2026"
           }
         ],
-        "last_checked_at": "2026-10-02"
+        "last_checked_at": "2026-10-05"
       },
       "initial_bank_role": "Истец",
       "import": {
@@ -47304,7 +47320,8 @@
         "link": "16585899|e5861340-e354-40dd-86cf-2b54b8f9510c",
         "last_checked_at": "2026-10-05",
         "discovered_via_cassation": true
-      }
+      },
+      "initial_bank_role": "Третье лицо"
     }
   ],
   "region": {
