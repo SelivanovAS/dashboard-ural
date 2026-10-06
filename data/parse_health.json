@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated_at": "2026-10-06T07:55:54+05:00",
+ "updated_at": "2026-10-06T07:57:04+05:00",
  "sources": {
   "appeal:oblsud--ynao.sudrf.ru": {
    "counts": [
@@ -364,25 +364,25 @@
   }
  },
  "last_run": {
-  "at": "2026-10-06T07:55:54",
+  "at": "2026-10-06T07:57:04",
   "alerts": [],
-  "requests_ok": 261,
-  "requests_failed": 2,
+  "requests_ok": 3,
+  "requests_failed": 0,
   "requests_retried": 0,
   "cards_breaker_skipped": 0,
   "cards_breaker_unrequested": 0,
   "cards_breaker_recovered": 0,
   "cards_blocked": 0,
-  "cards_read": 260,
-  "cards_planned": 262,
-  "cards_read_today": 600,
+  "cards_read": 3,
+  "cards_planned": 3,
+  "cards_read_today": 602,
   "cards_planned_today": 602,
-  "daily_attempts": 2,
+  "daily_attempts": 3,
   "instances": {
    "first_instance": {
-    "read": 259,
-    "planned": 261,
-    "read_today": 440,
+    "read": 2,
+    "planned": 2,
+    "read_today": 442,
     "planned_today": 442
    },
    "appeal": {
@@ -399,22 +399,13 @@
    }
   },
   "latency": {
-   "n": 261,
-   "p50": 9.0,
-   "p90": 15.3,
-   "max": 63.2
+   "n": 3,
+   "p50": 13.4,
+   "p90": 15.7,
+   "max": 15.7
   },
-  "failure_latency": {
-   "http_504": {
-    "n": 2,
-    "p50": 30.0,
-    "p90": 30.1,
-    "max": 30.1
-   }
-  },
-  "fail_kinds": {
-   "http_504": 2
-  },
+  "failure_latency": {},
+  "fail_kinds": {},
   "breaker": {
    "mode": "time",
    "opened_hosts": 0,
@@ -433,7 +424,7 @@
   "courts_with_unrequested": 0,
   "courts_outage": 0,
   "cards_unreachable": 0,
-  "cards_unread_other": 2,
+  "cards_unread_other": 0,
   "run_deadline_seconds": 3300.0,
   "run_deadline_reached": false
  },
@@ -565,9 +556,9 @@
   "date": "2026-10-06",
   "region": "sverdlovsk_yanao",
   "waiting": 82,
-  "due": 1,
-  "planned": 1,
-  "read": 1,
+  "due": 0,
+  "planned": 0,
+  "read": 0,
   "published": 0,
   "unplanned": 0,
   "items": [
@@ -846,10 +837,10 @@
     "number": "33-15327/2026",
     "court": "oblsud--svd.sudrf.ru",
     "status": "waiting",
-    "last_checked_at": "2026-09-25",
+    "last_checked_at": "2026-10-06",
     "next_check_at": "2026-10-13",
     "over_90_days": false,
-    "reason": "text_not_published"
+    "reason": "scheduled"
    },
    {
     "key": "oblsud--svd.sudrf.ru|5|1|33-14913/2026",
