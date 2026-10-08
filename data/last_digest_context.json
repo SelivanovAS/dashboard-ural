@@ -1,5 +1,5 @@
 {
-  "saved_at": "2026-10-08T08:01:33",
+  "saved_at": "2026-10-08T08:03:37",
   "new_cases": [],
   "changes": [
     {
@@ -4876,12 +4876,38 @@
         "filing_date": "07.10.2026",
         "left_track": false
       }
+    },
+    {
+      "case": "2-1759/2026",
+      "court": "Дзержинский районный суд г. Нижний Тагил",
+      "plaintiff": "Уральский банк - филиал публичного акционерного общества \"Сбербанк России\"",
+      "defendant": "Сабитов Максим Александрович",
+      "bank_role": "Истец",
+      "category": "Споры, связанные с имущественными правами → Иски о взыскании сумм по договору займа, кредитному договору",
+      "type": [
+        "fi_resolved",
+        "fi_status_change"
+      ],
+      "details": {
+        "link": "596755445|d934b4d7-c20b-4ddb-87d9-a88a8965bc4f",
+        "court_domain": "dzerzhinsky--svd.sudrf.ru",
+        "raw_result": "Иск (заявление, жалоба) УДОВЛЕТВОРЕН",
+        "verdict_label": "удовлетворено",
+        "bank_outcome": "в пользу банка",
+        "decision_date": "07.10.2026",
+        "last_event": "Судебное заседание. 10:00. 301. Вынесено заочное решение по делу. Иск (заявление, жалоба) УДОВЛЕТВОРЕН. 26.08.2026",
+        "category": "Споры, связанные с имущественными правами → Иски о взыскании сумм по договору займа, кредитному договору",
+        "default_judgment": true,
+        "old_status": "В производстве",
+        "new_status": "Решено"
+      },
+      "track": "plaintiff_light"
     }
   ],
   "total_active_appeal": 68,
   "total_active_fi": 75,
-  "total_active_cassation": 45,
-  "total_active_bank": 411,
+  "total_active_cassation": 44,
+  "total_active_bank": 410,
   "cass_changes": [
     {
       "case": "2-1081/2025",
@@ -5163,6 +5189,39 @@
           "decision_date": "01.10.2026"
         }
       }
+    },
+    {
+      "case": "2-53/2026",
+      "cassation_internal_number": "8Г-14808/2026",
+      "type": [
+        "outcome_change"
+      ],
+      "details": {
+        "stage_prev": "cassation",
+        "stage_now": "cassation",
+        "outcome": "cassation_remanded",
+        "review_result": "ВОЗБУЖДЕНО КАССАЦИОННОЕ ПРОИЗВОДСТВО / ПЕРЕДАНО ДЛЯ РАССМОТРЕНИЯ В СУДЕБНОМ ЗАСЕДАНИИ СУДА КАССАЦИОННОЙ ИНСТАНЦИИ",
+        "result_text": "АПЕЛЛЯЦИОННОЕ ОПРЕДЕЛЕНИЕ ОТМЕНЕНО - с направлением на новое рассмотрение",
+        "result_for_appeal": "Отменен",
+        "filing_date": "24.08.2026",
+        "decision_date": "07.10.2026",
+        "hearing_date": "07.10.2026",
+        "hearing_time": "10:20",
+        "timezone": "Asia/Yekaterinburg",
+        "srv_num": 1,
+        "new": 2800001,
+        "appellant": "Шалаевских Т. В. в интересах н/л Шалаевских С. А., Шалаевских И. А.",
+        "appellant_is_bank": false,
+        "appellant_status": "ОТВЕТЧИК",
+        "act_kind": "Судебное РЕШЕНИЕ",
+        "act_published": false,
+        "link": "12400953|1f3a6172-9c37-485d-8c41-a031de7edd77",
+        "court_domain": "7kas.sudrf.ru",
+        "judicial_uid": "66RS0005-01-2025-001222-94",
+        "cassation_number": "",
+        "remanded_to": "",
+        "suspended_until": ""
+      }
     }
   ],
   "cass_discovered": [
@@ -5237,5 +5296,5 @@
     }
   ],
   "issue_key": "2026-10-08T06:56:07",
-  "updated_at": "2026-10-08T08:01:33+05:00"
+  "updated_at": "2026-10-08T08:03:37+05:00"
 }

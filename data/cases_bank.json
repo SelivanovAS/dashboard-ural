@@ -6048,9 +6048,9 @@
         "court_domain": "dzerzhinsky--svd.sudrf.ru",
         "judge": "Свинина Ольга Валентиновна",
         "filing_date": "19.08.2026",
-        "status": "В производстве",
-        "result": "",
-        "last_event": "Судебное заседание. 10:00. 301. 26.08.2026",
+        "status": "Решено",
+        "result": "Иск (заявление, жалоба) УДОВЛЕТВОРЕН",
+        "last_event": "Судебное заседание. 10:00. 301. Вынесено заочное решение по делу. Иск (заявление, жалоба) УДОВЛЕТВОРЕН. 26.08.2026",
         "event_date": "07.10.2026",
         "hearing_date": "07.10.2026",
         "hearing_time": "10:00",
@@ -6060,8 +6060,18 @@
         "judicial_uid": "66RS0008-01-2026-002019-82",
         "delo_id": 1540005,
         "srv_num": 1,
-        "last_checked_at": "2026-08-29",
-        "intake_card_parse": true
+        "last_checked_at": "2026-10-08",
+        "writ_checked_at": "2026-10-08",
+        "decision_date": "07.10.2026",
+        "resolved_emitted": true,
+        "act_absent_checked_at": "2026-10-08",
+        "fi_act_watch_baseline_version": 1,
+        "fi_act_checked_at": "2026-10-08",
+        "writ_watch_status": "waiting",
+        "writ_watch_reason": "awaiting_writ",
+        "legal_force_est": "2026-11-24",
+        "writ_awaited_since": "2026-11-24",
+        "default_judgment": true
       },
       "appeal": null,
       "track": "plaintiff_light",
@@ -10416,7 +10426,7 @@
         "delo_id": 1540005,
         "srv_num": 1,
         "last_checked_at": "2026-10-08",
-        "resolved_emitted": true,
+        "resolved_emitted": false,
         "decision_date_vacated": "02.07.2026",
         "default_copy_served_emitted": "06.07.2026",
         "default_judgment": true,
@@ -16161,7 +16171,7 @@
         "judicial_uid": "66RS0022-01-2026-001555-53",
         "delo_id": 1540005,
         "srv_num": 1,
-        "last_checked_at": "2026-10-01",
+        "last_checked_at": "2026-10-08",
         "material_number": "М-1139/2026",
         "accepted_pending_emit": false,
         "decision_date": "30.09.2026",
@@ -16172,7 +16182,10 @@
         "writ_watch_status": "waiting",
         "writ_watch_reason": "awaiting_writ",
         "writ_observed_bank_role": "Истец",
-        "writ_checked_at": "2026-10-08"
+        "writ_checked_at": "2026-10-08",
+        "act_absent_checked_at": "2026-10-08",
+        "fi_act_watch_baseline_version": 1,
+        "fi_act_checked_at": "2026-10-08"
       },
       "appeal": null,
       "track": "plaintiff_light",
@@ -38425,7 +38438,7 @@
             "status": "Выдан"
           }
         ],
-        "last_checked_at": "2026-10-01",
+        "last_checked_at": "2026-10-08",
         "judicial_uid": "66RS0003-01-2026-003918-82",
         "decision_date": "29.09.2026",
         "resolved_emitted": true,
@@ -38435,7 +38448,10 @@
         "writ_watch_status": "waiting",
         "writ_watch_reason": "awaiting_writ",
         "writ_observed_bank_role": "Истец",
-        "writ_checked_at": "2026-10-08"
+        "writ_checked_at": "2026-10-08",
+        "act_absent_checked_at": "2026-10-08",
+        "fi_act_watch_baseline_version": 1,
+        "fi_act_checked_at": "2026-10-08"
       },
       "appeal": null,
       "track": "plaintiff_light",
@@ -47831,5 +47847,5 @@
       }
     }
   ],
-  "updated_at": "2026-10-08T08:01:33+05:00"
+  "updated_at": "2026-10-08T08:03:36+05:00"
 }
