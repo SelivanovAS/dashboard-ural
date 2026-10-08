@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated_at": "2026-10-08T08:03:36+05:00",
+ "updated_at": "2026-10-08T08:31:09+05:00",
  "sources": {
   "appeal:oblsud--ynao.sudrf.ru": {
    "counts": [
@@ -364,24 +364,24 @@
   }
  },
  "last_run": {
-  "at": "2026-10-08T08:03:36",
+  "at": "2026-10-08T08:31:09",
   "alerts": [],
-  "requests_ok": 6,
+  "requests_ok": 1,
   "requests_failed": 0,
   "requests_retried": 0,
   "cards_breaker_skipped": 0,
   "cards_breaker_unrequested": 0,
   "cards_breaker_recovered": 0,
   "cards_blocked": 0,
-  "cards_read": 6,
-  "cards_planned": 253,
+  "cards_read": 1,
+  "cards_planned": 248,
   "cards_read_today": 367,
   "cards_planned_today": 615,
-  "daily_attempts": 3,
+  "daily_attempts": 4,
   "instances": {
    "first_instance": {
-    "read": 4,
-    "planned": 247,
+    "read": 0,
+    "planned": 243,
     "read_today": 234,
     "planned_today": 477
    },
@@ -392,17 +392,17 @@
     "planned_today": 114
    },
    "cassation": {
-    "read": 2,
-    "planned": 2,
+    "read": 1,
+    "planned": 1,
     "read_today": 23,
     "planned_today": 24
    }
   },
   "latency": {
-   "n": 6,
-   "p50": 8.1,
-   "p90": 13.0,
-   "max": 13.0
+   "n": 1,
+   "p50": 7.1,
+   "p90": 7.1,
+   "max": 7.1
   },
   "failure_latency": {},
   "fail_kinds": {},
@@ -1223,7 +1223,7 @@
     "last_checked_at": "2026-10-06",
     "next_check_at": "2026-10-08",
     "over_90_days": false,
-    "reason": "retry_cooldown"
+    "reason": "backfill_daily_card_limit"
    },
    {
     "key": "oblsud--svd.sudrf.ru|5|1|33-14051/2026",
@@ -1233,7 +1233,7 @@
     "last_checked_at": "2026-10-06",
     "next_check_at": "2026-10-08",
     "over_90_days": false,
-    "reason": "retry_cooldown"
+    "reason": "backfill_daily_card_limit"
    },
    {
     "key": "oblsud--svd.sudrf.ru|5|1|33-15719/2026",

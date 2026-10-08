@@ -4,8 +4,8 @@
   "smart_skip": true,
   "totals": {
     "total": 1021,
-    "parsed": 3,
-    "skip": 1018,
+    "parsed": 0,
+    "skip": 1021,
     "failed": 0,
     "no_card": 0,
     "not_in_queue": 0,
@@ -2605,17 +2605,14 @@
       "last_checked_at": "2026-09-22"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [
-        "fi_resolved",
-        "fi_status_change"
-      ],
-      "changed": true,
+      "events": [],
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "dzerzhinsky--svd.sudrf.ru|2-1759/2026",
@@ -6514,9 +6511,9 @@
       "last_checked_at": "2026-10-02"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -14938,9 +14935,9 @@
       "last_checked_at": "2026-10-02"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -18394,5 +18391,5 @@
       "last_checked_at": "2026-10-08"
     }
   ],
-  "updated_at": "2026-10-08T08:03:37+05:00"
+  "updated_at": "2026-10-08T08:31:10+05:00"
 }
