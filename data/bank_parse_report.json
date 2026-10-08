@@ -3,17 +3,53 @@
   "run_date": "2026-10-08",
   "smart_skip": true,
   "totals": {
-    "total": 1027,
-    "parsed": 0,
-    "skip": 862,
-    "failed": 0,
+    "total": 1022,
+    "parsed": 159,
+    "skip": 859,
+    "failed": 3,
     "no_card": 0,
     "not_in_queue": 0,
-    "intake_new": 2
+    "intake_new": 1
   },
   "cases": [
     {
-      "outcome": "unknown",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
+      "detail": "",
+      "degraded": false,
+      "force_parsed": false,
+      "events": [],
+      "changed": false,
+      "left_track": false,
+      "archived": false,
+      "key": "salehardsky--ynao.sudrf.ru|М-1799/2026",
+      "number": "М-1799/2026",
+      "court": "Салехардский городской суд",
+      "court_domain": "salehardsky--ynao.sudrf.ru",
+      "case_status": "В производстве",
+      "last_checked_at": "2026-10-08"
+    },
+    {
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
+      "detail": "",
+      "degraded": false,
+      "force_parsed": false,
+      "events": [],
+      "changed": false,
+      "left_track": false,
+      "archived": false,
+      "key": "salehardsky--ynao.sudrf.ru|М-1798/2026",
+      "number": "М-1798/2026",
+      "court": "Салехардский городской суд",
+      "court_domain": "salehardsky--ynao.sudrf.ru",
+      "case_status": "В производстве",
+      "last_checked_at": "2026-10-08"
+    },
+    {
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -28,17 +64,19 @@
       "court": "Салехардский городской суд",
       "court_domain": "salehardsky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_hearing_new"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "nadymsky--ynao.sudrf.ru|2-1454/2026",
@@ -46,7 +84,7 @@
       "court": "Надымский городской суд",
       "court_domain": "nadymsky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -85,7 +123,7 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -100,7 +138,7 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -373,7 +411,7 @@
       "last_checked_at": "2026-09-25"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -388,10 +426,10 @@
       "court": "Синарский районный суд г. Каменск-Уральского",
       "court_domain": "sinarsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -406,7 +444,7 @@
       "court": "Синарский районный суд г. Каменск-Уральского",
       "court_domain": "sinarsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -445,14 +483,16 @@
       "last_checked_at": "2026-09-25"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_hearing_new"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "krasnogorsky--svd.sudrf.ru|2-1546/2026",
@@ -460,10 +500,10 @@
       "court": "Красногорский районный суд г. Каменск-Уральского",
       "court_domain": "krasnogorsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -478,10 +518,10 @@
       "court": "Красногорский районный суд г. Каменск-Уральского",
       "court_domain": "krasnogorsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -496,10 +536,10 @@
       "court": "Камышловский районный суд",
       "court_domain": "kamyshlovsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -514,7 +554,7 @@
       "court": "Камышловский районный суд",
       "court_domain": "kamyshlovsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -661,7 +701,7 @@
       "last_checked_at": "2026-09-25"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -676,7 +716,7 @@
       "court": "Асбестовский городской суд",
       "court_domain": "asbestovsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -1021,7 +1061,7 @@
       "last_checked_at": "2026-09-30"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -1036,7 +1076,7 @@
       "court": "Верх-Исетский районный суд г. Екатеринбурга",
       "court_domain": "verhisetsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -1111,22 +1151,25 @@
       "last_checked_at": "2026-09-21"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_resolved",
+        "fi_status_change"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "labytnangsky--ynao.sudrf.ru|2-1022/2026",
       "number": "2-1022/2026",
       "court": "Лабытнангский городской суд",
       "court_domain": "labytnangsky--ynao.sudrf.ru",
-      "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "case_status": "Решено",
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -1327,7 +1370,7 @@
       "last_checked_at": "2026-09-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -1342,7 +1385,7 @@
       "court": "Сысертский районный суд",
       "court_domain": "sysertsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -1489,14 +1532,16 @@
       "last_checked_at": "2026-09-21"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_hearing_postponed"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "muravlenkovsky--ynao.sudrf.ru|2-567/2026",
@@ -1504,7 +1549,7 @@
       "court": "Муравленковский городской суд",
       "court_domain": "muravlenkovsky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-09-25"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -1615,7 +1660,7 @@
       "last_checked_at": "2026-09-10"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -1630,7 +1675,7 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -1777,7 +1822,7 @@
       "last_checked_at": "2026-09-15"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -1792,7 +1837,7 @@
       "court": "Дзержинский районный суд г. Нижний Тагил",
       "court_domain": "dzerzhinsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -1813,7 +1858,7 @@
       "last_checked_at": "2026-10-07"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -1828,7 +1873,7 @@
       "court": "Тагилстроевский районный суд г. Нижний Тагил",
       "court_domain": "tagilstroevsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -1849,22 +1894,25 @@
       "last_checked_at": "2026-10-01"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_resolved",
+        "fi_status_change"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "pervouralsky--svd.sudrf.ru|2-2936/2026",
       "number": "2-2936/2026",
       "court": "Первоуральский городской суд",
       "court_domain": "pervouralsky--svd.sudrf.ru",
-      "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "case_status": "Решено",
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -1921,22 +1969,25 @@
       "last_checked_at": "2026-10-05"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_resolved",
+        "fi_status_change"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "leninskyeka--svd.sudrf.ru|2-5303/2026",
       "number": "2-5303/2026",
       "court": "Ленинский районный суд г. Екатеринбурга",
       "court_domain": "leninskyeka--svd.sudrf.ru",
-      "case_status": "В производстве",
-      "last_checked_at": "2026-09-07"
+      "case_status": "Решено",
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -2029,7 +2080,7 @@
       "last_checked_at": "2026-10-07"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -2044,35 +2095,40 @@
       "court": "Верх-Исетский районный суд г. Екатеринбурга",
       "court_domain": "verhisetsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_resolved",
+        "fi_status_change"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "lesnoy--svd.sudrf.ru|2-743/2026",
       "number": "2-743/2026",
       "court": "Городской суд г. Лесного",
       "court_domain": "lesnoy--svd.sudrf.ru",
-      "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "case_status": "Решено",
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_hearing_new"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "lesnoy--svd.sudrf.ru|2-742/2026",
@@ -2080,7 +2136,7 @@
       "court": "Городской суд г. Лесного",
       "court_domain": "lesnoy--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -2101,14 +2157,16 @@
       "last_checked_at": "2026-10-02"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_hearing_postponed"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "akademicheskiy--svd.sudrf.ru|2-2836/2026",
@@ -2116,7 +2174,7 @@
       "court": "Академический районный суд г. Екатеринбурга",
       "court_domain": "akademicheskiy--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -2155,7 +2213,7 @@
       "last_checked_at": "2026-09-09"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -2170,7 +2228,7 @@
       "court": "Губкинский районный суд",
       "court_domain": "gubkinskiy--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -2281,7 +2339,7 @@
       "last_checked_at": "2026-09-07"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -2296,10 +2354,10 @@
       "court": "Сысертский районный суд",
       "court_domain": "sysertsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -2314,7 +2372,7 @@
       "court": "Пригородный районный суд",
       "court_domain": "prigorodny--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -2425,7 +2483,7 @@
       "last_checked_at": "2026-10-07"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -2440,17 +2498,19 @@
       "court": "Верхнесалдинский районный суд",
       "court_domain": "verhnesaldinsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_hearing_postponed"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "beloyarsky--svd.sudrf.ru|2-1777/2026",
@@ -2458,7 +2518,7 @@
       "court": "Белоярский районный суд",
       "court_domain": "beloyarsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-08-31"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -2551,9 +2611,9 @@
       "last_checked_at": "2026-09-22"
     },
     {
-      "outcome": "unknown",
+      "outcome": "fetch_http",
       "reason": "",
-      "reason_ru": "",
+      "reason_ru": "HTTP-ошибка при загрузке карточки",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -2749,7 +2809,7 @@
       "last_checked_at": "2026-10-02"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -2764,7 +2824,7 @@
       "court": "Академический районный суд г. Екатеринбурга",
       "court_domain": "akademicheskiy--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -2803,7 +2863,7 @@
       "last_checked_at": "2026-10-02"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -2818,10 +2878,10 @@
       "court": "Железнодорожный районный суд г. Екатеринбурга",
       "court_domain": "zheleznodorozhny--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-09-08"
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -2836,7 +2896,7 @@
       "court": "Кировский районный суд г. Екатеринбурга",
       "court_domain": "kirovsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -2911,14 +2971,16 @@
       "last_checked_at": "2026-09-14"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_hearing_postponed"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "ordzhonikidzevsky--svd.sudrf.ru|2-4230/2026",
@@ -2926,7 +2988,7 @@
       "court": "Орджоникидзевский районный суд г. Екатеринбурга",
       "court_domain": "ordzhonikidzevsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-09-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -2965,7 +3027,7 @@
       "last_checked_at": "2026-10-05"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -2980,10 +3042,10 @@
       "court": "Талицкий районный суд",
       "court_domain": "talicky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -2998,7 +3060,7 @@
       "court": "Талицкий районный суд",
       "court_domain": "talicky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -3037,7 +3099,7 @@
       "last_checked_at": "2026-09-21"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -3052,10 +3114,10 @@
       "court": "Верхнесалдинский районный суд",
       "court_domain": "verhnesaldinsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -3070,7 +3132,7 @@
       "court": "Белоярский районный суд",
       "court_domain": "beloyarsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -3199,14 +3261,16 @@
       "last_checked_at": "2026-08-27"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_default_copy_returned"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "sinarsky--svd.sudrf.ru|2-1368/2026",
@@ -3214,7 +3278,7 @@
       "court": "Синарский районный суд г. Каменск-Уральского",
       "court_domain": "sinarsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -3541,7 +3605,7 @@
       "last_checked_at": "2026-09-01"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -3556,7 +3620,7 @@
       "court": "Орджоникидзевский районный суд г. Екатеринбурга",
       "court_domain": "ordzhonikidzevsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -3667,7 +3731,7 @@
       "last_checked_at": "2026-10-05"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -3682,7 +3746,7 @@
       "court": "Салехардский городской суд",
       "court_domain": "salehardsky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -3757,14 +3821,14 @@
       "last_checked_at": "2026-08-19"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": false,
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "turinsky--svd.sudrf.ru|2-566/2026",
@@ -3772,7 +3836,7 @@
       "court": "Туринский районный суд",
       "court_domain": "turinsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -4153,14 +4217,17 @@
       "last_checked_at": "2026-10-07"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_writ_issued",
+        "fi_final_event"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "bogdanovichsky--svd.sudrf.ru|2-565/2026",
@@ -4168,7 +4235,7 @@
       "court": "Богдановичский городской суд",
       "court_domain": "bogdanovichsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -4279,14 +4346,14 @@
       "last_checked_at": "2026-09-17"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": false,
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "artinsky--svd.sudrf.ru|2-230/2026",
@@ -4294,7 +4361,7 @@
       "court": "Артинский районный суд",
       "court_domain": "artinsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -4333,7 +4400,7 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -4348,7 +4415,7 @@
       "court": "Ивдельский городской суд",
       "court_domain": "ivdelsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -4405,7 +4472,7 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -4420,7 +4487,7 @@
       "court": "Ивдельский городской суд",
       "court_domain": "ivdelsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -4603,7 +4670,7 @@
       "last_checked_at": "2026-10-07"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -4618,10 +4685,10 @@
       "court": "Тавдинский районный суд",
       "court_domain": "tavdinsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -4636,7 +4703,7 @@
       "court": "Тавдинский районный суд",
       "court_domain": "tavdinsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -4657,7 +4724,7 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -4672,7 +4739,7 @@
       "court": "Тавдинский районный суд",
       "court_domain": "tavdinsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -4729,7 +4796,7 @@
       "last_checked_at": "2026-10-07"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -4744,7 +4811,7 @@
       "court": "Сухоложский городской суд",
       "court_domain": "suholozhsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -4801,7 +4868,7 @@
       "last_checked_at": "2026-10-02"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -4816,7 +4883,7 @@
       "court": "Сухоложский городской суд",
       "court_domain": "suholozhsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -4837,7 +4904,7 @@
       "last_checked_at": "2026-10-05"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -4852,7 +4919,7 @@
       "court": "Сухоложский городской суд",
       "court_domain": "suholozhsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -4873,25 +4940,28 @@
       "last_checked_at": "2026-09-22"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_resolved",
+        "fi_status_change"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "nizhneserginsky--svd.sudrf.ru|2-476/2026",
       "number": "2-476/2026",
       "court": "Нижнесергинский районный суд",
       "court_domain": "nizhneserginsky--svd.sudrf.ru",
-      "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "case_status": "Решено",
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -4906,7 +4976,7 @@
       "court": "Нижнесергинский районный суд",
       "court_domain": "nizhneserginsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -4963,7 +5033,7 @@
       "last_checked_at": "2026-09-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -4978,7 +5048,7 @@
       "court": "Нижнесергинский районный суд",
       "court_domain": "nizhneserginsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-09-14"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -4999,7 +5069,7 @@
       "last_checked_at": "2026-10-07"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -5014,10 +5084,10 @@
       "court": "Сысертский районный суд",
       "court_domain": "sysertsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-09-03"
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -5032,7 +5102,7 @@
       "court": "Сысертский районный суд",
       "court_domain": "sysertsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -5053,7 +5123,7 @@
       "last_checked_at": "2026-10-05"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -5068,7 +5138,7 @@
       "court": "Сысертский районный суд",
       "court_domain": "sysertsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -5107,7 +5177,7 @@
       "last_checked_at": "2026-09-01"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -5122,7 +5192,7 @@
       "court": "Сысертский районный суд",
       "court_domain": "sysertsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -5575,14 +5645,14 @@
       "last_checked_at": "2026-10-07"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": false,
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "prigorodny--svd.sudrf.ru|2-195/2026",
@@ -5590,7 +5660,7 @@
       "court": "Пригородный районный суд",
       "court_domain": "prigorodny--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -6403,7 +6473,7 @@
       "last_checked_at": "2026-10-02"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -6418,7 +6488,7 @@
       "court": "Красноуфимский районный суд",
       "court_domain": "krasnoufimsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -6457,9 +6527,9 @@
       "last_checked_at": "2026-10-02"
     },
     {
-      "outcome": "unknown",
+      "outcome": "fetch_http",
       "reason": "",
-      "reason_ru": "",
+      "reason_ru": "HTTP-ошибка при загрузке карточки",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -6673,14 +6743,14 @@
       "last_checked_at": "2026-10-02"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": false,
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "severouralsky--svd.sudrf.ru|2-406/2026",
@@ -6688,7 +6758,7 @@
       "court": "Североуральский городской суд",
       "court_domain": "severouralsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -6745,7 +6815,7 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -6760,7 +6830,7 @@
       "court": "Верхнесалдинский районный суд",
       "court_domain": "verhnesaldinsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -6799,25 +6869,28 @@
       "last_checked_at": "2026-10-02"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_resolved",
+        "fi_status_change"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "verhnesaldinsky--svd.sudrf.ru|2-655/2026",
       "number": "2-655/2026",
       "court": "Верхнесалдинский районный суд",
       "court_domain": "verhnesaldinsky--svd.sudrf.ru",
-      "case_status": "В производстве",
-      "last_checked_at": "2026-08-18"
+      "case_status": "Решено",
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -6832,10 +6905,10 @@
       "court": "Верхнесалдинский районный суд",
       "court_domain": "verhnesaldinsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -6850,10 +6923,10 @@
       "court": "Верхнесалдинский районный суд",
       "court_domain": "verhnesaldinsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -6868,7 +6941,7 @@
       "court": "Верхнесалдинский районный суд",
       "court_domain": "verhnesaldinsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-09-24"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -6889,7 +6962,7 @@
       "last_checked_at": "2026-10-07"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -6904,7 +6977,7 @@
       "court": "Верхнесалдинский районный суд",
       "court_domain": "verhnesaldinsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -6961,7 +7034,7 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -6976,7 +7049,7 @@
       "court": "Белоярский районный суд",
       "court_domain": "beloyarsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -6997,7 +7070,7 @@
       "last_checked_at": "2026-09-29"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -7012,7 +7085,7 @@
       "court": "Белоярский районный суд",
       "court_domain": "beloyarsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -7051,7 +7124,7 @@
       "last_checked_at": "2026-10-07"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -7066,7 +7139,7 @@
       "court": "Белоярский районный суд",
       "court_domain": "beloyarsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -7249,7 +7322,7 @@
       "last_checked_at": "2026-10-07"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -7264,7 +7337,7 @@
       "court": "Артемовский городской суд",
       "court_domain": "artemovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -7339,7 +7412,7 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -7354,7 +7427,7 @@
       "court": "Артемовский городской суд",
       "court_domain": "artemovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -7483,7 +7556,7 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -7498,7 +7571,7 @@
       "court": "Серовский районный суд",
       "court_domain": "serovsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -7519,7 +7592,7 @@
       "last_checked_at": "2026-08-18"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -7534,7 +7607,7 @@
       "court": "Серовский районный суд",
       "court_domain": "serovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -7807,7 +7880,7 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -7822,7 +7895,7 @@
       "court": "Асбестовский городской суд",
       "court_domain": "asbestovsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-08-17"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -8005,7 +8078,7 @@
       "last_checked_at": "2026-10-07"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -8020,7 +8093,7 @@
       "court": "Асбестовский городской суд",
       "court_domain": "asbestovsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -8131,7 +8204,7 @@
       "last_checked_at": "2026-09-16"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -8146,7 +8219,7 @@
       "court": "Асбестовский городской суд",
       "court_domain": "asbestovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -8257,7 +8330,7 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -8272,7 +8345,7 @@
       "court": "Верхнепышминский городской суд",
       "court_domain": "verhnepyshminsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -8419,7 +8492,7 @@
       "last_checked_at": "2026-10-07"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -8434,10 +8507,10 @@
       "court": "Дзержинский районный суд г. Нижний Тагил",
       "court_domain": "dzerzhinsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -8452,7 +8525,7 @@
       "court": "Дзержинский районный суд г. Нижний Тагил",
       "court_domain": "dzerzhinsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -8536,24 +8609,6 @@
       "events": [],
       "changed": false,
       "left_track": false,
-      "archived": true,
-      "key": "dzerzhinsky--svd.sudrf.ru|2-1296/2026",
-      "number": "2-1296/2026",
-      "court": "Дзержинский районный суд г. Нижний Тагил",
-      "court_domain": "dzerzhinsky--svd.sudrf.ru",
-      "case_status": "Решено",
-      "last_checked_at": "2026-10-06"
-    },
-    {
-      "outcome": "skip",
-      "reason": "writ_weekly(2d/7d)",
-      "reason_ru": "иск банка решён, ждём ИЛ/жалобу — опрос раз в 7 дн. (прошло 2)",
-      "detail": "",
-      "degraded": false,
-      "force_parsed": false,
-      "events": [],
-      "changed": false,
-      "left_track": false,
       "archived": false,
       "key": "dzerzhinsky--svd.sudrf.ru|2-1245/2026",
       "number": "2-1245/2026",
@@ -8615,24 +8670,6 @@
       "court_domain": "dzerzhinsky--svd.sudrf.ru",
       "case_status": "В производстве",
       "last_checked_at": "2026-09-29"
-    },
-    {
-      "outcome": "unknown",
-      "reason": "",
-      "reason_ru": "",
-      "detail": "",
-      "degraded": false,
-      "force_parsed": false,
-      "events": [],
-      "changed": false,
-      "left_track": false,
-      "archived": true,
-      "key": "dzerzhinsky--svd.sudrf.ru|2-1166/2026",
-      "number": "2-1166/2026",
-      "court": "Дзержинский районный суд г. Нижний Тагил",
-      "court_domain": "dzerzhinsky--svd.sudrf.ru",
-      "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
     },
     {
       "outcome": "skip",
@@ -8725,7 +8762,7 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -8740,7 +8777,7 @@
       "court": "Дзержинский районный суд г. Нижний Тагил",
       "court_domain": "dzerzhinsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -8761,7 +8798,7 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -8776,7 +8813,7 @@
       "court": "Тагилстроевский районный суд г. Нижний Тагил",
       "court_domain": "tagilstroevsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -8815,7 +8852,7 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -8830,7 +8867,7 @@
       "court": "Тагилстроевский районный суд г. Нижний Тагил",
       "court_domain": "tagilstroevsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -8923,7 +8960,7 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -8938,7 +8975,7 @@
       "court": "Первоуральский городской суд",
       "court_domain": "pervouralsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -9049,14 +9086,14 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": false,
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "pervouralsky--svd.sudrf.ru|2-2044/2026",
@@ -9064,7 +9101,7 @@
       "court": "Первоуральский городской суд",
       "court_domain": "pervouralsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -9211,7 +9248,7 @@
       "last_checked_at": "2026-10-05"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -9226,7 +9263,7 @@
       "court": "Красногорский районный суд г. Каменск-Уральского",
       "court_domain": "krasnogorsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -9643,7 +9680,7 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -9658,7 +9695,7 @@
       "court": "Синарский районный суд г. Каменск-Уральского",
       "court_domain": "sinarsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -9769,7 +9806,7 @@
       "last_checked_at": "2026-10-02"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -9784,7 +9821,7 @@
       "court": "Каменский районный суд",
       "court_domain": "kamensky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -9949,14 +9986,14 @@
       "last_checked_at": "2026-10-07"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": false,
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "leninskytag--svd.sudrf.ru|2-1594/2026",
@@ -9964,7 +10001,7 @@
       "court": "Ленинский районный суд г. Нижний Тагил",
       "court_domain": "leninskytag--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -10003,22 +10040,25 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
-      "left_track": false,
+      "events": [
+        "fi_writ_issued",
+        "fi_appeal_filed"
+      ],
+      "changed": true,
+      "left_track": true,
       "archived": false,
       "key": "leninskytag--svd.sudrf.ru|2-1363/2026",
       "number": "2-1363/2026",
       "court": "Ленинский районный суд г. Нижний Тагил",
       "court_domain": "leninskytag--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -10057,7 +10097,7 @@
       "last_checked_at": "2026-10-02"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -10072,7 +10112,7 @@
       "court": "Красногорский районный суд г. Каменск-Уральского",
       "court_domain": "krasnogorsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -10273,7 +10313,7 @@
       "last_checked_at": "2026-10-02"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -10288,10 +10328,10 @@
       "court": "Тагилстроевский районный суд г. Нижний Тагил",
       "court_domain": "tagilstroevsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -10306,10 +10346,10 @@
       "court": "Ревдинский городской суд",
       "court_domain": "revdinsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -10324,7 +10364,7 @@
       "court": "Ревдинский городской суд",
       "court_domain": "revdinsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -10363,7 +10403,7 @@
       "last_checked_at": "2026-09-25"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -10378,10 +10418,10 @@
       "court": "Ревдинский городской суд",
       "court_domain": "revdinsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -10396,7 +10436,7 @@
       "court": "Ревдинский городской суд",
       "court_domain": "revdinsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -10417,7 +10457,7 @@
       "last_checked_at": "2026-09-22"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -10432,10 +10472,10 @@
       "court": "Ревдинский городской суд",
       "court_domain": "revdinsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -10450,10 +10490,10 @@
       "court": "Ревдинский городской суд",
       "court_domain": "revdinsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -10468,7 +10508,7 @@
       "court": "Ревдинский городской суд",
       "court_domain": "revdinsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -10489,7 +10529,7 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -10504,7 +10544,7 @@
       "court": "Ревдинский городской суд",
       "court_domain": "revdinsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -10525,7 +10565,7 @@
       "last_checked_at": "2026-08-17"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -10540,7 +10580,7 @@
       "court": "Ревдинский городской суд",
       "court_domain": "revdinsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -10759,7 +10799,7 @@
       "last_checked_at": "2026-10-07"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -10774,10 +10814,10 @@
       "court": "Полевской городской суд",
       "court_domain": "polevskoy--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -10792,7 +10832,7 @@
       "court": "Полевской городской суд",
       "court_domain": "polevskoy--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -10957,14 +10997,16 @@
       "last_checked_at": "2026-10-02"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_hearing_new"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "alapaevsky--svd.sudrf.ru|2-915/2026",
@@ -10972,10 +11014,10 @@
       "court": "Алапаевский городской суд",
       "court_domain": "alapaevsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-09-17"
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -10990,7 +11032,7 @@
       "court": "Алапаевский городской суд",
       "court_domain": "alapaevsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -11047,14 +11089,16 @@
       "last_checked_at": "2026-10-02"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_hearing_new"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "alapaevsky--svd.sudrf.ru|2-734/2026",
@@ -11062,7 +11106,7 @@
       "court": "Алапаевский городской суд",
       "court_domain": "alapaevsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -11173,7 +11217,7 @@
       "last_checked_at": "2026-10-02"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -11188,25 +11232,7 @@
       "court": "Алапаевский городской суд",
       "court_domain": "alapaevsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
-    },
-    {
-      "outcome": "skip",
-      "reason": "writ_weekly(2d/7d)",
-      "reason_ru": "иск банка решён, ждём ИЛ/жалобу — опрос раз в 7 дн. (прошло 2)",
-      "detail": "",
-      "degraded": false,
-      "force_parsed": false,
-      "events": [],
-      "changed": false,
-      "left_track": false,
-      "archived": true,
-      "key": "alapaevsky--svd.sudrf.ru|2-611/2026",
-      "number": "2-611/2026",
-      "court": "Алапаевский городской суд",
-      "court_domain": "alapaevsky--svd.sudrf.ru",
-      "case_status": "Решено",
-      "last_checked_at": "2026-10-06"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -11257,24 +11283,6 @@
       "archived": false,
       "key": "alapaevsky--svd.sudrf.ru|2-556/2026",
       "number": "2-556/2026",
-      "court": "Алапаевский городской суд",
-      "court_domain": "alapaevsky--svd.sudrf.ru",
-      "case_status": "Решено",
-      "last_checked_at": "2026-10-06"
-    },
-    {
-      "outcome": "skip",
-      "reason": "writ_weekly(2d/7d)",
-      "reason_ru": "иск банка решён, ждём ИЛ/жалобу — опрос раз в 7 дн. (прошло 2)",
-      "detail": "",
-      "degraded": false,
-      "force_parsed": false,
-      "events": [],
-      "changed": false,
-      "left_track": false,
-      "archived": true,
-      "key": "alapaevsky--svd.sudrf.ru|2-571/2026",
-      "number": "2-571/2026",
       "court": "Алапаевский городской суд",
       "court_domain": "alapaevsky--svd.sudrf.ru",
       "case_status": "Решено",
@@ -11371,7 +11379,7 @@
       "last_checked_at": "2026-10-07"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -11386,10 +11394,10 @@
       "court": "Верх-Исетский районный суд г. Екатеринбурга",
       "court_domain": "verhisetsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -11404,25 +11412,28 @@
       "court": "Верх-Исетский районный суд г. Екатеринбурга",
       "court_domain": "verhisetsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_resolved",
+        "fi_status_change"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "oktiabrsky--svd.sudrf.ru|2-3985/2026",
       "number": "2-3985/2026",
       "court": "Октябрьский районный суд г. Екатеринбурга",
       "court_domain": "oktiabrsky--svd.sudrf.ru",
-      "case_status": "В производстве",
-      "last_checked_at": "2026-09-10"
+      "case_status": "Решено",
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -11641,7 +11652,7 @@
       "last_checked_at": "2026-10-07"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -11656,7 +11667,7 @@
       "court": "Октябрьский районный суд г. Екатеринбурга",
       "court_domain": "oktiabrsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -11911,7 +11922,7 @@
       "last_checked_at": "2026-09-14"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -11926,7 +11937,7 @@
       "court": "Верх-Исетский районный суд г. Екатеринбурга",
       "court_domain": "verhisetsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -11983,7 +11994,7 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -11998,7 +12009,7 @@
       "court": "Академический районный суд г. Екатеринбурга",
       "court_domain": "akademicheskiy--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -12019,7 +12030,7 @@
       "last_checked_at": "2026-10-05"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -12034,7 +12045,7 @@
       "court": "Академический районный суд г. Екатеринбурга",
       "court_domain": "akademicheskiy--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -12289,14 +12300,14 @@
       "last_checked_at": "2026-10-02"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": false,
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "akademicheskiy--svd.sudrf.ru|2-2503/2026",
@@ -12304,7 +12315,7 @@
       "court": "Академический районный суд г. Екатеринбурга",
       "court_domain": "akademicheskiy--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -12649,14 +12660,14 @@
       "last_checked_at": "2026-10-02"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": false,
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "akademicheskiy--svd.sudrf.ru|2-1950/2026",
@@ -12664,7 +12675,7 @@
       "court": "Академический районный суд г. Екатеринбурга",
       "court_domain": "akademicheskiy--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -12703,7 +12714,7 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -12718,7 +12729,7 @@
       "court": "Академический районный суд г. Екатеринбурга",
       "court_domain": "akademicheskiy--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -13064,24 +13075,6 @@
     },
     {
       "outcome": "skip",
-      "reason": "writ_weekly(2d/7d)",
-      "reason_ru": "иск банка решён, ждём ИЛ/жалобу — опрос раз в 7 дн. (прошло 2)",
-      "detail": "",
-      "degraded": false,
-      "force_parsed": false,
-      "events": [],
-      "changed": false,
-      "left_track": false,
-      "archived": true,
-      "key": "leninskyeka--svd.sudrf.ru|2-4463/2026",
-      "number": "2-4463/2026",
-      "court": "Ленинский районный суд г. Екатеринбурга",
-      "court_domain": "leninskyeka--svd.sudrf.ru",
-      "case_status": "Решено",
-      "last_checked_at": "2026-10-06"
-    },
-    {
-      "outcome": "skip",
       "reason": "future_hearing(09.11.2026)",
       "reason_ru": "заседание 09.11.2026 ещё впереди",
       "detail": "",
@@ -13135,7 +13128,7 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -13150,7 +13143,7 @@
       "court": "Ленинский районный суд г. Екатеринбурга",
       "court_domain": "leninskyeka--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -13441,7 +13434,7 @@
       "last_checked_at": "2026-08-14"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -13456,7 +13449,7 @@
       "court": "Железнодорожный районный суд г. Екатеринбурга",
       "court_domain": "zheleznodorozhny--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -13837,7 +13830,7 @@
       "last_checked_at": "2026-10-02"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -13852,7 +13845,7 @@
       "court": "Железнодорожный районный суд г. Екатеринбурга",
       "court_domain": "zheleznodorozhny--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -13963,7 +13956,7 @@
       "last_checked_at": "2026-10-02"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -13978,7 +13971,7 @@
       "court": "Кировский районный суд г. Екатеринбурга",
       "court_domain": "kirovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -14197,7 +14190,7 @@
       "last_checked_at": "2026-10-02"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -14212,7 +14205,7 @@
       "court": "Кировский районный суд г. Екатеринбурга",
       "court_domain": "kirovsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -14647,7 +14640,7 @@
       "last_checked_at": "2026-10-02"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -14662,7 +14655,7 @@
       "court": "Кировский районный суд г. Екатеринбурга",
       "court_domain": "kirovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -14719,14 +14712,14 @@
       "last_checked_at": "2026-09-29"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": false,
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "kirovsky--svd.sudrf.ru|2-4783/2026",
@@ -14734,7 +14727,7 @@
       "court": "Кировский районный суд г. Екатеринбурга",
       "court_domain": "kirovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -14989,9 +14982,9 @@
       "last_checked_at": "2026-10-02"
     },
     {
-      "outcome": "unknown",
+      "outcome": "fetch_http",
       "reason": "",
-      "reason_ru": "",
+      "reason_ru": "HTTP-ошибка при загрузке карточки",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -15079,7 +15072,7 @@
       "last_checked_at": "2026-10-05"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -15094,7 +15087,7 @@
       "court": "Кировский районный суд г. Екатеринбурга",
       "court_domain": "kirovsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -15133,7 +15126,7 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -15148,7 +15141,7 @@
       "court": "Чкаловский районный суд г. Екатеринбурга",
       "court_domain": "chkalovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -15169,7 +15162,7 @@
       "last_checked_at": "2026-10-02"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -15184,17 +15177,17 @@
       "court": "Чкаловский районный суд г. Екатеринбурга",
       "court_domain": "chkalovsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": false,
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "chkalovsky--svd.sudrf.ru|2-3576/2026",
@@ -15202,7 +15195,7 @@
       "court": "Чкаловский районный суд г. Екатеринбурга",
       "court_domain": "chkalovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -15223,14 +15216,14 @@
       "last_checked_at": "2026-10-07"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": false,
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "chkalovsky--svd.sudrf.ru|2-3277/2026",
@@ -15238,7 +15231,7 @@
       "court": "Чкаловский районный суд г. Екатеринбурга",
       "court_domain": "chkalovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -15439,14 +15432,16 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_hearing_postponed"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "chkalovsky--svd.sudrf.ru|2-4295/2026",
@@ -15454,7 +15449,7 @@
       "court": "Чкаловский районный суд г. Екатеринбурга",
       "court_domain": "chkalovsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-08-14"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -15781,22 +15776,25 @@
       "last_checked_at": "2026-10-02"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_resolved",
+        "fi_status_change"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "chkalovsky--svd.sudrf.ru|2-5329/2026",
       "number": "2-5329/2026",
       "court": "Чкаловский районный суд г. Екатеринбурга",
       "court_domain": "chkalovsky--svd.sudrf.ru",
-      "case_status": "В производстве",
-      "last_checked_at": "2026-09-18"
+      "case_status": "Решено",
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -15907,7 +15905,7 @@
       "last_checked_at": "2026-10-05"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -15922,7 +15920,7 @@
       "court": "Чкаловский районный суд г. Екатеринбурга",
       "court_domain": "chkalovsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-09-29"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -15943,7 +15941,7 @@
       "last_checked_at": "2026-10-05"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -15958,7 +15956,7 @@
       "court": "Чкаловский районный суд г. Екатеринбурга",
       "court_domain": "chkalovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -15979,14 +15977,14 @@
       "last_checked_at": "2026-10-07"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": false,
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "chkalovsky--svd.sudrf.ru|2-6076/2026",
@@ -15994,7 +15992,7 @@
       "court": "Чкаловский районный суд г. Екатеринбурга",
       "court_domain": "chkalovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -16033,7 +16031,7 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -16048,7 +16046,7 @@
       "court": "Чкаловский районный суд г. Екатеринбурга",
       "court_domain": "chkalovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -16105,7 +16103,7 @@
       "last_checked_at": "2026-10-07"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -16120,10 +16118,10 @@
       "court": "Чкаловский районный суд г. Екатеринбурга",
       "court_domain": "chkalovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -16138,7 +16136,7 @@
       "court": "Орджоникидзевский районный суд г. Екатеринбурга",
       "court_domain": "ordzhonikidzevsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -16393,14 +16391,16 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_hearing_new"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "labytnangsky--ynao.sudrf.ru|2-925/2026",
@@ -16408,7 +16408,7 @@
       "court": "Лабытнангский городской суд",
       "court_domain": "labytnangsky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-09-08"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -16483,14 +16483,14 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": false,
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "labytnangsky--ynao.sudrf.ru|2-795/2026",
@@ -16498,7 +16498,7 @@
       "court": "Лабытнангский городской суд",
       "court_domain": "labytnangsky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -16591,14 +16591,14 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": false,
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "labytnangsky--ynao.sudrf.ru|2-576/2026",
@@ -16606,10 +16606,10 @@
       "court": "Лабытнангский городской суд",
       "court_domain": "labytnangsky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -16624,10 +16624,10 @@
       "court": "Муравленковский городской суд",
       "court_domain": "muravlenkovsky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -16642,17 +16642,19 @@
       "court": "Муравленковский городской суд",
       "court_domain": "muravlenkovsky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_final_event"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "muravlenkovsky--ynao.sudrf.ru|2-519/2026",
@@ -16660,7 +16662,7 @@
       "court": "Муравленковский городской суд",
       "court_domain": "muravlenkovsky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -16807,14 +16809,14 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": false,
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "nadymsky--ynao.sudrf.ru|2-1042/2026",
@@ -16822,7 +16824,7 @@
       "court": "Надымский городской суд",
       "court_domain": "nadymsky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -16915,14 +16917,14 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": false,
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "novourengoysky--ynao.sudrf.ru|2-2586/2026",
@@ -16930,7 +16932,7 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -17095,14 +17097,14 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": false,
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "novourengoysky--ynao.sudrf.ru|2-2440/2026",
@@ -17110,7 +17112,7 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -17131,14 +17133,14 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": false,
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "novourengoysky--ynao.sudrf.ru|2-2071/2026",
@@ -17146,7 +17148,7 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -17185,7 +17187,7 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -17200,7 +17202,7 @@
       "court": "Ноябрьский городской суд",
       "court_domain": "noyabrsky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -17257,7 +17259,7 @@
       "last_checked_at": "2026-09-29"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -17272,17 +17274,19 @@
       "court": "Ноябрьский городской суд",
       "court_domain": "noyabrsky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_final_event"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "purovsky--ynao.sudrf.ru|2-699/2026",
@@ -17290,7 +17294,7 @@
       "court": "Пуровский районный суд",
       "court_domain": "purovsky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -17311,14 +17315,16 @@
       "last_checked_at": "2026-10-05"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_writ_issued"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "purovsky--ynao.sudrf.ru|2-617/2026",
@@ -17326,7 +17332,7 @@
       "court": "Пуровский районный суд",
       "court_domain": "purovsky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -17491,14 +17497,14 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": false,
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "salehardsky--ynao.sudrf.ru|2-1507/2026",
@@ -17506,7 +17512,7 @@
       "court": "Салехардский городской суд",
       "court_domain": "salehardsky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -17527,7 +17533,7 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -17542,7 +17548,7 @@
       "court": "Салехардский городской суд",
       "court_domain": "salehardsky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -17563,7 +17569,7 @@
       "last_checked_at": "2026-09-23"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -17578,7 +17584,7 @@
       "court": "Тазовский районный суд",
       "court_domain": "tazovsky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -17647,24 +17653,6 @@
       "archived": false,
       "key": "shuryshkarsky--ynao.sudrf.ru|2-106/2026",
       "number": "2-106/2026",
-      "court": "Шурышкарский районный суд",
-      "court_domain": "shuryshkarsky--ynao.sudrf.ru",
-      "case_status": "Решено",
-      "last_checked_at": "2026-10-06"
-    },
-    {
-      "outcome": "skip",
-      "reason": "writ_weekly(2d/7d)",
-      "reason_ru": "иск банка решён, ждём ИЛ/жалобу — опрос раз в 7 дн. (прошло 2)",
-      "detail": "",
-      "degraded": false,
-      "force_parsed": false,
-      "events": [],
-      "changed": false,
-      "left_track": false,
-      "archived": true,
-      "key": "shuryshkarsky--ynao.sudrf.ru|2-111/2026",
-      "number": "2-111/2026",
       "court": "Шурышкарский районный суд",
       "court_domain": "shuryshkarsky--ynao.sudrf.ru",
       "case_status": "Решено",
@@ -17869,7 +17857,7 @@
       "last_checked_at": "2026-10-02"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -17884,7 +17872,7 @@
       "court": "Орджоникидзевский районный суд г. Екатеринбурга",
       "court_domain": "ordzhonikidzevsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -18103,7 +18091,7 @@
       "last_checked_at": "2026-10-02"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -18118,7 +18106,7 @@
       "court": "Орджоникидзевский районный суд г. Екатеринбурга",
       "court_domain": "ordzhonikidzevsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -18139,7 +18127,7 @@
       "last_checked_at": "2026-10-02"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -18154,7 +18142,7 @@
       "court": "Орджоникидзевский районный суд г. Екатеринбурга",
       "court_domain": "ordzhonikidzevsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -18211,7 +18199,7 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -18226,7 +18214,7 @@
       "court": "Орджоникидзевский районный суд г. Екатеринбурга",
       "court_domain": "ordzhonikidzevsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-07"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -18247,14 +18235,14 @@
       "last_checked_at": "2026-10-05"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": false,
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "ordzhonikidzevsky--svd.sudrf.ru|2-3992/2026",
@@ -18262,7 +18250,7 @@
       "court": "Орджоникидзевский районный суд г. Екатеринбурга",
       "court_domain": "ordzhonikidzevsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-01"
+      "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "skip",
@@ -18445,14 +18433,14 @@
       "last_checked_at": "2026-10-05"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": false,
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "shalinsky--svd.sudrf.ru|2-327/2026",
@@ -18460,44 +18448,26 @@
       "court": "Шалинский районный суд",
       "court_domain": "shalinsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-09-14"
-    },
-    {
-      "outcome": "intake_new",
-      "reason": "",
-      "reason_ru": "дело заведено авто-подхватом с выдачи суда в этом прогоне (карточка прочитана при заведении)",
-      "detail": "Салехардский городской суд",
-      "degraded": false,
-      "force_parsed": false,
-      "events": [],
-      "changed": false,
-      "left_track": false,
-      "archived": false,
-      "key": "salehardsky--ynao.sudrf.ru|М-1799/2026",
-      "number": "М-1799/2026",
-      "court": "Салехардский городской суд",
-      "court_domain": "salehardsky--ynao.sudrf.ru",
-      "case_status": "В производстве",
       "last_checked_at": "2026-10-08"
     },
     {
       "outcome": "intake_new",
       "reason": "",
       "reason_ru": "дело заведено авто-подхватом с выдачи суда в этом прогоне (карточка прочитана при заведении)",
-      "detail": "Салехардский городской суд",
+      "detail": "Надымский городской суд",
       "degraded": false,
       "force_parsed": false,
       "events": [],
       "changed": false,
       "left_track": false,
       "archived": false,
-      "key": "salehardsky--ynao.sudrf.ru|М-1798/2026",
-      "number": "М-1798/2026",
-      "court": "Салехардский городской суд",
-      "court_domain": "salehardsky--ynao.sudrf.ru",
+      "key": "nadymsky--ynao.sudrf.ru|М-1344/2026",
+      "number": "М-1344/2026",
+      "court": "Надымский городской суд",
+      "court_domain": "nadymsky--ynao.sudrf.ru",
       "case_status": "В производстве",
       "last_checked_at": "2026-10-08"
     }
   ],
-  "updated_at": "2026-10-08T06:56:06+05:00"
+  "updated_at": "2026-10-08T08:01:33+05:00"
 }
