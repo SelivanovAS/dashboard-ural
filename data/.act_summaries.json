@@ -820,5 +820,69 @@
     "model": "claude:claude-haiku-4-5-20251001",
     "stage": "cassation",
     "generated_at": "2026-10-06T04:00:21"
+  },
+  "2070e63439b1eda8": {
+    "summary": "Квартира приобретена после признания дома аварийным, поэтому выкупная цена ограничена стоимостью приобретения по договору купли-продажи. Довод о невозможности приобретения иного жилья отклонён, поскольку замена предоставляется только по соглашению с администрацией.",
+    "model": "openrouter:apodex/apodex-1.1-mini:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "apodex/apodex-1.1-mini:free",
+        "status": "ready",
+        "context_limit": 262144,
+        "input_token_upper_bound": 45611,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "cassation",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "3563a3149ec7a0b6838092b199253f8fdcf111fd46eb873b1862e4dc51cecc0e",
+      "raw_chars": 22402,
+      "prepared_chars": 22402,
+      "source_url": "https://7kas.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12221629&case_uid=009d348e-f389-41b1-95cf-e1e77e6eb25f&delo_id=2800001&new=2800001",
+      "court_domain": "7kas.sudrf.ru",
+      "received_at": "2026-10-08T02:57:05+00:00",
+      "case_number": "8Г-13197/2026",
+      "stage": "cassation",
+      "judicial_uid": "89RS0001-01-2025-004295-18",
+      "identity_check": "matched_uid",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-08T03:46:18+00:00"
+  },
+  "8e1bc59dd2dcff03": {
+    "summary": "Суд оставил взыскание неосновательного обогащения, поскольку ответчик не доказал наличие договорных отношений или законных оснований для получения 600 000 руб. Отказ в признании ответчика ненадлежащим связан с тем, что он является непосредственным получателем средств, а спор касается оценки доказательств, а не права.",
+    "model": "openrouter:apodex/apodex-1.1-mini:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "apodex/apodex-1.1-mini:free",
+        "status": "ready",
+        "context_limit": 262144,
+        "input_token_upper_bound": 22158,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "cassation",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "16c3bf982719895fe5e670af7ecd17a2c2d6ea17137cb88190854f04371c55f8",
+      "raw_chars": 9359,
+      "prepared_chars": 9359,
+      "source_url": "https://7kas.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12259066&case_uid=58f3e520-9382-41b6-88a1-e0bcc6d579e6&delo_id=2800001&new=2800001",
+      "court_domain": "7kas.sudrf.ru",
+      "received_at": "2026-10-08T02:57:31+00:00",
+      "case_number": "8Г-13503/2026",
+      "stage": "cassation",
+      "judicial_uid": "66RS0003-01-2025-005374-63",
+      "identity_check": "matched_uid",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-08T03:46:19+00:00"
   }
 }
