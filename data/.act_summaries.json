@@ -884,5 +884,37 @@
       "status": "ready"
     },
     "generated_at": "2026-10-08T03:46:19+00:00"
+  },
+  "3a1ebffb09a8110b": {
+    "summary": "Обязательства по кредитному договору прекращены в силу гибели заемщика-военнослужащего при выполнении задач специальной военной операции. Ответчики освобождены от уплаты задолженности, включая неустойку, как члены семьи военнослужащего.",
+    "model": "openrouter:apodex/apodex-1.1-mini:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "apodex/apodex-1.1-mini:free",
+        "status": "ready",
+        "context_limit": 262144,
+        "input_token_upper_bound": 33004,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "first_instance",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "780f3de26750064a86e73c3a3169449518df2cea4a1606aa88be08684b57f042",
+      "raw_chars": 15727,
+      "prepared_chars": 15727,
+      "source_url": "https://kamensky--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=561841280&case_uid=c52d55b2-04e0-4c14-94a4-fa8288a5a508&delo_id=1540005&new=0",
+      "court_domain": "kamensky--svd.sudrf.ru",
+      "received_at": "2026-10-09T02:18:36+00:00",
+      "case_number": "2-220/2026",
+      "stage": "first_instance",
+      "judicial_uid": "74RS0021-01-2025-002115-53",
+      "identity_check": "matched_uid",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-09T04:07:49+00:00"
   }
 }
