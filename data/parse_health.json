@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated_at": "2026-10-09T12:06:17+05:00",
+ "updated_at": "2026-10-09T16:02:18+05:00",
  "sources": {
   "appeal:oblsud--ynao.sudrf.ru": {
    "counts": [
@@ -364,61 +364,52 @@
   }
  },
  "last_run": {
-  "at": "2026-10-09T12:06:17",
+  "at": "2026-10-09T16:02:18",
   "alerts": [],
-  "requests_ok": 13,
-  "requests_failed": 3,
+  "requests_ok": 1,
+  "requests_failed": 0,
   "requests_retried": 0,
   "cards_breaker_skipped": 0,
   "cards_breaker_unrequested": 0,
   "cards_breaker_recovered": 0,
   "cards_blocked": 0,
-  "cards_read": 12,
-  "cards_planned": 211,
+  "cards_read": 1,
+  "cards_planned": 200,
   "cards_read_today": 512,
   "cards_planned_today": 712,
-  "daily_attempts": 5,
+  "daily_attempts": 6,
   "instances": {
    "first_instance": {
-    "read": 7,
-    "planned": 197,
+    "read": 0,
+    "planned": 190,
     "read_today": 385,
     "planned_today": 576
    },
    "appeal": {
-    "read": 3,
-    "planned": 12,
+    "read": 0,
+    "planned": 9,
     "read_today": 99,
     "planned_today": 108
    },
    "cassation": {
-    "read": 2,
-    "planned": 2,
+    "read": 1,
+    "planned": 1,
     "read_today": 28,
     "planned_today": 28
    }
   },
   "latency": {
-   "n": 13,
-   "p50": 20.8,
-   "p90": 23.9,
-   "max": 25.6
+   "n": 1,
+   "p50": 14.3,
+   "p90": 14.3,
+   "max": 14.3
   },
-  "failure_latency": {
-   "read_timeout": {
-    "n": 3,
-    "p50": 0.2,
-    "p90": 0.2,
-    "max": 0.2
-   }
-  },
-  "fail_kinds": {
-   "read_timeout": 3
-  },
+  "failure_latency": {},
+  "fail_kinds": {},
   "breaker": {
    "mode": "time",
-   "opened_hosts": 1,
-   "open_hosts": 1,
+   "opened_hosts": 0,
+   "open_hosts": 0,
    "recovered_hosts": 0,
    "deferred_total": 0,
    "deferred_remaining": 0,
@@ -426,28 +417,10 @@
    "probes": 0,
    "probe_successes": 0,
    "probe_failures": 0,
-   "by_kind": {
-    "read_timeout": 1
-   },
-   "hosts": [
-    {
-     "host": "kamyshlovsky--svd.sudrf.ru",
-     "state": "open",
-     "kind": "read_timeout",
-     "family": "slow_unavailable",
-     "reason": "суд не отдал данные до таймаута чтения",
-     "preopened": false,
-     "skipped": 0,
-     "probes": 0,
-     "deferred_total": 0,
-     "deferred_remaining": 0,
-     "deferred_recovered": 0,
-     "cooldown_seconds": 300.0,
-     "next_probe_in_seconds": 289.4
-    }
-   ]
+   "by_kind": {},
+   "hosts": []
   },
-  "courts_unavailable": 1,
+  "courts_unavailable": 0,
   "courts_with_unrequested": 0,
   "courts_outage": 0,
   "cards_unreachable": 0,
@@ -459,23 +432,13 @@
   "date": "2026-10-09",
   "region": "sverdlovsk_yanao",
   "waiting": 13,
-  "due": 1,
-  "planned": 1,
-  "read": 1,
+  "due": 0,
+  "planned": 0,
+  "read": 0,
   "published": 0,
   "backfilled": 0,
   "unplanned": 0,
   "items": [
-   {
-    "key": "7kas.sudrf.ru|2800001|8Г-14808/2026",
-    "number": "8Г-14808/2026",
-    "court": "7kas.sudrf.ru",
-    "status": "waiting",
-    "last_checked_at": "2026-10-08",
-    "next_check_at": "2026-10-12",
-    "over_90_days": false,
-    "reason": "text_not_published"
-   },
    {
     "key": "7kas.sudrf.ru|2800001|8Г-12473/2026",
     "number": "8Г-12473/2026",
@@ -577,6 +540,16 @@
     "reason": "scheduled"
    },
    {
+    "key": "7kas.sudrf.ru|2800001|8Г-14808/2026",
+    "number": "8Г-14808/2026",
+    "court": "7kas.sudrf.ru",
+    "status": "waiting",
+    "last_checked_at": "2026-10-09",
+    "next_check_at": "2026-10-12",
+    "over_90_days": false,
+    "reason": "scheduled"
+   },
+   {
     "key": "7kas.sudrf.ru|2800001|8Г-15213/2026",
     "number": "8Г-15213/2026",
     "court": "7kas.sudrf.ru",
@@ -605,43 +578,13 @@
   "date": "2026-10-09",
   "region": "sverdlovsk_yanao",
   "waiting": 88,
-  "due": 12,
-  "planned": 12,
-  "read": 3,
+  "due": 9,
+  "planned": 9,
+  "read": 0,
   "published": 0,
   "backfilled": 0,
   "unplanned": 0,
   "items": [
-   {
-    "key": "oblsud--svd.sudrf.ru|5|1|33-14377/2026",
-    "number": "33-14377/2026",
-    "court": "oblsud--svd.sudrf.ru",
-    "status": "waiting",
-    "last_checked_at": "2026-10-08",
-    "next_check_at": "2026-10-12",
-    "over_90_days": false,
-    "reason": "text_not_published"
-   },
-   {
-    "key": "oblsud--ynao.sudrf.ru|5|1|33-2385/2026",
-    "number": "33-2385/2026",
-    "court": "oblsud--ynao.sudrf.ru",
-    "status": "waiting",
-    "last_checked_at": "2026-10-08",
-    "next_check_at": "2026-10-16",
-    "over_90_days": false,
-    "reason": "text_not_published"
-   },
-   {
-    "key": "oblsud--ynao.sudrf.ru|5|1|33-2394/2026",
-    "number": "33-2394/2026",
-    "court": "oblsud--ynao.sudrf.ru",
-    "status": "waiting",
-    "last_checked_at": "2026-10-08",
-    "next_check_at": "2026-10-16",
-    "over_90_days": false,
-    "reason": "text_not_published"
-   },
    {
     "key": "oblsud--svd.sudrf.ru|5|1|33-12156/2026",
     "number": "33-12156/2026",
@@ -808,6 +751,16 @@
     "court": "oblsud--svd.sudrf.ru",
     "status": "waiting",
     "last_checked_at": "2026-10-08",
+    "next_check_at": "2026-10-12",
+    "over_90_days": false,
+    "reason": "scheduled"
+   },
+   {
+    "key": "oblsud--svd.sudrf.ru|5|1|33-14377/2026",
+    "number": "33-14377/2026",
+    "court": "oblsud--svd.sudrf.ru",
+    "status": "waiting",
+    "last_checked_at": "2026-10-09",
     "next_check_at": "2026-10-12",
     "over_90_days": false,
     "reason": "scheduled"
@@ -1303,6 +1256,26 @@
     "reason": "scheduled"
    },
    {
+    "key": "oblsud--ynao.sudrf.ru|5|1|33-2385/2026",
+    "number": "33-2385/2026",
+    "court": "oblsud--ynao.sudrf.ru",
+    "status": "waiting",
+    "last_checked_at": "2026-10-09",
+    "next_check_at": "2026-10-16",
+    "over_90_days": false,
+    "reason": "scheduled"
+   },
+   {
+    "key": "oblsud--ynao.sudrf.ru|5|1|33-2394/2026",
+    "number": "33-2394/2026",
+    "court": "oblsud--ynao.sudrf.ru",
+    "status": "waiting",
+    "last_checked_at": "2026-10-09",
+    "next_check_at": "2026-10-16",
+    "over_90_days": false,
+    "reason": "scheduled"
+   },
+   {
     "key": "oblsud--svd.sudrf.ru|5|1|33-13979/2026",
     "number": "33-13979/2026",
     "court": "oblsud--svd.sudrf.ru",
@@ -1501,11 +1474,11 @@
   "date": "2026-10-09",
   "region": "sverdlovsk_yanao",
   "waiting": 490,
-  "due": 197,
-  "planned": 197,
-  "read": 7,
+  "due": 190,
+  "planned": 190,
+  "read": 0,
   "published": 0,
-  "backfilled": 6,
+  "backfilled": 0,
   "unplanned": 71,
   "items": [
    {
@@ -2500,6 +2473,18 @@
     "last_checked_at": "2026-10-08",
     "normal_last_checked_at": "2026-10-08",
     "fi_act_checked_at": "2026-10-08",
+    "next_check_at": "2026-10-12",
+    "over_90_days": false,
+    "reason": "scheduled"
+   },
+   {
+    "key": "suholozhsky--svd.sudrf.ru|1540005|1|2-411/2026|2026-07-17",
+    "number": "2-411/2026",
+    "court": "suholozhsky--svd.sudrf.ru",
+    "status": "waiting",
+    "last_checked_at": "2026-10-09",
+    "normal_last_checked_at": "2026-09-03",
+    "fi_act_checked_at": "2026-10-09",
     "next_check_at": "2026-10-12",
     "over_90_days": false,
     "reason": "scheduled"
@@ -4881,90 +4866,6 @@
     "reason": "age_limit"
    },
    {
-    "key": "turinsky--svd.sudrf.ru|1540005|1|2-375/2026|2026-08-21",
-    "number": "2-375/2026",
-    "court": "turinsky--svd.sudrf.ru",
-    "status": "waiting",
-    "last_checked_at": "2026-08-24",
-    "normal_last_checked_at": "2026-08-24",
-    "fi_act_checked_at": "",
-    "next_check_at": "2026-10-14",
-    "over_90_days": false,
-    "reason": "backfilled"
-   },
-   {
-    "key": "artinsky--svd.sudrf.ru|1540005|1|2-165/2026|2026-04-30",
-    "number": "2-165/2026",
-    "court": "artinsky--svd.sudrf.ru",
-    "status": "waiting",
-    "last_checked_at": "2026-08-19",
-    "normal_last_checked_at": "2026-08-19",
-    "fi_act_checked_at": "",
-    "next_check_at": "2026-11-02",
-    "over_90_days": true,
-    "reason": "backfilled"
-   },
-   {
-    "key": "lesnoy--svd.sudrf.ru|1540005|1|2-414/2026|2026-07-16",
-    "number": "2-414/2026",
-    "court": "lesnoy--svd.sudrf.ru",
-    "status": "waiting",
-    "last_checked_at": "2026-09-02",
-    "normal_last_checked_at": "2026-09-02",
-    "fi_act_checked_at": "",
-    "next_check_at": "2026-10-15",
-    "over_90_days": false,
-    "reason": "backfilled"
-   },
-   {
-    "key": "suholozhsky--svd.sudrf.ru|1540005|1|2-411/2026|2026-07-17",
-    "number": "2-411/2026",
-    "court": "suholozhsky--svd.sudrf.ru",
-    "status": "waiting",
-    "last_checked_at": "2026-09-03",
-    "normal_last_checked_at": "2026-09-03",
-    "fi_act_checked_at": "",
-    "next_check_at": "2026-10-12",
-    "over_90_days": false,
-    "reason": "text_not_published"
-   },
-   {
-    "key": "verhisetsky--svd.sudrf.ru|1540005|1|2-3763/2026|2026-08-12",
-    "number": "2-3763/2026",
-    "court": "verhisetsky--svd.sudrf.ru",
-    "status": "waiting",
-    "last_checked_at": "2026-09-08",
-    "normal_last_checked_at": "2026-09-08",
-    "fi_act_checked_at": "",
-    "next_check_at": "2026-10-14",
-    "over_90_days": false,
-    "reason": "backfilled"
-   },
-   {
-    "key": "lesnoy--svd.sudrf.ru|1540005|1|2-403/2026|2026-07-22",
-    "number": "2-403/2026",
-    "court": "lesnoy--svd.sudrf.ru",
-    "status": "waiting",
-    "last_checked_at": "2026-09-07",
-    "normal_last_checked_at": "2026-09-07",
-    "fi_act_checked_at": "",
-    "next_check_at": "2026-10-15",
-    "over_90_days": false,
-    "reason": "backfilled"
-   },
-   {
-    "key": "tazovsky--ynao.sudrf.ru|1540005|1|2-260/2026|2026-07-23",
-    "number": "2-260/2026",
-    "court": "tazovsky--ynao.sudrf.ru",
-    "status": "waiting",
-    "last_checked_at": "2026-09-08",
-    "normal_last_checked_at": "2026-09-08",
-    "fi_act_checked_at": "",
-    "next_check_at": "2026-10-15",
-    "over_90_days": false,
-    "reason": "backfilled"
-   },
-   {
     "key": "kamyshlovsky--svd.sudrf.ru|1540005|1|2-476/2026|2026-07-09",
     "number": "2-476/2026",
     "court": "kamyshlovsky--svd.sudrf.ru",
@@ -4974,8 +4875,7 @@
     "fi_act_checked_at": "",
     "next_check_at": "2026-09-14",
     "over_90_days": true,
-    "reason": "unread_card",
-    "failure_kind": "read_timeout"
+    "reason": "backfill_daily_card_limit"
    },
    {
     "key": "kamyshlovsky--svd.sudrf.ru|1540005|2|2-2-156/2026|2026-07-20",
@@ -4987,8 +4887,7 @@
     "fi_act_checked_at": "",
     "next_check_at": "2026-09-14",
     "over_90_days": false,
-    "reason": "unread_card",
-    "failure_kind": "read_timeout"
+    "reason": "backfill_daily_card_limit"
    },
    {
     "key": "ordzhonikidzevsky--svd.sudrf.ru|1540005|1|2-2358/2026|2026-07-14",
@@ -5000,8 +4899,7 @@
     "fi_act_checked_at": "",
     "next_check_at": "2026-09-14",
     "over_90_days": false,
-    "reason": "unread_card",
-    "failure_kind": "read_timeout"
+    "reason": "backfill_daily_card_limit"
    },
    {
     "key": "shuryshkarsky--ynao.sudrf.ru|1540005|1|2-107/2026|2026-07-15",
@@ -8122,8 +8020,8 @@
   "waiting": 564,
   "needs_review": 21,
   "long_wait": 19,
-  "planned": 9,
-  "read": 1,
+  "planned": 8,
+  "read": 0,
   "items": [
    {
     "key": "kirovsky--svd.sudrf.ru|1|2-2177/2026|09.04.2026",
@@ -8163,11 +8061,6 @@
    {
     "key": "akademicheskiy--svd.sudrf.ru|1|2-236/2026|11.02.2026",
     "reason": "missing_link",
-    "next_check_at": "2026-10-09"
-   },
-   {
-    "key": "krasnoturinsky--svd.sudrf.ru|1|2-521/2026|13.07.2026",
-    "reason": "checked",
     "next_check_at": "2026-10-09"
    },
    {
@@ -10307,6 +10200,11 @@
    },
    {
     "key": "krasnoturinsky--svd.sudrf.ru|1|2-722/2026|17.09.2026",
+    "reason": "awaiting_writ",
+    "next_check_at": "2026-10-16"
+   },
+   {
+    "key": "krasnoturinsky--svd.sudrf.ru|1|2-521/2026|13.07.2026",
     "reason": "awaiting_writ",
     "next_check_at": "2026-10-16"
    },
