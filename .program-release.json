@@ -1,5 +1,5 @@
 {
-  "baseline_sha256": "9c21de256d6b8d9356ea275e08d926042c72cee835a480ba09af88692f6e76da",
+  "baseline_sha256": "d679d010ddac9a886d9307b707438f4de71ababbb96cb609c70c5c9619e88897",
   "files": {
     ".github/workflows/add_cases.yml": {
       "mode": "100644",
@@ -51,7 +51,7 @@
     },
     "AGENTS.md": {
       "mode": "100644",
-      "sha256": "24e1d909766e057a6c260d4dc69bc5cd448d95ac06e1d8a65116333b55cd8c54"
+      "sha256": "3e3b435c6b543b4c4a67ae6a36cb92806516f0049728dcd4be145112ccfc80d0"
     },
     "README.md": {
       "mode": "100644",
@@ -443,7 +443,7 @@
     },
     "scripts/court_monitor/appeal_act_watch.py": {
       "mode": "100644",
-      "sha256": "25a65030583bbc345479643de3aa12341c1ea0c7c28d1ed30fb8b57598a994cd"
+      "sha256": "fadc23e6c8b79bbcef6de14ae3f8568e57b5f3bd9d8b9eed851f30f1a450f57b"
     },
     "scripts/court_monitor/appeal_captcha.py": {
       "mode": "100644",
@@ -464,6 +464,10 @@
     "scripts/court_monitor/captcha_audit.py": {
       "mode": "100644",
       "sha256": "5d1c3c37b08e4d5b209941dbe6d0186e2ed54bd14322e539e91aae7da5eea18f"
+    },
+    "scripts/court_monitor/card_refresh.py": {
+      "mode": "100644",
+      "sha256": "55e7ff8d6875f335dc0a0ffc6c979371173d1acc970b6a1a690655588cc03ba2"
     },
     "scripts/court_monitor/cassation_lookup.py": {
       "mode": "100644",
@@ -523,7 +527,7 @@
     },
     "scripts/court_monitor/fi_act_watch.py": {
       "mode": "100644",
-      "sha256": "65d4cd9b7e7f335e40a56bde92436af77218cfc13c90f524826e6f91b18a9a1f"
+      "sha256": "29d6543367d5d220ecd72383e68b61feb1490ddbcf306179125674d27d4e6dfb"
     },
     "scripts/court_monitor/fi_identity.py": {
       "mode": "100644",
@@ -551,7 +555,7 @@
     },
     "scripts/court_monitor/linking.py": {
       "mode": "100644",
-      "sha256": "d0691ff183759ea871b0ee1f451d6b991f7d0cb969a8e127e02a5ef24a4c7117"
+      "sha256": "1c7612ce31e3c105b7655d86a23cf41dba64458eec421b26a2ab413fd76ff0f7"
     },
     "scripts/court_monitor/netutil.py": {
       "mode": "100644",
@@ -611,7 +615,7 @@
     },
     "scripts/court_monitor/runs.py": {
       "mode": "100644",
-      "sha256": "25d98692af02a16d1768ecbce0022f10746461f3f155a2c3877c62500c31c5f2"
+      "sha256": "6a99c8dfe8970586e6bcf5f48812ec80500be64a6e01a5a47d58e37456c9ed4c"
     },
     "scripts/court_monitor/storage.py": {
       "mode": "100644",
@@ -627,7 +631,7 @@
     },
     "scripts/court_monitor/technical_report.py": {
       "mode": "100644",
-      "sha256": "02db9fcc1dbd0060999fdad99b3b3491fb78ab350303144255db711ff0a9144e"
+      "sha256": "6222003e522acce027684b5318e533d4bf16ca778190e5386c0d428b000322c3"
     },
     "scripts/court_monitor/technical_report_ops.py": {
       "mode": "100644",
@@ -643,7 +647,7 @@
     },
     "scripts/court_monitor/writ_watch.py": {
       "mode": "100644",
-      "sha256": "d642ca3e88afc2e3a8b37a0b7090d2597d9806c37d3e51cdd6f95d48b59fef86"
+      "sha256": "7eaf676671a9b8166e47853f3572e36e7ef9abdd9aa6555b56b15b5296dfc670"
     },
     "scripts/find_cassation_orphans.py": {
       "mode": "100644",
@@ -935,7 +939,7 @@
     },
     "scripts/tests/test_bank_track.py": {
       "mode": "100644",
-      "sha256": "9f97d6ae3ec54dec33506923a96d28c2666f6071f5306c4ef1c965db1c38a952"
+      "sha256": "036bb82af3b8968f8ff63b3130d6624e7bc41070dc25e75a1792e8f747299a11"
     },
     "scripts/tests/test_bashkortostan_gateway_worker.py": {
       "mode": "100644",
@@ -952,6 +956,10 @@
     "scripts/tests/test_card_movement_columns.py": {
       "mode": "100644",
       "sha256": "259633ba4c17136e0854ea3ef97e3a5b0ea1747c8f26b5799708a3fd8b7dfd55"
+    },
+    "scripts/tests/test_card_refresh.py": {
+      "mode": "100644",
+      "sha256": "a35b57a26d05656b71819f2e8e239f40727882c4bc7ce5fdead95de342571f0c"
     },
     "scripts/tests/test_card_reuse.py": {
       "mode": "100644",
@@ -1227,7 +1235,7 @@
     },
     "scripts/tests/test_parsing.py": {
       "mode": "100644",
-      "sha256": "638c46eee1f12fd5418b82788c46071b6323e8580b4a687a2ccbfcfc53c67365"
+      "sha256": "c23d22f266418f9d431b2b011798630a63fc9adada25d55cf3aababd116bc3f1"
     },
     "scripts/tests/test_presidium_cassation.py": {
       "mode": "100644",
@@ -1311,7 +1319,7 @@
     },
     "scripts/tests/test_technical_report.py": {
       "mode": "100644",
-      "sha256": "8389ea7bec867afb746e4d82b83807445686ad0b93d3c4e6107957c699cbe0c2"
+      "sha256": "8acd48f907d9b79fd1be72b4021d9e31849adbd2b1452bab4694bb7171cb13e8"
     },
     "scripts/tests/test_technical_report_ops.py": {
       "mode": "100644",
@@ -1411,7 +1419,7 @@
     },
     "tests/test_retry_context.py": {
       "mode": "100644",
-      "sha256": "36daca515578875e52ab36e024644e07ef06c378cdab8c0f7fad4e8da5cd96cc"
+      "sha256": "92bf266f929b35f6ac7b17ac9ec1b7e8205fcf64423376bb3e2c89d8fcc75d3c"
     },
     "tests/test_summary_audit.py": {
       "mode": "100644",
@@ -1437,11 +1445,11 @@
     "exports/"
   ],
   "region": "sverdlovsk_yanao",
-  "release_id": "19d4034dcaf9d0f04ccd2e778321e15ae0b60b26da643633bc3720e579944fc4",
+  "release_id": "f6eca8dfc61c069ddcb60ee8296a7999e4cf1b88d153e34e56d2b5f80a8db93d",
   "repository": "SelivanovAS/dashboard-ural",
   "schema_version": 1,
   "site_url": "https://selivanovas.github.io/dashboard-ural/sberbank_dashboard.html",
-  "source_commit": "5ee774f3ec856145ede7fa3c1014113ea0facbde",
+  "source_commit": "574a7ea3a0eb0f0986e0cee5dd9c54ac6c74a25b",
   "source_repo": "SelivanovAS/dashboard",
   "vps_path": "/opt/court-monitor/dashboard-ural"
 }
