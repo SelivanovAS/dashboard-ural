@@ -916,5 +916,37 @@
       "status": "ready"
     },
     "generated_at": "2026-10-09T04:07:49+00:00"
+  },
+  "8d4699c8258f6f24": {
+    "summary": "Апелляция отменила отказ в восстановлении срока, поскольку материалы не содержат доказательств своевременного получения ответчиком судебных извещений и копии заочного решения. Уважительной причиной признано позднее узнавание о решении, подтверждённое отсутствием доказательств осведомлённости об исполнительном производстве в пользу банка.",
+    "model": "openrouter:apodex/apodex-1.1-mini:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "apodex/apodex-1.1-mini:free",
+        "status": "ready",
+        "context_limit": 262144,
+        "input_token_upper_bound": 26857,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "e800ddb61e937b07306cfc55ba264fe21876491e7d347b8b4f027cf5c56ee151",
+      "raw_chars": 12000,
+      "prepared_chars": 12000,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22717217&case_uid=015825c5-f7d3-4da4-9959-25bc92481c7b&delo_id=5&new=5",
+      "court_domain": "oblsud--svd.sudrf.ru",
+      "received_at": "2026-10-12T01:10:47+00:00",
+      "case_number": "33-14976/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-12T06:00:57+00:00"
   }
 }
