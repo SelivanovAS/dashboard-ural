@@ -17,7 +17,7 @@ import tempfile
 from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
-from court_monitor import config
+from court_monitor import config, captcha_audit
 
 REGIONS = {'hmao': 'ХМАО', 'sverdlovsk_yanao': 'Свердловская область и ЯНАО',
            'bashkortostan': 'Башкортостан', 'tyumen': 'Тюменская область'}
@@ -38,8 +38,15 @@ REASONS = {
     'ready': 'пересказ готов', 'captcha': 'капча', 'portal_placeholder': 'заглушка портала',
     'read_timeout': 'таймаут чтения', 'connect_timeout': 'таймаут соединения',
     'connection_reset': 'соединение сброшено', 'invalid_card_request': 'ошибка адреса карточки',
-    'needs_review': 'требуется проверка', 'source_incomplete': 'неполный текст акта',
-    'empty_source': 'текста акта нет',
+    'needs_review': 'требуется проверка',
+    'source_incomplete': 'сохранённого текста недостаточно для пересказа',
+    'empty_source': 'текст акта не сохранён',
+    'text_extraction_required': 'из PDF ещё не извлечён текст',
+    'case_mismatch': 'номер дела в тексте не совпадает с карточкой',
+    'uid_mismatch': 'идентификатор дела в тексте не совпадает с карточкой',
+    'court_mismatch': 'источник текста относится к другому суду',
+    'stage_mismatch': 'текст относится к другой инстанции',
+    'recheck_context_exceeded': 'не удалось проверить достаточность текста в доступном контексте',
 }
 
 
@@ -174,6 +181,12 @@ def parser_snapshot(date):
             if court.search_gated or court.search_disabled:
                 manual.append({'name': court.name, 'stage': stage, 'domain': court.domain,
                                'delo_id': court.delo_id, 'status': 'freshness_not_checked'})
+    captcha = captcha_audit.scoped(lr.get('appeal_captcha'), config.REGION, date)
+    if captcha:
+        result['appeal_captcha'] = captcha
+        if captcha.get('accepted'):
+            manual = [x for x in manual if not (
+                x['domain'] == captcha_audit.DOMAIN and x['delo_id'] == 5)]
     result['manual_sources'] = manual
     if read is None or planned is None:
         result['status'] = 'unconfirmed'
@@ -203,15 +216,21 @@ def event_counts(ctx):
 def record_digest(ctx, *, summaries=None):
     if not enabled():
         return
+    from court_monitor.digest import summary_audit
     if summaries is None:
-        from court_monitor.digest import summary_audit
         summaries = summary_audit.snapshot()
     date = local_date(ctx.get('saved_at') or now()) or now()[:10]
-    pending = Counter(job.get('status') or 'pending' for job in read_json(config.ACT_SUMMARY_PENDING_PATH).values()
-                      if isinstance(job, dict) and job.get('status') not in ('ready', 'superseded'))
+    try:
+        jobs = json.loads(Path(config.ACT_SUMMARY_PENDING_PATH).read_text(encoding='utf-8'))
+    except FileNotFoundError:
+        jobs = {}
+    except (OSError, ValueError):
+        jobs = None
     update(date=date, issue_key=ctx.get('issue_key') or ctx.get('saved_at'),
            digest={'status': 'ready', 'events': event_counts(ctx)},
-           parser=parser_snapshot(date), summaries=summaries, summary_backlog=dict(pending))
+           parser=parser_snapshot(date), summaries=summaries,
+           summary_backlog=summary_audit.backlog_snapshot(jobs), summary_backlog_version=1,
+           summary_backlog_unavailable=not isinstance(jobs, dict))
 
 
 def record_push(result):
@@ -242,6 +261,9 @@ def model_name(value):
 def summary_lines(rows):
     grouped = Counter()
     for row in rows:
+        if not isinstance(row, dict):
+            grouped[('pending', 'needs_review', '')] += 1
+            continue
         if row.get('status') != 'ready':
             grouped[('pending', row.get('status'), '')] += 1
             continue
@@ -249,7 +271,7 @@ def summary_lines(rows):
         model = model_name(model) if model and model != 'unknown' else 'модель не зафиксирована'
         chain = []
         for attempt in row.get('attempts') or []:
-            if attempt.get('status') == 'ready':
+            if not isinstance(attempt, dict) or attempt.get('status') == 'ready':
                 continue
             label = f"{model_name(attempt.get('model') or attempt.get('provider') or 'модель')}: {reason(attempt.get('status'))}"
             if not chain or chain[-1] != label:
@@ -297,15 +319,52 @@ def finalize(*, workflow_status='unknown', data_publication='not_confirmed',
     return value
 
 
+def _summary_backlog(value):
+    """Новый и прежний снимки: аварийный рендер остаётся stdlib-only."""
+    counts = dict.fromkeys(('retry_pending', 'waiting_source', 'needs_review'), 0)
+    raw = value.get('summary_backlog')
+    invalid = bool(value.get('summary_backlog_unavailable'))
+    if raw is None:
+        return counts, invalid, False
+    if not isinstance(raw, dict):
+        return counts, True, False
+    legacy = value.get('summary_backlog_version') != 1
+    sources = {'source_incomplete', 'empty_source', 'text_extraction_required'}
+    retryable = {'pending', 'technical_error', 'timeout', 'network', 'rate_limit',
+                 'daily_quota', 'missing_key', 'missing_keys', 'context_exceeded',
+                 'context_unknown', 'invalid_response', 'empty_response', 'output_limit',
+                 'invalid_answer', 'answer_too_long', 'outcome_conflict', 'recheck_context_exceeded'}
+    for status, count in raw.items():
+        if isinstance(count, bool) or not isinstance(count, int) or count < 0:
+            invalid = True
+            continue
+        if status in ('ready', 'superseded'):
+            continue
+        if status in counts:
+            category = status
+        elif legacy and status in sources:
+            category = 'waiting_source'
+        elif legacy and (status in retryable or
+                         (isinstance(status, str) and status.startswith('http_') and status[5:].isdigit())):
+            category = 'retry_pending'
+        else:
+            category = 'needs_review'
+        counts[category] += count
+    return counts, invalid, legacy
+
+
 def render(value, *, compact=True):
     """Telegram HTML; все динамические поля экранируются до разметки."""
     e = lambda x: escape(str(x), quote=True)
     parser = value.get('parser') or {}
+    captcha = captcha_audit.scoped(value.get('appeal_captcha') or parser.get('appeal_captcha'),
+                                   value.get('region'), value.get('date'))
     publication = value.get('publication') or {}
     digest = value.get('digest') or {}
     push = value.get('push') or {}
     group = value.get('telegram_digest') or {}
     execution = value.get('execution') or {}
+    backlog, backlog_invalid, backlog_legacy = _summary_backlog(value)
     if execution.get('status') == 'skipped' and value.get('workflow_status') not in ('failure', 'cancelled'):
         region = REGIONS.get(value.get('region'), value.get('region', '?'))
         message = 'нерабочий день по календарю' if execution.get('reason') == 'non_working_day' else execution.get('reason', 'штатный пропуск')
@@ -316,10 +375,11 @@ def render(value, *, compact=True):
     partial = (parser.get('status') != 'complete' or publication.get('pages') not in ('confirmed', 'skipped')
                or publication.get('data') not in ('confirmed', 'skipped')
                or push.get('status') not in ('complete', 'no_subscriptions', 'skipped')
-               or bool(value.get('warnings')))
+               or bool(value.get('warnings')) or backlog['needs_review'] > 0 or backlog_invalid)
     failed = failed or digest.get('status') != 'ready' or push.get('status') in ('failed', 'failure')
     failed = failed or group.get('status') in ('failed', 'partial', 'not_configured')
     failed = failed or 'failed' in publication.values() or push.get('status') == 'not_configured'
+    partial = partial or bool(captcha_audit.action(captcha))
     icon = '🚨' if failed else '⚠️' if partial or push.get('failed') else '✅'
     region = REGIONS.get(value.get('region'), value.get('region', '?'))
     lines = [f'{icon} <b>{e(region)} · Технический отчёт · {e(value.get("date", "?"))}</b>']
@@ -330,6 +390,9 @@ def render(value, *, compact=True):
         lines.append(f'Завершение: {e(value["finished_at"][11:16])} (Екатеринбург).')
     if parser.get('at'):
         lines.append(f'Снимок парсинга: {e(str(parser["at"]).replace("T", " "))}.')
+    if captcha:
+        lines.append('')
+        lines.extend(e(x) for x in captcha_audit.lines(captcha))
     read, planned = parser.get('read'), parser.get('planned')
     if read is not None and planned is not None:
         percent = f' — {100 * read / planned:.0f}%' if planned else ' — проверок по плану нет'
@@ -384,9 +447,14 @@ def render(value, *, compact=True):
     models = summary_lines(value.get('summaries') or [])
     lines.append('\n<b>Пересказы:</b>')
     lines.extend(e(x) for x in models) if models else lines.append('В этом запуске пересказы не зафиксированы.')
-    pending = value.get('summary_backlog') or {}
-    if pending:
-        lines.append(f'Всего в очереди пересказов: {sum(pending.values())}.')
+    if backlog_invalid:
+        lines.append('Состояние отложенных пересказов не подтверждено: сохранённые данные требуют проверки.')
+    elif any(backlog.values()):
+        lines.append(f'Ожидают повторной подготовки пересказа: {backlog["retry_pending"]}.')
+        lines.append(f'Нет пригодного сохранённого текста для пересказа: {backlog["waiting_source"]}.')
+        lines.append(f'Требуется проверка источника или результата: {backlog["needs_review"]}.')
+        if backlog_legacy and backlog['retry_pending']:
+            lines.append('Данные прежнего отчёта; пригодность источников для повторов не проверена.')
     data_labels = {'confirmed': 'подтверждены', 'failed': 'ошибка публикации', 'skipped': 'публикация не выполнялась'}
     pages_labels = {'confirmed': 'свежий выпуск подтверждён', 'failed': 'ошибка публикации',
                     'skipped': 'проверка публикации не выполнялась'}
@@ -408,6 +476,8 @@ def render(value, *, compact=True):
                   'skipped': 'отправка не выполнялась', 'cancelled': 'отправка прервана'}
         lines.append('Push: ' + labels.get(push.get('status'), 'результат не подтверждён') + '.')
     actions = []
+    if captcha_audit.action(captcha):
+        actions.append(captcha_audit.action(captcha))
     if parser.get('status') == 'unconfirmed':
         actions.append('проверить запуск парсинга')
     if any(x['status'] == 'captcha' for x in bad_sources):
@@ -420,7 +490,12 @@ def render(value, *, compact=True):
         actions.append('проверить ошибку запуска')
     if group.get('target') == 'group' and group.get('status') != 'accepted':
         actions.append('проверить отправку в Telegram-группу')
-    if any(row.get('status') in ('needs_review', 'source_conflict', 'outcome_conflict') for row in value.get('summaries') or []):
+    review_statuses = {'needs_review', 'refused', 'refusal', 'provider_refusal',
+                       'source_conflict'}
+    if (backlog['needs_review'] or backlog_invalid or any(
+            not isinstance(row, dict) or row.get('status') in review_statuses
+            or str(row.get('status') or '').endswith('_mismatch')
+            for row in value.get('summaries') or [])):
         actions.append('проверить исходники неподготовленных пересказов')
     lines.append('\n<b>Требуется действие:</b> ' + e('; '.join(dict.fromkeys(actions)) or 'не требуется') + '.')
     if parser.get('status') == 'partial':
