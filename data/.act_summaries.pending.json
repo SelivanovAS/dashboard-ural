@@ -207,8 +207,8 @@
     },
     "source_hash": "e800ddb61e937b07306cfc55ba264fe21876491e7d347b8b4f027cf5c56ee151",
     "created_at": "2026-10-12T01:56:06+00:00",
-    "runs": 0,
-    "status": "missing_keys",
+    "runs": 1,
+    "status": "ready",
     "preparation": {
       "version": "full-act-v1",
       "source_hash": "e800ddb61e937b07306cfc55ba264fe21876491e7d347b8b4f027cf5c56ee151",
@@ -223,8 +223,23 @@
       "identity_check": "matched_header",
       "status": "ready"
     },
-    "attempts": [],
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "apodex/apodex-1.1-mini:free",
+        "status": "ready",
+        "context_limit": 262144,
+        "input_token_upper_bound": 26857,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
     "refusal_rechecked": false,
-    "updated_at": "2026-10-12T01:56:06+00:00"
+    "updated_at": "2026-10-12T06:00:56+00:00",
+    "retry_after": "2026-10-13T06:00:56+00:00",
+    "model": "openrouter:apodex/apodex-1.1-mini:free",
+    "fallback": false,
+    "cached": false,
+    "summary": "Апелляция отменила отказ в восстановлении срока, поскольку материалы не содержат доказательств своевременного получения ответчиком судебных извещений и копии заочного решения. Уважительной причиной признано позднее узнавание о решении, подтверждённое отсутствием доказательств осведомлённости об исполнительном производстве в пользу банка."
   }
 }
