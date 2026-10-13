@@ -948,5 +948,68 @@
       "status": "ready"
     },
     "generated_at": "2026-10-12T06:00:57+00:00"
+  },
+  "cecb3447c64b1e40": {
+    "summary": "Апелляционный суд оставил решение в силе, поскольку причина затопления квартиры установлена судебной экспертизой — заводской дефект запорного крана, установленного застройщиком в гарантийный срок, и ответственность за качество инженерного оборудования несет продавец (застройщик), а не производитель крана или управляющая организация. Суд изменил решение только в части распределения судебных расходов, пересчитав их пропорционально удовлетворенным требованиям (87,94 %) с исключением компенсации морального вреда из расчета, что составило 86 315,13 рублей вместо 364 320 рублей.",
+    "model": "claude:claude-haiku-4-5-20251001",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "apodex/apodex-1.1-mini:free",
+        "status": "rate_limit",
+        "context_limit": 262144,
+        "input_token_upper_bound": 50905,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      },
+      {
+        "provider": "openrouter",
+        "model": "apodex/apodex-1.1-mini:free",
+        "status": "rate_limit",
+        "context_limit": 262144,
+        "input_token_upper_bound": 50905,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      },
+      {
+        "provider": "openrouter",
+        "model": "apodex/apodex-1.1-mini:free",
+        "status": "rate_limit",
+        "context_limit": 262144,
+        "input_token_upper_bound": 50905,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      },
+      {
+        "provider": "gigachat",
+        "status": "missing_key"
+      },
+      {
+        "provider": "claude",
+        "model": "claude-haiku-4-5-20251001",
+        "status": "ready",
+        "context_limit": 200000,
+        "input_token_upper_bound": 50905,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": true,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "c9ca4162fc665dde7d9b5840a9d0f887670ef6610e018f3f94c8eba0ca3e3c2a",
+      "raw_chars": 25038,
+      "prepared_chars": 25038,
+      "source_url": "https://oblsud--ynao.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12662873&case_uid=a53c0021-7581-43ec-a2bb-24baa2b97685&delo_id=5&new=5",
+      "court_domain": "oblsud--ynao.sudrf.ru",
+      "received_at": "2026-10-13T01:17:47+00:00",
+      "case_number": "33-2332/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-13T03:46:17+00:00"
   }
 }
