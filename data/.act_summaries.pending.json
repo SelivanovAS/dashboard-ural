@@ -261,8 +261,8 @@
     },
     "source_hash": "c9ca4162fc665dde7d9b5840a9d0f887670ef6610e018f3f94c8eba0ca3e3c2a",
     "created_at": "2026-10-13T01:55:28+00:00",
-    "runs": 0,
-    "status": "missing_keys",
+    "runs": 1,
+    "status": "ready",
     "preparation": {
       "version": "full-act-v1",
       "source_hash": "c9ca4162fc665dde7d9b5840a9d0f887670ef6610e018f3f94c8eba0ca3e3c2a",
@@ -277,8 +277,54 @@
       "identity_check": "matched_header",
       "status": "ready"
     },
-    "attempts": [],
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "apodex/apodex-1.1-mini:free",
+        "status": "rate_limit",
+        "context_limit": 262144,
+        "input_token_upper_bound": 50905,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      },
+      {
+        "provider": "openrouter",
+        "model": "apodex/apodex-1.1-mini:free",
+        "status": "rate_limit",
+        "context_limit": 262144,
+        "input_token_upper_bound": 50905,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      },
+      {
+        "provider": "openrouter",
+        "model": "apodex/apodex-1.1-mini:free",
+        "status": "rate_limit",
+        "context_limit": 262144,
+        "input_token_upper_bound": 50905,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      },
+      {
+        "provider": "gigachat",
+        "status": "missing_key"
+      },
+      {
+        "provider": "claude",
+        "model": "claude-haiku-4-5-20251001",
+        "status": "ready",
+        "context_limit": 200000,
+        "input_token_upper_bound": 50905,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
     "refusal_rechecked": false,
-    "updated_at": "2026-10-13T01:55:28+00:00"
+    "updated_at": "2026-10-13T03:45:57+00:00",
+    "retry_after": "2026-10-14T03:45:57+00:00",
+    "model": "claude:claude-haiku-4-5-20251001",
+    "fallback": true,
+    "cached": false,
+    "summary": "Апелляционный суд оставил решение в силе, поскольку причина затопления квартиры установлена судебной экспертизой — заводской дефект запорного крана, установленного застройщиком в гарантийный срок, и ответственность за качество инженерного оборудования несет продавец (застройщик), а не производитель крана или управляющая организация. Суд изменил решение только в части распределения судебных расходов, пересчитав их пропорционально удовлетворенным требованиям (87,94 %) с исключением компенсации морального вреда из расчета, что составило 86 315,13 рублей вместо 364 320 рублей."
   }
 }
