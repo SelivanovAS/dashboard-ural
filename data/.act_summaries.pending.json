@@ -346,8 +346,8 @@
     },
     "source_hash": "3d99c1ebc1acaac4bdac3d9bdd33991492acbf037a1910618a2b6381406d04db",
     "created_at": "2026-10-14T03:01:51+00:00",
-    "runs": 0,
-    "status": "missing_keys",
+    "runs": 1,
+    "status": "ready",
     "preparation": {
       "version": "full-act-v1",
       "source_hash": "3d99c1ebc1acaac4bdac3d9bdd33991492acbf037a1910618a2b6381406d04db",
@@ -362,8 +362,54 @@
       "identity_check": "matched_uid",
       "status": "ready"
     },
-    "attempts": [],
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "apodex/apodex-1.1-mini:free",
+        "status": "http_404",
+        "context_limit": 262144,
+        "input_token_upper_bound": 28845,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      },
+      {
+        "provider": "openrouter",
+        "model": "apodex/apodex-1.1-mini:free",
+        "status": "http_404",
+        "context_limit": 262144,
+        "input_token_upper_bound": 28845,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      },
+      {
+        "provider": "openrouter",
+        "model": "apodex/apodex-1.1-mini:free",
+        "status": "http_404",
+        "context_limit": 262144,
+        "input_token_upper_bound": 28845,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      },
+      {
+        "provider": "gigachat",
+        "status": "missing_key"
+      },
+      {
+        "provider": "claude",
+        "model": "claude-haiku-4-5-20251001",
+        "status": "ready",
+        "context_limit": 200000,
+        "input_token_upper_bound": 28845,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
     "refusal_rechecked": false,
-    "updated_at": "2026-10-14T03:01:51+00:00"
+    "updated_at": "2026-10-14T03:56:17+00:00",
+    "retry_after": "2026-10-15T03:56:17+00:00",
+    "model": "claude:claude-haiku-4-5-20251001",
+    "fallback": true,
+    "cached": false,
+    "summary": "Суд признал блокировку номера незаконной, установив, что на момент её осуществления истец имел 19 абонентских номеров, а не 22, как указано в ГИС «КСИМ»: три номера ошибочно отображались в системе, а один был надлежащим образом расторгнут и снят с учёта до блокировки. За нарушение прав потребителя суд взыскал компенсацию морального вреда в размере 5 000 рублей и штраф в размере 2 500 рублей, поскольку ответчик не удовлетворил претензию в досудебном порядке."
   }
 }
