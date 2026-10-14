@@ -1,5 +1,5 @@
 {
-  "baseline_sha256": "d679d010ddac9a886d9307b707438f4de71ababbb96cb609c70c5c9619e88897",
+  "baseline_sha256": "984fa45b046bb78441835bdd09c1ca47d494bb1c259b65d030c6afbe3c76bb6e",
   "files": {
     ".github/workflows/add_cases.yml": {
       "mode": "100644",
@@ -29,9 +29,13 @@
       "mode": "100644",
       "sha256": "fb3beaf9a48269d0ca2150cfb11fd403fd527c3d760392ac4f965a4efc9e8f5b"
     },
+    ".github/workflows/probe_summary_models.yml": {
+      "mode": "100644",
+      "sha256": "25a2f94563e627dbccc9702c55d1cce42599d4900656457f8f4ceaaaaefe04ba"
+    },
     ".github/workflows/replay_on_push.yml": {
       "mode": "100644",
-      "sha256": "219cca96d8adb5f639cb27f7f4850c087a96807e2c1e8ecc3a1d3419859f427d"
+      "sha256": "053a0aeb146ef63091c4a79e38cd9ca9ca4d49000c3dcc4bbb276b7031473e51"
     },
     ".github/workflows/test_digest.yml": {
       "mode": "100644",
@@ -43,7 +47,7 @@
     },
     ".github/workflows/update_cases.yml": {
       "mode": "100644",
-      "sha256": "6c51d66ac4554030cb484cfe9f190f59941487b3677f973b8c943ba38fd19619"
+      "sha256": "5b31e434cad50d0e7a4b3a2047fefeeaff0a1878d50785d6f81c6cd85b20c3ab"
     },
     ".nojekyll": {
       "mode": "100644",
@@ -131,7 +135,7 @@
     },
     "docs/technical/06-дайджесты-и-llm.md": {
       "mode": "100644",
-      "sha256": "ef65b80e690c38402014ec08cf2df7e3e622aa48eeedb42dab264fea7bc6cfb5"
+      "sha256": "83a9bd3769a848c988dae64453022eccf07061e54010dc63bfb6910730834ced"
     },
     "docs/technical/07-доставка-и-уведомления.md": {
       "mode": "100644",
@@ -479,7 +483,7 @@
     },
     "scripts/court_monitor/config.py": {
       "mode": "100644",
-      "sha256": "48ccb9f2a6dafabb879fe755f33717eff87edb8778a67781201febd1f8e8869c"
+      "sha256": "aac056e1fc17df53bb60ce6d01f44c5279eecaaffc55567963b05947916b2fa3"
     },
     "scripts/court_monitor/courts.py": {
       "mode": "100644",
@@ -503,7 +507,7 @@
     },
     "scripts/court_monitor/digest/llm.py": {
       "mode": "100644",
-      "sha256": "6986516bf52807aa5b4033f8ae09d7b83e56e2a0ab86948c85b734afa5c7cdcb"
+      "sha256": "8c9751b7b85029e2c338abb12727bbac76f28e5ea9cf5bd39f3fa75fdd5e0631"
     },
     "scripts/court_monitor/digest/postprocess.py": {
       "mode": "100644",
@@ -684,6 +688,10 @@
     "scripts/probe_court_access.py": {
       "mode": "100644",
       "sha256": "5afb1cff2a4dff0ca845abfd218c1eb3a9fcc49a2de0f72b862ca6bb94c57d4d"
+    },
+    "scripts/probe_summary_models.py": {
+      "mode": "100644",
+      "sha256": "6f176145574a13f66cc034567b0ff2219ce93ac1a1563f906f883306f27b84f7"
     },
     "scripts/probe_writ_sections.py": {
       "mode": "100644",
@@ -1311,7 +1319,7 @@
     },
     "scripts/tests/test_summary_pipeline.py": {
       "mode": "100644",
-      "sha256": "3187c8d3bd1caf18550a4b2af3f6cd7855ede3bf05b2d83bbd4e44a7c98fdfc6"
+      "sha256": "26d959b7106763352c515cf6e83e390434517c6c3cd85d49786ad910cac39384"
     },
     "scripts/tests/test_sw_behaviour.py": {
       "mode": "100644",
@@ -1431,7 +1439,7 @@
     }
   },
   "kind": "program",
-  "profile_sha256": "9f7a059ee6782a1d15333a0b26ef99e312d94f2d68cac11c62a9b9aac398c8e7",
+  "profile_sha256": "be625a2e87300618176399add5e28a05210687744a4333b93a445314af1c644c",
   "protected_prefixes": [
     "data/",
     "ops/bank_registry/",
@@ -1445,11 +1453,11 @@
     "exports/"
   ],
   "region": "sverdlovsk_yanao",
-  "release_id": "532f84c9790a46ac2fe007ba60e2cf917afd187452ae4958181d2fd36e81ad5a",
+  "release_id": "d9bf97b2a8a8d3972f3f3a868df8a940422e0568f38848259831597ad3185cf3",
   "repository": "SelivanovAS/dashboard-ural",
   "schema_version": 1,
   "site_url": "https://selivanovas.github.io/dashboard-ural/sberbank_dashboard.html",
-  "source_commit": "e8a41c85ce49de0fc69b3e3d547e53f1497f1c82",
+  "source_commit": "52546ca73740aba5bf91d168e0d286228c4c1008",
   "source_repo": "SelivanovAS/dashboard",
   "vps_path": "/opt/court-monitor/dashboard-ural"
 }
