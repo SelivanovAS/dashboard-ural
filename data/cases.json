@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-14T08:55:47+05:00",
+  "updated_at": "2026-10-14T03:56:37+00:00",
   "cases": [
     {
       "id": "33-2932/2026",
@@ -9329,7 +9329,29 @@
         "act_notification_kind": "new_publication",
         "act_received_at": "2026-10-14T02:17:36+00:00",
         "act_source_url": "https://verhisetsky--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=570911376&case_uid=e055b967-5194-426f-9c65-10c3eaf2079b&delo_id=1540005&new=0",
-        "act_decision_date": "16.09.2026"
+        "act_decision_date": "16.09.2026",
+        "act_analysis": {
+          "html": "<p><b>Почему:</b> Суд признал блокировку номера незаконной, установив, что на момент её осуществления истец имел 19 абонентских номеров, а не 22, как указано в ГИС «КСИМ»: три номера ошибочно отображались в системе, а один был надлежащим образом расторгнут и снят с учёта до блокировки. За нарушение прав потребителя суд взыскал компенсацию морального вреда в размере 5 000 рублей и штраф в размере 2 500 рублей, поскольку ответчик не удовлетворил претензию в досудебном порядке.</p>",
+          "source": "llm_summary",
+          "act_date": "16.09.2026",
+          "generated_at": "2026-10-14T03:56:17+00:00",
+          "model": "claude:claude-haiku-4-5-20251001",
+          "source_hash": "3d99c1ebc1acaac4bdac3d9bdd33991492acbf037a1910618a2b6381406d04db",
+          "preparation": {
+            "version": "full-act-v1",
+            "source_hash": "3d99c1ebc1acaac4bdac3d9bdd33991492acbf037a1910618a2b6381406d04db",
+            "raw_chars": 13047,
+            "prepared_chars": 13047,
+            "source_url": "https://verhisetsky--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=570911376&case_uid=e055b967-5194-426f-9c65-10c3eaf2079b&delo_id=1540005&new=0",
+            "court_domain": "verhisetsky--svd.sudrf.ru",
+            "received_at": "2026-10-14T02:17:36+00:00",
+            "case_number": "2-3505/2026",
+            "stage": "first_instance",
+            "judicial_uid": "66RS0001-01-2026-001948-84",
+            "identity_check": "matched_uid",
+            "status": "ready"
+          }
+        }
       },
       "appeal": null,
       "import": {
