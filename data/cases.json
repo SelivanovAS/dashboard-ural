@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T08:23:34+05:00",
+  "updated_at": "2026-10-15T03:45:49+00:00",
   "cases": [
     {
       "id": "33-2932/2026",
@@ -36385,7 +36385,29 @@
         "act_decision_date": "15.09.2026",
         "act_notification_kind": "new_publication",
         "act_source_url": "https://7kas.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12161623&case_uid=ee8797c9-1e50-4192-9ab9-2d3543fa9a58&delo_id=2800001&new=2800001",
-        "act_received_at": "2026-10-14T11:04:29+00:00"
+        "act_received_at": "2026-10-14T11:04:29+00:00",
+        "act_analysis": {
+          "html": "<p><b>Почему:</b> Кассационный суд оставил в силе апелляционное определение, снизившее сумму взыскания за устранение недостатков до 84 425,70 руб., так как апелляционная инстанция обоснованно определила реальный объём работ по вентиляции на основе судебной экспертизы и представленного чека. Снижение неустойки и штрафа до 100 000 руб. признано законным, поскольку соответствует экономическому балансу интересов сторон и правомерному применению ст. 333 ГК РФ.</p>",
+          "source": "llm_summary",
+          "act_date": "15.09.2026",
+          "generated_at": "2026-10-15T03:45:32+00:00",
+          "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+          "source_hash": "ce0fae66d8cae5ca3c66420a0ab8c53b5a4ef0c7a27fa135c74385293ed66b33",
+          "preparation": {
+            "version": "full-act-v1",
+            "source_hash": "ce0fae66d8cae5ca3c66420a0ab8c53b5a4ef0c7a27fa135c74385293ed66b33",
+            "raw_chars": 11464,
+            "prepared_chars": 11464,
+            "source_url": "https://7kas.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12161623&case_uid=ee8797c9-1e50-4192-9ab9-2d3543fa9a58&delo_id=2800001&new=2800001",
+            "court_domain": "7kas.sudrf.ru",
+            "received_at": "2026-10-14T11:04:29+00:00",
+            "case_number": "8Г-12591/2026",
+            "stage": "cassation",
+            "judicial_uid": "66RS0020-01-2025-000810-50",
+            "identity_check": "matched_uid",
+            "status": "ready"
+          }
+        }
       },
       "initial_bank_role": "Третье лицо"
     },
@@ -36552,7 +36574,29 @@
         "act_decision_date": "22.09.2026",
         "act_notification_kind": "new_publication",
         "act_source_url": "https://7kas.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12228593&case_uid=9ca36c2a-1555-49ef-b8dd-7be201e4c023&delo_id=2800001&new=2800001",
-        "act_received_at": "2026-10-14T11:04:43+00:00"
+        "act_received_at": "2026-10-14T11:04:43+00:00",
+        "act_analysis": {
+          "html": "<p><b>Почему:</b> Кассационный суд подтвердил выводы нижестоящих инстанций о наступлении страхового случая по риску «конструктивные дефекты», опираясь на заключение судебной экспертизы, установившее аварийное состояние дома из-за нарушений технологии строительства, делающих дефекты неустранимыми без полного сноса. Доводы страховщика об отсутствии акта межведомственной комиссии и несоответствии заключения эксперта требованиям закона отклонены как не имеющие значения при наличии иных надлежащих доказательств конструктивных дефектов.</p>",
+          "source": "llm_summary",
+          "act_date": "22.09.2026",
+          "generated_at": "2026-10-15T03:45:41+00:00",
+          "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+          "source_hash": "aadbbaec5137366295c36ecd5ba197e8b4d44414ca34ca285e61420841ace984",
+          "preparation": {
+            "version": "full-act-v1",
+            "source_hash": "aadbbaec5137366295c36ecd5ba197e8b4d44414ca34ca285e61420841ace984",
+            "raw_chars": 25964,
+            "prepared_chars": 25964,
+            "source_url": "https://7kas.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12228593&case_uid=9ca36c2a-1555-49ef-b8dd-7be201e4c023&delo_id=2800001&new=2800001",
+            "court_domain": "7kas.sudrf.ru",
+            "received_at": "2026-10-14T11:04:43+00:00",
+            "case_number": "8Г-13295/2026",
+            "stage": "cassation",
+            "judicial_uid": "66RS0011-01-2025-000794-90",
+            "identity_check": "matched_uid",
+            "status": "ready"
+          }
+        }
       },
       "initial_bank_role": "Третье лицо"
     },
