@@ -1138,5 +1138,151 @@
       "status": "ready"
     },
     "generated_at": "2026-10-15T03:45:48+00:00"
+  },
+  "032f788aba5737bf": {
+    "summary": "Апелляционный суд отменил решение первой инстанции, установив, что пункт 22 кредитного договора содержит противоречивые сроки предоставления страхового полиса, которые в силу ст. 431 ГК РФ и п. 45 Постановления Пленума ВС РФ № 49 подлежат толкованию в пользу заемщика. Поскольку объект недвижимости был передан и зарегистрирован в собственность только 01.10.2025, а полис представлен в банк 08.10.2025, заемщик соблюл трехмесячный срок, поэтому начисление и безакцептное списание неустойки банком признаны неправомерным неосновательным обогащением.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 55867,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "226597a4ef246908461cfe73a080620c1b323bc325cdf6404ba84fe84fbb26c2",
+      "raw_chars": 28125,
+      "prepared_chars": 28125,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22687387&case_uid=66dbd7fe-604b-4883-9267-1f52ee44c32b&delo_id=5&new=5",
+      "court_domain": "oblsud--svd.sudrf.ru",
+      "received_at": "2026-10-16T01:28:06+00:00",
+      "case_number": "33-14821/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-16T03:45:34+00:00"
+  },
+  "6df71627512f86a9": {
+    "summary": "Судебная коллегия подтвердила, что комиссия за пакет «Домклик Плюс» представляет собой плату за согласование существенного условия кредитного договора — процентной ставки, — что является обязанностью банка и не создаёт заемщику отдельного имущественного блага. Взимание такой платы противоречит ст. 5 Закона № 353-ФЗ и признаётся злоупотреблением правом, а условие о повышении ставки при отказе от пакета — ничтожным как ущемляющее права потребителя.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "answer_too_long",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 57208,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      },
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 57208,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "a79aff1c6739b6ff8cc6b49cc50645543b4d4ec8771a238cf9faced8b2920c29",
+      "raw_chars": 28779,
+      "prepared_chars": 28779,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22064159&case_uid=dec90816-f778-4bbc-a3d5-0a2de3217884&delo_id=5&new=5",
+      "court_domain": "oblsud--svd.sudrf.ru",
+      "received_at": "2026-10-16T01:25:32+00:00",
+      "case_number": "33-12156/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-16T03:46:38+00:00"
+  },
+  "487755c797d56537": {
+    "summary": "Судебная коллегия отменила решение первой инстанции, так как страховщик не доказал умысел страхователя на сообщение заведомо ложных сведений о состоянии здоровья, что является обязательным условием для признания договора недействительным по ст. 179 и 944 ГК РФ. Кроме того, договор не содержал подписи страхователя, а электронная оферта не предусматривала механизма письменного уведомления о заболеваниях, поэтому вывод о обмане не подтверждается.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 40008,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "d242c189345e63868a5fabf14783366f9d7dcaa415e420f1a4b3d9f26f23104a",
+      "raw_chars": 19348,
+      "prepared_chars": 19348,
+      "source_url": "https://oblsud--ynao.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12671530&case_uid=7cc3bbaf-481d-44b5-b63e-2e13dd230bc9&delo_id=5&new=5",
+      "court_domain": "",
+      "received_at": "2026-10-16T03:30:16+00:00",
+      "case_number": "33-2394/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-16T03:46:42+00:00"
+  },
+  "853691054c33ca4b": {
+    "summary": "Суд подтвердил взыскание неустоек, разграничив их правовую природу с процентами за пользование кредитом: неустойка является мерой ответственности за нарушение обязательства (ст. 330 ГК РФ), а не процентами по ст. 809 ГК РФ, поэтому ст. 811 ГК РФ не исключает её начисления. Отсрочка реализации заложенного жилья отказана, так как закон (ст. 78 ФЗ-102) допускает взыскание на единственное жилье, а должники с 25.06.2025 не вносят платежи и не доказали реальной возможности погасить долг в течение года.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "invalid_response",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 35365,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      },
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 35365,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "e261506ad64d60c23341a45d7521f679efc94242cd7d4ea498c42f5d167fca56",
+      "raw_chars": 16791,
+      "prepared_chars": 16791,
+      "source_url": "https://oblsud--ynao.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12671726&case_uid=08539731-8203-40fb-807e-876dfa9c4474&delo_id=5&new=5",
+      "court_domain": "",
+      "received_at": "2026-10-16T03:30:23+00:00",
+      "case_number": "33-2385/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-16T03:47:34+00:00"
   }
 }
