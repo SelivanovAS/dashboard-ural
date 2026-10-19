@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated_at": "2026-10-19T07:49:49+05:00",
+ "updated_at": "2026-10-19T08:05:27+05:00",
  "sources": {
   "appeal:oblsud--ynao.sudrf.ru": {
    "counts": [
@@ -364,75 +364,75 @@
   }
  },
  "last_run": {
-  "at": "2026-10-19T07:49:49",
+  "at": "2026-10-19T08:05:27",
   "alerts": [],
-  "requests_ok": 193,
+  "requests_ok": 48,
   "requests_failed": 2,
   "requests_retried": 0,
-  "cards_breaker_skipped": 2,
+  "cards_breaker_skipped": 1,
   "cards_breaker_unrequested": 0,
-  "cards_breaker_recovered": 2,
-  "cards_blocked": 4,
-  "cards_read": 187,
-  "cards_planned": 405,
-  "cards_read_today": 356,
+  "cards_breaker_recovered": 0,
+  "cards_blocked": 2,
+  "cards_read": 46,
+  "cards_planned": 219,
+  "cards_read_today": 401,
   "cards_planned_today": 574,
-  "daily_attempts": 2,
+  "daily_attempts": 3,
   "instances": {
    "first_instance": {
-    "read": 163,
-    "planned": 371,
-    "read_today": 234,
+    "read": 45,
+    "planned": 208,
+    "read_today": 279,
     "planned_today": 442
    },
    "appeal": {
-    "read": 9,
-    "planned": 19,
+    "read": 1,
+    "planned": 11,
     "read_today": 95,
     "planned_today": 105
    },
    "cassation": {
-    "read": 15,
-    "planned": 15,
+    "read": 0,
+    "planned": 0,
     "read_today": 27,
     "planned_today": 27
    }
   },
   "latency": {
-   "n": 193,
-   "p50": 11.5,
-   "p90": 19.4,
-   "max": 23.8
+   "n": 48,
+   "p50": 1.7,
+   "p90": 17.8,
+   "max": 25.5
   },
   "failure_latency": {
    "portal_placeholder": {
-    "n": 4,
-    "p50": 13.5,
-    "p90": 21.1,
-    "max": 21.1
+    "n": 2,
+    "p50": 5.1,
+    "p90": 25.5,
+    "max": 25.5
    },
    "read_timeout": {
     "n": 2,
-    "p50": 0.2,
-    "p90": 7.2,
-    "max": 7.2
+    "p50": 0.1,
+    "p90": 0.3,
+    "max": 0.3
    }
   },
   "fail_kinds": {
-   "portal_placeholder": 4,
-   "read_timeout": 2,
-   "breaker": 1
+   "portal_placeholder": 2,
+   "breaker": 1,
+   "read_timeout": 2
   },
   "breaker": {
    "mode": "time",
    "opened_hosts": 2,
-   "open_hosts": 1,
-   "recovered_hosts": 1,
-   "deferred_total": 2,
+   "open_hosts": 2,
+   "recovered_hosts": 0,
+   "deferred_total": 0,
    "deferred_remaining": 0,
-   "deferred_recovered": 2,
-   "probes": 1,
-   "probe_successes": 1,
+   "deferred_recovered": 0,
+   "probes": 0,
+   "probe_successes": 0,
    "probe_failures": 0,
    "by_kind": {
     "portal_placeholder": 1,
@@ -440,42 +440,42 @@
    },
    "hosts": [
     {
-     "host": "chkalovsky--svd.sudrf.ru",
+     "host": "kirovsky--svd.sudrf.ru",
      "state": "open",
-     "kind": "read_timeout",
-     "family": "slow_unavailable",
-     "reason": "суд не отдал данные до таймаута чтения",
+     "kind": "portal_placeholder",
+     "family": "portal_outage",
+     "reason": "вместо карточки пришла заглушка портала",
      "preopened": false,
      "skipped": 1,
      "probes": 0,
      "deferred_total": 0,
      "deferred_remaining": 0,
      "deferred_recovered": 0,
-     "cooldown_seconds": 300.0,
-     "next_probe_in_seconds": 293.1
+     "cooldown_seconds": 180.0,
+     "next_probe_in_seconds": 8.2
     },
     {
-     "host": "kamyshlovsky--svd.sudrf.ru",
-     "state": "closed",
-     "kind": "portal_placeholder",
-     "family": "portal_outage",
-     "reason": "вместо карточки пришла заглушка портала",
+     "host": "leninskytag--svd.sudrf.ru",
+     "state": "open",
+     "kind": "read_timeout",
+     "family": "slow_unavailable",
+     "reason": "суд не отдал данные до таймаута чтения",
      "preopened": false,
-     "skipped": 1,
-     "probes": 1,
-     "deferred_total": 2,
+     "skipped": 0,
+     "probes": 0,
+     "deferred_total": 0,
      "deferred_remaining": 0,
-     "deferred_recovered": 2,
-     "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 0.0
+     "deferred_recovered": 0,
+     "cooldown_seconds": 300.0,
+     "next_probe_in_seconds": 294.5
     }
    ]
   },
-  "courts_unavailable": 1,
+  "courts_unavailable": 2,
   "courts_with_unrequested": 0,
   "courts_outage": 0,
   "cards_unreachable": 0,
-  "cards_unread_other": 218,
+  "cards_unread_other": 173,
   "run_deadline_seconds": 3300.0,
   "run_deadline_reached": false
  },
@@ -483,11 +483,11 @@
   "date": "2026-10-19",
   "region": "sverdlovsk_yanao",
   "waiting": 17,
-  "due": 15,
-  "planned": 15,
-  "read": 15,
+  "due": 0,
+  "planned": 0,
+  "read": 0,
   "unread": 0,
-  "published": 1,
+  "published": 0,
   "backfilled": 0,
   "unplanned": 0,
   "needs_review": 0,
@@ -507,94 +507,88 @@
     "reason": "scheduled"
    },
    {
-    "key": "7kas.sudrf.ru|2800001|8Г-12473/2026",
-    "number": "8Г-12473/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
-   },
-   {
     "key": "7kas.sudrf.ru|2800001|8Г-13900/2026",
     "number": "8Г-13900/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "7kas.sudrf.ru|2800001|8Г-14185/2026",
     "number": "8Г-14185/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "7kas.sudrf.ru|2800001|8Г-14377/2026",
     "number": "8Г-14377/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "7kas.sudrf.ru|2800001|8Г-13751/2026",
     "number": "8Г-13751/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "7kas.sudrf.ru|2800001|8Г-14808/2026",
     "number": "8Г-14808/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "7kas.sudrf.ru|2800001|8Г-13272/2026",
     "number": "8Г-13272/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "7kas.sudrf.ru|2800001|8Г-14455/2026",
     "number": "8Г-14455/2026",
-    "next_check_at": "2026-10-15",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "7kas.sudrf.ru|2800001|8Г-15213/2026",
     "number": "8Г-15213/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "7kas.sudrf.ru|2800001|8Г-17150/2026",
     "number": "8Г-17150/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "7kas.sudrf.ru|2800001|8Г-14426/2026",
     "number": "8Г-14426/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "7kas.sudrf.ru|2800001|8Г-14733/2026",
     "number": "8Г-14733/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "7kas.sudrf.ru|2800001|8Г-14647/2026",
     "number": "8Г-14647/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "7kas.sudrf.ru|2800001|8Г-14497/2026",
     "number": "8Г-14497/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "7kas.sudrf.ru|2800001|8Г-15987/2026",
     "number": "8Г-15987/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "7kas.sudrf.ru|2800001|8Г-15485/2026",
@@ -608,11 +602,11 @@
   "date": "2026-10-19",
   "region": "sverdlovsk_yanao",
   "waiting": 100,
-  "due": 17,
-  "planned": 17,
-  "read": 7,
+  "due": 10,
+  "planned": 10,
+  "read": 0,
   "unread": 10,
-  "published": 2,
+  "published": 0,
   "backfilled": 0,
   "unplanned": 0,
   "needs_review": 0,
@@ -634,8 +628,8 @@
    {
     "key": "oblsud--svd.sudrf.ru|5|1|33-16630/2026",
     "number": "33-16630/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-26",
+    "reason": "scheduled"
    },
    {
     "key": "oblsud--svd.sudrf.ru|5|1|33-16659/2026",
@@ -700,8 +694,8 @@
    {
     "key": "oblsud--svd.sudrf.ru|5|1|33-15790/2026",
     "number": "33-15790/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-26",
+    "reason": "scheduled"
    },
    {
     "key": "oblsud--svd.sudrf.ru|5|1|33-15803/2026",
@@ -772,8 +766,8 @@
    {
     "key": "oblsud--svd.sudrf.ru|5|1|33-14826/2026",
     "number": "33-14826/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-26",
+    "reason": "scheduled"
    },
    {
     "key": "oblsud--svd.sudrf.ru|5|1|33-14764/2026",
@@ -816,12 +810,6 @@
     "number": "33-14363/2026",
     "next_check_at": "2026-10-09",
     "reason": "watch_time_limit"
-   },
-   {
-    "key": "oblsud--svd.sudrf.ru|5|1|33-14275/2026",
-    "number": "33-14275/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
    },
    {
     "key": "oblsud--svd.sudrf.ru|5|1|33-14234/2026",
@@ -892,8 +880,8 @@
    {
     "key": "oblsud--svd.sudrf.ru|5|1|33-13801/2026",
     "number": "33-13801/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-26",
+    "reason": "scheduled"
    },
    {
     "key": "oblsud--svd.sudrf.ru|5|1|33-13788/2026",
@@ -952,20 +940,14 @@
    {
     "key": "oblsud--svd.sudrf.ru|5|1|33-13339/2026",
     "number": "33-13339/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-26",
+    "reason": "scheduled"
    },
    {
     "key": "oblsud--svd.sudrf.ru|5|1|33-13174/2026",
     "number": "33-13174/2026",
     "next_check_at": "2026-10-20",
     "reason": "scheduled"
-   },
-   {
-    "key": "oblsud--svd.sudrf.ru|5|1|33-12991/2026",
-    "number": "33-12991/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
    },
    {
     "key": "oblsud--svd.sudrf.ru|5|1|33-12923/2026",
@@ -1236,12 +1218,12 @@
  "fi_act_publication_watch": {
   "date": "2026-10-19",
   "region": "sverdlovsk_yanao",
-  "waiting": 426,
-  "due": 230,
-  "planned": 230,
-  "read": 25,
-  "unread": 205,
-  "published": 0,
+  "waiting": 425,
+  "due": 205,
+  "planned": 205,
+  "read": 42,
+  "unread": 163,
+  "published": 1,
   "backfilled": 0,
   "unplanned": 72,
   "needs_review": 72,
@@ -1300,7 +1282,7 @@
     "key": "leninskyeka--svd.sudrf.ru|1540005|1|2-5204/2026|2026-09-30",
     "number": "2-5204/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "chkalovsky--svd.sudrf.ru|1540005|1|9-924/2026|undated",
@@ -1528,7 +1510,7 @@
     "key": "chkalovsky--svd.sudrf.ru|1540005|1|9-1031/2026|2026-09-28",
     "number": "9-1031/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "chkalovsky--svd.sudrf.ru|1540005|1|2-5637/2026|2026-10-06",
@@ -1540,7 +1522,7 @@
     "key": "chkalovsky--svd.sudrf.ru|1540005|1|2-5277/2026|2026-09-24",
     "number": "2-5277/2026",
     "next_check_at": "2026-10-19",
-    "reason": "read_timeout"
+    "reason": "retry_cooldown"
    },
    {
     "key": "verhisetsky--svd.sudrf.ru|1540005|1|2-3666/2026|2026-09-28",
@@ -1948,7 +1930,7 @@
     "key": "kirovsky--svd.sudrf.ru|1540005|1|2-5703/2026|2026-10-06",
     "number": "2-5703/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "breaker"
    },
    {
     "key": "salehardsky--ynao.sudrf.ru|1540005|1|2-1930/2026|2026-10-05",
@@ -1983,8 +1965,8 @@
    {
     "key": "akademicheskiy--svd.sudrf.ru|1540005|1|2-2758/2026|2026-09-30",
     "number": "2-2758/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "noyabrsky--ynao.sudrf.ru|1540005|1|2-2129/2026|2026-09-22",
@@ -2001,14 +1983,14 @@
    {
     "key": "bogdanovichsky--svd.sudrf.ru|1540005|1|2-641/2026|2026-09-28",
     "number": "2-641/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "gubkinskiy--ynao.sudrf.ru|1540005|1|2-736/2026|2026-09-28",
     "number": "2-736/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "salehardsky--ynao.sudrf.ru|1540005|1|2-1877/2026|2026-09-28",
@@ -2043,8 +2025,8 @@
    {
     "key": "beloyarsky--svd.sudrf.ru|1540005|1|2-1756/2026|2026-09-23",
     "number": "2-1756/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "novourengoysky--ynao.sudrf.ru|1540005|1|2-2864/2026|2026-10-01",
@@ -2056,7 +2038,7 @@
     "key": "chkalovsky--svd.sudrf.ru|1540005|1|2-6342/2026|2026-10-01",
     "number": "2-6342/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "muravlenkovsky--ynao.sudrf.ru|1540005|1|2-542/2026|2026-09-21",
@@ -2097,14 +2079,14 @@
    {
     "key": "bogdanovichsky--svd.sudrf.ru|1540005|1|2-429/2026|2026-09-25",
     "number": "2-429/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "ivdelsky--svd.sudrf.ru|1540005|1|2-215/2026|2026-09-29",
     "number": "2-215/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "ivdelsky--svd.sudrf.ru|1540005|1|2-196/2026|2026-09-17",
@@ -2116,7 +2098,7 @@
     "key": "ivdelsky--svd.sudrf.ru|1540005|1|2-170/2026|2026-09-01",
     "number": "2-170/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "nizhneserginsky--svd.sudrf.ru|1540005|1|2-528/2026|2026-09-11",
@@ -2236,7 +2218,7 @@
     "key": "krasnouralsky--svd.sudrf.ru|1540005|1|2-518/2026|2026-08-04",
     "number": "2-518/2026",
     "next_check_at": "2026-10-16",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "prigorodny--svd.sudrf.ru|1540005|1|2-524/2026|2026-08-21",
@@ -2284,13 +2266,13 @@
     "key": "irbitsky--svd.sudrf.ru|1540005|1|2-1067/2026|2026-09-15",
     "number": "2-1067/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "irbitsky--svd.sudrf.ru|1540005|1|2-953/2026|2026-09-29",
     "number": "2-953/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "neviansky--svd.sudrf.ru|1540005|1|2-517/2026|2026-09-30",
@@ -2338,7 +2320,7 @@
     "key": "krasnoufimsky--svd.sudrf.ru|1540005|2|2-2-135/2026|2026-09-29",
     "number": "2-2-135/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "krasnoufimsky--svd.sudrf.ru|1540005|2|2-2-122/2026|2026-08-19",
@@ -2355,26 +2337,26 @@
    {
     "key": "berezovsky--svd.sudrf.ru|1540005|1|2-1427/2026|2026-09-30",
     "number": "2-1427/2026",
-    "next_check_at": "2026-10-16",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "berezovsky--svd.sudrf.ru|1540005|1|2-1381/2026|2026-09-24",
     "number": "2-1381/2026",
-    "next_check_at": "2026-10-16",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "berezovsky--svd.sudrf.ru|1540005|1|2-1332/2026|2026-09-24",
     "number": "2-1332/2026",
-    "next_check_at": "2026-10-16",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "berezovsky--svd.sudrf.ru|1540005|1|2-1333/2026|2026-09-24",
     "number": "2-1333/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "severouralsky--svd.sudrf.ru|1540005|1|2-335/2026|2026-07-29",
@@ -2457,8 +2439,8 @@
    {
     "key": "beloyarsky--svd.sudrf.ru|1540005|1|2-1455/2026|2026-09-28",
     "number": "2-1455/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "beloyarsky--svd.sudrf.ru|1540005|1|2-1350/2026|2026-09-18",
@@ -2476,7 +2458,7 @@
     "key": "kamyshlovsky--svd.sudrf.ru|1540005|2|2-2-246/2026|2026-10-05",
     "number": "2-2-246/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "kamyshlovsky--svd.sudrf.ru|1540005|2|2-2-181/2026|2026-09-15",
@@ -2487,14 +2469,14 @@
    {
     "key": "artemovsky--svd.sudrf.ru|1540005|1|9-140/2026|2026-09-28",
     "number": "9-140/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "artemovsky--svd.sudrf.ru|1540005|1|2-615/2026|2026-09-29",
     "number": "2-615/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "artemovsky--svd.sudrf.ru|1540005|1|2-591/2026|2026-09-03",
@@ -2571,8 +2553,8 @@
    {
     "key": "asbestovsky--svd.sudrf.ru|1540005|1|2-790/2026|2026-10-05",
     "number": "2-790/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "asbestovsky--svd.sudrf.ru|1540005|1|2-229/2026|2026-09-18",
@@ -2608,13 +2590,13 @@
     "key": "dzerzhinsky--svd.sudrf.ru|1540005|1|2-1409/2026|2026-09-29",
     "number": "2-1409/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "dzerzhinsky--svd.sudrf.ru|1540005|1|2-1245/2026|2026-08-12",
     "number": "2-1245/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "dzerzhinsky--svd.sudrf.ru|1540005|1|2-1231/2026|2026-08-17",
@@ -2632,7 +2614,7 @@
     "key": "dzerzhinsky--svd.sudrf.ru|1540005|1|2-1172/2026|2026-09-22",
     "number": "2-1172/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "dzerzhinsky--svd.sudrf.ru|1540005|1|2-1101/2026|2026-09-09",
@@ -2698,7 +2680,7 @@
     "key": "krasnogorsky--svd.sudrf.ru|1540005|1|2-1334/2026|2026-09-30",
     "number": "2-1334/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "krasnogorsky--svd.sudrf.ru|1540005|1|2-1043/2026|2026-09-18",
@@ -2710,13 +2692,13 @@
     "key": "krasnogorsky--svd.sudrf.ru|1540005|1|2-984/2026|2026-09-21",
     "number": "2-984/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "krasnogorsky--svd.sudrf.ru|1540005|1|2-912/2026|2026-09-23",
     "number": "2-912/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "pervouralsky--svd.sudrf.ru|1540005|1|2-1800/2026|2026-09-24",
@@ -2758,31 +2740,31 @@
     "key": "kamensky--svd.sudrf.ru|1540005|1|2-325/2026|2026-08-11",
     "number": "2-325/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "kamensky--svd.sudrf.ru|1540005|1|2-330/2026|2026-09-21",
     "number": "2-330/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "leninskytag--svd.sudrf.ru|1540005|1|2-2008/2026|2026-09-28",
     "number": "2-2008/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "read_timeout"
    },
    {
     "key": "leninskytag--svd.sudrf.ru|1540005|1|2-1889/2026|2026-09-28",
     "number": "2-1889/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "read_timeout"
    },
    {
     "key": "leninskytag--svd.sudrf.ru|1540005|1|2-1710/2026|2026-09-30",
     "number": "2-1710/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "leninskytag--svd.sudrf.ru|1540005|1|2-1591/2026|2026-08-18",
@@ -2889,26 +2871,26 @@
    {
     "key": "alapaevsky--svd.sudrf.ru|1540005|1|2-642/2026|2026-09-29",
     "number": "2-642/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "alapaevsky--svd.sudrf.ru|1540005|1|2-585/2026|2026-09-30",
     "number": "2-585/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "alapaevsky--svd.sudrf.ru|1540005|1|2-464/2026|2026-09-30",
     "number": "2-464/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "alapaevsky--svd.sudrf.ru|1540005|1|2-349/2026|2026-09-23",
     "number": "2-349/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "oktiabrsky--svd.sudrf.ru|1540005|1|2-3727/2026|2026-08-24",
@@ -2937,8 +2919,8 @@
    {
     "key": "akademicheskiy--svd.sudrf.ru|1540005|1|2-1386/2026|2026-09-22",
     "number": "2-1386/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "noyabrsky--ynao.sudrf.ru|1540005|1|2-1980/2026|2026-10-05",
@@ -3004,13 +2986,13 @@
     "key": "leninskyeka--svd.sudrf.ru|1540005|1|2-5065/2026|2026-09-17",
     "number": "2-5065/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "leninskyeka--svd.sudrf.ru|1540005|1|2-4887/2026|2026-09-24",
     "number": "2-4887/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "leninskyeka--svd.sudrf.ru|1540005|1|2-4778/2026|2026-09-17",
@@ -3124,7 +3106,7 @@
     "key": "kirovsky--svd.sudrf.ru|1540005|1|2-4380/2026|2026-10-05",
     "number": "2-4380/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "chkalovsky--svd.sudrf.ru|1540005|1|2-4119/2026|2026-08-27",
@@ -3135,8 +3117,8 @@
    {
     "key": "chkalovsky--svd.sudrf.ru|1540005|1|2-3542/2026|2026-09-16",
     "number": "2-3542/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-26",
+    "reason": "scheduled"
    },
    {
     "key": "chkalovsky--svd.sudrf.ru|1540005|1|2-3540/2026|2026-07-03",
@@ -3184,13 +3166,13 @@
     "key": "chkalovsky--svd.sudrf.ru|1540005|1|2-5575/2026|2026-09-21",
     "number": "2-5575/2026",
     "next_check_at": "2026-10-19",
-    "reason": "breaker"
+    "reason": "retry_cooldown"
    },
    {
     "key": "chkalovsky--svd.sudrf.ru|1540005|1|2-5577/2026|2026-09-23",
     "number": "2-5577/2026",
     "next_check_at": "2026-10-19",
-    "reason": "read_timeout"
+    "reason": "retry_cooldown"
    },
    {
     "key": "chkalovsky--svd.sudrf.ru|1540005|1|2-5434/2026|2026-08-13",
@@ -3231,14 +3213,14 @@
    {
     "key": "chkalovsky--svd.sudrf.ru|1540005|1|2-5064/2026|2026-08-27",
     "number": "2-5064/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-26",
+    "reason": "scheduled"
    },
    {
     "key": "chkalovsky--svd.sudrf.ru|1540005|1|2-6274/2026|2026-09-24",
     "number": "2-6274/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "chkalovsky--svd.sudrf.ru|1540005|1|2-6096/2026|2026-09-10",
@@ -3250,7 +3232,7 @@
     "key": "chkalovsky--svd.sudrf.ru|1540005|1|2-6196/2026|2026-09-23",
     "number": "2-6196/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "chkalovsky--svd.sudrf.ru|1540005|1|2-6181/2026|2026-09-15",
@@ -3274,7 +3256,7 @@
     "key": "chkalovsky--svd.sudrf.ru|1540005|1|2-5996/2026|2026-09-07",
     "number": "2-5996/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "chkalovsky--svd.sudrf.ru|1540005|1|2-5935/2026|2026-09-02",
@@ -3292,19 +3274,19 @@
     "key": "chkalovsky--svd.sudrf.ru|1540005|1|2-5781/2026|2026-09-03",
     "number": "2-5781/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "chkalovsky--svd.sudrf.ru|1540005|1|2-5785/2026|2026-09-08",
     "number": "2-5785/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "chkalovsky--svd.sudrf.ru|1540005|1|2-5921/2026|2026-09-10",
     "number": "2-5921/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "gubkinskiy--ynao.sudrf.ru|1540005|1|2-474/2026|2026-08-31",
@@ -3796,7 +3778,7 @@
     "key": "krasnoufimsky--svd.sudrf.ru|1540005|1|2-1-895/2026|2026-07-23",
     "number": "2-1-895/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "tagilstroevsky--svd.sudrf.ru|1540005|1|2-922/2026|2026-05-21",
@@ -4132,7 +4114,7 @@
     "key": "labytnangsky--ynao.sudrf.ru|1540005|1|2-1022/2026|2026-10-06",
     "number": "2-1022/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "pervouralsky--svd.sudrf.ru|1540005|1|2-2936/2026|2026-10-05",
@@ -4144,7 +4126,7 @@
     "key": "leninskyeka--svd.sudrf.ru|1540005|1|2-5303/2026|2026-10-07",
     "number": "2-5303/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "lesnoy--svd.sudrf.ru|1540005|1|2-743/2026|2026-10-06",
@@ -4173,14 +4155,14 @@
    {
     "key": "chkalovsky--svd.sudrf.ru|1540005|1|2-5329/2026|2026-10-07",
     "number": "2-5329/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "dzerzhinsky--svd.sudrf.ru|1540005|1|2-1759/2026|2026-10-07",
     "number": "2-1759/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "nadymsky--ynao.sudrf.ru|1540005|1|2-1334/2026|2026-10-08",
@@ -4192,7 +4174,7 @@
     "key": "kirovsky--svd.sudrf.ru|1540005|1|2-5386/2026|2026-10-08",
     "number": "2-5386/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "yamalsky--ynao.sudrf.ru|1540005|1|2-219/2026|2026-10-08",
@@ -4233,14 +4215,14 @@
    {
     "key": "chkalovsky--svd.sudrf.ru|1540005|1|2-4086/2026|2026-10-08",
     "number": "2-4086/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "chkalovsky--svd.sudrf.ru|1540005|1|2-6302/2026|2026-10-07",
     "number": "2-6302/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "oktiabrsky--svd.sudrf.ru|1540005|1|2-3558/2026|2026-10-08",
@@ -4306,7 +4288,7 @@
     "key": "labytnangsky--ynao.sudrf.ru|1540005|1|2-1015/2026|2026-10-13",
     "number": "2-1015/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "novourengoysky--ynao.sudrf.ru|1540005|1|2-3020/2026|2026-10-09",
@@ -4335,8 +4317,8 @@
    {
     "key": "asbestovsky--svd.sudrf.ru|1540005|1|2-303/2026|2026-10-12",
     "number": "2-303/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "pervouralsky--svd.sudrf.ru|1540005|1|2-2577/2026|2026-10-13",
@@ -4372,7 +4354,7 @@
     "key": "gubkinskiy--ynao.sudrf.ru|1540005|1|2-473/2026|2026-10-13",
     "number": "2-473/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "salehardsky--ynao.sudrf.ru|1540005|1|2-1731/2026|2026-10-13",
@@ -4395,32 +4377,32 @@
    {
     "key": "asbestovsky--svd.sudrf.ru|1540005|1|2-1288/2026|2026-10-14",
     "number": "2-1288/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "kirovsky--svd.sudrf.ru|1540005|1|2-5674/2026|2026-10-13",
     "number": "2-5674/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "portal_placeholder"
    },
    {
     "key": "chkalovsky--svd.sudrf.ru|1540005|1|2-6959/2026|2026-10-14",
     "number": "2-6959/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "beloyarsky--svd.sudrf.ru|1540005|1|2-1836/2026|2026-10-14",
     "number": "2-1836/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "asbestovsky--svd.sudrf.ru|1540005|1|2-1212/2026|2026-10-14",
     "number": "2-1212/2026",
-    "next_check_at": "2026-10-19",
-    "reason": "checked"
+    "next_check_at": "2026-10-20",
+    "reason": "scheduled"
    },
    {
     "key": "sysertsky--svd.sudrf.ru|1540005|1|2-1988/2026|2026-10-13",
@@ -4444,7 +4426,7 @@
     "key": "kirovsky--svd.sudrf.ru|1540005|1|2-4605/2026|2026-10-13",
     "number": "2-4605/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "muravlenkovsky--ynao.sudrf.ru|1540005|1|2-528/2026|2026-10-02",
@@ -4480,7 +4462,7 @@
     "key": "kirovsky--svd.sudrf.ru|1540005|1|2-5482/2026|2026-10-15",
     "number": "2-5482/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "portal_placeholder"
    },
    {
     "key": "novourengoysky--ynao.sudrf.ru|1540005|1|2-3137/2026|2026-10-15",
@@ -4492,13 +4474,13 @@
     "key": "dzerzhinsky--svd.sudrf.ru|1540005|1|2-1828/2026|2026-10-01",
     "number": "2-1828/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "chkalovsky--svd.sudrf.ru|1540005|1|2-6871/2026|2026-10-15",
     "number": "2-6871/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "verhisetsky--svd.sudrf.ru|1540005|1|2-4033/2026|2026-10-14",
@@ -4510,7 +4492,7 @@
     "key": "kirovsky--svd.sudrf.ru|1540005|1|2-4453/2026|2026-10-15",
     "number": "2-4453/2026",
     "next_check_at": "2026-10-19",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "ordzhonikidzevsky--svd.sudrf.ru|1540005|1|2-2499/2026|2026-10-15",
@@ -4706,7 +4688,7 @@
    {
     "key": "severouralsky--svd.sudrf.ru|1|2-353/2026|14.05.2026",
     "number": "2-353/2026",
-    "next_check_at": "2026-10-23",
+    "next_check_at": "2026-10-26",
     "reason": "basis_changed"
    },
    {
@@ -4910,7 +4892,7 @@
    {
     "key": "akademicheskiy--svd.sudrf.ru|1|2-2758/2026|30.09.2026",
     "number": "2-2758/2026",
-    "next_check_at": "2026-10-23",
+    "next_check_at": "2026-10-26",
     "reason": "scheduled"
    },
    {
@@ -4928,7 +4910,7 @@
    {
     "key": "bogdanovichsky--svd.sudrf.ru|1|2-641/2026|28.09.2026",
     "number": "2-641/2026",
-    "next_check_at": "2026-10-23",
+    "next_check_at": "2026-10-26",
     "reason": "scheduled"
    },
    {
@@ -4982,7 +4964,7 @@
    {
     "key": "beloyarsky--svd.sudrf.ru|1|2-1756/2026|23.09.2026",
     "number": "2-1756/2026",
-    "next_check_at": "2026-10-23",
+    "next_check_at": "2026-10-26",
     "reason": "scheduled"
    },
    {
@@ -5588,25 +5570,25 @@
    {
     "key": "berezovsky--svd.sudrf.ru|1|2-1427/2026|30.09.2026",
     "number": "2-1427/2026",
-    "next_check_at": "2026-10-22",
+    "next_check_at": "2026-10-26",
     "reason": "scheduled"
    },
    {
     "key": "berezovsky--svd.sudrf.ru|1|2-1381/2026|24.09.2026",
     "number": "2-1381/2026",
-    "next_check_at": "2026-10-22",
+    "next_check_at": "2026-10-26",
     "reason": "scheduled"
    },
    {
     "key": "berezovsky--svd.sudrf.ru|1|2-1332/2026|24.09.2026",
     "number": "2-1332/2026",
-    "next_check_at": "2026-10-22",
+    "next_check_at": "2026-10-26",
     "reason": "scheduled"
    },
    {
     "key": "berezovsky--svd.sudrf.ru|1|2-1333/2026|24.09.2026",
     "number": "2-1333/2026",
-    "next_check_at": "2026-10-23",
+    "next_check_at": "2026-10-26",
     "reason": "scheduled"
    },
    {
@@ -5702,7 +5684,7 @@
    {
     "key": "beloyarsky--svd.sudrf.ru|1|2-1455/2026|28.09.2026",
     "number": "2-1455/2026",
-    "next_check_at": "2026-10-23",
+    "next_check_at": "2026-10-26",
     "reason": "scheduled"
    },
    {
@@ -5756,7 +5738,7 @@
    {
     "key": "artemovsky--svd.sudrf.ru|1|2-615/2026|29.09.2026",
     "number": "2-615/2026",
-    "next_check_at": "2026-10-23",
+    "next_check_at": "2026-10-26",
     "reason": "scheduled"
    },
    {
@@ -5858,7 +5840,7 @@
    {
     "key": "asbestovsky--svd.sudrf.ru|1|2-790/2026|05.10.2026",
     "number": "2-790/2026",
-    "next_check_at": "2026-10-23",
+    "next_check_at": "2026-10-26",
     "reason": "scheduled"
    },
    {
@@ -6356,7 +6338,7 @@
    {
     "key": "alapaevsky--svd.sudrf.ru|1|2-642/2026|29.09.2026",
     "number": "2-642/2026",
-    "next_check_at": "2026-10-23",
+    "next_check_at": "2026-10-26",
     "reason": "scheduled"
    },
    {
@@ -6368,7 +6350,7 @@
    {
     "key": "alapaevsky--svd.sudrf.ru|1|2-349/2026|23.09.2026",
     "number": "2-349/2026",
-    "next_check_at": "2026-10-23",
+    "next_check_at": "2026-10-26",
     "reason": "scheduled"
    },
    {
@@ -6494,7 +6476,7 @@
    {
     "key": "akademicheskiy--svd.sudrf.ru|1|2-1386/2026|22.09.2026",
     "number": "2-1386/2026",
-    "next_check_at": "2026-10-23",
+    "next_check_at": "2026-10-26",
     "reason": "scheduled"
    },
    {
@@ -7214,7 +7196,7 @@
    {
     "key": "chkalovsky--svd.sudrf.ru|1|2-5064/2026|27.08.2026",
     "number": "2-5064/2026",
-    "next_check_at": "2026-10-23",
+    "next_check_at": "2026-10-26",
     "reason": "scheduled"
    },
    {
@@ -7874,7 +7856,7 @@
    {
     "key": "chkalovsky--svd.sudrf.ru|1|2-5329/2026|07.10.2026",
     "number": "2-5329/2026",
-    "next_check_at": "2026-10-23",
+    "next_check_at": "2026-10-26",
     "reason": "scheduled"
    },
    {
@@ -7982,7 +7964,7 @@
    {
     "key": "asbestovsky--svd.sudrf.ru|1|2-303/2026|12.10.2026",
     "number": "2-303/2026",
-    "next_check_at": "2026-10-23",
+    "next_check_at": "2026-10-26",
     "reason": "scheduled"
    },
    {
@@ -8621,402 +8603,26 @@
  "parsing_backlog": {
   "date": "2026-10-19",
   "region": "sverdlovsk_yanao",
-  "cards_unread": 218,
+  "cards_unread": 173,
   "fi_without_card": 42,
   "candidates_pending": 0,
-  "acts_unread": 215,
+  "acts_unread": 173,
   "writs_unread": 0,
   "writs_need_review": 30
  },
  "card_refresh": {
   "date": "2026-10-19",
   "region": "sverdlovsk_yanao",
-  "planned": 262,
-  "read": 47,
+  "planned": 215,
+  "read": 42,
   "items": [
-   {
-    "key": "cassation|https://7kas.sudrf.ru/modules.php?case_id=12151928&case_uid=92ac4d1d-bba9-42ca-bdf8-466c3eb2f784&delo_id=2800001&name=sud_delo&name_op=case&new=2800001&srv_num=1",
-    "stage": "cassation",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "cassation|https://7kas.sudrf.ru/modules.php?case_id=12228378&case_uid=d9d6849f-58b1-4cdc-9e84-5114a89a38d4&delo_id=2800001&name=sud_delo&name_op=case&new=2800001&srv_num=1",
-    "stage": "cassation",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "cassation|https://7kas.sudrf.ru/modules.php?case_id=12280616&case_uid=4db9db21-f1de-4336-9a7b-a5901b3e7b75&delo_id=2800001&name=sud_delo&name_op=case&new=2800001&srv_num=1",
-    "stage": "cassation",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "cassation|https://7kas.sudrf.ru/modules.php?case_id=12302087&case_uid=3a03b7be-cf12-4cb5-99f3-7382353a3613&delo_id=2800001&name=sud_delo&name_op=case&new=2800001&srv_num=1",
-    "stage": "cassation",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "cassation|https://7kas.sudrf.ru/modules.php?case_id=12331562&case_uid=7d116e24-c230-499b-8615-e6c662262e36&delo_id=2800001&name=sud_delo&name_op=case&new=2800001&srv_num=1",
-    "stage": "cassation",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "cassation|https://7kas.sudrf.ru/modules.php?case_id=12352601&case_uid=2d72c5ed-5064-407b-948e-d9ddf35e6239&delo_id=2800001&name=sud_delo&name_op=case&new=2800001&srv_num=1",
-    "stage": "cassation",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "cassation|https://7kas.sudrf.ru/modules.php?case_id=12357081&case_uid=ea0b65e7-0629-4ffc-a8a7-50e1ac9d7c98&delo_id=2800001&name=sud_delo&name_op=case&new=2800001&srv_num=1",
-    "stage": "cassation",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "cassation|https://7kas.sudrf.ru/modules.php?case_id=12360872&case_uid=c85fa798-d4f3-41b2-bebf-88f498073436&delo_id=2800001&name=sud_delo&name_op=case&new=2800001&srv_num=1",
-    "stage": "cassation",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "cassation|https://7kas.sudrf.ru/modules.php?case_id=12361887&case_uid=db3a2f8d-7a65-4ef1-a3c2-c11e06f416e0&delo_id=2800001&name=sud_delo&name_op=case&new=2800001&srv_num=1",
-    "stage": "cassation",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "cassation|https://7kas.sudrf.ru/modules.php?case_id=12383221&case_uid=210445e0-8923-47a8-a749-1612fe260631&delo_id=2800001&name=sud_delo&name_op=case&new=2800001&srv_num=1",
-    "stage": "cassation",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "cassation|https://7kas.sudrf.ru/modules.php?case_id=12392403&case_uid=f50060cd-635c-495e-96e1-a71f4b9bdc0c&delo_id=2800001&name=sud_delo&name_op=case&new=2800001&srv_num=1",
-    "stage": "cassation",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "cassation|https://7kas.sudrf.ru/modules.php?case_id=12400953&case_uid=1f3a6172-9c37-485d-8c41-a031de7edd77&delo_id=2800001&name=sud_delo&name_op=case&new=2800001&srv_num=1",
-    "stage": "cassation",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "cassation|https://7kas.sudrf.ru/modules.php?case_id=13927986&case_uid=e8764cac-16e8-4159-855e-13f59a1e7c6d&delo_id=2800001&name=sud_delo&name_op=case&new=2800001&srv_num=1",
-    "stage": "cassation",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "cassation|https://7kas.sudrf.ru/modules.php?case_id=15880140&case_uid=0a5d7126-1dcf-4b9e-9e60-d901f102933e&delo_id=2800001&name=sud_delo&name_op=case&new=2800001&srv_num=1",
-    "stage": "cassation",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "cassation|https://7kas.sudrf.ru/modules.php?case_id=16557986&case_uid=93bd03bc-b2eb-49db-b382-3b3521de70e9&delo_id=2800001&name=sud_delo&name_op=case&new=2800001&srv_num=1",
-    "stage": "cassation",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "appeal|https://oblsud--svd.sudrf.ru/modules.php?case_id=22268302&case_uid=96e7010f-6944-4ab5-80f5-1bffe1c68fad&delo_id=5&name=sud_delo&name_op=case&new=5&srv_num=1",
-    "stage": "appeal",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "appeal|https://oblsud--svd.sudrf.ru/modules.php?case_id=22346507&case_uid=131be928-69f3-4726-be18-06bf3a672e42&delo_id=5&name=sud_delo&name_op=case&new=5&srv_num=1",
-    "stage": "appeal",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "appeal|https://oblsud--svd.sudrf.ru/modules.php?case_id=22448179&case_uid=161f7b91-2c69-47e7-a17f-cbd7c2d86572&delo_id=5&name=sud_delo&name_op=case&new=5&srv_num=1",
-    "stage": "appeal",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "appeal|https://oblsud--svd.sudrf.ru/modules.php?case_id=22549711&case_uid=fcef5658-5791-4daf-82d3-dc7313996130&delo_id=5&name=sud_delo&name_op=case&new=5&srv_num=1",
-    "stage": "appeal",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "appeal|https://oblsud--svd.sudrf.ru/modules.php?case_id=22687474&case_uid=eb65c5cd-d578-480f-b87a-8f9527e75a3c&delo_id=5&name=sud_delo&name_op=case&new=5&srv_num=1",
-    "stage": "appeal",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "appeal|https://oblsud--svd.sudrf.ru/modules.php?case_id=22883077&case_uid=a1def05b-c0f7-4953-8c9d-2265982edb79&delo_id=5&name=sud_delo&name_op=case&new=5&srv_num=1",
-    "stage": "appeal",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "appeal|https://oblsud--svd.sudrf.ru/modules.php?case_id=23068228&case_uid=5577e0c2-825e-4885-9acd-79dba4ee629c&delo_id=5&name=sud_delo&name_op=case&new=5&srv_num=1",
-    "stage": "appeal",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "first_instance|https://akademicheskiy--svd.sudrf.ru/modules.php?case_id=570927983&case_uid=b3378aab-4035-49bd-8cdb-59c073953ed8&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "first_instance|https://akademicheskiy--svd.sudrf.ru/modules.php?case_id=597534303&case_uid=101d82d0-8e81-4d2c-9a37-101174907aa4&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "first_instance|https://alapaevsky--svd.sudrf.ru/modules.php?case_id=554567238&case_uid=bb1a54ad-47d4-43d7-bd60-b8b6e6b8fb8a&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "first_instance|https://alapaevsky--svd.sudrf.ru/modules.php?case_id=563348044&case_uid=c8272229-0f02-4545-b0d9-1eae1f7c3319&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "first_instance|https://alapaevsky--svd.sudrf.ru/modules.php?case_id=569938033&case_uid=b3d6953f-42cd-41c8-a2dc-1e900905e9a7&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "first_instance|https://alapaevsky--svd.sudrf.ru/modules.php?case_id=571498781&case_uid=3baccb04-4eb9-4e25-b3b0-07bb8b65ee3b&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "first_instance|https://artemovsky--svd.sudrf.ru/modules.php?case_id=575781810&case_uid=091a2de7-e7d2-4cc4-9a33-3dd48faba992&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "first_instance|https://artemovsky--svd.sudrf.ru/modules.php?case_id=594163324&case_uid=8b86b0eb-c9cc-46b8-b656-4d0e40b41dcd&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "first_instance|https://asbestovsky--svd.sudrf.ru/modules.php?case_id=551195972&case_uid=e5e9f856-5875-4e80-aee3-1fbaa3cb505d&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "first_instance|https://asbestovsky--svd.sudrf.ru/modules.php?case_id=574414098&case_uid=9e5850b7-27c1-4b91-97a6-bd309522822e&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "first_instance|https://asbestovsky--svd.sudrf.ru/modules.php?case_id=598227335&case_uid=cf84b805-ae56-48fe-8420-8398dd9e6ca0&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "first_instance|https://asbestovsky--svd.sudrf.ru/modules.php?case_id=600004641&case_uid=1205ae3d-e68a-47d5-9564-ace54673f802&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "first_instance|https://beloyarsky--svd.sudrf.ru/modules.php?case_id=584751165&case_uid=e1faddf2-88c4-4c5d-bf86-c2de7830b8cb&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "first_instance|https://beloyarsky--svd.sudrf.ru/modules.php?case_id=596578267&case_uid=427dee33-63ad-46e7-871c-86940567dcfb&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "first_instance|https://beloyarsky--svd.sudrf.ru/modules.php?case_id=598280959&case_uid=2fc7f5c3-b0a6-4bf9-a2fb-a15366cffde0&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "first_instance|https://berezovsky--svd.sudrf.ru/modules.php?case_id=593047635&case_uid=dc62a3d5-35f2-47bf-b254-c4a7be032019&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "first_instance|https://berezovsky--svd.sudrf.ru/modules.php?case_id=593051516&case_uid=aae865ee-7ec4-4523-9ac2-ba13f7e89b67&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "first_instance|https://berezovsky--svd.sudrf.ru/modules.php?case_id=593969577&case_uid=b8ec1df8-c57e-44b5-b021-8911293f4a11&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "first_instance|https://berezovsky--svd.sudrf.ru/modules.php?case_id=594572352&case_uid=e9cc9c40-ae8c-4d5d-a072-c01700a43700&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "first_instance|https://bogdanovichsky--svd.sudrf.ru/modules.php?case_id=575895404&case_uid=5303ddea-783f-4149-aadc-00c947fa8a05&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "first_instance|https://bogdanovichsky--svd.sudrf.ru/modules.php?case_id=597891367&case_uid=3be9e733-9ff6-44db-8148-4d757d1713fc&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "first_instance|https://chkalovsky--svd.sudrf.ru/modules.php?case_id=568393976&case_uid=53539440-ca40-4ce6-9140-d6bf1bc31f32&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "first_instance|https://chkalovsky--svd.sudrf.ru/modules.php?case_id=572740878&case_uid=afce0ddd-f7f2-475c-94c1-4d856fec2bb9&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "first_instance|https://chkalovsky--svd.sudrf.ru/modules.php?case_id=579735711&case_uid=99731772-03a4-4e55-bb8a-9ec3af01132b&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
-   {
-    "key": "first_instance|https://chkalovsky--svd.sudrf.ru/modules.php?case_id=581278187&case_uid=5cf3d388-fa6d-45f5-b3ec-8f56a6212609&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
    {
     "key": "first_instance|https://chkalovsky--svd.sudrf.ru/modules.php?case_id=581481724&case_uid=64e1d810-9098-4d0a-ae80-31ad957b0b2e&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
     "stage": "first_instance",
     "reasons": [
      "text_waiting"
     ],
-    "reason": "read_timeout"
+    "reason": "retry_cooldown"
    },
    {
     "key": "first_instance|https://chkalovsky--svd.sudrf.ru/modules.php?case_id=584715261&case_uid=320790f9-5d78-4ec0-8324-8dd84cafb173&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9024,7 +8630,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "read_timeout"
+    "reason": "retry_cooldown"
    },
    {
     "key": "first_instance|https://chkalovsky--svd.sudrf.ru/modules.php?case_id=584715271&case_uid=9efd0e11-d343-4d17-8471-e93df5aea2f0&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9032,7 +8638,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "breaker"
+    "reason": "retry_cooldown"
    },
    {
     "key": "first_instance|https://chkalovsky--svd.sudrf.ru/modules.php?case_id=588231466&case_uid=7c60591c-f58d-4eab-a7f2-0927b0165100&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9040,7 +8646,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://chkalovsky--svd.sudrf.ru/modules.php?case_id=588995102&case_uid=d79c2545-c448-4ea8-a9f3-c51a5c108f07&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9048,7 +8654,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://chkalovsky--svd.sudrf.ru/modules.php?case_id=589385063&case_uid=6a864832-7d98-471a-a4fd-bd987caed7c9&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9056,7 +8662,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://chkalovsky--svd.sudrf.ru/modules.php?case_id=589775547&case_uid=5130f544-a4b2-4033-9ade-d79b0ddeded5&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9064,7 +8670,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://chkalovsky--svd.sudrf.ru/modules.php?case_id=592714558&case_uid=1ed7d366-09ce-43c6-aeb9-c78bf525b0bc&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9072,7 +8678,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://chkalovsky--svd.sudrf.ru/modules.php?case_id=593761419&case_uid=be44e2e8-7009-479c-948c-2a98c22a83d5&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9080,7 +8686,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://chkalovsky--svd.sudrf.ru/modules.php?case_id=594100123&case_uid=c3618534-3237-4838-a878-f7ae7f80dc57&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9088,7 +8694,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://chkalovsky--svd.sudrf.ru/modules.php?case_id=594498268&case_uid=cdeb2577-a729-4ff2-9a15-ad608a68dd73&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9096,7 +8702,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://chkalovsky--svd.sudrf.ru/modules.php?case_id=595984751&case_uid=ba1a7192-f7af-48c0-a137-83aa946a6263&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9104,7 +8710,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://chkalovsky--svd.sudrf.ru/modules.php?case_id=597589776&case_uid=db4e23cc-8ec8-4416-8534-ee47f507a75e&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9112,7 +8718,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://chkalovsky--svd.sudrf.ru/modules.php?case_id=598447778&case_uid=1f054577-4189-483e-bf51-10356034f643&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9120,7 +8726,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://dzerzhinsky--svd.sudrf.ru/modules.php?case_id=574347911&case_uid=10ebb821-c30a-41d5-a40b-f8bad343a663&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9128,7 +8734,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://dzerzhinsky--svd.sudrf.ru/modules.php?case_id=576618281&case_uid=32d3aa73-87ad-4ada-83b2-084fe91133ba&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9136,7 +8742,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://dzerzhinsky--svd.sudrf.ru/modules.php?case_id=581700111&case_uid=fd3cda98-1e6d-4f41-bb5f-cd42d478f870&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9144,7 +8750,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://dzerzhinsky--svd.sudrf.ru/modules.php?case_id=596755445&case_uid=d934b4d7-c20b-4ddb-87d9-a88a8965bc4f&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9152,7 +8758,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://dzerzhinsky--svd.sudrf.ru/modules.php?case_id=597672223&case_uid=ac483b94-c911-40c3-acfb-43bad6e1efe4&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9160,7 +8766,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://gubkinskiy--ynao.sudrf.ru/modules.php?case_id=128003807&case_uid=3f4ad730-cb54-4e5b-9364-e4ca3c69a00d&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9168,7 +8774,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://gubkinskiy--ynao.sudrf.ru/modules.php?case_id=134346949&case_uid=34768e6a-bad8-431c-95ba-639ef092b07e&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9176,7 +8782,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://irbitsky--svd.sudrf.ru/modules.php?case_id=581182494&case_uid=5e000e31-b2ac-4f0f-a572-f35da1c04acf&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9184,7 +8790,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://irbitsky--svd.sudrf.ru/modules.php?case_id=589353723&case_uid=0ef14fc7-d870-44b3-8651-21c99b997576&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9192,7 +8798,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://ivdelsky--svd.sudrf.ru/modules.php?case_id=570522271&case_uid=cbeef802-f5c6-4d3e-b250-8a08420bc4d7&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9200,7 +8806,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://ivdelsky--svd.sudrf.ru/modules.php?case_id=575458677&case_uid=22d3ecb5-be1d-4a98-a9e5-dc90c9749731&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9208,7 +8814,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://kamensky--svd.sudrf.ru/modules.php?case_id=570765257&case_uid=52a77ec8-87eb-4fae-83bc-0721b7c773f8&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9216,7 +8822,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://kamensky--svd.sudrf.ru/modules.php?case_id=570765263&case_uid=d79c8a78-316f-47dc-8cad-77ab57cab0b2&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9224,7 +8830,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://kamyshlovsky--svd.sudrf.ru/modules.php?case_id=593404699&case_uid=5f06b34e-3ebb-4afb-83aa-1daca4b2815b&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=2",
@@ -9232,7 +8838,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://kirovsky--svd.sudrf.ru/modules.php?case_id=592606665&case_uid=ea93b621-8c26-4e37-b9c8-1a21145d5e7b&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9240,7 +8846,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://kirovsky--svd.sudrf.ru/modules.php?case_id=592611250&case_uid=3650db2d-6727-4f2d-8f16-c364f8b439b9&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9248,7 +8854,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://kirovsky--svd.sudrf.ru/modules.php?case_id=592614058&case_uid=dbb59ef6-9ce4-4c4e-ad9a-0b6674c8892f&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9256,7 +8862,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://kirovsky--svd.sudrf.ru/modules.php?case_id=597595858&case_uid=7d0ce6cf-6d0d-4420-9b9c-ee516efa2794&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9264,7 +8870,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://kirovsky--svd.sudrf.ru/modules.php?case_id=598273402&case_uid=254bf759-46b5-4698-9f49-52879a3849e1&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9272,7 +8878,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "portal_placeholder"
    },
    {
     "key": "first_instance|https://kirovsky--svd.sudrf.ru/modules.php?case_id=598452150&case_uid=b9dd38bd-33f9-44aa-88b5-662ed530a8e4&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9280,7 +8886,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "portal_placeholder"
    },
    {
     "key": "first_instance|https://kirovsky--svd.sudrf.ru/modules.php?case_id=598455146&case_uid=084167b3-32c3-4f2c-abf8-f9fb4d658370&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9288,7 +8894,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "breaker"
    },
    {
     "key": "first_instance|https://krasnogorsky--svd.sudrf.ru/modules.php?case_id=573186532&case_uid=18024892-9ff0-4350-b6a4-a187249ddde8&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9296,7 +8902,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://krasnogorsky--svd.sudrf.ru/modules.php?case_id=573869612&case_uid=9c962d49-a175-4cd0-ab56-2591b677ddbf&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9304,7 +8910,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://krasnogorsky--svd.sudrf.ru/modules.php?case_id=593858211&case_uid=6c0e807f-ecfb-4c84-818b-7aef6bba0459&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9312,7 +8918,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://krasnoufimsky--svd.sudrf.ru/modules.php?case_id=581583575&case_uid=47b3bfd2-6875-4327-8989-e3e619386cd3&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9320,7 +8926,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://krasnoufimsky--svd.sudrf.ru/modules.php?case_id=582571013&case_uid=5c03388e-fdee-4f43-93f8-87722cbfd342&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=2",
@@ -9328,7 +8934,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://krasnouralsky--svd.sudrf.ru/modules.php?case_id=564430527&case_uid=ca76e00a-7b41-464e-9c17-f8685590802f&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9336,7 +8942,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://labytnangsky--ynao.sudrf.ru/modules.php?case_id=134482159&case_uid=139c9190-fe86-4401-af3b-762afca702ff&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9344,7 +8950,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://labytnangsky--ynao.sudrf.ru/modules.php?case_id=134482163&case_uid=37a95bfa-1673-4821-aba4-d1bc2361f678&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9352,7 +8958,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://leninskyeka--svd.sudrf.ru/modules.php?case_id=593353902&case_uid=f3204906-0587-4672-bcc4-f491945ba87c&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9360,7 +8966,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://leninskyeka--svd.sudrf.ru/modules.php?case_id=593609374&case_uid=cf47b487-8e15-4497-b7b8-259904b1803f&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9368,7 +8974,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://leninskyeka--svd.sudrf.ru/modules.php?case_id=595995636&case_uid=df50f563-e65a-4229-a800-452958fe7ce3&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9376,7 +8982,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://leninskyeka--svd.sudrf.ru/modules.php?case_id=597631096&case_uid=fbd31e8e-a3f1-4954-96e8-667a7fde3fa2&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9384,7 +8990,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://leninskytag--svd.sudrf.ru/modules.php?case_id=588326399&case_uid=11088d47-3303-4e33-bfd9-ae653722a080&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9392,7 +8998,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://leninskytag--svd.sudrf.ru/modules.php?case_id=593049135&case_uid=b66596ca-cdb7-42e7-a16c-1632a2313301&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9400,7 +9006,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "read_timeout"
    },
    {
     "key": "first_instance|https://leninskytag--svd.sudrf.ru/modules.php?case_id=593227634&case_uid=89eaef76-8e06-4c91-9f29-dda307eb9a37&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9408,7 +9014,7 @@
     "reasons": [
      "text_waiting"
     ],
-    "reason": "watch_time_limit"
+    "reason": "read_timeout"
    },
    {
     "key": "first_instance|https://leninskytag--svd.sudrf.ru/modules.php?case_id=596428693&case_uid=21e81c82-fae2-4a58-918f-3406b3f86255&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -10733,19 +10339,19 @@
   ],
   "instances": {
    "cassation": {
-    "planned": 15,
-    "read": 15
+    "planned": 0,
+    "read": 0
    },
    "appeal": {
-    "planned": 17,
-    "read": 7
+    "planned": 10,
+    "read": 0
    },
    "first_instance": {
-    "planned": 230,
-    "read": 25
+    "planned": 205,
+    "read": 42
    }
   },
-  "unread": 215
+  "unread": 173
  },
  "technical_card_day": {
   "date": "2026-10-19",
@@ -10978,203 +10584,203 @@
    },
    "first_instance|https://chkalovsky--svd.sudrf.ru/modules.php?case_id=581481724&case_uid=64e1d810-9098-4d0a-ae80-31ad957b0b2e&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "read_timeout"
+    "reason": "retry_cooldown"
    },
    "first_instance|https://chkalovsky--svd.sudrf.ru/modules.php?case_id=584715261&case_uid=320790f9-5d78-4ec0-8324-8dd84cafb173&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "read_timeout"
+    "reason": "retry_cooldown"
    },
    "first_instance|https://chkalovsky--svd.sudrf.ru/modules.php?case_id=584715271&case_uid=9efd0e11-d343-4d17-8471-e93df5aea2f0&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "breaker"
+    "reason": "retry_cooldown"
    },
    "first_instance|https://chkalovsky--svd.sudrf.ru/modules.php?case_id=588231466&case_uid=7c60591c-f58d-4eab-a7f2-0927b0165100&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://chkalovsky--svd.sudrf.ru/modules.php?case_id=588995102&case_uid=d79c2545-c448-4ea8-a9f3-c51a5c108f07&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://chkalovsky--svd.sudrf.ru/modules.php?case_id=589385063&case_uid=6a864832-7d98-471a-a4fd-bd987caed7c9&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://chkalovsky--svd.sudrf.ru/modules.php?case_id=589775547&case_uid=5130f544-a4b2-4033-9ade-d79b0ddeded5&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://chkalovsky--svd.sudrf.ru/modules.php?case_id=592714558&case_uid=1ed7d366-09ce-43c6-aeb9-c78bf525b0bc&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://chkalovsky--svd.sudrf.ru/modules.php?case_id=593761419&case_uid=be44e2e8-7009-479c-948c-2a98c22a83d5&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://chkalovsky--svd.sudrf.ru/modules.php?case_id=594100123&case_uid=c3618534-3237-4838-a878-f7ae7f80dc57&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://chkalovsky--svd.sudrf.ru/modules.php?case_id=594498268&case_uid=cdeb2577-a729-4ff2-9a15-ad608a68dd73&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://chkalovsky--svd.sudrf.ru/modules.php?case_id=595984751&case_uid=ba1a7192-f7af-48c0-a137-83aa946a6263&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://chkalovsky--svd.sudrf.ru/modules.php?case_id=597589776&case_uid=db4e23cc-8ec8-4416-8534-ee47f507a75e&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://chkalovsky--svd.sudrf.ru/modules.php?case_id=598447778&case_uid=1f054577-4189-483e-bf51-10356034f643&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://dzerzhinsky--svd.sudrf.ru/modules.php?case_id=574347911&case_uid=10ebb821-c30a-41d5-a40b-f8bad343a663&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://dzerzhinsky--svd.sudrf.ru/modules.php?case_id=576618281&case_uid=32d3aa73-87ad-4ada-83b2-084fe91133ba&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://dzerzhinsky--svd.sudrf.ru/modules.php?case_id=581700111&case_uid=fd3cda98-1e6d-4f41-bb5f-cd42d478f870&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://dzerzhinsky--svd.sudrf.ru/modules.php?case_id=596755445&case_uid=d934b4d7-c20b-4ddb-87d9-a88a8965bc4f&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://dzerzhinsky--svd.sudrf.ru/modules.php?case_id=597672223&case_uid=ac483b94-c911-40c3-acfb-43bad6e1efe4&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://gubkinskiy--ynao.sudrf.ru/modules.php?case_id=128003807&case_uid=3f4ad730-cb54-4e5b-9364-e4ca3c69a00d&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://gubkinskiy--ynao.sudrf.ru/modules.php?case_id=134346949&case_uid=34768e6a-bad8-431c-95ba-639ef092b07e&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://irbitsky--svd.sudrf.ru/modules.php?case_id=581182494&case_uid=5e000e31-b2ac-4f0f-a572-f35da1c04acf&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://irbitsky--svd.sudrf.ru/modules.php?case_id=589353723&case_uid=0ef14fc7-d870-44b3-8651-21c99b997576&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://ivdelsky--svd.sudrf.ru/modules.php?case_id=570522271&case_uid=cbeef802-f5c6-4d3e-b250-8a08420bc4d7&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://ivdelsky--svd.sudrf.ru/modules.php?case_id=575458677&case_uid=22d3ecb5-be1d-4a98-a9e5-dc90c9749731&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://kamensky--svd.sudrf.ru/modules.php?case_id=570765257&case_uid=52a77ec8-87eb-4fae-83bc-0721b7c773f8&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://kamensky--svd.sudrf.ru/modules.php?case_id=570765263&case_uid=d79c8a78-316f-47dc-8cad-77ab57cab0b2&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://kamyshlovsky--svd.sudrf.ru/modules.php?case_id=593404699&case_uid=5f06b34e-3ebb-4afb-83aa-1daca4b2815b&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=2": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://kirovsky--svd.sudrf.ru/modules.php?case_id=592606665&case_uid=ea93b621-8c26-4e37-b9c8-1a21145d5e7b&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://kirovsky--svd.sudrf.ru/modules.php?case_id=592611250&case_uid=3650db2d-6727-4f2d-8f16-c364f8b439b9&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://kirovsky--svd.sudrf.ru/modules.php?case_id=592614058&case_uid=dbb59ef6-9ce4-4c4e-ad9a-0b6674c8892f&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://kirovsky--svd.sudrf.ru/modules.php?case_id=597595858&case_uid=7d0ce6cf-6d0d-4420-9b9c-ee516efa2794&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://kirovsky--svd.sudrf.ru/modules.php?case_id=598273402&case_uid=254bf759-46b5-4698-9f49-52879a3849e1&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "portal_placeholder"
    },
    "first_instance|https://kirovsky--svd.sudrf.ru/modules.php?case_id=598452150&case_uid=b9dd38bd-33f9-44aa-88b5-662ed530a8e4&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "portal_placeholder"
    },
    "first_instance|https://kirovsky--svd.sudrf.ru/modules.php?case_id=598455146&case_uid=084167b3-32c3-4f2c-abf8-f9fb4d658370&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "breaker"
    },
    "first_instance|https://krasnogorsky--svd.sudrf.ru/modules.php?case_id=573186532&case_uid=18024892-9ff0-4350-b6a4-a187249ddde8&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://krasnogorsky--svd.sudrf.ru/modules.php?case_id=573869612&case_uid=9c962d49-a175-4cd0-ab56-2591b677ddbf&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://krasnogorsky--svd.sudrf.ru/modules.php?case_id=593858211&case_uid=6c0e807f-ecfb-4c84-818b-7aef6bba0459&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://krasnoufimsky--svd.sudrf.ru/modules.php?case_id=581583575&case_uid=47b3bfd2-6875-4327-8989-e3e619386cd3&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://krasnoufimsky--svd.sudrf.ru/modules.php?case_id=582571013&case_uid=5c03388e-fdee-4f43-93f8-87722cbfd342&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=2": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://krasnouralsky--svd.sudrf.ru/modules.php?case_id=564430527&case_uid=ca76e00a-7b41-464e-9c17-f8685590802f&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://labytnangsky--ynao.sudrf.ru/modules.php?case_id=134482159&case_uid=139c9190-fe86-4401-af3b-762afca702ff&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://labytnangsky--ynao.sudrf.ru/modules.php?case_id=134482163&case_uid=37a95bfa-1673-4821-aba4-d1bc2361f678&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://leninskyeka--svd.sudrf.ru/modules.php?case_id=593353902&case_uid=f3204906-0587-4672-bcc4-f491945ba87c&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://leninskyeka--svd.sudrf.ru/modules.php?case_id=593609374&case_uid=cf47b487-8e15-4497-b7b8-259904b1803f&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://leninskyeka--svd.sudrf.ru/modules.php?case_id=595995636&case_uid=df50f563-e65a-4229-a800-452958fe7ce3&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://leninskyeka--svd.sudrf.ru/modules.php?case_id=597631096&case_uid=fbd31e8e-a3f1-4954-96e8-667a7fde3fa2&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://leninskytag--svd.sudrf.ru/modules.php?case_id=588326399&case_uid=11088d47-3303-4e33-bfd9-ae653722a080&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "checked"
    },
    "first_instance|https://leninskytag--svd.sudrf.ru/modules.php?case_id=593049135&case_uid=b66596ca-cdb7-42e7-a16c-1632a2313301&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "read_timeout"
    },
    "first_instance|https://leninskytag--svd.sudrf.ru/modules.php?case_id=593227634&case_uid=89eaef76-8e06-4c91-9f29-dda307eb9a37&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "watch_time_limit"
+    "reason": "read_timeout"
    },
    "first_instance|https://leninskytag--svd.sudrf.ru/modules.php?case_id=596428693&case_uid=21e81c82-fae2-4a58-918f-3406b3f86255&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
