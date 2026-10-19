@@ -1284,5 +1284,133 @@
       "status": "ready"
     },
     "generated_at": "2026-10-16T03:47:34+00:00"
+  },
+  "8464cada4e6a9925": {
+    "summary": "Суд признал истца принявшим наследство фактически, так как он после смерти матери жил в доме, обрабатывал участок, оплачивал коммунальные услуги и содержал имущество. Наследственное имущество (доли дома, участка и деньги на счете) принадлежало завещателю, а завещание 2021 года определило истца единственным наследником, остальные наследники права не заявляли.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 21200,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "first_instance",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "b0be947bc747c9498f72beca73a3858e2d3ca14f0ae14eef83688ba8e2ba9d2f",
+      "raw_chars": 8800,
+      "prepared_chars": 8800,
+      "source_url": "https://krasnoufimsky--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=581583575&case_uid=47b3bfd2-6875-4327-8989-e3e619386cd3&delo_id=1540005&new=0",
+      "court_domain": "krasnoufimsky--svd.sudrf.ru",
+      "received_at": "2026-10-19T03:03:26+00:00",
+      "case_number": "2-1-895/2026",
+      "stage": "first_instance",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-19T04:43:41+00:00"
+  },
+  "73d6992f19271be4": {
+    "summary": "Суд апелляционной инстанции оставил в силе решение о взыскании и обращении взыскания на заложенное имущество, поскольку иск был подан и рассмотрен по существу до введения процедуры наблюдения в отношении ООО «МСИ» и признания ИП Морозова банкротом. Согласно п. 1 ст. 18.1 Закона № 127-ФЗ и разъяснениям Пленума ВАС РФ, вынесение решения об обращении взыскания на заложенное имущество по такому иску допускается, а запрет касается только принудительного исполнения этого решения.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 34169,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "fd871a7f832a0823268811605c88001785d1ca8c8363e04e2961df9cc2322d2b",
+      "raw_chars": 16312,
+      "prepared_chars": 16312,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22268302&case_uid=96e7010f-6944-4ab5-80f5-1bffe1c68fad&delo_id=5&new=5",
+      "court_domain": "",
+      "received_at": "2026-10-19T02:43:17+00:00",
+      "case_number": "33-12991/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-19T04:43:44+00:00"
+  },
+  "f4e6b2b25c7899bf": {
+    "summary": "Суд взыскал с поручителя полную сумму долга, так как по ст. 361, 363 ГК РФ он отвечает солидарно с должником в том же объёме, а введение процедуры банкротства заёмщика даёт кредитору право требовать исполнения от поручителя немедленно. Отказ в иске к должнику заменён на оставление без рассмотрения: по ст. 213.11 ФЗ-127 после введения реструктуризации долгов требования к банкроту могут быть предъявлены только в порядке закона о несостоятельности.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 31763,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "454817f5892060ddfe1e8e16297a424ff6c48c30b46e2125d249eda6ef6b7c1c",
+      "raw_chars": 14719,
+      "prepared_chars": 14719,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22549711&case_uid=fcef5658-5791-4daf-82d3-dc7313996130&delo_id=5&new=5",
+      "court_domain": "",
+      "received_at": "2026-10-19T02:43:32+00:00",
+      "case_number": "33-14275/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-19T04:43:48+00:00"
+  },
+  "334df9ae6d981b26": {
+    "summary": "Суд кассационной инстанции подтвердил вывод апелляции об отсутствии страхового случая, так как экспертиза установила совокупность причин разрушения конструктивных элементов (физический износ, истечение срока службы, природно-климатические факторы), а не их исключительную обусловленность нарушением норм строительства или эксплуатации третьими лицами, что требуется п. 3.3.1.1 Правил страхования. Доводы жалобы о толковании договора сводятся к несогласию с оценкой доказательств, что не является основанием для отмены в кассационном порядке.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 45323,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "cassation",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "c08c9e3ec989c4684f3eb396a5600394a69745725d9f1fc498d5d7e34702a315",
+      "raw_chars": 22277,
+      "prepared_chars": 22277,
+      "source_url": "https://7kas.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12151928&case_uid=92ac4d1d-bba9-42ca-bdf8-466c3eb2f784&delo_id=2800001&new=2800001",
+      "court_domain": "7kas.sudrf.ru",
+      "received_at": "2026-10-19T02:40:11+00:00",
+      "case_number": "8Г-12473/2026",
+      "stage": "cassation",
+      "judicial_uid": "89RS0001-01-2024-003591-77",
+      "identity_check": "matched_uid",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-19T04:43:50+00:00"
   }
 }
