@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-19T08:05:28+05:00",
+  "updated_at": "2026-10-19T04:43:51+00:00",
   "cases": [
     {
       "id": "9-211/2026",
@@ -4332,7 +4332,29 @@
         "act_decision_date": "15.09.2026",
         "act_notification_kind": "new_publication",
         "act_source_url": "https://7kas.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12151928&case_uid=92ac4d1d-bba9-42ca-bdf8-466c3eb2f784&delo_id=2800001&new=2800001",
-        "act_received_at": "2026-10-19T02:40:11+00:00"
+        "act_received_at": "2026-10-19T02:40:11+00:00",
+        "act_analysis": {
+          "html": "<p><b>Почему:</b> Суд кассационной инстанции подтвердил вывод апелляции об отсутствии страхового случая, так как экспертиза установила совокупность причин разрушения конструктивных элементов (физический износ, истечение срока службы, природно-климатические факторы), а не их исключительную обусловленность нарушением норм строительства или эксплуатации третьими лицами, что требуется п. 3.3.1.1 Правил страхования. Доводы жалобы о толковании договора сводятся к несогласию с оценкой доказательств, что не является основанием для отмены в кассационном порядке.</p>",
+          "source": "llm_summary",
+          "act_date": "15.09.2026",
+          "generated_at": "2026-10-19T04:43:48+00:00",
+          "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+          "source_hash": "c08c9e3ec989c4684f3eb396a5600394a69745725d9f1fc498d5d7e34702a315",
+          "preparation": {
+            "version": "full-act-v1",
+            "source_hash": "c08c9e3ec989c4684f3eb396a5600394a69745725d9f1fc498d5d7e34702a315",
+            "raw_chars": 22277,
+            "prepared_chars": 22277,
+            "source_url": "https://7kas.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12151928&case_uid=92ac4d1d-bba9-42ca-bdf8-466c3eb2f784&delo_id=2800001&new=2800001",
+            "court_domain": "7kas.sudrf.ru",
+            "received_at": "2026-10-19T02:40:11+00:00",
+            "case_number": "8Г-12473/2026",
+            "stage": "cassation",
+            "judicial_uid": "89RS0001-01-2024-003591-77",
+            "identity_check": "matched_uid",
+            "status": "ready"
+          }
+        }
       },
       "initial_bank_role": "Третье лицо",
       "archived_at": "2026-10-19"
@@ -6021,7 +6043,29 @@
         "act_notification_kind": "new_publication",
         "act_received_at": "2026-10-19T03:03:26+00:00",
         "act_source_url": "https://krasnoufimsky--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=581583575&case_uid=47b3bfd2-6875-4327-8989-e3e619386cd3&delo_id=1540005&new=0",
-        "act_decision_date": "23.07.2026"
+        "act_decision_date": "23.07.2026",
+        "act_analysis": {
+          "html": "<p><b>Почему:</b> Суд признал истца принявшим наследство фактически, так как он после смерти матери жил в доме, обрабатывал участок, оплачивал коммунальные услуги и содержал имущество. Наследственное имущество (доли дома, участка и деньги на счете) принадлежало завещателю, а завещание 2021 года определило истца единственным наследником, остальные наследники права не заявляли.</p>",
+          "source": "llm_summary",
+          "act_date": "23.07.2026",
+          "generated_at": "2026-10-19T04:43:39+00:00",
+          "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+          "source_hash": "b0be947bc747c9498f72beca73a3858e2d3ca14f0ae14eef83688ba8e2ba9d2f",
+          "preparation": {
+            "version": "full-act-v1",
+            "source_hash": "b0be947bc747c9498f72beca73a3858e2d3ca14f0ae14eef83688ba8e2ba9d2f",
+            "raw_chars": 8800,
+            "prepared_chars": 8800,
+            "source_url": "https://krasnoufimsky--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=581583575&case_uid=47b3bfd2-6875-4327-8989-e3e619386cd3&delo_id=1540005&new=0",
+            "court_domain": "krasnoufimsky--svd.sudrf.ru",
+            "received_at": "2026-10-19T03:03:26+00:00",
+            "case_number": "2-1-895/2026",
+            "stage": "first_instance",
+            "judicial_uid": "",
+            "identity_check": "matched_header",
+            "status": "ready"
+          }
+        }
       },
       "appeal": null,
       "import": {
