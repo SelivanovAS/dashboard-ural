@@ -1,5 +1,5 @@
 {
-  "baseline_sha256": "fa497db2bc738d13bca5caaeca52356bfc3936633fba6582bbd47af05ebd23be",
+  "baseline_sha256": "55246ac7ef5cb910dd2badc362f44ae94adb98900d1520ceceabeac690782a8f",
   "files": {
     ".github/workflows/add_cases.yml": {
       "mode": "100644",
@@ -55,7 +55,7 @@
     },
     "AGENTS.md": {
       "mode": "100644",
-      "sha256": "3f95b0affdce6364a001eca5b0cc9cc037325f06a2fd3f9b00f7a05a8d0ecce9"
+      "sha256": "eb6d8e948acdb6d6aae892dee4b85e78b60dda5a5c662b992d678ab7d146de62"
     },
     "README.md": {
       "mode": "100644",
@@ -231,7 +231,7 @@
     },
     "ops/mac-local-run/README.md": {
       "mode": "100644",
-      "sha256": "0420778685fdec8c6e48d9b2408a44ecb93e5d04769548b6f2caf872f4a32a80"
+      "sha256": "ab4ad1d3b84d0f101e7d383dd8bd0d11839878592a1e6bba82efcb53d0741b11"
     },
     "ops/mac-local-run/cloud_run_ok.py": {
       "mode": "100644",
@@ -283,7 +283,7 @@
     },
     "ops/mac-local-run/parse_and_push.sh": {
       "mode": "100755",
-      "sha256": "86cea85b5928f00baf5b0ade6f7851e31d282c2b8ddcb9e46765b93f1b371dc3"
+      "sha256": "5286418e29eeaa9a0fb97dd245da848abbc00522e5eff9a20f0d15a4e7e578a6"
     },
     "ops/mac-local-run/parse_txn.py": {
       "mode": "100644",
@@ -319,7 +319,7 @@
     },
     "ops/vps-run/README.md": {
       "mode": "100644",
-      "sha256": "b9160bfeccd633e0999c77b4c5d4f2500bbc2551beae9084a0a43019ee379807"
+      "sha256": "e7ce3b8eebd0850ebc39a7a0c2df280de8fa5a5942b46411ef1ffc7213493368"
     },
     "ops/vps-run/api2-ural-upload.nginx.conf": {
       "mode": "100644",
@@ -340,6 +340,30 @@
     "ops/vps-run/import_poll.sh": {
       "mode": "100755",
       "sha256": "caeba6d782ac2b02fc2afe8d2d7cd5a5f5de73ed85e88f18fc2617ef3f099613"
+    },
+    "ops/vps-run/openrouter/README.md": {
+      "mode": "100644",
+      "sha256": "313dd475f92fbf24137229de90ffc69f808e23713119036924de4c85eb4f8327"
+    },
+    "ops/vps-run/openrouter/allowed-domains": {
+      "mode": "100644",
+      "sha256": "436bf44a4f6b440b1e0f28c35a6e5d02a70c115dd5b6e9dc8d8940591757538c"
+    },
+    "ops/vps-run/openrouter/court-openrouter-proxy.service": {
+      "mode": "100644",
+      "sha256": "1a1f249c1b5b9197d625c9085462f5b67668c41a279c87e4b689812eb70bad0a"
+    },
+    "ops/vps-run/openrouter/court-openrouter-tunnel.service": {
+      "mode": "100644",
+      "sha256": "1513e469224f6449bdecc9532ffb7849d706cb6e5bf2b9e6a2ce16db0ee329ae"
+    },
+    "ops/vps-run/openrouter/sshd-forward.conf": {
+      "mode": "100644",
+      "sha256": "46c16f0a19b7781ee0475133a1896892f31226570c678c03f734a9b2439d1436"
+    },
+    "ops/vps-run/openrouter/tinyproxy.conf": {
+      "mode": "100644",
+      "sha256": "a34ce842a4649eced7e329763a3aa59c95ce751656d653f63eb37e6308e39f6e"
     },
     "ops/vps-run/parse_all.sh": {
       "mode": "100755",
@@ -459,7 +483,7 @@
     },
     "scripts/court_monitor/act_watch_policy.py": {
       "mode": "100644",
-      "sha256": "52fe23d010669f899c483c5aea54d9b5457f2de2a9b43ffbddb22dd5e21cb415"
+      "sha256": "b5ddf8d8452f784b0c2fdbfb78afd60f7e6ea97025e502a6cf5ca603549403af"
     },
     "scripts/court_monitor/appeal_act_watch.py": {
       "mode": "100644",
@@ -467,7 +491,7 @@
     },
     "scripts/court_monitor/appeal_captcha.py": {
       "mode": "100644",
-      "sha256": "bbdb2380e44fdbeb8705904a778c32bd2b4bfe478b249a63c6eb23e33022eb4f"
+      "sha256": "38ec7aced1210e9f3e4b4dbea0f8c89f7bd6f563437c5c0c4bc8fde9cbe1d274"
     },
     "scripts/court_monitor/appeal_intake.py": {
       "mode": "100644",
@@ -487,7 +511,7 @@
     },
     "scripts/court_monitor/card_refresh.py": {
       "mode": "100644",
-      "sha256": "f9719b23ff604b299afc944ae78818eb9ed853ae749926b12fffbc3585eb705b"
+      "sha256": "d5137c709b06995babe2ca630ee89b2839432207e471cd1cc670a6feb52c68c9"
     },
     "scripts/court_monitor/cassation_lookup.py": {
       "mode": "100644",
@@ -523,7 +547,7 @@
     },
     "scripts/court_monitor/digest/llm.py": {
       "mode": "100644",
-      "sha256": "40057d508c7f28086c5eea8e33b01a01321c3682d6a66ed8aac174727f02722a"
+      "sha256": "1ade71665f8a0b1a7e4f0fe38cd1b0344be88da734968517d9bf9656c261d6fe"
     },
     "scripts/court_monitor/digest/postprocess.py": {
       "mode": "100644",
@@ -579,7 +603,11 @@
     },
     "scripts/court_monitor/netutil.py": {
       "mode": "100644",
-      "sha256": "a28b3c100162e7579badc4ec9ddd3fcd897ba95ddc461abb60106061cbfeb1bb"
+      "sha256": "5499cefbfd58d0e708048af21aff94615d7868ba0906ef2bb60b5a3523dd350c"
+    },
+    "scripts/court_monitor/openrouter_transport.py": {
+      "mode": "100644",
+      "sha256": "cdcf8487b05276a6e2231eae8afb4f752dbf09e27828bdab32cc165ecc7c3c6a"
     },
     "scripts/court_monitor/parsing/__init__.py": {
       "mode": "100644",
@@ -635,7 +663,7 @@
     },
     "scripts/court_monitor/runs.py": {
       "mode": "100644",
-      "sha256": "41bf6670450bf6ecee37f5946f856351335c083c57a10240c5d54a9b76e5f79b"
+      "sha256": "61cae5c6c5902c68288254d270727f65f3f2aa985574e6712ff0a0a8845d09b3"
     },
     "scripts/court_monitor/storage.py": {
       "mode": "100644",
@@ -707,7 +735,7 @@
     },
     "scripts/program_install_vps.py": {
       "mode": "100644",
-      "sha256": "78fda0462ceaef5b415e2f554072da13e45cf13066bac07a65202dc47a980b7c"
+      "sha256": "08b118ebd4463861ed257ba8c7e67533ccd6937f4507c551b71308e9cebaef12"
     },
     "scripts/program_maintenance.py": {
       "mode": "100644",
@@ -727,7 +755,7 @@
     },
     "scripts/program_maintenance_host.py": {
       "mode": "100644",
-      "sha256": "ea7d29ef50a50c4d14df7ab9206f5e92f10d33de013d0b9e59f0e769e17731a5"
+      "sha256": "e21b16ed508e80d5ebe6408285acdcbecb6b80004c9509dfad3485d2809a662a"
     },
     "scripts/program_maintenance_locks.py": {
       "mode": "100644",
@@ -887,7 +915,7 @@
     },
     "scripts/tests/test_act_publication_policy.py": {
       "mode": "100644",
-      "sha256": "7447e45540410156b9c1481a57e8be9f2b1f50dfe06a4e9b07709d8a6c779072"
+      "sha256": "d176580f30cea4751f8df322f8026d3c769308d6f1133333f2e85f9e14036269"
     },
     "scripts/tests/test_act_watch.py": {
       "mode": "100644",
@@ -915,7 +943,7 @@
     },
     "scripts/tests/test_appeal_captcha_pilot.py": {
       "mode": "100644",
-      "sha256": "acf271ceaa3105704c199d0da19ff4f063ddedcbc6d3bb319ef090d64ddf4d21"
+      "sha256": "5a84be05a6ae6a67c6208801124ee240203670050e27170e7d1196c06b02d704"
     },
     "scripts/tests/test_appeal_court_identity.py": {
       "mode": "100644",
@@ -979,7 +1007,7 @@
     },
     "scripts/tests/test_card_refresh.py": {
       "mode": "100644",
-      "sha256": "ab29ffd9aca0c6f84d8a3fe9d7fea03f10f2f56bcb6a8cce787dabca88d3ba98"
+      "sha256": "5a53f0f81644efc875ef2c78b5b4c2fc91d54bdfdac9d63898156f84c934d485"
     },
     "scripts/tests/test_card_reuse.py": {
       "mode": "100644",
@@ -1035,11 +1063,11 @@
     },
     "scripts/tests/test_fetch_diag.py": {
       "mode": "100644",
-      "sha256": "be47e536a865ff277c74b989a2e2561c611c6810a3d3dcd6f09c5163b2f77401"
+      "sha256": "ad6579f23055900bae5e19f934dd49d938b361f69d6e14435d6cf1fc44d50443"
     },
     "scripts/tests/test_fi_act_watch.py": {
       "mode": "100644",
-      "sha256": "fc9d128797d3e4d0fd934723ee811e24d1e0ed6c36af01573992854ffcc735be"
+      "sha256": "80210aca579da8284616a8231581a7a061ebe83ebf32e02b10c9c0cdd35dac9b"
     },
     "scripts/tests/test_fi_appeal_window.py": {
       "mode": "100644",
@@ -1207,7 +1235,7 @@
     },
     "scripts/tests/test_mac_launchers.py": {
       "mode": "100644",
-      "sha256": "a0107ab3a92a96ece3d4391a925aefd7e2c32252703541627a19bf9cadd6c865"
+      "sha256": "d88396e784aae0654e7d47e1670acf4008c55cf8692a7cb8e2e598ff87c451c0"
     },
     "scripts/tests/test_mac_reserve.py": {
       "mode": "100644",
@@ -1232,6 +1260,10 @@
     "scripts/tests/test_objections_deadline.py": {
       "mode": "100644",
       "sha256": "dea387e937bc4a7d951570ea8d87a8460fa732a69e089437843332937b93e760"
+    },
+    "scripts/tests/test_openrouter_transport.py": {
+      "mode": "100644",
+      "sha256": "7bc867bebe07375f0d03c0953ef8f51b5a4934e8893856746e29b8f28f584683"
     },
     "scripts/tests/test_parse_health_atomic.py": {
       "mode": "100644",
@@ -1271,7 +1303,7 @@
     },
     "scripts/tests/test_program_install_vps.py": {
       "mode": "100644",
-      "sha256": "cc030dc22713f8b554df015b03010984d463a8384747734b93adc8ce2f97e688"
+      "sha256": "bd62439f9dae0d11d4e97d524de13967b18335554f7534d55d721db97c3b5353"
     },
     "scripts/tests/test_program_release.py": {
       "mode": "100644",
@@ -1303,7 +1335,7 @@
     },
     "scripts/tests/test_retry_launcher.py": {
       "mode": "100644",
-      "sha256": "9104fc643de0248c401c6fdc2607d2a34f67427c8dc5adeab6ac2e8be0d989d8"
+      "sha256": "1877a0de0e620f4c56bf744b6955e200bb674d3ff06e6277d2984ee5baff60ae"
     },
     "scripts/tests/test_run_lock.py": {
       "mode": "100644",
@@ -1449,11 +1481,11 @@
     "exports/"
   ],
   "region": "sverdlovsk_yanao",
-  "release_id": "0cb151cf523ce3210e1a0bb781842208dc4d5aeb5717598805e3d508a8f05f51",
+  "release_id": "cf92b875cb6bfa2b8d6451dc992e5f437d0308a6460c8c9b5862890b34c2e990",
   "repository": "SelivanovAS/dashboard-ural",
   "schema_version": 1,
   "site_url": "https://selivanovas.github.io/dashboard-ural/sberbank_dashboard.html",
-  "source_commit": "326e486ff253984f64915b53acb731f611270386",
+  "source_commit": "26d869b6f7281ce32041984de1e2dbb6ca0563f3",
   "source_repo": "SelivanovAS/dashboard",
   "vps_path": "/opt/court-monitor/dashboard-ural"
 }
