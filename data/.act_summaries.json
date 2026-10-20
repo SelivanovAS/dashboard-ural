@@ -1412,5 +1412,69 @@
       "status": "ready"
     },
     "generated_at": "2026-10-19T04:43:50+00:00"
+  },
+  "c714ab1bd6e61fbd": {
+    "summary": "Судебная коллегия приняла отказ истца от исковых требований, так как он заявлен уполномоченным представителем, не противоречит закону и последствия отказа заявителю понятны. В связи с принятием отказа решение первой инстанции отменено, а производство по делу прекращено с возвратом 50% уплаченных госпошлины.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 21518,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "44be90faffd1bbcad52a66edf453e5561f2b62ccf9e48478773560b9d35c48dc",
+      "raw_chars": 9123,
+      "prepared_chars": 9123,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22380711&case_uid=60527bf2-62ac-4b32-9821-ccc6890c9797&delo_id=5&new=5",
+      "court_domain": "oblsud--svd.sudrf.ru",
+      "received_at": "2026-10-20T01:17:25+00:00",
+      "case_number": "33-13542/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-20T03:47:31+00:00"
+  },
+  "9c416a4406df4025": {
+    "summary": "Суд установил, что смерть застрахованного наступила в результате острого панкреатита, а прямая причинно-следственная связь летального исхода с алкогольным опьянением не доказана: судебно-медицинская экспертиза не выявила признаков хронического алкоголизма или острого токсического воздействия этанола, а лабораторных данных об алкоголе в крови на момент смерти нет. Исключение из страхового случая по п. 2.4.1.5 Правил требует однократного действия в состоянии опьянения, а не системного употребления, приведшего к заболеванию, поэтому отказ страховщика в выплате признан необоснованным.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 69341,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "56ba28bfc708c70fed1589b8e7611847e4e1bbc044ca6b217badc9b10f6208e3",
+      "raw_chars": 35536,
+      "prepared_chars": 35536,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22474437&case_uid=d79777ad-6fef-4a20-9aca-6298b971f05f&delo_id=5&new=5",
+      "court_domain": "",
+      "received_at": "2026-10-20T02:44:36+00:00",
+      "case_number": "33-13937/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-20T03:47:35+00:00"
   }
 }
