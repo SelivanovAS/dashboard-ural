@@ -1476,5 +1476,165 @@
       "status": "ready"
     },
     "generated_at": "2026-10-20T03:47:35+00:00"
+  },
+  "f4beab25067e45bb": {
+    "summary": "Апелляционный суд установил, что водители Сидоров и Пономарев продолжили движение на запрещающий желтый сигнал светофора, не доказав возможности безопасной остановки, что делает их вину в ДТП равной и исключает вину Глазырина, выезжавшего с прилегающей территории. Неверное установление первой инстанцией вины Глазырина исключено из решения, однако сумма взыскания с Пономарева оставлена без изменения, так как истец не обжаловал её уменьшение, а положение ответчика ухудшать нельзя.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 35603,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "1b35da00843e02019edfb4577ce5fd647ef81eed57f9d21291f3cfbefda7827e",
+      "raw_chars": 16997,
+      "prepared_chars": 16997,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22891336&case_uid=2bb374db-702b-4bd4-847c-159bf91b4ae6&delo_id=5&new=5",
+      "court_domain": "oblsud--svd.sudrf.ru",
+      "received_at": "2026-10-21T01:17:17+00:00",
+      "case_number": "33-15823/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-21T03:45:59+00:00"
+  },
+  "fab5b4a07dfb224e": {
+    "summary": "Судебная коллегия отменила решение первой инстанции, установив, что истец самостоятельно оформил договор микрозайма простой электронной подписью, получил и распорядился средствами, а ответчик не знал и не должен был знать об обмане третьими лицами. Условий для признания сделки недействительной по ст. 179 ГК РФ (обман третьим лицом) отсутствуют, так как вина заимодавца в утрате денежных средств истца не установлена.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 42538,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "59d968d4c038dcb8ec3e90e7a037a6ea1488209d8e8c9fe6399f6a924af56a3c",
+      "raw_chars": 20594,
+      "prepared_chars": 20594,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22798441&case_uid=d82ebf36-964f-43dc-8a32-2bdbcffc1a59&delo_id=5&new=5",
+      "court_domain": "oblsud--svd.sudrf.ru",
+      "received_at": "2026-10-21T01:21:52+00:00",
+      "case_number": "33-15392/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-21T03:46:01+00:00"
+  },
+  "2cd1e22af9f6fd97": {
+    "summary": "Финансовый уполномоченный не вышел за пределы полномочий, так как требование о возврате средств за навязанный пакет услуг относится к его компетенции и не является оспариванием сделки. Суд подтвердил вывод о злоупотреблении правом банком при изменении условий кредита в обход закона, что повлекло взыскание части удержанных средств.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 33147,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "5d9b8043a996b71b04ffbbcee2585353f920169647035996777be6351210c9f6",
+      "raw_chars": 15375,
+      "prepared_chars": 15375,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22695504&case_uid=635f8853-e94f-404e-84a8-4d5ddfa96564&delo_id=5&new=5",
+      "court_domain": "oblsud--svd.sudrf.ru",
+      "received_at": "2026-10-21T01:25:27+00:00",
+      "case_number": "33-14913/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-21T03:46:04+00:00"
+  },
+  "9922a22e94518f2e": {
+    "summary": "Апелляционная инстанция подтвердила вывод о недобросовестном исполнении банком обязательств: профессиональный участник платежной системы не проявил должной осмотрительности при исполнении подозрительных распоряжений, не приняв мер к блокировке доступа несмотря на явное несоответствие операций привычному поведению клиента. Бремя доказывания отсутствия вины лежало на банке, который не представил доказательств нарушения клиентом порядка использования счета или обстоятельств непреодолимой силы.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 64777,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "cbc2f5dd6ae98fd377053691693433ec9acd1f06004b79ededd88092426be9b2",
+      "raw_chars": 33981,
+      "prepared_chars": 33981,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22633811&case_uid=7ecd875a-7679-4933-926e-842830f502d4&delo_id=5&new=5",
+      "court_domain": "oblsud--svd.sudrf.ru",
+      "received_at": "2026-10-21T01:27:11+00:00",
+      "case_number": "33-14645/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-21T03:46:07+00:00"
+  },
+  "235e98ec595337ec": {
+    "summary": "Кассационный суд подтвердил вывод нижестоящих инстанций об отсутствии ошибочности перевода, так как система «Сбербанк-онлайн» показывает имя и отчество получателя и требует подтверждения операции, а истец не доказал, кому предназначались средства и при каких обстоятельствах возникла ошибка. Несогласие с оценкой доказательств не может служить основанием для пересмотра в кассационном порядке, поскольку суд не вправе переоценивать достоверность доказательств и устанавливать новые обстоятельства.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 24593,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "cassation",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "b2e22bb7fff61aaf45a9487e7a5b451db675c0a78ddc63eaeabc775ae1a4d1ac",
+      "raw_chars": 10628,
+      "prepared_chars": 10628,
+      "source_url": "https://7kas.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12302087&case_uid=3a03b7be-cf12-4cb5-99f3-7382353a3613&delo_id=2800001&new=2800001",
+      "court_domain": "7kas.sudrf.ru",
+      "received_at": "2026-10-20T07:01:57+00:00",
+      "case_number": "8Г-13900/2026",
+      "stage": "cassation",
+      "judicial_uid": "77RS0004-02-2025-002593-74",
+      "identity_check": "matched_uid",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-21T03:46:10+00:00"
   }
 }
