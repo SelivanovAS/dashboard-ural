@@ -1,7 +1,6 @@
 {
   "version": 1,
   "track": "plaintiff_light",
-  "updated_at": "2026-10-20T16:03:54+05:00",
   "cases": [
     {
       "id": "9-125/2026",
@@ -11092,6 +11091,122 @@
         "announced": true
       },
       "archived_at": "2026-10-20"
+    },
+    {
+      "id": "2-712/2026",
+      "current_stage": "first_instance",
+      "plaintiff": "ПАО \"Сбербанк России\" в лице филиала Уральский банк",
+      "defendant": "Картель Екатерина Александровна",
+      "category": "Споры, связанные с имущественными правами → Иски о взыскании сумм по договору займа, кредитному договору",
+      "bank_role": "Истец",
+      "notes": "",
+      "first_instance": {
+        "case_number": "2-712/2026",
+        "court": "Краснотурьинский городской суд",
+        "court_domain": "krasnoturinsky--svd.sudrf.ru",
+        "judge": "Чумак Ольга Алексеевна",
+        "filing_date": "23.07.2026",
+        "status": "Решено",
+        "result": "Иск (заявление, жалоба) УДОВЛЕТВОРЕН",
+        "last_event": "Дело сдано в отдел судебного делопроизводства. 09:22. 17.09.2026",
+        "event_date": "17.09.2026",
+        "hearing_date": "",
+        "hearing_time": "",
+        "link": "590367546|69fb863a-fbc2-4e86-b0f0-defce132abc6",
+        "act_published": true,
+        "act_date": "",
+        "judicial_uid": "66RS0033-01-2026-001350-85",
+        "delo_id": 1540005,
+        "srv_num": 1,
+        "last_checked_at": "2026-10-14",
+        "decision_date": "14.09.2026",
+        "resolved_emitted": true,
+        "legal_force_est": "2026-10-29",
+        "writ_awaited_since": "2026-10-29",
+        "act_text": "&lt;данные изъяты&gt; 66RS0033-01-2026-001350-85 Дело № 2-712/2026 РЕШЕНИЕ именем Российской Федерации 14 сентября 2026 года г. Краснотурьинск Краснотурьинский городской суд Свердловской области в составе председательствующего: судьи Чумак О.А., рассмотрев в порядке упрощенного производства гражданское дело по исковому заявлению публичного акционерного общества «Сбербанк России» к Картель Е.А. о взыскании задолженности по кредитному договору, решил: исковые требования публичного акционерного общества «Сбербанк России» к Картель Е.А. о взыскании задолженности по кредитному договору удовлетворить. Взыскать с Картель Е.А. ( &lt;данные изъяты&gt; ) в пользу публичного акционерного общества «Сбербанк России» (ИНН 7707083893) задолженность по эмиссионному контракту № от &lt;дата обезличена&gt; в размере 1 193 112,02 руб. за период с 05.05.2025 года по 09.06.2026 года, в том числе задолженность по основному долгу (ссудная задолженность) -846 055,59 руб., задолженность по процентам – 238447,97 руб., неустойку и комиссии – 108608, 46 руб., расходы по уплате государственной пошлины в размере 26931,12 руб. Заявление о составлении мотивированного решения суда может быть подано в течение пяти дней со дня подписания резолютивной части решения суда по делу, рассмотренному в порядке упрощенного производства. Решение по результатам рассмотрения дела в порядке упрощенного производства может быть обжаловано в суд апелляционной инстанции в течение пятнадцати дней со дня его принятия, а в случае составления мотивированного решения суда по заявлению лиц, участвующих в деле, их представителей - со дня принятия решения в окончательной форме. Судья (подпись) О.А. Чумак опубликовано 23.07.2026 17:11, изменено 23.09.2026 07:13 function select_delo_id_new(d_i, c_t) { var delo_id; var case_type; var popupDivB = document.getElementById('divFSPopupBottom'); var popupDivT = document.getElementById('divFSPopupTop'); delo_id = d_i; case_type = c_t; if(popupDivB && popupDivT) { //alert(delo_id); var url; if(delo_id !== '0') { switch(delo_id) { case 1540006: switch(case_type) { case 1: url = '/modules.php?name=sud_delo&srv_num=' + 1 + '&name_op=sf&nc=1&delo_id=1540006'; break; } break; case 4: switch(case_type) { case 1: url = '/modules.php?name=sud_delo&srv_num=' + 1 + '&name_op=sf&nc=1&delo_id=4'; break; case 4: url = '/modules.php?name=sud_delo&srv_num=' + 1 + '&name_op=sf&nc=1&delo_id=4&new=4'; break; case 2450001: url = '/modules.php?name=sud_delo&srv_num=' + 1 + '&name_op=sf&nc=1&delo_id=4&new=2450001'; break; } break; case 2450001: switch(case_type) { case 1: url = '/modules.php?name=sud_delo&srv_num=' + 1 + '&name_op=sf&nc=1&delo_id=2450001'; break; } break; case 1540005: switch(case_type) { case 1: url = '/modules.php?name=sud_delo&srv_num=' + 1 + '&name_op=sf&nc=1&delo_id=1540005'; break; } break; case 5: switch(case_type) { case 1: url = '/modules.php?name=sud_delo&srv_num=' + 1 + '&name_op=sf&nc=1&delo_id=5'; break; case 5: url = '/modules.php?name=sud_delo&srv_num=' + 1 + '&name_op=sf&nc=1&delo_id=5&new=5'; break; case 2800001: url = '/modules.php?name=sud_delo&srv_num=' + 1 + '&name_op=sf&nc=1&delo_id=5&new=2800001'; break; } break; case 2800001: switch(case_type) { case 1: url = '/modules.php?name=sud_delo&srv_num=' + 1 + '&name_op=sf&nc=1&delo_id=2800001'; break; } break; case 41: switch(case_type) { case 1: url = '/modules.php?name=sud_delo&srv_num=' + 1 + '&name_op=sf&nc=1&delo_id=41'; break; } break; case 42: switch(case_type) { case 1: url = '/modules.php?name=sud_delo&srv_num=' + 1 + '&name_op=sf&nc=1&delo_id=42'; break; } break; case 43: switch(case_type) { case 1: url = '/modules.php?name=sud_delo&srv_num=' + 1 + '&name_op=sf&nc=1&delo_id=43'; break; } break; case 1500001: switch(case_type) { case 1: url = '/modules.php?name=sud_delo&srv_num=' + 1 + '&name_op=sf&nc=1&delo_id=1500001'; break; } break; case 1502001: switch(case_type) { case 1: url = '/modules.php?name=sud_delo&srv_num=' + 1 + '&name_op=sf&nc=1&delo_id=1502001'; break; } break; case 1513001: switch(case_type) { case 1: url = '/modules.php?name=sud_delo&srv_num=' + 1 + '&name_op=sf&nc=1&delo_id=1513001'; break; } break; case 2550001: switch(case_type) { case 1: url = '/modules.php?name=sud_delo&srv_num=' + 1 + '&name_op=sf&nc=1&delo_id=2550001'; break; } break; case 1610001: switch(case_type) { case 1: url = '/modules.php?name=sud_delo&srv_num=' + 1 + '&name_op=sf&nc=1&delo_id=1610001'; break; } break; case 1610002: switch(case_type) { case 1: url = '/modules.php?name=sud_delo&srv_num=' + 1 + '&name_op=sf&nc=1&delo_id=1610002'; break; } break; } loadXMLDoc1(url); } else { alert(\"Не выбран вид производства\"); document.getElementById('inst1').innerHTML = 'Для поиска по решениям необходимо выбрать вид производства'; if(document.getElementById('case_type1').options[document.getElementById('case_type1').selectedIndex].value === 0) document.getElementById('inst').style.display = 'block'; else document.getElementById('inst').style.display = 'none'; document.getElementById('inst2').style.display = 'block'; document.getElementById('search_content').style.display = 'none'; } hidePopupDiv(); } } function index_docs(n, m) { for(i = 1; i = 10) { s = s * 100 + a } else { s = s * 10 + a; } // Чтобы избежать переполнения - берём остаток по модулю от частичной суммы if (s > maxS) { s = s % modulus } } var result = s % modulus; return result; } function validateJuid(juid) { const minJuidLen = 2; var code = juid.replace(/\\W/g, ''); if(code.length ' + ' ' + placeholder + ' ' + input.outerHTML + ' ';*/ text = ' ' + input.outerHTML + ' Неверный формат ввода ' + ' '; input.outerHTML = text; }, setValueOfMask : function (e) { var value = e.target.value, placeholder = e.target.getAttribute('data-placeholder'); return \" \" + value + \" \" + placeholder.substr(value.length); }, // add event listeners activateMasking : function (inputs) { var i, l; for (i = 0, l = inputs.length; i = 0; matchesLetter = masking.maskedLetter.indexOf(placeholder[i]) >= 0; if ((matchesNumber && isInt) || (isCharsetPresent && matchesLetter && isLetter)) { newValue += strippedValue[j++]; } else if ((!isCharsetPresent && !isInt && matchesNumber) || (isCharsetPresent && ((matchesLetter && !isLetter) || (matchesNumber && !isInt)))) { //masking.errorOnKeyEntry(e); // write your own error handling function return newValue; } else { newValue += placeholder[i]; } // break if no characters left and the pattern is non-special character if (strippedValue[j] == undefined) { break; } } if (e.target.getAttribute('data-valid-example')) { return masking.validateProgress(e, newValue); } return newValue; }, validateProgress : function (e, value) { var validExample = e.target.getAttribute('data-valid-example'), pattern = new RegExp(e.target.getAttribute('pattern')), placeholder = e.target.getAttribute('data-placeholder'), l = value.length, testValue = '', id = e.target.getAttribute('id'), maskErrorId = document.getElementById(id + 'MaskError'); maskErrorId.style.display = 'block'; //convert to months if (l == 1 && placeholder.toUpperCase().substr(0,2) == 'MM') { if(value > 1 && value = 0; i--) { testValue = value + validExample.substr(value.length); if(id == 'case__JUDICIAL_UIDSS' && l == 13 && placeholder.toUpperCase().substr(12,4) == 'YYYY') { if(value.substr(12,1) == 1) { testValue = value + '9' + validExample.substr(value.length + 1); } if(value.substr(12,1) == 2) { testValue = value + '0' + validExample.substr(value.length + 1); } } if (pattern.test(testValue)) { if(l == placeholder.length) { if(id == 'case__JUDICIAL_UIDSS' && !validateJuid(value)) { maskErrorId.innerHTML = 'Введеное значение УИД не прошло проверку на КЧ'; } else { maskErrorId.innerHTML = 'Неверный формат ввода'; maskErrorId.style.display = 'none'; } } if(l != placeholder.length && placeholder[l] == '-') { value = value + '-'; } return value; } else { value = value.substr(0, value.length-1); } } return value; }, errorOnKeyEntry : function (e) { // Write your own error handling } } masking.init(); f",
+        "writ_watch_status": "complete",
+        "writ_watch_reason": "issued_observation_finished",
+        "writ_checked_at": "2026-10-14",
+        "writs": [
+          {
+            "issue_date": "06.10.2026",
+            "blank_number": "",
+            "electronic_id": "66RS0033#2-712/2026#1",
+            "recipient": "Краснотурьинское районное отделение судебных приставов",
+            "status": "Выдан"
+          }
+        ]
+      },
+      "appeal": null,
+      "track": "plaintiff_light",
+      "initial_bank_role": "Истец",
+      "import": {
+        "operator": "Селиванов А.С.",
+        "at": "2026-08-19T14:21:05",
+        "source": "dump",
+        "announced": true
+      },
+      "archived_at": "2026-10-21"
+    },
+    {
+      "id": "2-1231/2026",
+      "current_stage": "first_instance",
+      "plaintiff": "ПАО Сбербанк в лице филиала Уральского банка ПАО Сбербанк",
+      "defendant": "Хужаев Игорь Фаритович",
+      "category": "Споры, связанные с наследственными отношениями → Споры, связанные с наследованием имущества → об ответственности наследников по долгам наследодателя",
+      "bank_role": "Истец",
+      "notes": "",
+      "first_instance": {
+        "case_number": "2-1231/2026",
+        "court": "Дзержинский районный суд г. Нижний Тагил",
+        "court_domain": "dzerzhinsky--svd.sudrf.ru",
+        "judge": "Свинина Ольга Валентиновна",
+        "filing_date": "13.05.2026",
+        "status": "Решено",
+        "result": "Иск (заявление, жалоба) УДОВЛЕТВОРЕН",
+        "last_event": "Судебное заседание. 14:00. 301. Вынесено решение по делу. Иск (заявление, жалоба) УДОВЛЕТВОРЕН. 11.08.2026",
+        "event_date": "17.08.2026",
+        "hearing_date": "17.08.2026",
+        "hearing_time": "14:00",
+        "link": "575628634|454d4fe3-19ee-4ac9-bc6b-9008c3d83d01",
+        "act_published": false,
+        "act_date": "",
+        "delo_id": 1540005,
+        "srv_num": 1,
+        "last_checked_at": "2026-10-14",
+        "judicial_uid": "66RS0008-01-2026-001177-86",
+        "decision_date": "17.08.2026",
+        "resolved_emitted": true,
+        "legal_force_est": "2026-10-01",
+        "writ_awaited_since": "2026-10-01",
+        "legal_force_emitted": "2026-10-01",
+        "writ_watch_status": "complete",
+        "writ_watch_reason": "issued_observation_finished",
+        "writ_checked_at": "2026-10-14",
+        "writs": [
+          {
+            "issue_date": "06.10.2026",
+            "blank_number": "",
+            "electronic_id": "66RS0008#2-1231/2026#1",
+            "recipient": "Дзержинское районное отделение судебных приставов г. Нижнего Тагила",
+            "status": "Выдан"
+          }
+        ],
+        "act_absent_checked_at": "2026-10-14",
+        "fi_act_watch_baseline_version": 1,
+        "fi_act_checked_at": "2026-10-14"
+      },
+      "appeal": null,
+      "track": "plaintiff_light",
+      "initial_bank_role": "Истец",
+      "import": {
+        "operator": "Селиванов А.С.",
+        "at": "2026-08-17T10:34:37",
+        "source": "dump",
+        "announced": true
+      },
+      "archived_at": "2026-10-21"
     }
-  ]
+  ],
+  "updated_at": "2026-10-21T06:54:38+05:00"
 }
