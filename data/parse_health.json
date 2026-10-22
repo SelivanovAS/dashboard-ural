@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated_at": "2026-10-22T08:30:44+05:00",
+ "updated_at": "2026-10-22T12:00:19+05:00",
  "sources": {
   "appeal:oblsud--ynao.sudrf.ru": {
    "counts": [
@@ -364,20 +364,20 @@
   }
  },
  "last_run": {
-  "at": "2026-10-22T08:30:44",
+  "at": "2026-10-22T12:00:19",
   "alerts": [],
-  "requests_ok": 1,
+  "requests_ok": 0,
   "requests_failed": 0,
   "requests_retried": 0,
   "cards_breaker_skipped": 0,
   "cards_breaker_unrequested": 0,
   "cards_breaker_recovered": 0,
   "cards_blocked": 0,
-  "cards_read": 1,
+  "cards_read": 0,
   "cards_planned": 37,
   "cards_read_today": 545,
   "cards_planned_today": 581,
-  "daily_attempts": 5,
+  "daily_attempts": 6,
   "instances": {
    "first_instance": {
     "read": 0,
@@ -386,7 +386,7 @@
     "planned_today": 447
    },
    "appeal": {
-    "read": 1,
+    "read": 0,
     "planned": 3,
     "read_today": 101,
     "planned_today": 103
@@ -398,12 +398,7 @@
     "planned_today": 31
    }
   },
-  "latency": {
-   "n": 1,
-   "p50": 11.6,
-   "p90": 11.6,
-   "max": 11.6
-  },
+  "latency": {},
   "failure_latency": {},
   "fail_kinds": {},
   "breaker": {
@@ -424,8 +419,8 @@
   "courts_with_unrequested": 0,
   "courts_outage": 0,
   "cards_unreachable": 0,
-  "cards_unread_other": 36,
-  "run_deadline_seconds": 3300.0,
+  "cards_unread_other": 37,
+  "run_deadline_seconds": 1500.0,
   "run_deadline_reached": false
  },
  "act_publication_watch": {
@@ -8985,7 +8980,7 @@
  "parsing_backlog": {
   "date": "2026-10-22",
   "region": "sverdlovsk_yanao",
-  "cards_unread": 36,
+  "cards_unread": 37,
   "fi_without_card": 44,
   "candidates_pending": 0,
   "acts_unread": 36,
