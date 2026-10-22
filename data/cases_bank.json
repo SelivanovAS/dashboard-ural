@@ -2,6 +2,7 @@
   "version": 1,
   "track": "plaintiff_light",
   "archived_count": 219,
+  "updated_at": "2026-10-22T03:46:51+00:00",
   "cases": [
     {
       "id": "М-3048/2026",
@@ -42926,7 +42927,29 @@
         "act_received_at": "2026-10-21T11:12:34+00:00",
         "act_source_url": "https://gubkinskiy--ynao.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=128003807&case_uid=3f4ad730-cb54-4e5b-9364-e4ca3c69a00d&delo_id=1540005&new=0",
         "act_decision_date": "13.10.2026",
-        "writ_expected": false
+        "writ_expected": false,
+        "act_analysis": {
+          "html": "<p><b>Почему:</b> Суд установил, что наследственное дело не открывалось, наследники не приняли наследство, а имущество заемщика (102,74 руб. на счетах) признается выморочным, поэтому ответственность по долгу в пределах его стоимости перешла на Российскую Федерацию в лице МТУ Росимущества. Басимова А.А. не вступила в наследство и не получила имущество, поэтому взыскание с неё отказали, а судебные расходы присуждены пропорционально удовлетворенной части иска.</p>",
+          "source": "llm_summary",
+          "act_date": "13.10.2026",
+          "generated_at": "2026-10-22T03:45:29+00:00",
+          "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+          "source_hash": "15adf2a6b68cf7407da3da992571b66b886eebfbf90a58f1f1fb48d170f652b0",
+          "preparation": {
+            "version": "full-act-v1",
+            "source_hash": "15adf2a6b68cf7407da3da992571b66b886eebfbf90a58f1f1fb48d170f652b0",
+            "raw_chars": 24434,
+            "prepared_chars": 24434,
+            "source_url": "https://gubkinskiy--ynao.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=128003807&case_uid=3f4ad730-cb54-4e5b-9364-e4ca3c69a00d&delo_id=1540005&new=0",
+            "court_domain": "gubkinskiy--ynao.sudrf.ru",
+            "received_at": "2026-10-21T11:12:34+00:00",
+            "case_number": "2-473/2026",
+            "stage": "first_instance",
+            "judicial_uid": "",
+            "identity_check": "matched_header",
+            "status": "ready"
+          }
+        }
       },
       "appeal": null,
       "track": "plaintiff_light",
@@ -49084,6 +49107,5 @@
         "announced": true
       }
     }
-  ],
-  "updated_at": "2026-10-22T08:30:44+05:00"
+  ]
 }
