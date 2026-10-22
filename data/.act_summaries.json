@@ -1636,5 +1636,197 @@
       "status": "ready"
     },
     "generated_at": "2026-10-21T03:46:10+00:00"
+  },
+  "9a9dbb7bb1622a88": {
+    "summary": "Суд установил, что наследственное дело не открывалось, наследники не приняли наследство, а имущество заемщика (102,74 руб. на счетах) признается выморочным, поэтому ответственность по долгу в пределах его стоимости перешла на Российскую Федерацию в лице МТУ Росимущества. Басимова А.А. не вступила в наследство и не получила имущество, поэтому взыскание с неё отказали, а судебные расходы присуждены пропорционально удовлетворенной части иска.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 49314,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "first_instance",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "15adf2a6b68cf7407da3da992571b66b886eebfbf90a58f1f1fb48d170f652b0",
+      "raw_chars": 24434,
+      "prepared_chars": 24434,
+      "source_url": "https://gubkinskiy--ynao.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=128003807&case_uid=3f4ad730-cb54-4e5b-9364-e4ca3c69a00d&delo_id=1540005&new=0",
+      "court_domain": "gubkinskiy--ynao.sudrf.ru",
+      "received_at": "2026-10-21T11:12:34+00:00",
+      "case_number": "2-473/2026",
+      "stage": "first_instance",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-22T03:45:37+00:00"
+  },
+  "64112ce09dd45c1c": {
+    "summary": "Суд отказал в регистрации перехода права собственности, так как истец не доказал уклонение продавца от государственной регистрации при его жизни, а также фактическую передачу гаража и оплату 800 000 руб. по договору. Отсутствие продавца не является единственным препятствием для регистрации, поскольку исполнение сделки сторонами не подтверждено, а требования истца направлены на исключение имущества из наследственной массы кредиторов.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 67396,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "7668a711edc98ba5f981af5a129a5e0d3dca3973ef28217f21a7020d3a57eeff",
+      "raw_chars": 34078,
+      "prepared_chars": 34078,
+      "source_url": "https://oblsud--ynao.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12681881&case_uid=cc82ebbd-d338-4e23-944d-3205d7161610&delo_id=5&new=5",
+      "court_domain": "",
+      "received_at": "2026-10-21T07:17:26+00:00",
+      "case_number": "33-2484/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-22T03:45:52+00:00"
+  },
+  "0fa6a3b4a809c2b4": {
+    "summary": "Решение первой инстанции отменено безусловно, так как дело рассматривалось без привлечения МТУ Росимущества — собственника выморочного наследственного имущества, права которого были затронуты. Суд установил, что наследников нет, наследственная масса состоит только из денежных средств на счетах умершей (22 944,73 руб.), в пределах которых и взыскана задолженность по кредитному договору.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 58068,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "720461e05edf253059da01f9cec33108d09401fc566cb6fc90b3e0b38c1cfb8b",
+      "raw_chars": 29212,
+      "prepared_chars": 29212,
+      "source_url": "https://oblsud--ynao.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=11833827&case_uid=3b72af06-d3aa-45a3-8bf2-576b478f318a&delo_id=5&new=5",
+      "court_domain": "oblsud--ynao.sudrf.ru",
+      "received_at": "2026-10-22T01:20:43+00:00",
+      "case_number": "33-2021/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-22T03:45:55+00:00"
+  },
+  "0b5ca726fccedb12": {
+    "summary": "Судебная коллегия отменила исполнительную надпись, так как банк направил уведомление о задолженности по адресу регистрации заемщика, хотя кредитный договор прямо предусматривал отправку по адресу фактического проживания в г. Тюмень, вследствие чего уведомление не получено, а требование кредитора не являлось бесспорным. Срок на оспаривание исполнительной надписи пропущен не был, поскольку извещение о её совершении также направлено по ненадлежащему адресу, а доказательств получения заемщиком сведений о нотариальном действии ранее даты обращения в суд в материалах дела нет.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 61423,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "af0d9bb6fbf50e47da764749027abab682eb31d5954ea7255272ff0a29e652ea",
+      "raw_chars": 31122,
+      "prepared_chars": 31122,
+      "source_url": "https://oblsud--ynao.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12690378&case_uid=66bb6ed2-8e9d-4ea1-ad45-779e2dfc2cb7&delo_id=5&new=5",
+      "court_domain": "",
+      "received_at": "2026-10-22T02:23:05+00:00",
+      "case_number": "33-2528/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-22T03:45:59+00:00"
+  },
+  "b1cd68966c9e780e": {
+    "summary": "Кассационный суд отменил апелляционное определение, так как суд второй инстанции произвольно снизил судебные расходы до 50% от удовлетворенной части иска, не оценив обоснованность заявленных 33 000 руб. через критерии разумности (сложность дела, объем услуг, рыночные тарифы) и не указав оснований для отказа в полном взыскании. Дело направлено на новое рассмотрение для надлежащей оценки доказательств о расходах на представителя в соответствии со ст. 98, 100 ГПК РФ и разъяснениями Пленума ВС РФ.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 42023,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "cassation",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "bd9917d029ad52b339c159e4148f79681bd9943ebb665a4874d9cf5200a1ec0d",
+      "raw_chars": 20255,
+      "prepared_chars": 20255,
+      "source_url": "https://7kas.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12157557&case_uid=421b6ce3-d32a-4119-a192-b6656381969a&delo_id=2800001&new=2800001",
+      "court_domain": "7kas.sudrf.ru",
+      "received_at": "2026-10-21T07:12:54+00:00",
+      "case_number": "8Г-12555/2026",
+      "stage": "cassation",
+      "judicial_uid": "66RS0004-01-2025-007806-86",
+      "identity_check": "matched_uid",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-22T03:46:03+00:00"
+  },
+  "40119e0a16710d44": {
+    "summary": "Суд отказал в удовлетворении исков, так как не установлено наличие наследственного имущества умершего заемщика, за счет которого возможно взыскание долга. Налоговый орган подтвердил отсутствие у наследодателя объектов движимого и недвижимого имущества на дату смерти, а наследники не обращались с заявлением о принятии наследства.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 35995,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "first_instance",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "5c209cda95206b946e92793612082c4fa273fd79e139acd92ed98e455e245994",
+      "raw_chars": 17053,
+      "prepared_chars": 17053,
+      "source_url": "https://krasnogorsky--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=571137315&case_uid=987f6197-9382-451c-9345-90da720409d3&delo_id=1540005&new=0",
+      "court_domain": "krasnogorsky--svd.sudrf.ru",
+      "received_at": "2026-10-21T11:17:37+00:00",
+      "case_number": "2-820/2026",
+      "stage": "first_instance",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-22T03:46:11+00:00"
   }
 }
