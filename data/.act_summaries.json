@@ -1828,5 +1828,261 @@
       "status": "ready"
     },
     "generated_at": "2026-10-22T03:46:11+00:00"
+  },
+  "bb95d837af5c184c": {
+    "summary": "Суд отказал в иске, так как заемщик не оспорила факт заключения договора, размер задолженности и наличие просрочки, а банк и нотариус исполнили все процедурные требования закона и условий договора. Истец уклонилась от получения уведомлений, направленных по адресу, указанному ею в договоре, что влечет юридические последствия доставки.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 42172,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "first_instance",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "2d88c3e6df123ee8ece86b61e832c05e9d3fd3bddca5f1908523430f91c06f7c",
+      "raw_chars": 20131,
+      "prepared_chars": 20131,
+      "source_url": "https://leninskyeka--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=582500007&case_uid=ef97331e-b458-4ca3-9a3b-769c1e7adae7&delo_id=1540005&new=0",
+      "court_domain": "leninskyeka--svd.sudrf.ru",
+      "received_at": "2026-10-23T02:14:36+00:00",
+      "case_number": "2-4219/2026",
+      "stage": "first_instance",
+      "judicial_uid": "66RS0004-01-2026-006013-49",
+      "identity_check": "header_unavailable",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-23T03:45:35+00:00"
+  },
+  "8079a2dff7cd4281": {
+    "summary": "Суд разъяснил апелляционное определение, указав, что взыскание долга по расписке от 21 сентября 2023 г., процентов и госпошлины не подлежит исполнению в связи с фактическим погашением указанных сумм 25 августа 2026 г. Ранее вынесенное определение не содержало указания на исполнение, что затрудняло его понимание и исполнение судебными приставами.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 15617,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "757a1a808f467044a74e7d10ac9e1146d5300985adf8a4edbcf85cbf156aac00",
+      "raw_chars": 5984,
+      "prepared_chars": 5984,
+      "source_url": "https://oblsud--ynao.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12756580&case_uid=bb5e919b-798b-4ed6-9d95-5183270237e9&delo_id=5&new=5",
+      "court_domain": "oblsud--ynao.sudrf.ru",
+      "received_at": "2026-10-23T01:02:23+00:00",
+      "case_number": "33-2901/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-23T03:45:39+00:00"
+  },
+  "be52284ad167e1bb": {
+    "summary": "Суд устранил описки и арифметические ошибки в апелляционном определении от 29.09.2026, скорректировав дату окончания начисления процентов и суммы взыскания в связи с представленным чеком о погашении долга 25.08.2026. Исправления не изменили содержания решения о частичном удовлетворении жалобы и исков, а затрагивали только технические расчетные параметры.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 18496,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "c6bd6c76d51f1d9d5954f39861af4d9aefa36f705644222162f2bafd492ac40a",
+      "raw_chars": 7661,
+      "prepared_chars": 7661,
+      "source_url": "https://oblsud--ynao.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12756561&case_uid=9a8e09af-66ba-4364-87da-4757319e95d5&delo_id=5&new=5",
+      "court_domain": "oblsud--ynao.sudrf.ru",
+      "received_at": "2026-10-23T01:02:42+00:00",
+      "case_number": "33-2900/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-23T03:45:42+00:00"
+  },
+  "be76106d3b11c259": {
+    "summary": "Апелляционный суд пересчитал задолженность, установив, что по выписке Сбербанка заемщик перевел 1 736 000 руб., а не 1 012 000 руб., как учтено первой инстанцией, что погасило долг по расписке от 06.06.2023 г. к 10.07.2025 г. и уменьшило остаток по расписке от 21.09.2023 г. до 464 000 руб. с переплатой 36 000 руб. Взыскание процентов ст. 395 ГК РФ пересчитано соответственно: по первому долгу до 10.07.2025 г., по второму — на остаток 464 000 руб. с 30.09.2026 г.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 74709,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "ccb93c735cb9aa82c907aa6acc1c7382c5a4e7bdc35012135573e7e459b0c177",
+      "raw_chars": 41022,
+      "prepared_chars": 41022,
+      "source_url": "https://oblsud--ynao.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12709140&case_uid=520fa92d-2344-484e-b15a-f27b6693b70e&delo_id=5&new=5",
+      "court_domain": "oblsud--ynao.sudrf.ru",
+      "received_at": "2026-10-23T01:11:12+00:00",
+      "case_number": "33-2607/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-23T03:45:47+00:00"
+  },
+  "f80b8751d01b60b7": {
+    "summary": "Суд признал недействительными условия договора и доп. соглашения об определении площади и цены без понижающих коэффициентов к лоджиям, так как застройщик под видом приведения договора в соответствие с законом фактически увеличил стоимость кв.м и цену объекта, злоупотребив правом и ухудшив положение дольщика. Основанием для взыскания 611 630 руб. стала разница между уплаченной ценой (рассчитанной по проектной площади без коэффициентов) и законной ценой по общей приведенной площади с коэффициентами, с учетом фактического недополученного метража и уже возвращенных средств.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 69267,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "42a34cb75924117c02a21c6f9f6b434f21a4d0ea4d444c44311d83b2fb529e0b",
+      "raw_chars": 35648,
+      "prepared_chars": 35648,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22443815&case_uid=4e7f1d0d-624b-4b02-98a8-73b5f30589bf&delo_id=5&new=5",
+      "court_domain": "",
+      "received_at": "2026-10-23T02:49:06+00:00",
+      "case_number": "33-13783/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-23T03:45:53+00:00"
+  },
+  "49695b7f8152a0f5": {
+    "summary": "Судебная коллегия отменила апелляционное определение, так как суд апелляционной инстанции не поставил на обсуждение сторон вопрос об установлении начальной продажной цены заложенного имущества, не учл значительный промежуток времени между датой оценки 2019 года и обращением взыскания, и не установил юридически значимое обстоятельство — актуальную рыночную стоимость квартиры. При новом рассмотрении дело должно быть разрешено с учетом требований ст. 54 Закона об ипотеке о определении цены на основе актуальной рыночной стоимости при наличии спора.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 40401,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "cassation",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "512ba663b51abe4ae175d691aed13ab7e6e04407043912097073b5d61e1422b9",
+      "raw_chars": 19422,
+      "prepared_chars": 19422,
+      "source_url": "https://7kas.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12383221&case_uid=210445e0-8923-47a8-a749-1612fe260631&delo_id=2800001&new=2800001",
+      "court_domain": "7kas.sudrf.ru",
+      "received_at": "2026-10-23T02:51:03+00:00",
+      "case_number": "8Г-14647/2026",
+      "stage": "cassation",
+      "judicial_uid": "89RS0008-01-2025-000509-44",
+      "identity_check": "matched_uid",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-23T03:46:00+00:00"
+  },
+  "39dc5ad11f276c3f": {
+    "summary": "Кассационный суд подтвердил отказ в пересмотре, так как обстоятельства, указанные Елисеевой (приобретение автомобилей за счет заемных средств и их передача кредитору), не относятся к исчерпывающему перечню новых или вновь открывшихся обстоятельств ст. 392 ГПК РФ. Суды нижестоящих инстанций установили, что доводы о погашении долга передачей автомобилей были полно исследованы и отклонены при рассмотрении дела по существу, а заявленные факты не способны изменить правовые последствия вступившего в силу решения.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 31722,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "cassation",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "3d98913759bce601f2413ccf223cd9e7d63f17d5dd2e38cbc51c09cedb67ab35",
+      "raw_chars": 14593,
+      "prepared_chars": 14593,
+      "source_url": "https://7kas.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12392403&case_uid=f50060cd-635c-495e-96e1-a71f4b9bdc0c&delo_id=2800001&new=2800001",
+      "court_domain": "7kas.sudrf.ru",
+      "received_at": "2026-10-23T02:51:34+00:00",
+      "case_number": "8Г-14733/2026",
+      "stage": "cassation",
+      "judicial_uid": "66RS0001-01-2022-007768-20",
+      "identity_check": "matched_uid",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-23T03:46:05+00:00"
+  },
+  "f428d577840b6468": {
+    "summary": "Суд отказал в иске, так как наследники не приняли наследство: заявления к нотариусу не подавались, а доказательств фактического принятия или наличия наследственного имущества в деле нет. В силу ст. 416 ГК РФ обязательство по кредиту прекратилось невозможностью исполнения из-за отсутствия наследственной массы.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 26955,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "first_instance",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "339dec67c97681e65456778b56c7a82e2b6e23be68cc35a4bcb86c5903786091",
+      "raw_chars": 11930,
+      "prepared_chars": 11930,
+      "source_url": "https://chkalovsky--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=573265441&case_uid=8e4179bc-9eb6-4caf-a0a2-3d1f42518766&delo_id=1540005&new=0",
+      "court_domain": "chkalovsky--svd.sudrf.ru",
+      "received_at": "2026-10-23T02:45:39+00:00",
+      "case_number": "2-4346/2026",
+      "stage": "first_instance",
+      "judicial_uid": "66RS0007-01-2026-003255-16",
+      "identity_check": "matched_uid",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-23T03:46:08+00:00"
   }
 }
