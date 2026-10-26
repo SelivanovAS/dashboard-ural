@@ -2084,5 +2084,133 @@
       "status": "ready"
     },
     "generated_at": "2026-10-23T03:46:08+00:00"
+  },
+  "b62298f05481042c": {
+    "summary": "Суд отменил арест денежных средств ответчика, так как стоимость её недвижимого имущества уже превышает сумму исковых требований, что делает меры несоразмерными и необоснованно ограничивающими право на ведение экономической жизни. Арест на имущество в пределах цены иска оставлен в силе из-за отсутствия сведений об урегулировании спора или внесении средств на депозит.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 20885,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "b04428196421003b2015ed5c1a3bd75899522c4396a0e7523b4c8440ad8a0ee4",
+      "raw_chars": 8726,
+      "prepared_chars": 8726,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22800571&case_uid=34ff9c7b-5a40-4ab1-b8c2-e7f3a8300197&delo_id=5&new=5",
+      "court_domain": "",
+      "received_at": "2026-10-26T01:53:42+00:00",
+      "case_number": "33-15415/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-26T03:45:33+00:00"
+  },
+  "5d5f4dd3fd5ae1a9": {
+    "summary": "Суд отменил решение первой инстанции и прекратил производство по делу в связи с принятым отказом истца от исковых требований, который не противоречит закону и не нарушает права других лиц. Истцу подлежит возврат уплаченных государственных пошлин в размере 17 000 руб. за подачу иска и апелляционной жалобы.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 20570,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "2f70fc137401da1cfab413cbe510439f806de7eaf3f984dd1a7b70bcff9333fa",
+      "raw_chars": 8608,
+      "prepared_chars": 8608,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22732717&case_uid=0e9609c3-a1f4-4ddc-86c8-aac5792cba6f&delo_id=5&new=5",
+      "court_domain": "oblsud--svd.sudrf.ru",
+      "received_at": "2026-10-26T01:13:51+00:00",
+      "case_number": "33-15056/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-26T03:45:37+00:00"
+  },
+  "c1ee963e810ae506": {
+    "summary": "Кассационный суд подтвердил законность изъятия квартиры для муниципальных нужд с выкупной стоимостью, равной цене её приобретения (2 300 000 руб.), поскольку жилое помещение куплено после признания дома аварийным, что влечет применение ч. 8.2 ст. 32 ЖК РФ. Доводы о нарушении жилищных прав членов семьи и несоразмерности компенсации отвергнуты, так как норма не предусматривает иной порядок расчета стоимости и дополнительных мер обеспечения жильем для таких приобретателей.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 32762,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "cassation",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "29a79952a182ccb546746043d9c3f5619aecfd4e93b2a50437b2960df30f1c6b",
+      "raw_chars": 15097,
+      "prepared_chars": 15097,
+      "source_url": "https://7kas.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12331562&case_uid=7d116e24-c230-499b-8615-e6c662262e36&delo_id=2800001&new=2800001",
+      "court_domain": "7kas.sudrf.ru",
+      "received_at": "2026-10-26T02:09:52+00:00",
+      "case_number": "8Г-14185/2026",
+      "stage": "cassation",
+      "judicial_uid": "89RS0008-01-2025-000159-27",
+      "identity_check": "matched_uid",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-26T03:45:40+00:00"
+  },
+  "ea142f5d6cd354c8": {
+    "summary": "Кассационный суд подтвердил взыскание задолженности с наследника, принявшего наследство, со дня открытия наследства, отклонив довод о невозможности досрочного взыскания до истечения срока для принятия наследства. Суд также признал несостоятельным аргумент о несоответствии рыночной стоимости имущества, ограничивающей ответственность, поскольку нижестоящие инстанции не установили недостаточность стоимости наследственного имущества для погашения долга.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 20676,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "cassation",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "62b8ca25986f817ed74baeb0abb234a7ac2cf2686c6001a2c05293d87266809e",
+      "raw_chars": 8562,
+      "prepared_chars": 8562,
+      "source_url": "https://7kas.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12352601&case_uid=2d72c5ed-5064-407b-948e-d9ddf35e6239&delo_id=2800001&new=2800001",
+      "court_domain": "7kas.sudrf.ru",
+      "received_at": "2026-10-26T02:10:41+00:00",
+      "case_number": "8Г-14377/2026",
+      "stage": "cassation",
+      "judicial_uid": "66RS0006-01-2025-005406-02",
+      "identity_check": "matched_uid",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-26T03:45:43+00:00"
   }
 }
