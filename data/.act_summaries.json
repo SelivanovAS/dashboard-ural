@@ -2212,5 +2212,165 @@
       "status": "ready"
     },
     "generated_at": "2026-10-26T03:45:43+00:00"
+  },
+  "dea5230526e3a081": {
+    "summary": "Судебная коллегия отказала в пересмотре, так как обстоятельство об отсутствии наследственного имущества было известно заявителю из акта обследования от 27.06.2025 и не относится к вновь открывшимся. Кроме того, заявление подано с пропуском как трехмесячного, так и шестимесячного пресекательного сроков, о восстановлении которых ходатайство не заявлялось.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 34478,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "165a061eb40556cb71ecf87818cf08ea00aad6936ec2896f47975c5a957e9922",
+      "raw_chars": 15952,
+      "prepared_chars": 15952,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22729669&case_uid=f964cf73-61d6-436b-b6c3-dec96f81a77a&delo_id=5&new=5",
+      "court_domain": "",
+      "received_at": "2026-10-27T01:45:12+00:00",
+      "case_number": "33-15029/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-27T03:45:28+00:00"
+  },
+  "82a2c20706fee727": {
+    "summary": "Апелляционная жалоба возвращена, так как ответчик не реализовал предусмотренный ст. 237 ГПК РФ преимущественный порядок обжалования заочного решения через заявление об его отмене в суде первой инстанции. Суд установил, что ООО «АБС» не обращалось с таким заявлением, поэтому право на апелляционное обжалование не возникло.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 26043,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "0bd47e4711a6cae8ca0ca98dd9768b5ab31d079d7ce348ce3e72be27116f8ed0",
+      "raw_chars": 11524,
+      "prepared_chars": 11524,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=23054445&case_uid=0230ddf9-a5ee-42e9-bb79-693df530b77c&delo_id=5&new=5",
+      "court_domain": "",
+      "received_at": "2026-10-27T01:46:45+00:00",
+      "case_number": "33-16530/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-27T03:45:30+00:00"
+  },
+  "c88bffa5856cd677": {
+    "summary": "Апелляционный суд отменил определение о возврате заявления о пересмотре по вновь открывшимся обстоятельствам, так как недостатки, указанные в определении о оставлении без движения, были устранены в установленный срок: общая сумма по двум квитанциях соответствует размеру госпошлины, а в платежах указаны назначение, получатель и плательщик. Отсутствие в квитанциях категории спора и наименования суда не является основанием для возврата, поскольку дело на стадии оплаты пошлины ещё не возбуждено, а суд может истребовать оригиналы документов для исключения повторного использования.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 21937,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "d890dd3ccf5b46f363edda3a35525fd8e9a882d78646fadff549e3dfcb67817f",
+      "raw_chars": 9241,
+      "prepared_chars": 9241,
+      "source_url": "https://oblsud--ynao.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12723813&case_uid=42acdb17-8f79-411d-b2e0-8086259b6840&delo_id=5&new=5",
+      "court_domain": "oblsud--ynao.sudrf.ru",
+      "received_at": "2026-10-27T01:03:57+00:00",
+      "case_number": "33-2724/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-27T03:45:33+00:00"
+  },
+  "7777843e2f049d95": {
+    "summary": "Суд отказал в иске, так как истец не доказал наличие наследственного имущества у умершей заемщицы и факта принятия наследства наследниками. В отсутствие наследственной массы обязательства по долгам наследодателя прекращаются невозможностью исполнения.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 35427,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "first_instance",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "291812bf900b6b4e5782c650dbc4aa9ef57ce6119ccec8556c23fac7cf28a81b",
+      "raw_chars": 16775,
+      "prepared_chars": 16775,
+      "source_url": "https://sinarsky--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=547935667&case_uid=130c3e3e-85ff-4d91-8f33-fe1257962f53&delo_id=1540005&new=0",
+      "court_domain": "sinarsky--svd.sudrf.ru",
+      "received_at": "2026-10-27T01:41:40+00:00",
+      "case_number": "2-178/2026",
+      "stage": "first_instance",
+      "judicial_uid": "66RS0012-01-2025-003091-33",
+      "identity_check": "matched_uid",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-27T03:45:35+00:00"
+  },
+  "06a25de93203647d": {
+    "summary": "Суд отказал в иске, так как наследственное имущество Манькова О.В. отсутствует: недвижимость, транспорт, счета и иное имущество не выявлены. Поскольку ответчик как владелец выморочного имущества отвечает по долгам только в пределах стоимости наследственной массы, взыскание задолженности невозможно.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 40398,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "first_instance",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "3d264308be9c3e1b96050d6917673d48e84daf2c3a9fd817c041a55aa25be421",
+      "raw_chars": 19387,
+      "prepared_chars": 19387,
+      "source_url": "https://kirovsky--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=598273402&case_uid=254bf759-46b5-4698-9f49-52879a3849e1&delo_id=1540005&new=0",
+      "court_domain": "kirovsky--svd.sudrf.ru",
+      "received_at": "2026-10-27T02:14:31+00:00",
+      "case_number": "2-5482/2026",
+      "stage": "first_instance",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-27T03:45:38+00:00"
   }
 }
