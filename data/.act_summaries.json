@@ -2372,5 +2372,229 @@
       "status": "ready"
     },
     "generated_at": "2026-10-27T03:45:38+00:00"
+  },
+  "9b803b2cf8c0ce60": {
+    "summary": "Апелляционный суд отменил признание недействительным одностороннего передаточного акта, так как застройщик надлежаще уведомил дольщиков о завершении строительства и готовности к передаче, а выявленные недостатки признаны несущественными по заключению судебной экспертизы. В соответствии с Постановлением Правительства РФ № 2380, действовавшим на момент передачи, при отсутствии существенных нарушений застройщик вправе составить односторонний акт по истечении одного месяца от договорного срока, что и было сделано.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 50365,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "212920f39f4f63ebaa011c131dd3832b48b2822d547636c689e3fb69c3e42442",
+      "raw_chars": 24884,
+      "prepared_chars": 24884,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22940461&case_uid=1aefea5e-a1b8-4e0a-ab8f-0f19897e07ba&delo_id=5&new=5",
+      "court_domain": "oblsud--svd.sudrf.ru",
+      "received_at": "2026-10-28T01:07:26+00:00",
+      "case_number": "33-16058/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-28T03:45:31+00:00"
+  },
+  "134e7be33102c950": {
+    "summary": "Суд отменил определение в части возложения оплаты экспертизы на истца, так как по спорам о защите прав потребителей бремя доказывания отсутствия производственного дефекта лежит на продавце. Оплату экспертизы в размере 135 000 рублей уже произвел ответчик, поэтому расходы возложены на него.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 28550,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "94d8506e22d3cd46133597446f379dab68bddc955d7b94ad5f49fe46d7172ac7",
+      "raw_chars": 12951,
+      "prepared_chars": 12951,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22627219&case_uid=ac243161-9ffb-406a-b5cb-7eceb9963f28&delo_id=5&new=5",
+      "court_domain": "oblsud--svd.sudrf.ru",
+      "received_at": "2026-10-28T01:11:22+00:00",
+      "case_number": "33-14608/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-28T03:45:35+00:00"
+  },
+  "4754146b24105e64": {
+    "summary": "Суд подтвердил взыскание задолженности по кредитной карте с наследника в пределах стоимости принятого имущества, так как срок исковой давности исчисляется отдельно по каждому просроченному платежу, а последний платёж вносился 24.10.2024. Доводы об упущении срока давности с 2022 года отвергнуты, поскольку договор автоматически пролонгировался, а специальных действий по его прекращению сторонами не совершалось.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 31098,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "32a988563223674bf9d4e62aa629ac8ecdf53d4523120ba2d4a2328ec456dff8",
+      "raw_chars": 14293,
+      "prepared_chars": 14293,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22895857&case_uid=347d5b19-c5eb-4ea3-b240-7f8aa184f951&delo_id=5&new=5",
+      "court_domain": "oblsud--svd.sudrf.ru",
+      "received_at": "2026-10-28T01:08:03+00:00",
+      "case_number": "33-15871/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-28T03:45:39+00:00"
+  },
+  "7ecae845045eddf0": {
+    "summary": "Апелляционная жалоба возвращена, так как представитель ответчика не устранила в установленный судом срок недостатки, послужившие основанием для оставления жалобы без движения — отсутствие документов, подтверждающих её юридическое образование и полномочия. Определение об оставлении без движения было направлено и получено адресатом 5 октября 2026 года, однако к 20 октября необходимые документы не были предоставлены.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 17974,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "5fc8538fb8373eff2a1a62d35af6cde768e3794d9bd5616e9e45e1d8071f92ec",
+      "raw_chars": 7036,
+      "prepared_chars": 7036,
+      "source_url": "https://oblsud--ynao.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12737814&case_uid=b5379d8b-3f6e-4ab3-bf0b-503451a0248f&delo_id=5&new=5",
+      "court_domain": "",
+      "received_at": "2026-10-28T01:04:04+00:00",
+      "case_number": "33-2808/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-28T03:45:46+00:00"
+  },
+  "15cb1e2e2f8aeb39": {
+    "summary": "Суды установили факт передачи денежных средств и отсутствие их возврата, а ответчик в письменных объяснениях при проверке КУСП прямо признал, что деньги «занял», что подтверждает заемные отношения. Доводы о инвестиционном характере или договоре поручения отклонены как недоказанные и противоречащие процессуальной позиции ответчика, квалифицировавшей полученные средства как заём.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 24294,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "cassation",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "2967c973efb570c70121d24272bf0556b126d807439734eaa76985c37ab2e3c8",
+      "raw_chars": 10628,
+      "prepared_chars": 10628,
+      "source_url": "https://7kas.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12360872&case_uid=c85fa798-d4f3-41b2-bebf-88f498073436&delo_id=2800001&new=2800001",
+      "court_domain": "7kas.sudrf.ru",
+      "received_at": "2026-10-28T01:52:51+00:00",
+      "case_number": "8Г-14455/2026",
+      "stage": "cassation",
+      "judicial_uid": "66RS0021-01-2025-000843-92",
+      "identity_check": "matched_uid",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-28T03:45:49+00:00"
+  },
+  "1bf556b36ad56712": {
+    "summary": "Кассационный суд подтвердил отказ в иске, так как истец не доказал причинную связь между незаконным переводом средств банком и заявленными убытками в виде упущенной выгоды. Суды установили, что спорные средства были получены истцом, принесли доход в доверительном управлении, а реализация активов была обусловлена погашением кредиторской задолженности, а не действиями ответчика.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 47001,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "cassation",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "4be893f2a4cf54f88e15fdb315dd934554723d1af9cb816fc0fd70fbeb373c7d",
+      "raw_chars": 23014,
+      "prepared_chars": 23014,
+      "source_url": "https://7kas.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=14509917&case_uid=e0f853a1-f64d-429f-89be-f0feaa040763&delo_id=2800001&new=2800001",
+      "court_domain": "7kas.sudrf.ru",
+      "received_at": "2026-10-28T02:05:35+00:00",
+      "case_number": "8Г-15485/2026",
+      "stage": "cassation",
+      "judicial_uid": "66RS0004-01-2025-000235-04",
+      "identity_check": "matched_uid",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-28T03:45:51+00:00"
+  },
+  "8b7a43dfa5f64a35": {
+    "summary": "Кассационный суд оставил в силе апелляционные определения, установившие реестровую ошибку в границах участков и обязавшие истца демонтировать забор, вынесенный за установленную границу. Суд апелляционной инстанции мотивированно признал несоответствующим фактическим обстоятельствам вывод первой инстанции о соответствии новых металлических столбов исторической границе, так как экспертиза и схемы 2020 года подтвердили их смещение относительно старых деревянных столбов за пределами допустимой погрешности.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 47107,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "cassation",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "7ed1a9429c1b4661b242dc269bcdda22c08e0d32a6d40cf788c94ecb6a3ac5b7",
+      "raw_chars": 22995,
+      "prepared_chars": 22995,
+      "source_url": "https://7kas.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=14551367&case_uid=4da3881b-872d-4f15-a934-531275f5e353&delo_id=2800001&new=2800001",
+      "court_domain": "7kas.sudrf.ru",
+      "received_at": "2026-10-28T02:06:07+00:00",
+      "case_number": "8Г-15716/2026",
+      "stage": "cassation",
+      "judicial_uid": "66RS0020-01-2024-001717-29",
+      "identity_check": "matched_uid",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-28T03:45:56+00:00"
   }
 }
