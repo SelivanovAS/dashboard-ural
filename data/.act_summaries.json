@@ -2596,5 +2596,229 @@
       "status": "ready"
     },
     "generated_at": "2026-10-28T03:45:56+00:00"
+  },
+  "b02b77f900e4ea71": {
+    "summary": "Суд установил вину администрации в недостаточности принятых мер по отлову безнадзорных собак, что повлекло причинение вреда здоровью несовершеннолетнему. При определении размера компенсации морального вреда в 30 000 руб. суд учёл характер укусов, кратковременное лечение, отсутствие стойких психологических нарушений и требования разумности и справедливости.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 58591,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "4826b4aad937fc8c85534de040fa8a68c0118bfb4a1c982c58fff09dfd58b134",
+      "raw_chars": 29198,
+      "prepared_chars": 29198,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22545773&case_uid=1af83145-f173-4dd1-820c-9a19b55d7757&delo_id=5&new=5",
+      "court_domain": "",
+      "received_at": "2026-10-29T01:45:26+00:00",
+      "case_number": "33-14204/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-29T03:45:33+00:00"
+  },
+  "b19d8751c8318270": {
+    "summary": "Суд отказал в рассрочке исполнения, так как должник не доказал исключительных обстоятельств, делающих невозможным исполнение решения, и не подтвердил реальную возможность погашения долга по истечении запрашиваемого срока. Наличие на иждивении несовершеннолетнего ребенка само по себе не является основанием для предоставления рассрочки.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 27759,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "c27893e287f418701a3a20ec452d086579f932f343b3dac8be461bac4703e8f3",
+      "raw_chars": 12416,
+      "prepared_chars": 12416,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22860916&case_uid=76aa07a3-247f-4540-81aa-29899de5dad0&delo_id=5&new=5",
+      "court_domain": "",
+      "received_at": "2026-10-29T01:48:12+00:00",
+      "case_number": "33-15665/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-29T03:45:37+00:00"
+  },
+  "cd2d4f98b8b25f4b": {
+    "summary": "Апелляционная жалоба возвращена за несоблюдение установленного ст. 237 ГПК РФ порядка обжалования заочного решения: ответчик не подал заявление об его отмене в суде первой инстанции. Право на апелляционное обжалование возникает только после отказа в удовлетворении такого заявления, которого в деле нет.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 25312,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "4e1111f80d1282a369c8f810c76b4568485dfe97f6eb2f536a6b7dd5da76f0d0",
+      "raw_chars": 11171,
+      "prepared_chars": 11171,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=23081548&case_uid=d3264ce5-8df7-4aff-8d6e-4204b3b7cb47&delo_id=5&new=5",
+      "court_domain": "",
+      "received_at": "2026-10-29T01:50:19+00:00",
+      "case_number": "33-16659/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-29T03:45:40+00:00"
+  },
+  "a2f6643a5748369a": {
+    "summary": "Апелляционный суд отменил восстановление срока принятия наследства Солоповым В.С., так как он своевременно знал о смерти матери, а доверие к действительности договора дарения и оспаривание завещания не являются уважительными причинами пропуска срока. Поскольку наследник не принял наследство, взыскание кредитной задолженности с него в порядке ответственности по долгам наследодателя оснований не имеет, в то время как признание договора кредитной карты недействительным (а не незаключенным) сохранено за счет выводов экспертизы о неспособности заемщика понимать свои действия.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 69786,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "1b922b76cdb6d5d17c03a7347510ccfb3adb5c8e0ef7361752e11f02c6cd5af7",
+      "raw_chars": 35827,
+      "prepared_chars": 35827,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=23023256&case_uid=17bb29d2-61dc-4d6c-81a7-79e168e89d8d&delo_id=5&new=5",
+      "court_domain": "oblsud--svd.sudrf.ru",
+      "received_at": "2026-10-29T01:07:58+00:00",
+      "case_number": "33-16443/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-29T03:45:49+00:00"
+  },
+  "8b71091929ea96d3": {
+    "summary": "Суд установил, что банки не выполнили обязанность проверить признаки переводов без добровольного согласия клиента: операции были нетипичны, получатели не были контрагентами, а на телефоне истца находилось вредоносное ПО и была подключена переадресация звонков. Апелляция скорректировала решение, исключив проценты за период до вступления решения в силу (ст. 395 ГК РФ), уменьшив штрафы и убытки Сбербанка на сумму страховой выплаты 110 000 руб.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 76703,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "ace1d65e607c4aa431f6db2a39b3d65033c189ce82fee1ea8bc18c982eece9f0",
+      "raw_chars": 40082,
+      "prepared_chars": 40082,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22661569&case_uid=739719e9-ebfa-4ad3-9dac-971f790cc9f0&delo_id=5&new=5",
+      "court_domain": "oblsud--svd.sudrf.ru",
+      "received_at": "2026-10-29T01:15:24+00:00",
+      "case_number": "33-14759/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-29T03:46:34+00:00"
+  },
+  "ac3455eb92adfc56": {
+    "summary": "Апелляционный суд подтвердил отказ в удовлетворении иска, так как судебная экспертиза установила наличие лишь одного явного недостатка — сверхнормативных прогибов балок чердачного перекрытия, который был виден при осмотре объекта до сделки и зафиксирован в отчете об оценке, заказанном самой истцом. В условиях пункта 3.5 договора, где покупатель подтвердила отсутствие претензий по качеству, и существенно заниженной цены жилого дома (2 млн руб. против 5,95 млн руб. оценочной стоимости), взыскание стоимости устранения явного недостатка с продавца оснований не имеет.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 51024,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "acedf102932ce46495ca389f408b416b682205cfbe0e9fedf60962d56b7b6982",
+      "raw_chars": 25494,
+      "prepared_chars": 25494,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22659262&case_uid=cc94e032-b6cf-453b-9739-f35e58d3a152&delo_id=5&new=5",
+      "court_domain": "oblsud--svd.sudrf.ru",
+      "received_at": "2026-10-29T01:15:40+00:00",
+      "case_number": "33-14747/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-29T03:46:40+00:00"
+  },
+  "18f41055a3fd5ea0": {
+    "summary": "Апелляционный суд подтвердил отказ в принудительном выкупе доли, так как истец не доказал совокупность условий ст. 252 ГК РФ: доля 473/3000 (10,15 кв.м) признана не незначительной, её выдел в натуре возможен, а у ответчика нет возможностей оплатить компенсацию, поскольку её доходы — невосприимчивые к взысканию социальные выплаты. Взыскание расходов на содержание жилья с истца за период с 26.07.2024 обосновано возникновением обязанностей наследника с момента открытия наследства, а не вступления в силу решения о доле.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 52160,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "afb70871c22d47431ae60cccec237561ca2a8f6e6679a18af7015ec4952c9bcb",
+      "raw_chars": 25946,
+      "prepared_chars": 25946,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22821524&case_uid=f761efa6-4fe0-431b-a80f-441af50271dc&delo_id=5&new=5",
+      "court_domain": "oblsud--svd.sudrf.ru",
+      "received_at": "2026-10-29T01:13:12+00:00",
+      "case_number": "33-15496/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-10-29T03:46:51+00:00"
   }
 }
