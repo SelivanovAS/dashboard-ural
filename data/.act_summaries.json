@@ -3044,5 +3044,101 @@
       "status": "ready"
     },
     "generated_at": "2026-10-30T03:46:39+00:00"
+  },
+  "899b540b0b9f55c4": {
+    "summary": "Суд установил, что истец приобрел автомобиль по договору купли-продажи и принял его во владение до наложения запретов на регистрационные действия, поэтому право собственности перешло к покупателю до возникновения обременений. Пропуск 10-дневного срока регистрации в ГИБДД признан уважительным, так как транспортное средство находилось на техническом восстановлении, а последующая регистрация стала невозможной из-за наложенных арестов.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 43217,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "first_instance",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "990d0e313193668ec532fcd057ba0fc37bc57cc220bc004bc1fc063aad337f63",
+      "raw_chars": 21055,
+      "prepared_chars": 21055,
+      "source_url": "https://verhisetsky--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=566717414&case_uid=23057721-98f8-4097-a3cb-95eff6e0c2f1&delo_id=1540005&new=0",
+      "court_domain": "verhisetsky--svd.sudrf.ru",
+      "received_at": "2026-11-02T01:18:42+00:00",
+      "case_number": "2-2455/2026",
+      "stage": "first_instance",
+      "judicial_uid": "66RS0001-01-2026-001298-94",
+      "identity_check": "matched_uid",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-02T03:46:22+00:00"
+  },
+  "2ae301fb7990c055": {
+    "summary": "Суд установил, что истец надлежащим образом исполнил обязанность по подаче заявления на получение третьего транша 27.01.2025, а отказ банка в выдаче средств был незаконным, так как запись в офис возможна только через личный кабинет, о чем потребитель не был уведомлен до заключения договора. Учитывая повторное нарушение прав потребителя и отсутствие признаков злоупотребления правом, суд взыскал компенсацию морального вреда в размере 40 000 руб. и штраф 20 000 руб., снизив требования истца.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 55503,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "first_instance",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "b6f987152b85ebc3eda22e717ecab55b3baa9c62fe37849b9240fd7ebfa55948",
+      "raw_chars": 27489,
+      "prepared_chars": 27489,
+      "source_url": "https://verhisetsky--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=576489918&case_uid=4f1c6d1b-32be-4f05-985e-3a3d1b3d66bc&delo_id=1540005&new=0",
+      "court_domain": "verhisetsky--svd.sudrf.ru",
+      "received_at": "2026-11-02T01:22:14+00:00",
+      "case_number": "2-3666/2026",
+      "stage": "first_instance",
+      "judicial_uid": "66RS0001-01-2026-002874-22",
+      "identity_check": "matched_uid",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-02T03:46:54+00:00"
+  },
+  "ed0a9b18aa75332b": {
+    "summary": "Суд отказал в иске, так как истец не доказал наличие в сейфе конкретного имущества и право собственности на него, а доступ к содержимому сейфа осуществлялся без контроля банка. Независимо от этого, пропущен предельный 10-летний срок исковой давности, исчисляемый с окончания срока аренды 16.08.2010, а ходатайство о его восстановлении не заявлено.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 50123,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "a359c00c50e91f1bf4da08ce9856bd5db58596f31a4a9775ec2be47f9d0eec76",
+      "raw_chars": 24816,
+      "prepared_chars": 24816,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22310513&case_uid=4036a516-bab4-4ad5-9b06-60fb24d50959&delo_id=5&new=5",
+      "court_domain": "",
+      "received_at": "2026-11-02T01:38:42+00:00",
+      "case_number": "33-13174/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-02T03:47:14+00:00"
   }
 }
