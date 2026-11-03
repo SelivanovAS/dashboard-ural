@@ -3140,5 +3140,78 @@
       "status": "ready"
     },
     "generated_at": "2026-11-02T03:47:14+00:00"
+  },
+  "6f252348384dc94c": {
+    "summary": "Суд подтвердил законность решения финансового уполномоченного, установившего, что услуга «Своя ставка Плюс» не является самостоятельной услугой, а представляет собой изменение процентной ставки по кредитному договору, оформленное в виде платного пакета услуг. Финансовый уполномоченный действовал в пределах компетенции, так как требование о возврате средств, удержанных за такую услугу, не вытекает из недействительности сделки и не входит в исключительный перечень споров, выводимых из его юрисдикции.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 45005,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "8b996f869a156f8f355c8fe51855e54eb11de013be29c1c532580cf0a3c7b094",
+      "raw_chars": 22020,
+      "prepared_chars": 22020,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22361767&case_uid=957bbef2-3c47-4f15-9ad7-dd3943c50b45&delo_id=5&new=5",
+      "court_domain": "oblsud--svd.sudrf.ru",
+      "received_at": "2026-11-03T01:17:31+00:00",
+      "case_number": "33-13453/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-03T03:45:40+00:00"
+  },
+  "69c7b46729dd8d00": {
+    "summary": "Суд подтвердил признание отношений трудовыми, так как Филякова Н.Н. лично выполняла уборку по графику, получала систематические выплаты, не зависящие от объема работ, использовала инвентарь и спецодежду работодателя, а также была включена в утвержденные контрактами списки персонала. Кассация отклонила довод об истечении сроков, установив, что нормы о сроках обращения в суд по зарплате применяются только после признания отношений трудовыми, а срок по установлению факта трудоустройства восстановлен законно с учетом обращения в прокуратуру в апреле 2025 года и подачи иска в мае 2025 года.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "answer_too_long",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 48312,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      },
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 48312,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "cassation",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "696c79ee52b78a47c1e5002f3be7720aaf2f485242fedd5f86f502dea6c69e5b",
+      "raw_chars": 23880,
+      "prepared_chars": 23880,
+      "source_url": "https://7kas.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12280616&case_uid=4db9db21-f1de-4336-9a7b-a5901b3e7b75&delo_id=2800001&new=2800001",
+      "court_domain": "7kas.sudrf.ru",
+      "received_at": "2026-11-03T02:45:17+00:00",
+      "case_number": "8Г-13751/2026",
+      "stage": "cassation",
+      "judicial_uid": "89RS0001-01-2025-001805-19",
+      "identity_check": "matched_uid",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-03T03:45:55+00:00"
   }
 }
