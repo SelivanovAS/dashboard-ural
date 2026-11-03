@@ -4,9 +4,9 @@
   "smart_skip": true,
   "totals": {
     "total": 914,
-    "parsed": 0,
-    "skip": 854,
-    "failed": 56,
+    "parsed": 93,
+    "skip": 761,
+    "failed": 60,
     "no_card": 0,
     "not_in_queue": 0,
     "intake_new": 0
@@ -1129,9 +1129,9 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -1327,9 +1327,9 @@
       "last_checked_at": "2026-10-01"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -1651,9 +1651,9 @@
       "last_checked_at": "2026-10-23"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -1993,14 +1993,14 @@
       "last_checked_at": "2026-10-28"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": false,
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "kirovsky--svd.sudrf.ru|2-5703/2026",
@@ -2008,7 +2008,7 @@
       "court": "Кировский районный суд г. Екатеринбурга",
       "court_domain": "kirovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -2029,9 +2029,9 @@
       "last_checked_at": "2026-10-29"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -2407,9 +2407,9 @@
       "last_checked_at": "2026-10-15"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -3703,9 +3703,9 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -4243,14 +4243,14 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": false,
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "kirovgradsky--cvd.sudrf.ru|2-649/2026",
@@ -4258,7 +4258,7 @@
       "court": "Кировградский городской суд",
       "court_domain": "kirovgradsky--cvd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "fetch_empty",
@@ -4315,8 +4315,8 @@
       "last_checked_at": "2026-10-28"
     },
     {
-      "outcome": "skip",
-      "reason": "daily_retry_limit",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -4330,7 +4330,7 @@
       "court": "Шалинский районный суд",
       "court_domain": "shalinsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -4477,8 +4477,8 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "skip",
-      "reason": "daily_retry_limit",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -4492,7 +4492,7 @@
       "court": "Режевской городской суд",
       "court_domain": "rezhevskoy--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "fetch_empty",
@@ -4711,14 +4711,16 @@
       "last_checked_at": "2026-10-19"
     },
     {
-      "outcome": "skip",
-      "reason": "daily_retry_limit",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_default_copy_served"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "suholozhsky--svd.sudrf.ru|2-560/2026",
@@ -4726,7 +4728,7 @@
       "court": "Сухоложский городской суд",
       "court_domain": "suholozhsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -5089,14 +5091,16 @@
       "last_checked_at": "2026-10-30"
     },
     {
-      "outcome": "skip",
-      "reason": "daily_retry_limit",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_default_copy_returned"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "sysertsky--svd.sudrf.ru|2-1411/2026",
@@ -5104,7 +5108,7 @@
       "court": "Сысертский районный суд",
       "court_domain": "sysertsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -5413,8 +5417,8 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -5428,7 +5432,7 @@
       "court": "Талицкий районный суд",
       "court_domain": "talicky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -5503,8 +5507,8 @@
       "last_checked_at": "2026-10-28"
     },
     {
-      "outcome": "skip",
-      "reason": "daily_retry_limit",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -5518,7 +5522,7 @@
       "court": "Талицкий районный суд",
       "court_domain": "talicky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -5611,8 +5615,8 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -5626,7 +5630,7 @@
       "court": "Ирбитский районный суд",
       "court_domain": "irbitsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -5647,8 +5651,8 @@
       "last_checked_at": "2026-10-30"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -5662,11 +5666,11 @@
       "court": "Ирбитский районный суд",
       "court_domain": "irbitsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -5680,7 +5684,7 @@
       "court": "Ирбитский районный суд",
       "court_domain": "irbitsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -5701,8 +5705,8 @@
       "last_checked_at": "2026-10-30"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -5716,11 +5720,11 @@
       "court": "Ирбитский районный суд",
       "court_domain": "irbitsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -5734,11 +5738,11 @@
       "court": "Ирбитский районный суд",
       "court_domain": "irbitsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -5752,11 +5756,11 @@
       "court": "Ирбитский районный суд",
       "court_domain": "irbitsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -5770,7 +5774,7 @@
       "court": "Ирбитский районный суд",
       "court_domain": "irbitsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -5791,8 +5795,8 @@
       "last_checked_at": "2026-10-19"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -5806,7 +5810,7 @@
       "court": "Ирбитский районный суд",
       "court_domain": "irbitsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -5827,8 +5831,8 @@
       "last_checked_at": "2026-10-28"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -5842,7 +5846,7 @@
       "court": "Ирбитский районный суд",
       "court_domain": "irbitsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -5863,13 +5867,15 @@
       "last_checked_at": "2026-10-09"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
+      "events": [
+        "fi_writ_issued"
+      ],
       "changed": false,
       "left_track": false,
       "archived": false,
@@ -5878,16 +5884,18 @@
       "court": "Невьянский городской суд",
       "court_domain": "neviansky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
+      "events": [
+        "fi_writ_issued"
+      ],
       "changed": false,
       "left_track": false,
       "archived": false,
@@ -5896,11 +5904,11 @@
       "court": "Невьянский городской суд",
       "court_domain": "neviansky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "skip",
-      "reason": "daily_retry_limit",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -5914,7 +5922,7 @@
       "court": "Невьянский городской суд",
       "court_domain": "neviansky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -5989,8 +5997,8 @@
       "last_checked_at": "2026-10-28"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -6004,7 +6012,7 @@
       "court": "Красноуфимский районный суд",
       "court_domain": "krasnoufimsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -6043,8 +6051,8 @@
       "last_checked_at": "2026-10-30"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -6058,7 +6066,7 @@
       "court": "Красноуфимский районный суд",
       "court_domain": "krasnoufimsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -6151,8 +6159,8 @@
       "last_checked_at": "2026-10-29"
     },
     {
-      "outcome": "skip",
-      "reason": "daily_retry_limit",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -6166,7 +6174,7 @@
       "court": "Красноуфимский районный суд",
       "court_domain": "krasnoufimsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -6349,8 +6357,8 @@
       "last_checked_at": "2026-10-02"
     },
     {
-      "outcome": "skip",
-      "reason": "daily_retry_limit",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -6364,7 +6372,7 @@
       "court": "Березовский городской суд",
       "court_domain": "berezovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -6403,9 +6411,9 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -6421,8 +6429,8 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -6436,7 +6444,7 @@
       "court": "Верхнесалдинский районный суд",
       "court_domain": "verhnesaldinsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -6511,8 +6519,8 @@
       "last_checked_at": "2026-10-28"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -6526,7 +6534,7 @@
       "court": "Верхнесалдинский районный суд",
       "court_domain": "verhnesaldinsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -6547,8 +6555,8 @@
       "last_checked_at": "2026-10-30"
     },
     {
-      "outcome": "skip",
-      "reason": "daily_retry_limit",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -6562,7 +6570,7 @@
       "court": "Верхнесалдинский районный суд",
       "court_domain": "verhnesaldinsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -6601,8 +6609,8 @@
       "last_checked_at": "2026-09-29"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -6616,11 +6624,11 @@
       "court": "Белоярский районный суд",
       "court_domain": "beloyarsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "skip",
-      "reason": "daily_retry_limit",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -6634,12 +6642,12 @@
       "court": "Белоярский районный суд",
       "court_domain": "beloyarsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -6781,8 +6789,8 @@
       "last_checked_at": "2026-10-28"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -6796,7 +6804,7 @@
       "court": "Артемовский городской суд",
       "court_domain": "artemovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -6817,8 +6825,8 @@
       "last_checked_at": "2026-10-20"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -6832,11 +6840,11 @@
       "court": "Артемовский городской суд",
       "court_domain": "artemovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -6850,7 +6858,7 @@
       "court": "Артемовский городской суд",
       "court_domain": "artemovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -6889,13 +6897,15 @@
       "last_checked_at": "2026-10-30"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
+      "events": [
+        "fi_writ_issued"
+      ],
       "changed": false,
       "left_track": false,
       "archived": false,
@@ -6904,7 +6914,7 @@
       "court": "Артемовский городской суд",
       "court_domain": "artemovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -6925,8 +6935,8 @@
       "last_checked_at": "2026-10-23"
     },
     {
-      "outcome": "skip",
-      "reason": "daily_retry_limit",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -6940,7 +6950,7 @@
       "court": "Артемовский городской суд",
       "court_domain": "artemovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -7015,8 +7025,8 @@
       "last_checked_at": "2026-10-09"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -7030,11 +7040,11 @@
       "court": "Серовский районный суд",
       "court_domain": "serovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "skip",
-      "reason": "daily_retry_limit",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -7048,7 +7058,7 @@
       "court": "Серовский районный суд",
       "court_domain": "serovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "fetch_empty",
@@ -7069,8 +7079,8 @@
       "last_checked_at": "2026-10-27"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -7084,7 +7094,7 @@
       "court": "Серовский районный суд",
       "court_domain": "serovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -7141,8 +7151,8 @@
       "last_checked_at": "2026-09-30"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -7156,12 +7166,12 @@
       "court": "Камышловский районный суд",
       "court_domain": "kamyshlovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -7231,8 +7241,8 @@
       "last_checked_at": "2026-10-29"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -7246,11 +7256,11 @@
       "court": "Камышловский районный суд",
       "court_domain": "kamyshlovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "skip",
-      "reason": "daily_retry_limit",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -7264,7 +7274,7 @@
       "court": "Камышловский районный суд",
       "court_domain": "kamyshlovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -7285,9 +7295,9 @@
       "last_checked_at": "2026-10-28"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -7501,8 +7511,8 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -7516,11 +7526,11 @@
       "court": "Асбестовский городской суд",
       "court_domain": "asbestovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "skip",
-      "reason": "daily_retry_limit",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -7534,7 +7544,7 @@
       "court": "Асбестовский городской суд",
       "court_domain": "asbestovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -7915,8 +7925,8 @@
       "last_checked_at": "2026-10-29"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -7930,7 +7940,7 @@
       "court": "Дзержинский районный суд г. Нижний Тагил",
       "court_domain": "dzerzhinsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -8023,8 +8033,8 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -8038,12 +8048,12 @@
       "court": "Дзержинский районный суд г. Нижний Тагил",
       "court_domain": "dzerzhinsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8059,9 +8069,9 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8095,8 +8105,8 @@
       "last_checked_at": "2026-10-29"
     },
     {
-      "outcome": "skip",
-      "reason": "daily_retry_limit",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -8110,7 +8120,7 @@
       "court": "Тагилстроевский районный суд г. Нижний Тагил",
       "court_domain": "tagilstroevsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -8185,8 +8195,8 @@
       "last_checked_at": "2026-10-30"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -8200,7 +8210,7 @@
       "court": "Первоуральский городской суд",
       "court_domain": "pervouralsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -8221,8 +8231,8 @@
       "last_checked_at": "2026-10-22"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -8236,11 +8246,11 @@
       "court": "Первоуральский городской суд",
       "court_domain": "pervouralsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -8254,11 +8264,11 @@
       "court": "Первоуральский городской суд",
       "court_domain": "pervouralsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -8272,11 +8282,11 @@
       "court": "Первоуральский городской суд",
       "court_domain": "pervouralsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -8290,11 +8300,11 @@
       "court": "Первоуральский городской суд",
       "court_domain": "pervouralsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -8308,7 +8318,7 @@
       "court": "Первоуральский городской суд",
       "court_domain": "pervouralsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -8509,8 +8519,8 @@
       "last_checked_at": "2026-10-30"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -8524,7 +8534,7 @@
       "court": "Первоуральский городской суд",
       "court_domain": "pervouralsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -8545,9 +8555,9 @@
       "last_checked_at": "2026-10-29"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8563,8 +8573,8 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -8578,11 +8588,11 @@
       "court": "Первоуральский городской суд",
       "court_domain": "pervouralsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -8596,11 +8606,11 @@
       "court": "Первоуральский городской суд",
       "court_domain": "pervouralsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -8614,11 +8624,11 @@
       "court": "Первоуральский городской суд",
       "court_domain": "pervouralsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "skip",
-      "reason": "daily_retry_limit",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -8632,7 +8642,7 @@
       "court": "Первоуральский городской суд",
       "court_domain": "pervouralsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -8689,8 +8699,8 @@
       "last_checked_at": "2026-10-28"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -8704,11 +8714,11 @@
       "court": "Ленинский районный суд г. Нижний Тагил",
       "court_domain": "leninskytag--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "skip",
-      "reason": "daily_retry_limit",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -8722,11 +8732,11 @@
       "court": "Ленинский районный суд г. Нижний Тагил",
       "court_domain": "leninskytag--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -8740,11 +8750,11 @@
       "court": "Синарский районный суд г. Каменск-Уральского",
       "court_domain": "sinarsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -8758,11 +8768,11 @@
       "court": "Синарский районный суд г. Каменск-Уральского",
       "court_domain": "sinarsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -8776,11 +8786,11 @@
       "court": "Синарский районный суд г. Каменск-Уральского",
       "court_domain": "sinarsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -8794,7 +8804,7 @@
       "court": "Синарский районный суд г. Каменск-Уральского",
       "court_domain": "sinarsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -8833,8 +8843,8 @@
       "last_checked_at": "2026-10-28"
     },
     {
-      "outcome": "skip",
-      "reason": "daily_retry_limit",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -8848,12 +8858,12 @@
       "court": "Синарский районный суд г. Каменск-Уральского",
       "court_domain": "sinarsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8887,8 +8897,8 @@
       "last_checked_at": "2026-10-30"
     },
     {
-      "outcome": "skip",
-      "reason": "daily_retry_limit",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -8902,7 +8912,7 @@
       "court": "Каменский районный суд",
       "court_domain": "kamensky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -9013,8 +9023,8 @@
       "last_checked_at": "2026-10-30"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -9028,16 +9038,19 @@
       "court": "Ленинский районный суд г. Нижний Тагил",
       "court_domain": "leninskytag--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
+      "events": [
+        "fi_writ_issued",
+        "fi_act_text_published"
+      ],
       "changed": false,
       "left_track": false,
       "archived": false,
@@ -9046,7 +9059,7 @@
       "court": "Ленинский районный суд г. Нижний Тагил",
       "court_domain": "leninskytag--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -9211,9 +9224,9 @@
       "last_checked_at": "2026-10-02"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9229,9 +9242,9 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9247,13 +9260,15 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
+      "events": [
+        "fi_writ_issued"
+      ],
       "changed": false,
       "left_track": false,
       "archived": false,
@@ -9262,12 +9277,12 @@
       "court": "Ревдинский городской суд",
       "court_domain": "revdinsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9283,9 +9298,9 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9301,9 +9316,9 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9319,9 +9334,9 @@
       "last_checked_at": "2026-09-22"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9337,9 +9352,9 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9355,9 +9370,9 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9373,9 +9388,9 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9409,9 +9424,9 @@
       "last_checked_at": "2026-10-12"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9445,14 +9460,17 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "skip",
-      "reason": "daily_retry_limit",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_writ_issued",
+        "fi_default_copy_served"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "revdinsky--svd.sudrf.ru|2-822/2026",
@@ -9460,7 +9478,7 @@
       "court": "Ревдинский городской суд",
       "court_domain": "revdinsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -9499,9 +9517,9 @@
       "last_checked_at": "2026-10-28"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9553,9 +9571,9 @@
       "last_checked_at": "2026-10-28"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9625,9 +9643,9 @@
       "last_checked_at": "2026-10-28"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9661,14 +9679,17 @@
       "last_checked_at": "2026-10-30"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_writ_issued",
+        "fi_final_event"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "polevskoy--svd.sudrf.ru|2-981/2026",
@@ -9676,7 +9697,7 @@
       "court": "Полевской городской суд",
       "court_domain": "polevskoy--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -9715,8 +9736,8 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -9730,11 +9751,11 @@
       "court": "Полевской городской суд",
       "court_domain": "polevskoy--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -9748,11 +9769,11 @@
       "court": "Полевской городской суд",
       "court_domain": "polevskoy--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "skip",
-      "reason": "daily_retry_limit",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -9766,7 +9787,7 @@
       "court": "Полевской городской суд",
       "court_domain": "polevskoy--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -10111,9 +10132,9 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -10237,14 +10258,17 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_writ_issued",
+        "fi_default_copy_returned"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "oktiabrsky--svd.sudrf.ru|2-3516/2026",
@@ -10252,7 +10276,7 @@
       "court": "Октябрьский районный суд г. Екатеринбурга",
       "court_domain": "oktiabrsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -10309,14 +10333,16 @@
       "last_checked_at": "2026-10-28"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_default_copy_returned"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "oktiabrsky--svd.sudrf.ru|2-3174/2026",
@@ -10324,11 +10350,11 @@
       "court": "Октябрьский районный суд г. Екатеринбурга",
       "court_domain": "oktiabrsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -10342,7 +10368,7 @@
       "court": "Октябрьский районный суд г. Екатеринбурга",
       "court_domain": "oktiabrsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -10381,9 +10407,9 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -10435,14 +10461,17 @@
       "last_checked_at": "2026-09-28"
     },
     {
-      "outcome": "skip",
-      "reason": "daily_retry_limit",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_writ_issued",
+        "fi_default_copy_returned"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "oktiabrsky--svd.sudrf.ru|2-2367/2026",
@@ -10450,12 +10479,12 @@
       "court": "Октябрьский районный суд г. Екатеринбурга",
       "court_domain": "oktiabrsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -10489,9 +10518,9 @@
       "last_checked_at": "2026-10-06"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -10597,8 +10626,8 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "skip",
-      "reason": "daily_retry_limit",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -10612,12 +10641,12 @@
       "court": "Верх-Исетский районный суд г. Екатеринбурга",
       "court_domain": "verhisetsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -10669,8 +10698,8 @@
       "last_checked_at": "2026-10-29"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -10684,7 +10713,7 @@
       "court": "Академический районный суд г. Екатеринбурга",
       "court_domain": "akademicheskiy--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -10723,8 +10752,8 @@
       "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "skip",
-      "reason": "daily_retry_limit",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -10738,7 +10767,7 @@
       "court": "Ленинский районный суд г. Екатеринбурга",
       "court_domain": "leninskyeka--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -10759,9 +10788,9 @@
       "last_checked_at": "2026-10-28"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -11101,8 +11130,8 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -11116,7 +11145,7 @@
       "court": "Академический районный суд г. Екатеринбурга",
       "court_domain": "akademicheskiy--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -11137,13 +11166,16 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
+      "events": [
+        "fi_writ_issued",
+        "fi_writ_status_changed"
+      ],
       "changed": false,
       "left_track": false,
       "archived": false,
@@ -11152,12 +11184,12 @@
       "court": "Академический районный суд г. Екатеринбурга",
       "court_domain": "akademicheskiy--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -11587,8 +11619,8 @@
       "last_checked_at": "2026-10-14"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -11602,7 +11634,7 @@
       "court": "Ленинский районный суд г. Екатеринбурга",
       "court_domain": "leninskyeka--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -11623,9 +11655,9 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -11713,8 +11745,8 @@
       "last_checked_at": "2026-10-02"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -11728,12 +11760,12 @@
       "court": "Ленинский районный суд г. Екатеринбурга",
       "court_domain": "leninskyeka--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -11929,13 +11961,15 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "skip",
-      "reason": "daily_retry_limit",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
+      "events": [
+        "fi_act_text_published"
+      ],
       "changed": false,
       "left_track": false,
       "archived": false,
@@ -11944,7 +11978,7 @@
       "court": "Железнодорожный районный суд г. Екатеринбурга",
       "court_domain": "zheleznodorozhny--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -12037,8 +12071,8 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -12052,7 +12086,7 @@
       "court": "Железнодорожный районный суд г. Екатеринбурга",
       "court_domain": "zheleznodorozhny--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -12181,8 +12215,8 @@
       "last_checked_at": "2026-10-23"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -12196,12 +12230,12 @@
       "court": "Железнодорожный районный суд г. Екатеринбурга",
       "court_domain": "zheleznodorozhny--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -12865,22 +12899,24 @@
       "last_checked_at": "2026-10-30"
     },
     {
-      "outcome": "skip",
-      "reason": "daily_retry_limit",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
+      "events": [
+        "fi_writ_issued"
+      ],
       "changed": false,
       "left_track": false,
-      "archived": false,
+      "archived": true,
       "key": "kirovsky--svd.sudrf.ru|2-4079/2026",
       "number": "2-4079/2026",
       "court": "Кировский районный суд г. Екатеринбурга",
       "court_domain": "kirovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -13045,9 +13081,9 @@
       "last_checked_at": "2026-10-29"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -13225,13 +13261,15 @@
       "last_checked_at": "2026-10-29"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
+      "events": [
+        "fi_writ_issued"
+      ],
       "changed": false,
       "left_track": false,
       "archived": false,
@@ -13240,7 +13278,7 @@
       "court": "Кировский районный суд г. Екатеринбурга",
       "court_domain": "kirovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -13297,9 +13335,9 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "unknown",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -13333,8 +13371,8 @@
       "last_checked_at": "2026-10-30"
     },
     {
-      "outcome": "skip",
-      "reason": "daily_retry_limit",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -13348,7 +13386,7 @@
       "court": "Чкаловский районный суд г. Екатеринбурга",
       "court_domain": "chkalovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -13765,9 +13803,9 @@
       "last_checked_at": "2026-10-30"
     },
     {
-      "outcome": "unknown",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -13837,8 +13875,8 @@
       "last_checked_at": "2026-10-30"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -13852,7 +13890,7 @@
       "court": "Чкаловский районный суд г. Екатеринбурга",
       "court_domain": "chkalovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -13891,14 +13929,14 @@
       "last_checked_at": "2026-10-29"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": false,
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "chkalovsky--svd.sudrf.ru|2-5356/2026",
@@ -13906,7 +13944,7 @@
       "court": "Чкаловский районный суд г. Екатеринбурга",
       "court_domain": "chkalovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -13963,9 +14001,9 @@
       "last_checked_at": "2026-10-28"
     },
     {
-      "outcome": "unknown",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -14071,8 +14109,8 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -14086,7 +14124,7 @@
       "court": "Чкаловский районный суд г. Екатеринбурга",
       "court_domain": "chkalovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -14269,8 +14307,8 @@
       "last_checked_at": "2026-10-28"
     },
     {
-      "outcome": "skip",
-      "reason": "daily_retry_limit",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -14284,7 +14322,7 @@
       "court": "Орджоникидзевский районный суд г. Екатеринбурга",
       "court_domain": "ordzhonikidzevsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-10-27"
+      "last_checked_at": "2026-11-03"
     },
     {
       "outcome": "skip",
@@ -15997,9 +16035,9 @@
       "last_checked_at": "2026-10-30"
     },
     {
-      "outcome": "unknown",
+      "outcome": "fetch_empty",
       "reason": "",
-      "reason_ru": "",
+      "reason_ru": "пустой ответ сервера суда",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -16465,5 +16503,5 @@
       "last_checked_at": "2026-10-27"
     }
   ],
-  "updated_at": "2026-11-03T12:24:04+05:00"
+  "updated_at": "2026-11-03T16:24:03+05:00"
 }
