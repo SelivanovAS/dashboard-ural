@@ -3213,5 +3213,174 @@
       "status": "ready"
     },
     "generated_at": "2026-11-03T03:45:55+00:00"
+  },
+  "8e13f0990c7c7ade": {
+    "summary": "Суд признал договор страхования недействительным, так как застрахованное лицо при заключении договора заведомо скрыло наличие у себя невылечимого заболевания, указанного в заявлении как обстоятельство, исключающее страхование. Установлено, что Субботина Т.М. была осведомлена о диагнозе, но намеренно указала ложные сведения об отсутствии болезни и обращений к врачам, что позволило страховщику требовать недействительность сделки по ст. 179 ГК РФ.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 35066,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "first_instance",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "a64f2a47e43c22d91bb980fe3c2323b21e78f6218adbae4337105677b35720cb",
+      "raw_chars": 16479,
+      "prepared_chars": 16479,
+      "source_url": "https://kirovsky--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=592608357&case_uid=24487c97-46ba-4d58-8499-becf8c6525e7&delo_id=1540005&new=0",
+      "court_domain": "kirovsky--svd.sudrf.ru",
+      "received_at": "2026-11-03T11:17:49+00:00",
+      "case_number": "2-4178/2026",
+      "stage": "first_instance",
+      "judicial_uid": "66RS0003-01-2026-002988-59",
+      "identity_check": "matched_uid",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-05T03:46:49+00:00"
+  },
+  "434cd5d2e1f85d5b": {
+    "summary": "Апелляционный суд подтвердил взыскание неустойки, так как продавец не исполнил требование о возврате денег в десятидневный срок и не задепозитировал неоспариваемые суммы, а доводы о злоупотреблении правом покупателем отклонены. Судебная коллегия оставила без изменения сниженные первой инстанцией неустойку (200 000 руб.), компенсацию морального вреда (15 000 руб.) и штраф (50 000 руб.), признав их соответствующими критериям разумности, степени вины продавца и обстоятельствам дела.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 46963,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "247ae0c17753ac0c03e364e22ff1f12e2813f49d11bcadee69555b7b6b8691d5",
+      "raw_chars": 23248,
+      "prepared_chars": 23248,
+      "source_url": "https://oblsud--ynao.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12718115&case_uid=b0b1ce18-907e-4dd9-a4d9-38aafe9be24a&delo_id=5&new=5",
+      "court_domain": "",
+      "received_at": "2026-11-05T01:45:22+00:00",
+      "case_number": "33-2689/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-05T03:47:00+00:00"
+  },
+  "c84b6b7c15ae42ca": {
+    "summary": "Судебная коллегия подтвердила применение двусторонней реституции по ст. 167 ГК РФ, так как иск основан на ст. 177 ГК РФ (неспособность понимать свои действия), а не на ст. 179 ГК РФ (обман), и доказательств для отказа от реституции по п. 4 ст. 167 ГК РФ истец не представила. Доводы о невозможности возврата средств, переведенных мошенникам, отклонены, поскольку недействительный договор не освобождает от обязанности вернуть полученное, а банк не знал и не мог знать об обмане третьими лицами.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "answer_too_long",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 46875,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      },
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 46875,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "c782dbcb41c327a37866bf5a573ad4dd34d2c66d426f10bb19fb971c6d785279",
+      "raw_chars": 22931,
+      "prepared_chars": 22931,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22878594&case_uid=8ad8dee8-eeb7-4b4e-a871-e3ac5cf88f08&delo_id=5&new=5",
+      "court_domain": "oblsud--svd.sudrf.ru",
+      "received_at": "2026-11-05T01:06:47+00:00",
+      "case_number": "33-15727/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-05T03:47:31+00:00"
+  },
+  "03bc44f9e011f2a7": {
+    "summary": "Суд отказал в иске, так как истец не доказал наличие у наследодателя наследственного имущества, в пределах стоимости которого наследники несут ответственность по долгам. Единственный объект — мотоцикл — снят с регистрационного учета, а сведения о его фактическом существовании и принадлежности наследодателю на момент смерти отсутствуют, поэтому состав и стоимость наследства не установлены.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 62572,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "first_instance",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "fcd795a97e6637ff1d3519443e526acb0e41dfecd9c0788458108dfebbe04f68",
+      "raw_chars": 31685,
+      "prepared_chars": 31685,
+      "source_url": "https://alapaevsky--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=563348044&case_uid=c8272229-0f02-4545-b0d9-1eae1f7c3319&delo_id=1540005&new=0",
+      "court_domain": "alapaevsky--svd.sudrf.ru",
+      "received_at": "2026-11-05T02:03:42+00:00",
+      "case_number": "2-464/2026",
+      "stage": "first_instance",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-05T03:47:34+00:00"
+  },
+  "ecaaa2927e3c0e10": {
+    "summary": "Суд отказал в иске, так как истец не доказал наличие у наследодателя имущества на момент смерти: сведения ГИБДД о регистрации автомобилей не подтверждают права собственности, а ответчики указали, что транспортные средства утилизированы или проданы при жизни. Ответственность наследников и Росимущества по долгам наследодателя ограничивается стоимостью перешедшего имущества, которое судом не установлено.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 70406,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "first_instance",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "c681f87126f3f73e05cbbf0ac3eeaa56b175d6db3a59b13ee72385cc244f56fe",
+      "raw_chars": 35967,
+      "prepared_chars": 35967,
+      "source_url": "https://alapaevsky--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=569938033&case_uid=b3d6953f-42cd-41c8-a2dc-1e900905e9a7&delo_id=1540005&new=0",
+      "court_domain": "alapaevsky--svd.sudrf.ru",
+      "received_at": "2026-11-05T02:03:50+00:00",
+      "case_number": "2-585/2026",
+      "stage": "first_instance",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-05T03:47:45+00:00"
   }
 }
