@@ -3382,5 +3382,133 @@
       "status": "ready"
     },
     "generated_at": "2026-11-05T03:47:45+00:00"
+  },
+  "62b9e5db93224cec": {
+    "summary": "Суд удовлетворил иск о расторжении кредитного договора и взыскании задолженности 6 061 879 руб. 41 коп., так как ответчики допустили существенное нарушение — просрочку платежей, а банк исполнил обязательства по выдаче кредита, что подтверждено материалами дела и не оспаривалось. Начальная продажная цена заложенного имущества установлена судом в размере 80% от рыночной стоимости по отчету оценщика ООО «РЭБ» (11 431 200 руб. за дом и 2 445 600 руб. за участок), а не по договору, так как ответчики представили доказательства иной стоимости объектов недвижимости.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 41338,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "first_instance",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "046ce6fcb8a8cd29bcf04050ef264e39ccea10383813978b47b853dee3e07a8c",
+      "raw_chars": 20120,
+      "prepared_chars": 20120,
+      "source_url": "https://beloyarsky--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=582860275&case_uid=4f9fa320-212f-4fb4-bf5d-10afbf7d81b2&delo_id=1540005&new=0",
+      "court_domain": "beloyarsky--svd.sudrf.ru",
+      "received_at": "2026-11-06T01:07:41+00:00",
+      "case_number": "2-1432/2026",
+      "stage": "first_instance",
+      "judicial_uid": "66RS0020-01-2025-001654-40",
+      "identity_check": "matched_uid",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-06T03:45:29+00:00"
+  },
+  "33faf4d0f1d7aa17": {
+    "summary": "Судебная коллегия подтвердила взыскание задолженности с наследника, так как кредитный договор заключен заемщиком 08.10.2024, уже после вступления в силу контракта о военной службе 19.03.2024. Льготный механизм прекращения обязательств по ст. 2 ФЗ № 377-ФЗ неприменим, поскольку он защищает лица, имевшие гражданские долги до призыва, а не заключившие их будучи военнослужащими.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 24847,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "c97e5f092a3cc054e310ed10ff27fee00e98f0c076205026efda5f22544d1c3b",
+      "raw_chars": 10853,
+      "prepared_chars": 10853,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22684784&case_uid=5f5bd454-e695-4dff-858b-0a00bf4d71a9&delo_id=5&new=5",
+      "court_domain": "oblsud--svd.sudrf.ru",
+      "received_at": "2026-11-06T01:06:03+00:00",
+      "case_number": "33-14815/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-06T03:45:33+00:00"
+  },
+  "93a1b9db5127d24b": {
+    "summary": "Суд отказал в иске, так как наследственное имущество отсутствует: недвижимость, транспорт и денежные средства на счетах заемщика на дату смерти не выявлены, наследственное дело не заводилось. Наследственную ответственность невозможно взыскать без имущественной массы, перешедшей к наследникам.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 13696,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "first_instance",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "7e109e9bf4ec7b937973571fabcb938730d54746cf7ccd83dc050c021e89110e",
+      "raw_chars": 4643,
+      "prepared_chars": 4643,
+      "source_url": "https://zheleznodorozhny--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=2&name_op=case&case_id=574440285&case_uid=6f274247-046a-4991-bf01-8c0b2e8f8b2a&delo_id=1540005&new=0",
+      "court_domain": "zheleznodorozhny--svd.sudrf.ru",
+      "received_at": "2026-11-06T01:46:19+00:00",
+      "case_number": "2-2371/2026",
+      "stage": "first_instance",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-06T03:45:37+00:00"
+  },
+  "bebd2e25a377346d": {
+    "summary": "Суд отказал в иске, так как не установлено наличие наследственной массы: недвижимости, транспорта, денежных средств на счетах или иного имущества за наследодателем не выявлено, а наследники, принявшие наследство, судом не установлены. В отсутствие наследственного имущества взыскание долга за его счет невозможно, оснований для привлечения к ответственности Российской Федерации как распорядителя выморочного имущества также нет.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 31908,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "first_instance",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "4001b6d232b357aee41946d0efac18781c8978509382274985dee26029996aaf",
+      "raw_chars": 14688,
+      "prepared_chars": 14688,
+      "source_url": "https://ordzhonikidzevsky--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=576304567&case_uid=3f145186-e507-4519-9b04-621c3bb037e0&delo_id=1540005&new=0",
+      "court_domain": "ordzhonikidzevsky--svd.sudrf.ru",
+      "received_at": "2026-11-06T01:32:47+00:00",
+      "case_number": "2-2900/2026",
+      "stage": "first_instance",
+      "judicial_uid": "66RS0006-01-2026-002214-88",
+      "identity_check": "matched_uid",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-06T03:45:44+00:00"
   }
 }
