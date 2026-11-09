@@ -3510,5 +3510,101 @@
       "status": "ready"
     },
     "generated_at": "2026-11-06T03:45:44+00:00"
+  },
+  "aa9edfe9d272b231": {
+    "summary": "Апелляционный суд подтвердил взыскание задолженности, так как ответчик не доказал несоразмерность неустойки последствиям нарушения обязательства и не оспаривал факт просрочки и расчет суммы долга. Доводы о снижении процентов по ст. 333 ГК РФ отклонены, поскольку проценты — это плата за пользование кредитом, а не штрафная санкция; страховой полис не дает прав банку, а неявка истца не препятствует рассмотрению дела.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 29242,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "df3335372453d079102ee201476daa929057ffc2660c6dbbd9bcd59d8ec20b9c",
+      "raw_chars": 13454,
+      "prepared_chars": 13454,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22796339&case_uid=2c407ecc-9044-4d15-b6b8-74c6d30ba52a&delo_id=5&new=5",
+      "court_domain": "",
+      "received_at": "2026-11-09T01:26:06+00:00",
+      "case_number": "33-15372/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-09T03:45:35+00:00"
+  },
+  "8fe832e6d49661c9": {
+    "summary": "Суд установил, что договор поручительства заключён в письменной форме посредством простой электронной подписи Цепилова А.Н., подтвержденной протоколом АС банка и журналами SMS-уведомлений на его номере телефона. Ответчик не доказал неправомерность действий банка при верификации и аутентификации, а факты получения кредита заемщиком и ненадлежащего исполнения обязательств не оспаривались.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 52599,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "b9f2b5227e141c9e0f9fcff27f1550d986c0d7a1495ec635fb994d7024b9ce99",
+      "raw_chars": 26105,
+      "prepared_chars": 26105,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22714898&case_uid=a36cd661-4981-49dd-afce-c3b250fd167c&delo_id=5&new=5",
+      "court_domain": "oblsud--svd.sudrf.ru",
+      "received_at": "2026-11-09T01:06:47+00:00",
+      "case_number": "33-14967/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-09T03:45:42+00:00"
+  },
+  "efa5c07a3bd68d90": {
+    "summary": "Суд принял отказ истца от иска, так как он не противоречит закону и не нарушает права других лиц, и прекратил производство по делу. Решения нижестоящих инстанций отменены в связи с прекращением производства, повторное обращение по тому же спору не допускается.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 17857,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "cassation",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "1feae60b64a7f3f23fb7b34db13cedefd3b3e1717d262512045976703a88f2d9",
+      "raw_chars": 7206,
+      "prepared_chars": 7206,
+      "source_url": "https://7kas.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12228378&case_uid=d9d6849f-58b1-4cdc-9e84-5114a89a38d4&delo_id=2800001&new=2800001",
+      "court_domain": "7kas.sudrf.ru",
+      "received_at": "2026-11-09T01:27:20+00:00",
+      "case_number": "8Г-13272/2026",
+      "stage": "cassation",
+      "judicial_uid": "66RS0036-01-2025-001024-15",
+      "identity_check": "matched_uid",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-09T03:45:46+00:00"
   }
 }
