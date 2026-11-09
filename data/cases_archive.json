@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-09T08:30:29+05:00",
+  "updated_at": "2026-11-09T03:45:55+00:00",
   "cases": [
     {
       "id": "9-211/2026",
@@ -6382,7 +6382,29 @@
         "act_decision_date": "08.10.2026",
         "act_notification_kind": "new_publication",
         "act_source_url": "https://7kas.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12228378&case_uid=d9d6849f-58b1-4cdc-9e84-5114a89a38d4&delo_id=2800001&new=2800001",
-        "act_received_at": "2026-11-09T01:27:20+00:00"
+        "act_received_at": "2026-11-09T01:27:20+00:00",
+        "act_analysis": {
+          "html": "<p><b>Почему:</b> Суд принял отказ истца от иска, так как он не противоречит закону и не нарушает права других лиц, и прекратил производство по делу. Решения нижестоящих инстанций отменены в связи с прекращением производства, повторное обращение по тому же спору не допускается.</p>",
+          "source": "llm_summary",
+          "act_date": "08.10.2026",
+          "generated_at": "2026-11-09T03:45:44+00:00",
+          "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+          "source_hash": "1feae60b64a7f3f23fb7b34db13cedefd3b3e1717d262512045976703a88f2d9",
+          "preparation": {
+            "version": "full-act-v1",
+            "source_hash": "1feae60b64a7f3f23fb7b34db13cedefd3b3e1717d262512045976703a88f2d9",
+            "raw_chars": 7206,
+            "prepared_chars": 7206,
+            "source_url": "https://7kas.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12228378&case_uid=d9d6849f-58b1-4cdc-9e84-5114a89a38d4&delo_id=2800001&new=2800001",
+            "court_domain": "7kas.sudrf.ru",
+            "received_at": "2026-11-09T01:27:20+00:00",
+            "case_number": "8Г-13272/2026",
+            "stage": "cassation",
+            "judicial_uid": "66RS0036-01-2025-001024-15",
+            "identity_check": "matched_uid",
+            "status": "ready"
+          }
+        }
       },
       "initial_bank_role": "Истец",
       "archived_at": "2026-11-09"
