@@ -3734,5 +3734,101 @@
       "status": "ready"
     },
     "generated_at": "2026-11-10T03:46:01+00:00"
+  },
+  "8b304171e5ffcb17": {
+    "summary": "Суд подтвердил подсудность дела Верх-Исетскому районному суду, так как предмет спора — требование потребителя о расторжении договора участия в долевом строительстве, а не о праве на недвижимое имущество, что привлекает альтернативную подсудность по месту жительства истца (ч. 7 ст. 29 ГПК РФ). Исключительная подсудность по месту нахождения недвижимости (ч. 1 ст. 30 ГПК РФ) не применяется, поскольку переход права собственности не является самостоятельным требованием, а выбор суда принадлежит потребителю как более слабой стороне.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 21714,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "af5a314659789b1d551b135480a28f0cbb4bb83ae481a2a6a12479658851398b",
+      "raw_chars": 9114,
+      "prepared_chars": 9114,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22533736&case_uid=3da40763-71d8-42af-9ba3-41f50eeb3ef3&delo_id=5&new=5",
+      "court_domain": "",
+      "received_at": "2026-11-11T01:18:45+00:00",
+      "case_number": "33-14182/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-11T03:45:36+00:00"
+  },
+  "f1cb25be2c15a223": {
+    "summary": "Решение первой инстанции отменено безусловно из-за нарушения процессуального права: ответчик не был извещен о дне вынесения заочного решения (05.05.2026), хотя извещение о заседании 04.05.2026 было направлено. По существу, Фонд, исполнивший поручительство за должника, приобрел права кредитора по ст. 365, 387 ГК РФ и вправе требовать возврата выплаченных 38 181 818 руб. 19 коп. от сопоручителя Валиева, не ссылаясь на субсидиарность своей ответственности перед банком.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 40522,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "b9e5179edb92b04bbef2f13c7b8be6ece2731edad85a25fd6e6b9ede475fc8f1",
+      "raw_chars": 19592,
+      "prepared_chars": 19592,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22486331&case_uid=ec7f80c6-d721-4e6b-974f-e5857a4d763c&delo_id=5&new=5",
+      "court_domain": "oblsud--svd.sudrf.ru",
+      "received_at": "2026-11-11T01:07:20+00:00",
+      "case_number": "33-13982/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-11T03:45:43+00:00"
+  },
+  "5aa66b5366204644": {
+    "summary": "Судебная коллегия оставила акты в силе, так как кредитные договоры были заключены путем введения истецом кодов-паролей из SMS на его номер, что является допустимым аналогом подписи по ст. 160 ГК РФ и договору банковского обслуживания. Суд признал, что истец добровольно предоставил третьим лицам доступ к телефону и приложению, а банк не имел оснований усомниться в волеизъявлении клиента при отсутствии признаков недобросовестности по ст. 307 ГК РФ и Признакам ОД-2525.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 49408,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "cassation",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "d64d0738b516f4a53e29b7916d14545eeb055cad9795e6642586634228712a82",
+      "raw_chars": 24578,
+      "prepared_chars": 24578,
+      "source_url": "https://7kas.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12357081&case_uid=ea0b65e7-0629-4ffc-a8a7-50e1ac9d7c98&delo_id=2800001&new=2800001",
+      "court_domain": "7kas.sudrf.ru",
+      "received_at": "2026-11-11T01:20:37+00:00",
+      "case_number": "8Г-14426/2026",
+      "stage": "cassation",
+      "judicial_uid": "66RS0021-01-2025-001141-71",
+      "identity_check": "matched_uid",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-11T03:45:50+00:00"
   }
 }
