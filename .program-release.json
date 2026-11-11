@@ -1,5 +1,5 @@
 {
-  "baseline_sha256": "55246ac7ef5cb910dd2badc362f44ae94adb98900d1520ceceabeac690782a8f",
+  "baseline_sha256": "954f60a0969428ba8cfa1872fa28819703fc350034ab4206dff5711e57c49b13",
   "files": {
     ".github/workflows/add_cases.yml": {
       "mode": "100644",
@@ -469,6 +469,10 @@
       "mode": "100644",
       "sha256": "e144529a55e1ef4daf7de016d23ef9dd75cacb4ee0a5c86be7d6c8d96aad237b"
     },
+    "scripts/court_monitor/act_anchor.py": {
+      "mode": "100644",
+      "sha256": "64dbe0ca6589f876bb3548554b01f079b541fdb864eceda74027e8e7c87e90ec"
+    },
     "scripts/court_monitor/act_preparation.py": {
       "mode": "100644",
       "sha256": "bf44d47ad9d5015abc2cba110b61713ba9a900baf7a327d1c61a3d75a43e331d"
@@ -483,7 +487,7 @@
     },
     "scripts/court_monitor/act_watch_policy.py": {
       "mode": "100644",
-      "sha256": "b5ddf8d8452f784b0c2fdbfb78afd60f7e6ea97025e502a6cf5ca603549403af"
+      "sha256": "e6813b79df74a10302f147e54855e329b0db407d793e3fb1c63eb172bfc69d34"
     },
     "scripts/court_monitor/appeal_act_watch.py": {
       "mode": "100644",
@@ -511,7 +515,7 @@
     },
     "scripts/court_monitor/card_refresh.py": {
       "mode": "100644",
-      "sha256": "d5137c709b06995babe2ca630ee89b2839432207e471cd1cc670a6feb52c68c9"
+      "sha256": "d0487b707c182d290267aa5dd152c2177a1fb9682bb9089bd2d84b46968587ac"
     },
     "scripts/court_monitor/cassation_lookup.py": {
       "mode": "100644",
@@ -571,7 +575,7 @@
     },
     "scripts/court_monitor/fi_act_watch.py": {
       "mode": "100644",
-      "sha256": "a4281e5ce07801a58b25d28a9814dc238f18aca49670b333d770c231223f8c17"
+      "sha256": "cc182ae490d1c6ea3ac4e2537631cf1a753d5ca05ea2292a530415cab0ec96d7"
     },
     "scripts/court_monitor/fi_identity.py": {
       "mode": "100644",
@@ -663,7 +667,7 @@
     },
     "scripts/court_monitor/runs.py": {
       "mode": "100644",
-      "sha256": "61cae5c6c5902c68288254d270727f65f3f2aa985574e6712ff0a0a8845d09b3"
+      "sha256": "cee293787667722ec52c24be0952a3da5d514f882d45266ce253399633e0ca25"
     },
     "scripts/court_monitor/storage.py": {
       "mode": "100644",
@@ -693,9 +697,13 @@
       "mode": "100644",
       "sha256": "d204d7c4e1130ca91ae6515816ff9f37d45fb7c5eaa1cafb542f944437a5f875"
     },
+    "scripts/court_monitor/watch_repair.py": {
+      "mode": "100644",
+      "sha256": "a1408a7d6245d3881c9ee430fd4b7879addb5fa18cbe2b4e29f0836aae1fdfe8"
+    },
     "scripts/court_monitor/writ_watch.py": {
       "mode": "100644",
-      "sha256": "fe4897eb260f839466e3dce5ec0d0fd27a77f98ad70f1061b14b51d66d7bb355"
+      "sha256": "a883dcef82f40e256e258a830b24b218f20865bf93224101aa80de02d47b1d8e"
     },
     "scripts/find_cassation_orphans.py": {
       "mode": "100644",
@@ -772,6 +780,10 @@
     "scripts/program_release.py": {
       "mode": "100644",
       "sha256": "6763126069cbf642e64eb5c9556195ab2674e4c3794a8b8ebf200e4175f87e91"
+    },
+    "scripts/reconcile_watch_queues.py": {
+      "mode": "100644",
+      "sha256": "37a5cceda57156130f33f0962bcd011c4265e64096e4690c2187e81cfe69afee"
     },
     "scripts/refresh_doc_anchors.py": {
       "mode": "100644",
@@ -1007,7 +1019,7 @@
     },
     "scripts/tests/test_card_refresh.py": {
       "mode": "100644",
-      "sha256": "5a53f0f81644efc875ef2c78b5b4c2fc91d54bdfdac9d63898156f84c934d485"
+      "sha256": "af8954bbcbf182026137a401b09c299d383c6606aac1f396743920264ba139b8"
     },
     "scripts/tests/test_card_reuse.py": {
       "mode": "100644",
@@ -1397,6 +1409,10 @@
       "mode": "100644",
       "sha256": "c8dfeafe4bde8c8a308f205cff92e2fd50a9957ae7844d448b85ae74ce764264"
     },
+    "scripts/tests/test_watch_repair.py": {
+      "mode": "100644",
+      "sha256": "e9af28ea24954a10642f8a07e5bd1433281e21fc8e2ee271ab746f087e62441f"
+    },
     "scripts/tests/test_watchlist_profiles.py": {
       "mode": "100644",
       "sha256": "bbae572185c5f4dc547626e75d3a4dc9923aee0a45b7feb228a5019405537bb1"
@@ -1481,11 +1497,11 @@
     "exports/"
   ],
   "region": "sverdlovsk_yanao",
-  "release_id": "ad04cd349cb8f3dc1f8913f4097d3bfb04806587b6347f0f69b18b489ef98c75",
+  "release_id": "fc86ddedcd0aab53bf2619aa9dabbc6ef0bcaa717f589ae81483b353994ffe6b",
   "repository": "SelivanovAS/dashboard-ural",
   "schema_version": 1,
   "site_url": "https://selivanovas.github.io/dashboard-ural/sberbank_dashboard.html",
-  "source_commit": "cee56b8803591c9160dd8db5aea02cadfd2bcb43",
+  "source_commit": "39372b57219a949a774d0663da5ff7d2023b0655",
   "source_repo": "SelivanovAS/dashboard",
   "vps_path": "/opt/court-monitor/dashboard-ural"
 }
