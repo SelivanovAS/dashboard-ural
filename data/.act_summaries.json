@@ -3830,5 +3830,101 @@
       "status": "ready"
     },
     "generated_at": "2026-11-11T03:45:50+00:00"
+  },
+  "5abfedc3629de7fd": {
+    "summary": "Судебная коллегия подтвердила недействительность договора микрозайма по ст. 179 ГК РФ, так как причиной заключения сделки стал обман мошенников, а не воля истца, а профессиональный кредитор не обеспечил должную идентификацию и контроль за подозрительными переводами. Доводы ответчика о надлежащей аутентификации через АО «Банк Синара» и нарушении правил ЭДО истцом отклонены за отсутствием доказательств: в деле нет распечаток СМС, соглашений об аналоге подписи или реестров займов, подтверждающих корректную идентификацию.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 41868,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "c86ea6a591ceb7033e6a2a54f341be656a8e50aed96f5c5a60bf9a4c11d475ab",
+      "raw_chars": 20050,
+      "prepared_chars": 20050,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22766634&case_uid=038bd4fc-9283-4807-9b2e-56a184e18ac2&delo_id=5&new=5",
+      "court_domain": "",
+      "received_at": "2026-11-12T01:51:01+00:00",
+      "case_number": "33-15246/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-12T03:45:42+00:00"
+  },
+  "aee7781274ea74a5": {
+    "summary": "Срок подачи частной жалобы пропущен без уважительных причин, так как ответчик не представил доказательств обстоятельств, объективно препятствовавших обжалованию в установленный законом срок. Устранение недостатков оформления предыдущей жалобы не было произведено в процессуальный срок, что является основанием для возвращения повторной жалобы.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 25360,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "d54c2807be4b1e0e328b2a7a68efb3bb2b0a7e46400a32535b5744febc263d5f",
+      "raw_chars": 11104,
+      "prepared_chars": 11104,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22876218&case_uid=3cad4e04-64a8-4309-8cb5-442e3d7a7407&delo_id=5&new=5",
+      "court_domain": "",
+      "received_at": "2026-11-12T01:52:05+00:00",
+      "case_number": "33-15712/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-12T03:45:46+00:00"
+  },
+  "454d77a2c5d10747": {
+    "summary": "Суд отказал в удовлетворении иска о неосновательном обогащении, так как истец добровольно и неоднократно перечислял деньги ответчику в рамках совместной коммерческой деятельности, а не в долг. Истец не доказал возвратность средств и не опроверг версию ответчика о бизнес-целях переводов, поэтому суды правомочно квалифицировали их как исполнение обязательств по устным договорам.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 16911,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "cassation",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "a01e0a8c109e96b129f86d63453e17d8a1f8d8a3e10a84362e8786cb610999dd",
+      "raw_chars": 6456,
+      "prepared_chars": 6456,
+      "source_url": "https://7kas.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=15871397&case_uid=1c96aa65-af33-4a63-bad3-738fb13de40b&delo_id=2800001&new=2800001",
+      "court_domain": "7kas.sudrf.ru",
+      "received_at": "2026-11-12T01:51:54+00:00",
+      "case_number": "8Г-16031/2026",
+      "stage": "cassation",
+      "judicial_uid": "03RS0007-01-2024-010478-66",
+      "identity_check": "matched_uid",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-12T03:45:54+00:00"
   }
 }
