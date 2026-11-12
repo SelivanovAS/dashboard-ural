@@ -31,6 +31,27 @@ def test_source_accepts_only_case_numbers_confirmed_by_card_metadata():
                        dict(official, judicial_uid='86RS0004-01-2024-013180-99')).status == 'uid_mismatch'
 
 
+def test_current_appeal_number_in_header_docket_list():
+    text = ('УИД 03RS0028-01-2025-000279-78\n№ 2-340/2025\n'
+            '(№ 33-206/2025; № 33-20652/2026)\n' + ACT.replace('33-700/2026', '33-20652/2026'))
+    meta = dict(META, case_number='33-20652/2026', judicial_uid='03RS0028-01-2025-000279-78')
+    assert prepare_act(text, meta).status == 'ready'
+    assert prepare_act(text, dict(meta, case_number='33-999/2026')).status == 'case_mismatch'
+    assert prepare_act(text, dict(meta, judicial_uid='03RS0028-01-2025-000279-99')).status == 'uid_mismatch'
+    assert prepare_act(text, dict(meta, source_url='https://other.sudrf.ru/act')).status == 'court_mismatch'
+
+
+@pytest.mark.parametrize('reference', [
+    'Ранее рассмотрено дело 33-20652/2026.',
+    '(ранее дело № 33-206/2025; теперь № 33-20652/2026)',
+    'Суд исследовал материалы (№ 33-206/2025; № 33-20652/2026)',
+    '(№ 33-20652/2026)',
+])
+def test_narrative_number_does_not_override_mismatched_header(reference):
+    text = ACT.replace('33-700/2026', '33-206/2025') + '\n' + reference
+    assert prepare_act(text, dict(META, case_number='33-20652/2026')).status == 'case_mismatch'
+
+
 @pytest.mark.parametrize('heading', ['РЕШИЛ', 'Р Е Ш И Л', 'PЕШИЛ:', 'РЕШИЛ:'])
 def test_full_act_standalone_operative_heading(heading):
     text = (('РЕШЕНИЕ. Суд исследовал доказательства. ' * 15).strip() + '\n\n' + heading
@@ -57,6 +78,40 @@ def setup(monkeypatch, tmp_path):
     monkeypatch.setattr(config, 'LLM_SUMMARY_PROVIDER_FALLBACK', True)
     monkeypatch.setattr(llm.time, 'sleep', lambda _: None)
     return monkeypatch
+
+
+def test_vps_enqueues_without_model_attempt_or_retry_delay_then_github_generates(setup, tmp_path):
+    setup.setattr(config, 'ACT_SUMMARY_PENDING_PATH', str(tmp_path / 'pending.json'))
+    setup.setenv('CM_SUMMARY_GENERATION', '0')
+    setup.setattr(llm, '_call_openrouter_simple', lambda *a, **kw: pytest.fail('VPS must not call model'))
+    setup.setattr(llm, '_fits_context', lambda *a, **kw: (True, {}))
+    assert queue.summarize_tracked(ACT, case_meta=META) is None
+    job = next(iter(queue._load().values()))
+    assert job['status'] == 'pending' and job['runs'] == 0 and 'retry_after' not in job
+    assert job['text'] == ACT and job['executor'] == 'github'
+    setup.setenv('CM_SUMMARY_GENERATION', '1')
+    setup.setenv('GITHUB_ACTIONS', 'true')
+    setup.setattr(llm, '_call_openrouter_simple', lambda *a, **kw: llm._ModelText(GOOD, 'test-model'))
+    assert queue.summarize_tracked(ACT, case_meta=META) == GOOD
+    job = next(iter(queue._load().values()))
+    assert job['status'] == 'ready' and job['executor'] == 'github' and job['runs'] == 1
+    setup.setenv('CM_SUMMARY_GENERATION', '0')
+    assert queue.summarize_tracked(ACT, case_meta=META) == GOOD
+    assert next(iter(queue._load().values()))['runs'] == 1
+
+
+def test_vps_imports_old_cache_with_result_date_without_attempt(setup, tmp_path):
+    setup.setattr(config, 'ACT_SUMMARY_PENDING_PATH', str(tmp_path / 'pending.json'))
+    setup.setattr(llm, '_fits_context', lambda *a, **kw: (True, {}))
+    setup.setattr(llm, '_call_openrouter_simple', lambda *a, **kw: llm._ModelText(GOOD, 'test-model'))
+    assert llm.summarize_act_motivation(ACT, case_meta=dict(META)) == GOOD
+    setup.setenv('CM_SUMMARY_GENERATION', '0')
+    setup.setattr(llm, '_call_openrouter_simple', lambda *a, **kw: pytest.fail('Cache must avoid API'))
+    assert queue.summarize_tracked(ACT, case_meta=META) == GOOD
+    job = next(iter(queue._load().values()))
+    assert job['status'] == 'ready' and job['runs'] == 0
+    assert datetime.fromisoformat(job['updated_at']).tzinfo is not None
+    assert 'retry_after' not in job
 
 
 def test_full_source_and_same_prompt_through_all_providers(setup):
@@ -149,6 +204,36 @@ def test_long_answer_is_not_cut_at_abbreviation_or_partial_reversal(setup):
     assert llm._response_status(answer, ACT, '')[1] == 'answer_too_long'
     short = 'Долг погашен, т.е. обязательство исполнено. Решение отменено только в части расходов.'
     assert llm._clean_summary(short) == short
+
+
+def test_source_confirmed_vehicle_name_does_not_block_russian_summary(setup):
+    text = ACT.replace('Банк просил', 'Исследована стоимость автомобиля Renault\nMaster. Банк просил')
+    answer = 'Долг полностью погашен платежами от продажи автомобиля Renault Master. Оснований для взыскания нет.'
+    setup.setattr(llm, '_call_openrouter_simple', lambda *a, **k: answer)
+    setup.setattr(llm, '_call_gigachat_simple', lambda *a, **k: pytest.fail('No fallback for a valid name'))
+    meta = deepcopy(META)
+    assert llm.summarize_act_motivation(text, case_meta=meta) == answer
+    assert [a['status'] for a in meta['_summary_result']['attempts']] == ['ready']
+    setup.setattr(llm, '_call_openrouter_simple', lambda *a, **k: pytest.fail('Cached summary must be accepted'))
+    assert llm.summarize_act_motivation(text, case_meta=meta) == answer
+    assert meta['_summary_result']['cached'] is True
+
+
+@pytest.mark.parametrize('insertion', [
+    'Toyota Camry', 'Renault Camaro', 'renault master',
+    'Creditный договор', 'lack of доказательств',
+])
+def test_source_name_exception_keeps_code_switching_and_invented_names_blocked(insertion):
+    text = ACT + ' Название автомобиля Renault Master. Credit. lack of.'
+    answer = 'Суд проверил доказательства: ' + insertion + '. Оснований для взыскания не установлено.'
+    assert llm._response_status(answer, text, '') == ('', 'invalid_answer')
+
+
+def test_source_name_exception_does_not_bypass_length_language_or_outcome_guards():
+    text = ACT + ' Renault Master. Credit.'
+    assert not llm.summary_language_ok('Renault Master ' * 10, source=text)
+    assert llm._response_status('Доказательства об автомобиле Renault Master исследованы. ' * 15, text, '')[1] == 'answer_too_long'
+    assert llm._response_status('Иск банка удовлетворен за счёт автомобиля Renault Master.', text, '')[1] == 'outcome_conflict'
 
 
 def test_queue_survives_new_run_updates_card_without_new_event(setup):
