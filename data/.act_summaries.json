@@ -3926,5 +3926,101 @@
       "status": "ready"
     },
     "generated_at": "2026-11-12T03:45:54+00:00"
+  },
+  "b04b8ce63ea4621f": {
+    "summary": "Суд апелляционной инстанции подтвердил отказ в изменении способа исполнения, так как истец не доказал наличие постоянных и неустранимых обстоятельств, препятствующих исполнению решения суда установленным способом. Приостановление исполнительного производства в связи с банкротством должника имеет временный характер и не лишает возможности исполнения решения в будущем, а доказательств невозможности иного исполнения взыскатель не представил.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 31441,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "962b363c63cc4eb377ecf2e5e061acdfe23cb30fde194021ab1b2bd777248af5",
+      "raw_chars": 14472,
+      "prepared_chars": 14472,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22374078&case_uid=17dcffc5-9748-40c8-ab38-7ec816135609&delo_id=5&new=5",
+      "court_domain": "",
+      "received_at": "2026-11-13T01:45:17+00:00",
+      "case_number": "33-13502/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-13T03:45:35+00:00"
+  },
+  "c0c9e12ba7451979": {
+    "summary": "Суд подтвердил, что истец приобрел автомобиль по договору купли-продажи 12.11.2023, оплатил его полностью и получил транспортное средство с документами и ключами, когда запретов на регистрационные действия не существовало. Отсутствие своевременной регистрации в ГИБДД обусловлено объективной технической неисправностью автомобиля и длительным ремонтом, что подтверждается чеками и заказ-нарядами, а доводы банка о недобросовестности приобретателя доказательной базой не подкреплены.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 32222,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "9dba83cc8d0c7e0c923e8c1b55693c0ece0896a440b34c403b71fcc56082160b",
+      "raw_chars": 14794,
+      "prepared_chars": 14794,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22465504&case_uid=340bf6d9-ff33-491d-a575-d1cd548b1908&delo_id=5&new=5",
+      "court_domain": "",
+      "received_at": "2026-11-13T01:46:41+00:00",
+      "case_number": "33-13855/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-13T03:45:40+00:00"
+  },
+  "df0e573afe07269b": {
+    "summary": "Суд подтвердил взыскание задолженности с наследников в пределах стоимости наследственной массы, установив, что ответчики фактически приняли наследство: супруг — путем владения и пользования общей долей в автомобиле, дочь — распорядившись деньгами на счете умершей после её смерти. Довод о несоразмерности процентов отклонён, так как ст. 333 ГК РФ к вознаграждению за пользование кредитом не применяется, а извещение сторон о заседании признано надлежащим ввиду их бездействия при получении почты.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 46260,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "d2809ca72817dfaf2f9f2d0f48d249f30215101da9b33ee67e1c2b0703f197d7",
+      "raw_chars": 22641,
+      "prepared_chars": 22641,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22979329&case_uid=49312a39-9af8-4639-91f7-02ea7f69122e&delo_id=5&new=5",
+      "court_domain": "oblsud--svd.sudrf.ru",
+      "received_at": "2026-11-13T01:07:29+00:00",
+      "case_number": "33-16235/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-13T03:45:50+00:00"
   }
 }
