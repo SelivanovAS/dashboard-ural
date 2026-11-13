@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated_at": "2026-11-13T08:31:12+05:00",
+ "updated_at": "2026-11-13T12:00:55+05:00",
  "sources": {
   "appeal:oblsud--ynao.sudrf.ru": {
    "counts": [
@@ -364,20 +364,20 @@
   }
  },
  "last_run": {
-  "at": "2026-11-13T08:31:12",
+  "at": "2026-11-13T12:00:55",
   "alerts": [],
-  "requests_ok": 4,
+  "requests_ok": 3,
   "requests_failed": 0,
   "requests_retried": 0,
   "cards_breaker_skipped": 0,
   "cards_breaker_unrequested": 0,
   "cards_breaker_recovered": 0,
   "cards_blocked": 0,
-  "cards_read": 2,
+  "cards_read": 1,
   "cards_planned": 11,
   "cards_read_today": 537,
   "cards_planned_today": 546,
-  "daily_attempts": 5,
+  "daily_attempts": 6,
   "instances": {
    "first_instance": {
     "read": 0,
@@ -386,7 +386,7 @@
     "planned_today": 450
    },
    "appeal": {
-    "read": 1,
+    "read": 0,
     "planned": 1,
     "read_today": 64,
     "planned_today": 64
@@ -399,17 +399,17 @@
    }
   },
   "latency": {
-   "n": 4,
-   "p50": 4.0,
-   "p90": 6.2,
-   "max": 6.2
+   "n": 3,
+   "p50": 0.8,
+   "p90": 3.7,
+   "max": 3.7
   },
   "failure_latency": {
    "identity_mismatch": {
     "n": 2,
-    "p50": 0.4,
-    "p90": 5.8,
-    "max": 5.8
+    "p50": 0.8,
+    "p90": 3.7,
+    "max": 3.7
    }
   },
   "fail_kinds": {
@@ -433,8 +433,8 @@
   "courts_with_unrequested": 0,
   "courts_outage": 0,
   "cards_unreachable": 0,
-  "cards_unread_other": 9,
-  "run_deadline_seconds": 3300.0,
+  "cards_unread_other": 10,
+  "run_deadline_seconds": 1500.0,
   "run_deadline_reached": false
  },
  "act_publication_watch": {
@@ -9925,7 +9925,7 @@
  "parsing_backlog": {
   "date": "2026-11-13",
   "region": "sverdlovsk_yanao",
-  "cards_unread": 9,
+  "cards_unread": 10,
   "fi_without_card": 62,
   "candidates_pending": 0,
   "acts_unread": 7,
