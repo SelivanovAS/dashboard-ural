@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated_at": "2026-11-17T08:01:18+05:00",
+ "updated_at": "2026-11-17T08:31:17+05:00",
  "sources": {
   "appeal:oblsud--ynao.sudrf.ru": {
    "counts": [
@@ -364,7 +364,7 @@
   }
  },
  "last_run": {
-  "at": "2026-11-17T08:01:18",
+  "at": "2026-11-17T08:31:17",
   "alerts": [],
   "requests_ok": 4,
   "requests_failed": 0,
@@ -377,7 +377,7 @@
   "cards_planned": 4,
   "cards_read_today": 501,
   "cards_planned_today": 503,
-  "daily_attempts": 4,
+  "daily_attempts": 5,
   "instances": {
    "first_instance": {
     "read": 0,
@@ -400,16 +400,16 @@
   },
   "latency": {
    "n": 4,
-   "p50": 0.5,
-   "p90": 11.5,
-   "max": 11.5
+   "p50": 2.5,
+   "p90": 10.8,
+   "max": 10.8
   },
   "failure_latency": {
    "identity_mismatch": {
     "n": 2,
-    "p50": 0.4,
-    "p90": 0.6,
-    "max": 0.6
+    "p50": 2.5,
+    "p90": 10.8,
+    "max": 10.8
    }
   },
   "fail_kinds": {
