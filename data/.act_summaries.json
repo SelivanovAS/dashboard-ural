@@ -4191,5 +4191,197 @@
       "status": "ready"
     },
     "generated_at": "2026-11-16T03:48:08+00:00"
+  },
+  "e810f7069ee091d1": {
+    "summary": "Суд установил, что истец приобрел автомобиль по договору купли-продажи от 09.04.2023 и с этой даты является его законным владельцем, а должником по исполнительным производствам является только продавец. Поскольку в силу ст. 80 ФЗ № 229-ФЗ арест может быть наложен исключительно на имущество должника, наложенные запреты на чужое имущество нарушают права собственника и подлежат отмене.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 21482,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "first_instance",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "82398a33e5ca992e770c16f4e291d293326a7a0663eb1281bd61902707168dc4",
+      "raw_chars": 8984,
+      "prepared_chars": 8984,
+      "source_url": "https://oktiabrsky--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=590404798&case_uid=71c9d1b5-b298-45df-9003-8bfc7bd9d8d9&delo_id=1540005&new=0",
+      "court_domain": "oktiabrsky--svd.sudrf.ru",
+      "received_at": "2026-11-17T01:28:18+00:00",
+      "case_number": "2-3630/2026",
+      "stage": "first_instance",
+      "judicial_uid": "66RS0007-01-2026-002841-94",
+      "identity_check": "matched_uid",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-17T03:45:14+00:00"
+  },
+  "41dfad6de9beb471": {
+    "summary": "Суд отменил взыскание убытков и процентов за удержание средств, так как по постановлению КС РФ № 34-П страховщик не обязан выплачивать сумму, превышающую страховую сумму (400 000 руб.), если не смог организовать ремонт в её пределах, а потерпевший не согласился на доплату. Страховое возмещение уменьшено до 97 680 руб. (разница между лимитом ответственности и уже выплаченными 302 320 руб.), а проценты по ст. 395 ГК РФ исключены, поскольку Закон об ОСАГО не допускает их начисления на несвоевременно выплаченное возмещение.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 58139,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "2bbababf9a731e2c891182bc1ec376db1a87bf2f84efdfbfc1304d51278f8234",
+      "raw_chars": 29641,
+      "prepared_chars": 29641,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22936001&case_uid=e3599584-b302-4eff-b5f1-2d666bf20a03&delo_id=5&new=5",
+      "court_domain": "",
+      "received_at": "2026-11-17T01:47:01+00:00",
+      "case_number": "33-16026/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-17T03:45:28+00:00"
+  },
+  "3591818f193efb09": {
+    "summary": "Апелляционный суд подтвердил взыскание ущерба без учёта износа на основании заключения судебной экспертизы, установившей рыночную стоимость восстановительного ремонта в 474 951 руб., и административных материалов, зафиксировавших вину ответчика в ДТП. Доводы жалобы об отказе в допросе эксперта и проведении экспертизы без осмотра ТС отклонены: эксперт правомерно исследовал материалы дела, так как истец продал автомобиль, а ответчик не явился на осмотр и не оспорил характер повреждений.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 74063,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "af4d46258f022831a3e046d16caeff5419e9ce81c1f28f1252502665e61e08af",
+      "raw_chars": 37935,
+      "prepared_chars": 37935,
+      "source_url": "https://oblsud--ynao.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12709124&case_uid=03f44d1d-a5c6-42c4-8ba2-15b3596d6b5d&delo_id=5&new=5",
+      "court_domain": "oblsud--ynao.sudrf.ru",
+      "received_at": "2026-11-17T01:07:01+00:00",
+      "case_number": "33-2604/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-17T03:45:39+00:00"
+  },
+  "a4b30b34132f9e7b": {
+    "summary": "Апелляционный суд подтвердил взыскание процентов за пользование чужими средствами, так как неисполнение вступившего в силу решения о взыскании 823 510 руб. образует просрочку, а ответчик не доказал обстоятельств, освобождающих от ответственности, в том числе непреодолимой силы или вины кредитора. Доводы о двойном аресте и невозможности перечисления заработной платы из-за очередности платежей отклонены: на счетах должника были средства, а он не предпринял действий по отмене обеспечительных мер, а удержанные суммы были возвращены ему, а не перечислены взыскателю.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 44435,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "c528a06aeb7e90ae0578e893689255ece6e8f026f22fb9230c220080dc3dd03e",
+      "raw_chars": 21832,
+      "prepared_chars": 21832,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=23083337&case_uid=979e96ea-8b8a-442c-935b-f76418177ad2&delo_id=5&new=5",
+      "court_domain": "oblsud--svd.sudrf.ru",
+      "received_at": "2026-11-17T01:05:11+00:00",
+      "case_number": "33-16689/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-17T03:45:49+00:00"
+  },
+  "a5b79c6a9f2e9542": {
+    "summary": "Суды неправильно применили нормы о защите прав потребителей, расценив накопленное время ремонта подержанного автомобиля с истекшей гарантией как самостоятельное основание для расторжения договора, не установив производственный характер недостатков. Истец не доказал наличие существенного недостатка или его возникновения до передачи автомобиля, а суды не разъяснили стороны о бремени доказывания и не назначили экспертизу.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 38813,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "cassation",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "cf29fbe763ed3110323ac41b47ceaeed393851f7dc577b92caa716df1eb570fc",
+      "raw_chars": 18393,
+      "prepared_chars": 18393,
+      "source_url": "https://7kas.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=14551312&case_uid=fcf47736-ccd0-47f2-8513-9dad0af49b6e&delo_id=2800001&new=2800001",
+      "court_domain": "7kas.sudrf.ru",
+      "received_at": "2026-11-17T01:53:05+00:00",
+      "case_number": "8Г-15709/2026",
+      "stage": "cassation",
+      "judicial_uid": "66RS0022-01-2025-001025-75",
+      "identity_check": "matched_uid",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-17T03:46:05+00:00"
+  },
+  "6e84fb5cb194e4fd": {
+    "summary": "Судебная коллегия подтвердила отказ в прекращении обязательств, так как кредитные договоры были заключены заемщиком после вступления в силу контракта о военной службы и начала участия в СВО, а ст. 2 ФЗ № 377-ФЗ распространяет льготный механизм только на договоры, заключенные до возникновения статуса военнослужащего. Доводы прокурора о буквальном толковании закона отклонены как не соответствующие установленным судебной практике критериям применения нормы.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 35447,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "cassation",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "1eddb67227955021571076fc234f6e24f74c36bc3f4f3988688ba05653871420",
+      "raw_chars": 16655,
+      "prepared_chars": 16655,
+      "source_url": "https://7kas.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=14572569&case_uid=123bebb5-ccd6-4243-8f1d-054f57c970b0&delo_id=2800001&new=2800001",
+      "court_domain": "7kas.sudrf.ru",
+      "received_at": "2026-11-17T01:53:35+00:00",
+      "case_number": "8Г-15898/2026",
+      "stage": "cassation",
+      "judicial_uid": "89RS0001-01-2026-000986-67",
+      "identity_check": "matched_uid",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-17T03:46:21+00:00"
   }
 }
