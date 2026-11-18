@@ -4383,5 +4383,165 @@
       "status": "ready"
     },
     "generated_at": "2026-11-17T03:46:21+00:00"
+  },
+  "73ab39df19a40f39": {
+    "summary": "Суд отменил решение в части взыскания с поручителя Логинова П.В. и прекратил производство по делу, так как он умер 21.11.2021, то есть до подачи иска 22.02.2022, и на момент возбуждения дела не обладал процессуальной правоспособностью. Процессуальное правопреемство по ст. 44 ГПК РФ недопустимо, поскольку умерший не мог быть стороной процесса изначально, а банк сохраняет право предъявить требования к наследникам или к наследственному имуществу.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 28766,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "6d593aec877f385765ec67eb371dd1e9cc06a8a8b6596200d2f32d737a8d3c51",
+      "raw_chars": 13287,
+      "prepared_chars": 13287,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22742768&case_uid=192479fd-d6f6-490e-ac3f-7998f8eeeef5&delo_id=5&new=5",
+      "court_domain": "",
+      "received_at": "2026-11-18T01:35:54+00:00",
+      "case_number": "33-15142/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-18T03:45:19+00:00"
+  },
+  "5c613224fd2f290a": {
+    "summary": "Апелляционный суд признал заключение судебной экспертизы достоверным и полным, так как эксперт использовал федеральный справочник корректировок при отсутствии локальных данных, обосновал выбор аналогов и методов расчета убытков, а нарушений закона или методологических ошибок не выявлено. Оснований для назначения повторной экспертизы нет, поскольку доводы жалобы о неверном применении коэффициентов Омской области и неучтенных убытках не подтвердились материалами дела и пояснениями эксперта.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 60937,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "394a9bd253229549ff33e79614f147541c1be690e48040160f40e31ed28c60c7",
+      "raw_chars": 30292,
+      "prepared_chars": 30292,
+      "source_url": "https://oblsud--ynao.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12750028&case_uid=33427c7b-0b91-4cfd-aaa0-d03875905a5a&delo_id=5&new=5",
+      "court_domain": "oblsud--ynao.sudrf.ru",
+      "received_at": "2026-11-18T01:03:47+00:00",
+      "case_number": "33-2866/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-18T03:45:34+00:00"
+  },
+  "2cd8163160bb5b48": {
+    "summary": "Кассационный суд подтвердил обязанность банка разблокировать счета, так как ответчик не представил доказательств направления клиенту запросов о конкретных сомнительных операциях и требовании документов, подтверждающих их экономическую целесообразность. Доводы жалобы направлены на переоценку доказательств, что недопустимо в кассационном порядке.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 27778,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "cassation",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "7930d7d7c49e59fa0ef93dfe99be6ddcce25db078516a8d8c1681074e2b863e2",
+      "raw_chars": 12386,
+      "prepared_chars": 12386,
+      "source_url": "https://7kas.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=13925066&case_uid=b55c6cab-34ae-4ac6-8ef0-fbb40e6f57a4&delo_id=2800001&new=2800001",
+      "court_domain": "7kas.sudrf.ru",
+      "received_at": "2026-11-18T01:37:06+00:00",
+      "case_number": "8Г-14832/2026",
+      "stage": "cassation",
+      "judicial_uid": "66RS0020-01-2025-000259-54",
+      "identity_check": "matched_uid",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-18T03:45:43+00:00"
+  },
+  "423ce812989df02e": {
+    "summary": "Суд отказал в иске, так как истец не доказал факт принятия наследства ответчиками: юридическое принятие не оформлено, а фактическое — не подтверждено действиями по владению, пользованию или распоряжению наследственным имуществом. Наличие наследственного имущества также не установлено.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 25190,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "first_instance",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "5764dfe16f2338dd1c34c4dd4ea0303daf9923708e27187d8c56f3db3c598e90",
+      "raw_chars": 10927,
+      "prepared_chars": 10927,
+      "source_url": "https://chkalovsky--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=572740878&case_uid=afce0ddd-f7f2-475c-94c1-4d856fec2bb9&delo_id=1540005&new=0",
+      "court_domain": "chkalovsky--svd.sudrf.ru",
+      "received_at": "2026-11-18T02:14:17+00:00",
+      "case_number": "2-4086/2026",
+      "stage": "first_instance",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-18T03:45:55+00:00"
+  },
+  "14cd1fa4808ce570": {
+    "summary": "Суд отказал в иске, так как наследственная масса отсутствует: все наследники отказались от наследства, а имущество в собственности умершей не зарегистрировано. Взыскание долга за счет наследственного имущества невозможно при нулевой его стоимости.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 28130,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "first_instance",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "729b9252ef3657d4f8666d3b382c5e39135e1ea358739a7935b063bc383bcc1e",
+      "raw_chars": 12649,
+      "prepared_chars": 12649,
+      "source_url": "https://chkalovsky--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=593443043&case_uid=fee19b7d-c98d-42c9-8e41-00ff8a88419c&delo_id=1540005&new=0",
+      "court_domain": "chkalovsky--svd.sudrf.ru",
+      "received_at": "2026-11-18T02:14:34+00:00",
+      "case_number": "2-6181/2026",
+      "stage": "first_instance",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-18T03:46:05+00:00"
   }
 }
