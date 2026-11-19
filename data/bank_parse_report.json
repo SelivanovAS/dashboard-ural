@@ -4,8 +4,8 @@
   "smart_skip": true,
   "totals": {
     "total": 844,
-    "parsed": 6,
-    "skip": 838,
+    "parsed": 0,
+    "skip": 844,
     "failed": 0,
     "no_card": 0,
     "not_in_queue": 0,
@@ -1399,9 +1399,9 @@
       "last_checked_at": "2026-11-17"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -1417,9 +1417,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -1652,7 +1652,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "breaker",
+      "reason": "run_deadline",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -1670,7 +1670,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "breaker",
+      "reason": "run_deadline",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -2120,7 +2120,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "portal_placeholder",
+      "reason": "daily_retry_limit",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -2480,7 +2480,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "portal_placeholder",
+      "reason": "daily_retry_limit",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -2714,7 +2714,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "breaker",
+      "reason": "run_deadline",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -2948,7 +2948,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "breaker",
+      "reason": "run_deadline",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -2984,7 +2984,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "portal_placeholder",
+      "reason": "daily_retry_limit",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -3002,7 +3002,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "breaker",
+      "reason": "run_deadline",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -3290,7 +3290,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "breaker",
+      "reason": "run_deadline",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -3344,7 +3344,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "breaker",
+      "reason": "run_deadline",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -3379,9 +3379,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -3488,7 +3488,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "portal_placeholder",
+      "reason": "daily_retry_limit",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -3524,7 +3524,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "breaker",
+      "reason": "run_deadline",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -3740,7 +3740,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "breaker",
+      "reason": "run_deadline",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -3794,7 +3794,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "breaker",
+      "reason": "run_deadline",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -4171,9 +4171,9 @@
       "last_checked_at": "2026-11-17"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -5162,7 +5162,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "portal_placeholder",
+      "reason": "daily_retry_limit",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -5846,7 +5846,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "portal_placeholder",
+      "reason": "daily_retry_limit",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -6368,7 +6368,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "portal_placeholder",
+      "reason": "daily_retry_limit",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -6872,7 +6872,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "portal_placeholder",
+      "reason": "daily_retry_limit",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -7232,7 +7232,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "portal_placeholder",
+      "reason": "daily_retry_limit",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -7394,7 +7394,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "portal_placeholder",
+      "reason": "daily_retry_limit",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -7592,7 +7592,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "portal_placeholder",
+      "reason": "daily_retry_limit",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -7610,7 +7610,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "portal_placeholder",
+      "reason": "daily_retry_limit",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -7933,9 +7933,9 @@
       "last_checked_at": "2026-11-18"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8492,7 +8492,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "portal_placeholder",
+      "reason": "daily_retry_limit",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -8563,9 +8563,9 @@
       "last_checked_at": "2026-11-17"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9266,7 +9266,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "portal_placeholder",
+      "reason": "daily_retry_limit",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -10202,7 +10202,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "breaker",
+      "reason": "run_deadline",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -10274,7 +10274,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "portal_placeholder",
+      "reason": "daily_retry_limit",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -10544,7 +10544,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "portal_placeholder",
+      "reason": "daily_retry_limit",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -10724,7 +10724,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "http_504",
+      "reason": "daily_retry_limit",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -10868,7 +10868,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "portal_placeholder",
+      "reason": "daily_retry_limit",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -11156,7 +11156,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "portal_placeholder",
+      "reason": "daily_retry_limit",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -11228,7 +11228,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "breaker",
+      "reason": "run_deadline",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -11282,7 +11282,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "portal_placeholder",
+      "reason": "daily_retry_limit",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -11318,7 +11318,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "breaker",
+      "reason": "run_deadline",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -11804,7 +11804,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "portal_placeholder",
+      "reason": "daily_retry_limit",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -12182,7 +12182,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "breaker",
+      "reason": "run_deadline",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -12218,7 +12218,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "breaker",
+      "reason": "run_deadline",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -12236,7 +12236,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "portal_placeholder",
+      "reason": "daily_retry_limit",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -12542,7 +12542,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "portal_placeholder",
+      "reason": "daily_retry_limit",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -15098,7 +15098,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "portal_placeholder",
+      "reason": "daily_retry_limit",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -15116,7 +15116,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "portal_placeholder",
+      "reason": "daily_retry_limit",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -15134,7 +15134,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "portal_placeholder",
+      "reason": "daily_retry_limit",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -15152,7 +15152,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "portal_placeholder",
+      "reason": "daily_retry_limit",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -15170,7 +15170,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "breaker",
+      "reason": "run_deadline",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -15188,7 +15188,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "portal_placeholder",
+      "reason": "daily_retry_limit",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -15205,5 +15205,5 @@
       "last_checked_at": "2026-11-13"
     }
   ],
-  "updated_at": "2026-11-19T08:38:47+05:00"
+  "updated_at": "2026-11-19T08:40:34+05:00"
 }
