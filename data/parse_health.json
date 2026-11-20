@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated_at": "2026-11-20T08:31:38+05:00",
+ "updated_at": "2026-11-20T12:01:28+05:00",
  "sources": {
   "appeal:oblsud--ynao.sudrf.ru": {
    "counts": [
@@ -364,29 +364,29 @@
   }
  },
  "last_run": {
-  "at": "2026-11-20T08:31:38",
+  "at": "2026-11-20T12:01:28",
   "alerts": [],
-  "requests_ok": 5,
+  "requests_ok": 4,
   "requests_failed": 0,
   "requests_retried": 0,
   "cards_breaker_skipped": 0,
   "cards_breaker_unrequested": 0,
   "cards_breaker_recovered": 0,
   "cards_blocked": 0,
-  "cards_read": 3,
-  "cards_planned": 6,
-  "cards_read_today": 476,
+  "cards_read": 2,
+  "cards_planned": 5,
+  "cards_read_today": 477,
   "cards_planned_today": 480,
-  "daily_attempts": 4,
+  "daily_attempts": 5,
   "instances": {
    "first_instance": {
     "read": 1,
-    "planned": 4,
-    "read_today": 394,
+    "planned": 3,
+    "read_today": 395,
     "planned_today": 398
    },
    "appeal": {
-    "read": 1,
+    "read": 0,
     "planned": 1,
     "read_today": 53,
     "planned_today": 53
@@ -399,17 +399,17 @@
    }
   },
   "latency": {
-   "n": 5,
-   "p50": 8.9,
-   "p90": 11.0,
-   "max": 11.0
+   "n": 4,
+   "p50": 9.1,
+   "p90": 10.5,
+   "max": 10.5
   },
   "failure_latency": {
    "identity_mismatch": {
     "n": 2,
-    "p50": 0.6,
-    "p90": 9.4,
-    "max": 9.4
+    "p50": 0.8,
+    "p90": 9.1,
+    "max": 9.1
    }
   },
   "fail_kinds": {
@@ -434,7 +434,7 @@
   "courts_outage": 0,
   "cards_unreachable": 0,
   "cards_unread_other": 3,
-  "run_deadline_seconds": 3300.0,
+  "run_deadline_seconds": 1500.0,
   "run_deadline_reached": false
  },
  "act_publication_watch": {
@@ -1045,10 +1045,10 @@
   "date": "2026-11-20",
   "region": "sverdlovsk_yanao",
   "waiting": 455,
-  "due": 4,
-  "planned": 2,
+  "due": 3,
+  "planned": 1,
   "read": 1,
-  "unread": 1,
+  "unread": 0,
   "published": 0,
   "backfilled": 0,
   "unplanned": 25,
@@ -3040,7 +3040,7 @@
     "key": "verhnesaldinsky--svd.sudrf.ru|1540005|1|2-841/2026|2026-10-05",
     "number": "2-841/2026",
     "next_check_at": "2026-11-20",
-    "reason": "retry_cooldown"
+    "reason": "checked"
    },
    {
     "key": "leninskytag--svd.sudrf.ru|1540005|1|2-2053/2026|2026-10-08",
@@ -3831,8 +3831,8 @@
    {
     "key": "leninskyeka--svd.sudrf.ru|1540005|1|2-5323/2026|2026-11-09",
     "number": "2-5323/2026",
-    "next_check_at": "2026-11-20",
-    "reason": "checked"
+    "next_check_at": "2026-11-23",
+    "reason": "scheduled"
    },
    {
     "key": "oktiabrsky--svd.sudrf.ru|1540005|1|2-4140/2026|2026-11-06",
@@ -8342,7 +8342,7 @@
    {
     "key": "leninskyeka--svd.sudrf.ru|1|2-5323/2026|09.11.2026",
     "number": "2-5323/2026",
-    "next_check_at": "2026-11-26",
+    "next_check_at": "2026-11-27",
     "reason": "scheduled"
    },
    {
@@ -9746,31 +9746,23 @@
   "cards_unread": 3,
   "fi_without_card": 64,
   "candidates_pending": 0,
-  "acts_unread": 1,
+  "acts_unread": 0,
   "writs_unread": 0,
   "writs_need_review": 47
  },
  "card_refresh": {
   "date": "2026-11-20",
   "region": "sverdlovsk_yanao",
-  "planned": 2,
+  "planned": 1,
   "read": 1,
   "items": [
-   {
-    "key": "first_instance|https://leninskyeka--svd.sudrf.ru/modules.php?case_id=597258182&case_uid=b16631af-7ef2-409f-a98f-f9acb22ae027&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "text_waiting"
-    ],
-    "reason": "checked"
-   },
    {
     "key": "first_instance|https://verhnesaldinsky--svd.sudrf.ru/modules.php?case_id=596493193&case_uid=de16dae0-3010-4daf-8235-4c1587874346&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
     "stage": "first_instance",
     "reasons": [
      "text_waiting"
     ],
-    "reason": "retry_cooldown"
+    "reason": "checked"
    }
   ],
   "instances": {
@@ -9783,11 +9775,11 @@
     "read": 0
    },
    "first_instance": {
-    "planned": 2,
+    "planned": 1,
     "read": 1
    }
   },
-  "unread": 1
+  "unread": 0
  },
  "technical_card_day": {
   "date": "2026-11-20",
@@ -10204,7 +10196,7 @@
    },
    "first_instance|https://verhnesaldinsky--svd.sudrf.ru/modules.php?case_id=596493193&case_uid=de16dae0-3010-4daf-8235-4c1587874346&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "retry_cooldown"
+    "reason": "checked"
    },
    "first_instance|https://verhnesaldinsky--svd.sudrf.ru/modules.php?case_id=597263377&case_uid=49e398d3-0def-413f-aafe-85e9d960d7cb&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
