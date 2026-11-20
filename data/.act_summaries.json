@@ -4639,5 +4639,69 @@
       "status": "ready"
     },
     "generated_at": "2026-11-19T03:46:18+00:00"
+  },
+  "e51de3c39995f5ba": {
+    "summary": "Апелляционный суд подтвердил законность решения финансового уполномоченного о взыскании платы за услугу «Своя ставка Плюс», признав её не банковской услугой по ст. 779 ГК РФ, а способом согласования ставки по кредиту, взимание за которую платы запрещено ч. 19 ст. 5 ФЗ-353 и п. 1 ст. 16 Закона о защите прав потребителей, что делает условие ничтожным. Одновременно определение изменено: решение уполномоченного объявлено не подлежащим исполнению, так как после его вынесения банк расторг договор пакета и вернул клиенту плату за последний период, не уведомив об этом уполномоченного в срок.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 56383,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "d5f452fc42b936abc3bbca3e9ad944b83590514d28b9cde7b95d8f420c7152f5",
+      "raw_chars": 28649,
+      "prepared_chars": 28649,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22729557&case_uid=09e6ea9e-ff10-4aff-bd4a-863a48a39190&delo_id=5&new=5",
+      "court_domain": "",
+      "received_at": "2026-11-20T02:16:11+00:00",
+      "case_number": "33-15024/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-20T03:45:18+00:00"
+  },
+  "a28c05c4cbe65e15": {
+    "summary": "Апелляционный суд подтвердил отказ в взыскании задолженности за период до признания наследника банкротом 06.10.2025, так как обязательство возникло до введения процедуры банкротства и не относится к текущим платежам. Банк как профессиональный участник рынка имел реальную возможность узнать о банкротстве наследника из открытых источников и защитить свои права, поэтому требования считаются погашенными по итогам процедуры реализации имущества.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 67131,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "0d5a112291fb1bd685f2c143758ffda12fd3d8b32008a4972c60a558649ad21e",
+      "raw_chars": 34615,
+      "prepared_chars": 34615,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22474421&case_uid=f8330519-5b7f-4f31-b968-07e1d2275c28&delo_id=5&new=5",
+      "court_domain": "",
+      "received_at": "2026-11-20T02:23:45+00:00",
+      "case_number": "33-13936/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-20T03:45:30+00:00"
   }
 }
