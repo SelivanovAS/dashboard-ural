@@ -4703,5 +4703,165 @@
       "status": "ready"
     },
     "generated_at": "2026-11-20T03:45:30+00:00"
+  },
+  "0de4a478a5c1562c": {
+    "summary": "Апелляционная инстанция отменила решение в части требований к Сбербанку, так как на дату вынесения заочного решения запрет на регистрационные действия в рамках исполнительного производства, возбужденного в пользу этого банка, уже был снят приставом 11.11.2025 в связи с фактическим исполнением, а исполнительное производство окончено. Первоинстанционный суд ошибочно применил меру к уже несуществующему ограничению, основываясь на данных по другому производству, где запрет был отменён позже.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 35009,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "9a8caaa54a43ba29d566c23763225978338a77204b21c52229ce5784f61200fd",
+      "raw_chars": 16554,
+      "prepared_chars": 16554,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=23085615&case_uid=e3f63b0a-e1b0-4316-8bc8-be539e3b7cb7&delo_id=5&new=5",
+      "court_domain": "oblsud--svd.sudrf.ru",
+      "received_at": "2026-11-23T01:08:03+00:00",
+      "case_number": "33-16718/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-23T03:45:26+00:00"
+  },
+  "4132cd7156fdb219": {
+    "summary": "Апелляционный суд подтвердил вывод первой инстанции о том, что в период с 30.09.2016 по 30.10.2025 платежи по кредиту производились за счет средств несовершеннолетней истца без учета её доли, а ответчик не представил доказательств исполнения обязательств за свой счет. Ссылка ответчика на п. 3 ст. 200 ГК РФ для исключения исковой давности по встречному иску отвергнута как неверное толкование нормы, поскольку основное обязательство по ипотеке не исполнено.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 28342,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "appeal",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "89d0677ea1834c2fc9d45ad67427f350ca95c6d1d306ff382c3fb77c6a0b74fd",
+      "raw_chars": 13107,
+      "prepared_chars": 13107,
+      "source_url": "https://oblsud--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=22958843&case_uid=222788cf-463d-4e2f-b351-791fd1309b5c&delo_id=5&new=5",
+      "court_domain": "",
+      "received_at": "2026-11-23T02:14:32+00:00",
+      "case_number": "33-16131/2026",
+      "stage": "appeal",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-23T03:45:38+00:00"
+  },
+  "cdaf11e0b2c3a36a": {
+    "summary": "Суд отказал в иске, так как наследники не приняли наследство, а имущество наследодателя не выявлено, что делает исполнение обязательства невозможным. Кредитное обязательство прекратилось в силу пункта 1 статьи 416 ГК РФ из-за отсутствия наследственного имущества, из которого можно было бы взыскать долг.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 27068,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "first_instance",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "0025ca97b46b3edf3fb304e0ba482551eee322ac10aed38a7de6363b383f9b27",
+      "raw_chars": 12054,
+      "prepared_chars": 12054,
+      "source_url": "https://chkalovsky--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=568393976&case_uid=53539440-ca40-4ce6-9140-d6bf1bc31f32&delo_id=1540005&new=0",
+      "court_domain": "chkalovsky--svd.sudrf.ru",
+      "received_at": "2026-11-23T02:21:18+00:00",
+      "case_number": "2-3542/2026",
+      "stage": "first_instance",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-23T03:45:51+00:00"
+  },
+  "4c4b1663cc92dc31": {
+    "summary": "Суд отказал в иске, так как наследники не приняли наследство, а наследственное имущество не выявлено, вследствие чего кредитное обязательство прекратилось невозможностью исполнения по ст. 416 ГК РФ. Наследниками не представлены доказательства наличия имущества, перешедшего по наследованию, нотариус подтвердил, что никто из призываемых не обращался за оформлением прав.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 28761,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "first_instance",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "108a5f2d6f1dc3aa327db5e0ee3e27a063eac6d3d093d91e86d34d3515702af4",
+      "raw_chars": 12889,
+      "prepared_chars": 12889,
+      "source_url": "https://chkalovsky--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=589775547&case_uid=5130f544-a4b2-4033-9ade-d79b0ddeded5&delo_id=1540005&new=0",
+      "court_domain": "chkalovsky--svd.sudrf.ru",
+      "received_at": "2026-11-23T02:22:13+00:00",
+      "case_number": "2-5781/2026",
+      "stage": "first_instance",
+      "judicial_uid": "",
+      "identity_check": "header_unavailable",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-23T03:46:09+00:00"
+  },
+  "7845d6843a57565c": {
+    "summary": "Суд отказал в иске, так как наследники не приняли наследство, а имущество наследодателя отсутствует, что делает исполнение обязательства невозможным. Кредитное обязательство прекратилось в силу пункта 1 статьи 416 ГК РФ из-за отсутствия наследственного имущества, из которого можно было бы взыскать долг.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 26385,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "first_instance",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "7bc379d06d8a40100d703af7f2fa0525d591ecb74bd5451349bdc3a551fffb34",
+      "raw_chars": 11687,
+      "prepared_chars": 11687,
+      "source_url": "https://chkalovsky--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=592714411&case_uid=231fad80-a149-48f0-84a5-e243181b41a7&delo_id=1540005&new=0",
+      "court_domain": "chkalovsky--svd.sudrf.ru",
+      "received_at": "2026-11-23T02:22:35+00:00",
+      "case_number": "2-5943/2026",
+      "stage": "first_instance",
+      "judicial_uid": "",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-23T03:46:22+00:00"
   }
 }
