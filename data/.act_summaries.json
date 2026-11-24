@@ -4863,5 +4863,37 @@
       "status": "ready"
     },
     "generated_at": "2026-11-23T03:46:22+00:00"
+  },
+  "5060fabaadc04fb7": {
+    "summary": "Суд отказал в иске, так как не установил наличие наследственного имущества после смерти заемщика: на его имени не зарегистрировано транспортных средств, недвижимости и денежных средств на счетах. Допустимых доказательств обратного истец не представил.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 25983,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "first_instance",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "1f03aa9e5fc6d841982205ef7e64076a632bd72863619354e429416e2eaac752",
+      "raw_chars": 11477,
+      "prepared_chars": 11477,
+      "source_url": "https://dzerzhinsky--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=575982697&case_uid=51338489-424d-4128-bf79-9705787cace8&delo_id=1540005&new=0",
+      "court_domain": "dzerzhinsky--svd.sudrf.ru",
+      "received_at": "2026-11-24T02:25:33+00:00",
+      "case_number": "2-1243/2026",
+      "stage": "first_instance",
+      "judicial_uid": "66RS0008-01-2026-001201-14",
+      "identity_check": "matched_header",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-24T03:45:33+00:00"
   }
 }
