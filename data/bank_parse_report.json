@@ -3,17 +3,35 @@
   "run_date": "2026-11-24",
   "smart_skip": true,
   "totals": {
-    "total": 834,
-    "parsed": 118,
-    "skip": 647,
+    "total": 825,
+    "parsed": 83,
+    "skip": 742,
     "failed": 0,
     "no_card": 0,
     "not_in_queue": 0,
-    "intake_new": 1
+    "intake_new": 0
   },
   "cases": [
     {
-      "outcome": "unknown",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
+      "detail": "",
+      "degraded": false,
+      "force_parsed": false,
+      "events": [],
+      "changed": false,
+      "left_track": false,
+      "archived": false,
+      "key": "novourengoysky--ynao.sudrf.ru|М-3392/2026",
+      "number": "М-3392/2026",
+      "court": "Новоуренгойский городской суд",
+      "court_domain": "novourengoysky--ynao.sudrf.ru",
+      "case_status": "В производстве",
+      "last_checked_at": "2026-11-24"
+    },
+    {
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -28,10 +46,10 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -46,17 +64,19 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_accepted_no_hearing"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "gubkinskiy--ynao.sudrf.ru|2-912/2026",
@@ -64,7 +84,7 @@
       "court": "Губкинский районный суд",
       "court_domain": "gubkinskiy--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -85,7 +105,7 @@
       "last_checked_at": "2026-11-20"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -100,7 +120,7 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -157,7 +177,7 @@
       "last_checked_at": "2026-11-13"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -172,10 +192,10 @@
       "court": "Ноябрьский городской суд",
       "court_domain": "noyabrsky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -190,7 +210,7 @@
       "court": "Ноябрьский городской суд",
       "court_domain": "noyabrsky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -229,14 +249,16 @@
       "last_checked_at": "2026-11-13"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_hearing_postponed"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "purovsky--ynao.sudrf.ru|2-879/2026",
@@ -244,7 +266,7 @@
       "court": "Пуровский районный суд",
       "court_domain": "purovsky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-10"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -283,7 +305,7 @@
       "last_checked_at": "2026-11-13"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -298,7 +320,7 @@
       "court": "Ноябрьский городской суд",
       "court_domain": "noyabrsky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -463,7 +485,7 @@
       "last_checked_at": "2026-11-12"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -478,7 +500,7 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -553,14 +575,16 @@
       "last_checked_at": "2026-11-03"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_hearing_new"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "salehardsky--ynao.sudrf.ru|2-2171/2026",
@@ -568,7 +592,7 @@
       "court": "Салехардский городской суд",
       "court_domain": "salehardsky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-28"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -679,14 +703,16 @@
       "last_checked_at": "2026-11-20"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_hearing_postponed"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "novourengoysky--ynao.sudrf.ru|2-3517/2026",
@@ -694,7 +720,7 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -715,8 +741,8 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -730,11 +756,11 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -748,10 +774,10 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -766,7 +792,7 @@
       "court": "Надымский городской суд",
       "court_domain": "nadymsky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-10-21"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -859,8 +885,8 @@
       "last_checked_at": "2026-10-30"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -874,7 +900,7 @@
       "court": "Ноябрьский городской суд",
       "court_domain": "noyabrsky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -913,7 +939,7 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -928,7 +954,7 @@
       "court": "Ноябрьский городской суд",
       "court_domain": "noyabrsky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -1111,8 +1137,8 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -1126,7 +1152,7 @@
       "court": "Ноябрьский городской суд",
       "court_domain": "noyabrsky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -1363,14 +1389,14 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": true,
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "novouralsky--svd.sudrf.ru|2-1410/2026",
@@ -1453,7 +1479,7 @@
       "last_checked_at": "2026-10-14"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -1468,7 +1494,7 @@
       "court": "Верх-Исетский районный суд г. Екатеринбурга",
       "court_domain": "verhisetsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -1615,7 +1641,7 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -1630,11 +1656,11 @@
       "court": "Верхнепышминский городской суд",
       "court_domain": "verhnepyshminsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-17"
+      "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -1648,7 +1674,7 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -1669,8 +1695,8 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -1684,12 +1710,12 @@
       "court": "Ноябрьский городской суд",
       "court_domain": "noyabrsky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -1705,8 +1731,8 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -1720,7 +1746,7 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -1741,7 +1767,7 @@
       "last_checked_at": "2026-11-18"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -1756,11 +1782,11 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -1774,7 +1800,7 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -1813,7 +1839,7 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -1828,7 +1854,7 @@
       "court": "Ноябрьский городской суд",
       "court_domain": "noyabrsky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -1957,9 +1983,9 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -2065,14 +2091,14 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": true,
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "berezovsky--svd.sudrf.ru|2-1537/2026",
@@ -2083,14 +2109,14 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": true,
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "berezovsky--svd.sudrf.ru|2-1534/2026",
@@ -2119,9 +2145,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -2308,24 +2334,6 @@
       "events": [],
       "changed": false,
       "left_track": false,
-      "archived": true,
-      "key": "noyabrsky--ynao.sudrf.ru|2-2103/2026",
-      "number": "2-2103/2026",
-      "court": "Ноябрьский городской суд",
-      "court_domain": "noyabrsky--ynao.sudrf.ru",
-      "case_status": "Решено",
-      "last_checked_at": "2026-11-19"
-    },
-    {
-      "outcome": "skip",
-      "reason": "writ_weekly(5d/7d)",
-      "reason_ru": "иск банка решён, ждём ИЛ/жалобу — опрос раз в 7 дн. (прошло 5)",
-      "detail": "",
-      "degraded": false,
-      "force_parsed": false,
-      "events": [],
-      "changed": false,
-      "left_track": false,
       "archived": false,
       "key": "shuryshkarsky--ynao.sudrf.ru|2-191/2026",
       "number": "2-191/2026",
@@ -2335,9 +2343,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -2390,7 +2398,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "run_deadline",
+      "reason": "http_504",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -2426,7 +2434,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "run_deadline",
+      "reason": "portal_placeholder",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -2659,14 +2667,16 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_hearing_postponed"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "gubkinskiy--ynao.sudrf.ru|2-745/2026",
@@ -2674,7 +2684,7 @@
       "court": "Губкинский районный суд",
       "court_domain": "gubkinskiy--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -2732,7 +2742,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "run_deadline",
+      "reason": "http_504",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -2767,9 +2777,9 @@
       "last_checked_at": "2026-11-11"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -2947,7 +2957,7 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -2962,7 +2972,7 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -3037,9 +3047,9 @@
       "last_checked_at": "2026-11-18"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -3056,7 +3066,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "run_deadline",
+      "reason": "portal_placeholder",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -3091,14 +3101,14 @@
       "last_checked_at": "2026-11-18"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": true,
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "verhisetsky--svd.sudrf.ru|2-5636/2026",
@@ -3181,9 +3191,9 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -3271,9 +3281,9 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -3307,14 +3317,14 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": true,
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "berezovsky--svd.sudrf.ru|2-1460/2026",
@@ -3469,9 +3479,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -3506,7 +3516,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "run_deadline",
+      "reason": "portal_placeholder",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -3703,7 +3713,7 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -3718,11 +3728,11 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -3736,7 +3746,7 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -4045,9 +4055,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -4189,7 +4199,7 @@
       "last_checked_at": "2026-11-20"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -4204,12 +4214,12 @@
       "court": "Артинский районный суд",
       "court_domain": "artinsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -4225,7 +4235,7 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -4240,7 +4250,7 @@
       "court": "Ивдельский городской суд",
       "court_domain": "ivdelsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -4405,7 +4415,7 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -4420,7 +4430,7 @@
       "court": "Тавдинский районный суд",
       "court_domain": "tavdinsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-17"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -4441,9 +4451,9 @@
       "last_checked_at": "2026-10-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -4513,14 +4523,14 @@
       "last_checked_at": "2026-11-20"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": true,
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "suholozhsky--svd.sudrf.ru|2-399/2026",
@@ -4531,8 +4541,8 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -4546,7 +4556,7 @@
       "court": "Нижнесергинский районный суд",
       "court_domain": "nizhneserginsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -4585,22 +4595,25 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_resolved",
+        "fi_status_change"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "nizhneserginsky--svd.sudrf.ru|2-451/2026",
       "number": "2-451/2026",
       "court": "Нижнесергинский районный суд",
       "court_domain": "nizhneserginsky--svd.sudrf.ru",
-      "case_status": "В производстве",
-      "last_checked_at": "2026-10-01"
+      "case_status": "Решено",
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -4711,7 +4724,7 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -4726,7 +4739,7 @@
       "court": "Сысертский районный суд",
       "court_domain": "sysertsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -4819,9 +4832,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -5054,24 +5067,6 @@
     },
     {
       "outcome": "skip",
-      "reason": "writ_weekly(1d/7d)",
-      "reason_ru": "иск банка решён, ждём ИЛ/жалобу — опрос раз в 7 дн. (прошло 1)",
-      "detail": "",
-      "degraded": false,
-      "force_parsed": false,
-      "events": [],
-      "changed": false,
-      "left_track": false,
-      "archived": true,
-      "key": "prigorodny--svd.sudrf.ru|2-508/2026",
-      "number": "2-508/2026",
-      "court": "Пригородный районный суд",
-      "court_domain": "prigorodny--svd.sudrf.ru",
-      "case_status": "Решено",
-      "last_checked_at": "2026-11-23"
-    },
-    {
-      "outcome": "skip",
       "reason": "writ_weekly(6d/7d)",
       "reason_ru": "иск банка решён, ждём ИЛ/жалобу — опрос раз в 7 дн. (прошло 6)",
       "detail": "",
@@ -5125,9 +5120,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -5197,15 +5192,13 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [
-        "fi_writ_status_changed"
-      ],
+      "events": [],
       "changed": false,
       "left_track": false,
       "archived": false,
@@ -5235,9 +5228,9 @@
       "last_checked_at": "2026-11-20"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -5307,9 +5300,9 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -5343,9 +5336,9 @@
       "last_checked_at": "2026-11-20"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -5361,9 +5354,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -5397,16 +5390,14 @@
       "last_checked_at": "2026-11-20"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [
-        "fi_writ_issued"
-      ],
-      "changed": true,
+      "events": [],
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "irbitsky--svd.sudrf.ru|2-795/2026",
@@ -5417,9 +5408,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -5435,9 +5426,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -5453,9 +5444,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -5489,24 +5480,6 @@
       "last_checked_at": "2026-11-13"
     },
     {
-      "outcome": "unknown",
-      "reason": "",
-      "reason_ru": "",
-      "detail": "",
-      "degraded": false,
-      "force_parsed": false,
-      "events": [],
-      "changed": false,
-      "left_track": false,
-      "archived": true,
-      "key": "irbitsky--svd.sudrf.ru|2-684/2026",
-      "number": "2-684/2026",
-      "court": "Ирбитский районный суд",
-      "court_domain": "irbitsky--svd.sudrf.ru",
-      "case_status": "Решено",
-      "last_checked_at": "2026-11-17"
-    },
-    {
       "outcome": "skip",
       "reason": "writ_weekly(5d/7d)",
       "reason_ru": "иск банка решён, ждём ИЛ/жалобу — опрос раз в 7 дн. (прошло 5)",
@@ -5525,9 +5498,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -5561,9 +5534,9 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -5579,9 +5552,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -5651,9 +5624,9 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -5687,9 +5660,9 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -5777,9 +5750,9 @@
       "last_checked_at": "2026-10-29"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -5975,9 +5948,9 @@
       "last_checked_at": "2026-10-02"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -6011,7 +5984,7 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -6026,12 +5999,12 @@
       "court": "Верхнесалдинский районный суд",
       "court_domain": "verhnesaldinsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -6083,9 +6056,9 @@
       "last_checked_at": "2026-11-20"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -6101,9 +6074,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -6119,9 +6092,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -6155,7 +6128,7 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -6170,12 +6143,12 @@
       "court": "Белоярский районный суд",
       "court_domain": "beloyarsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -6191,9 +6164,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -6209,7 +6182,7 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -6224,7 +6197,7 @@
       "court": "Белоярский районный суд",
       "court_domain": "beloyarsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -6282,24 +6255,6 @@
     },
     {
       "outcome": "skip",
-      "reason": "run_deadline",
-      "reason_ru": "",
-      "detail": "",
-      "degraded": false,
-      "force_parsed": false,
-      "events": [],
-      "changed": false,
-      "left_track": false,
-      "archived": true,
-      "key": "kamyshlovsky--svd.sudrf.ru|2-2-246/2026",
-      "number": "2-2-246/2026",
-      "court": "Камышловский районный суд",
-      "court_domain": "kamyshlovsky--svd.sudrf.ru",
-      "case_status": "Решено",
-      "last_checked_at": "2026-11-17"
-    },
-    {
-      "outcome": "skip",
       "reason": "writ_weekly(5d/7d)",
       "reason_ru": "иск банка решён, ждём ИЛ/жалобу — опрос раз в 7 дн. (прошло 5)",
       "detail": "",
@@ -6317,9 +6272,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -6353,9 +6308,9 @@
       "last_checked_at": "2026-10-20"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -6371,9 +6326,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -6407,14 +6362,16 @@
       "last_checked_at": "2026-11-18"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_hearing_postponed"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "artemovsky--svd.sudrf.ru|2-642/2026",
@@ -6422,7 +6379,7 @@
       "court": "Артемовский городской суд",
       "court_domain": "artemovsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-13"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -6443,9 +6400,9 @@
       "last_checked_at": "2026-10-23"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -6479,7 +6436,7 @@
       "last_checked_at": "2026-10-26"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -6494,7 +6451,7 @@
       "court": "Серовский районный суд",
       "court_domain": "serovsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -6533,9 +6490,9 @@
       "last_checked_at": "2026-11-09"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -6551,9 +6508,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -6587,9 +6544,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -6659,9 +6616,9 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -6713,9 +6670,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -6731,9 +6688,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -6821,7 +6778,7 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -6836,7 +6793,7 @@
       "court": "Асбестовский городской суд",
       "court_domain": "asbestovsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -6893,9 +6850,9 @@
       "last_checked_at": "2026-10-26"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -6911,7 +6868,7 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -6926,7 +6883,7 @@
       "court": "Асбестовский городской суд",
       "court_domain": "asbestovsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-17"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -7253,9 +7210,9 @@
       "last_checked_at": "2026-11-18"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -7343,9 +7300,9 @@
       "last_checked_at": "2026-11-20"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -7361,7 +7318,7 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -7376,7 +7333,7 @@
       "court": "Дзержинский районный суд г. Нижний Тагил",
       "court_domain": "dzerzhinsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -7415,9 +7372,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -7487,9 +7444,9 @@
       "last_checked_at": "2026-11-20"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -7523,9 +7480,9 @@
       "last_checked_at": "2026-10-22"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -7541,9 +7498,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -7559,9 +7516,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -7577,9 +7534,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -7595,8 +7552,8 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -7610,7 +7567,7 @@
       "court": "Первоуральский городской суд",
       "court_domain": "pervouralsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-17"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -7775,9 +7732,9 @@
       "last_checked_at": "2026-11-20"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -7811,7 +7768,7 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -7826,12 +7783,12 @@
       "court": "Первоуральский городской суд",
       "court_domain": "pervouralsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -7847,9 +7804,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -7865,9 +7822,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -7883,7 +7840,7 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -7898,7 +7855,7 @@
       "court": "Первоуральский городской суд",
       "court_domain": "pervouralsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-17"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -7937,9 +7894,9 @@
       "last_checked_at": "2026-11-18"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -7955,8 +7912,8 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -7970,12 +7927,12 @@
       "court": "Ленинский районный суд г. Нижний Тагил",
       "court_domain": "leninskytag--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-17"
+      "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -7991,9 +7948,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8009,9 +7966,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8027,9 +7984,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8081,7 +8038,7 @@
       "last_checked_at": "2026-11-18"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -8096,7 +8053,7 @@
       "court": "Синарский районный суд г. Каменск-Уральского",
       "court_domain": "sinarsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-17"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -8117,9 +8074,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8153,9 +8110,9 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8225,9 +8182,9 @@
       "last_checked_at": "2026-11-20"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8243,9 +8200,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8297,7 +8254,7 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -8312,7 +8269,7 @@
       "court": "Тагилстроевский районный суд г. Нижний Тагил",
       "court_domain": "tagilstroevsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -8351,7 +8308,7 @@
       "last_checked_at": "2026-11-10"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -8366,7 +8323,7 @@
       "court": "Тагилстроевский районный суд г. Нижний Тагил",
       "court_domain": "tagilstroevsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -8405,7 +8362,7 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -8420,10 +8377,10 @@
       "court": "Ревдинский городской суд",
       "court_domain": "revdinsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -8438,12 +8395,12 @@
       "court": "Ревдинский городской суд",
       "court_domain": "revdinsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8459,7 +8416,7 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -8474,17 +8431,17 @@
       "court": "Ревдинский городской суд",
       "court_domain": "revdinsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": false,
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "revdinsky--svd.sudrf.ru|2-857/2026",
@@ -8492,7 +8449,7 @@
       "court": "Ревдинский городской суд",
       "court_domain": "revdinsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -8513,7 +8470,7 @@
       "last_checked_at": "2026-11-10"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -8528,10 +8485,10 @@
       "court": "Ревдинский городской суд",
       "court_domain": "revdinsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -8546,10 +8503,10 @@
       "court": "Ревдинский городской суд",
       "court_domain": "revdinsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -8564,10 +8521,10 @@
       "court": "Ревдинский городской суд",
       "court_domain": "revdinsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -8582,7 +8539,7 @@
       "court": "Ревдинский городской суд",
       "court_domain": "revdinsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -8603,7 +8560,7 @@
       "last_checked_at": "2026-11-12"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -8618,7 +8575,7 @@
       "court": "Ревдинский городской суд",
       "court_domain": "revdinsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -8639,9 +8596,9 @@
       "last_checked_at": "2026-11-20"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8801,7 +8758,7 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -8816,7 +8773,7 @@
       "court": "Полевской городской суд",
       "court_domain": "polevskoy--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -8837,9 +8794,9 @@
       "last_checked_at": "2026-11-20"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8874,7 +8831,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "run_deadline",
+      "reason": "http_504",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -8891,7 +8848,7 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -8906,12 +8863,12 @@
       "court": "Полевской городской суд",
       "court_domain": "polevskoy--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-17"
+      "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8925,24 +8882,6 @@
       "court_domain": "polevskoy--svd.sudrf.ru",
       "case_status": "Решено",
       "last_checked_at": "2026-11-24"
-    },
-    {
-      "outcome": "unknown",
-      "reason": "",
-      "reason_ru": "",
-      "detail": "",
-      "degraded": false,
-      "force_parsed": false,
-      "events": [],
-      "changed": false,
-      "left_track": false,
-      "archived": true,
-      "key": "polevskoy--svd.sudrf.ru|2-627/2026",
-      "number": "2-627/2026",
-      "court": "Полевской городской суд",
-      "court_domain": "polevskoy--svd.sudrf.ru",
-      "case_status": "Решено",
-      "last_checked_at": "2026-11-17"
     },
     {
       "outcome": "skip",
@@ -9233,16 +9172,14 @@
       "last_checked_at": "2026-11-20"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [
-        "fi_default_cancellation_hearing"
-      ],
-      "changed": true,
+      "events": [],
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "oktiabrsky--svd.sudrf.ru|2-4042/2026",
@@ -9253,7 +9190,7 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -9268,10 +9205,10 @@
       "court": "Октябрьский районный суд г. Екатеринбурга",
       "court_domain": "oktiabrsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -9286,7 +9223,7 @@
       "court": "Октябрьский районный суд г. Екатеринбурга",
       "court_domain": "oktiabrsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -9361,9 +9298,9 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9415,9 +9352,9 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9433,9 +9370,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9487,7 +9424,7 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -9502,7 +9439,7 @@
       "court": "Октябрьский районный суд г. Екатеринбурга",
       "court_domain": "oktiabrsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -9541,9 +9478,9 @@
       "last_checked_at": "2026-11-06"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9667,9 +9604,9 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9685,7 +9622,7 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -9700,7 +9637,7 @@
       "court": "Академический районный суд г. Екатеринбурга",
       "court_domain": "akademicheskiy--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -9721,9 +9658,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9775,9 +9712,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9919,9 +9856,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9973,14 +9910,14 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": true,
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "verhisetsky--svd.sudrf.ru|2-5073/2026",
@@ -10099,9 +10036,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -10135,9 +10072,9 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -10153,9 +10090,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -10171,8 +10108,8 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -10186,10 +10123,10 @@
       "court": "Академический районный суд г. Екатеринбурга",
       "court_domain": "akademicheskiy--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-17"
+      "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -10204,7 +10141,7 @@
       "court": "Академический районный суд г. Екатеринбурга",
       "court_domain": "akademicheskiy--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -10495,7 +10432,7 @@
       "last_checked_at": "2026-11-18"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -10510,7 +10447,7 @@
       "court": "Ленинский районный суд г. Екатеринбурга",
       "court_domain": "leninskyeka--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-09-22"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -10567,9 +10504,9 @@
       "last_checked_at": "2026-11-18"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -10693,9 +10630,9 @@
       "last_checked_at": "2026-11-16"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -10801,9 +10738,9 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -10837,9 +10774,9 @@
       "last_checked_at": "2026-11-20"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -10927,15 +10864,13 @@
       "last_checked_at": "2026-11-20"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [
-        "fi_writ_issued"
-      ],
+      "events": [],
       "changed": false,
       "left_track": false,
       "archived": false,
@@ -11019,9 +10954,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -11055,9 +10990,9 @@
       "last_checked_at": "2026-11-18"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -11704,24 +11639,6 @@
     },
     {
       "outcome": "skip",
-      "reason": "writ_weekly(4d/7d)",
-      "reason_ru": "иск банка решён, ждём ИЛ/жалобу — опрос раз в 7 дн. (прошло 4)",
-      "detail": "",
-      "degraded": false,
-      "force_parsed": false,
-      "events": [],
-      "changed": false,
-      "left_track": false,
-      "archived": true,
-      "key": "kirovsky--svd.sudrf.ru|2-4683/2026",
-      "number": "2-4683/2026",
-      "court": "Кировский районный суд г. Екатеринбурга",
-      "court_domain": "kirovsky--svd.sudrf.ru",
-      "case_status": "Решено",
-      "last_checked_at": "2026-11-20"
-    },
-    {
-      "outcome": "skip",
       "reason": "writ_weekly(5d/7d)",
       "reason_ru": "иск банка решён, ждём ИЛ/жалобу — опрос раз в 7 дн. (прошло 5)",
       "detail": "",
@@ -11748,24 +11665,6 @@
       "events": [],
       "changed": false,
       "left_track": false,
-      "archived": true,
-      "key": "kirovsky--svd.sudrf.ru|2-4606/2026",
-      "number": "2-4606/2026",
-      "court": "Кировский районный суд г. Екатеринбурга",
-      "court_domain": "kirovsky--svd.sudrf.ru",
-      "case_status": "Решено",
-      "last_checked_at": "2026-11-19"
-    },
-    {
-      "outcome": "skip",
-      "reason": "writ_weekly(5d/7d)",
-      "reason_ru": "иск банка решён, ждём ИЛ/жалобу — опрос раз в 7 дн. (прошло 5)",
-      "detail": "",
-      "degraded": false,
-      "force_parsed": false,
-      "events": [],
-      "changed": false,
-      "left_track": false,
       "archived": false,
       "key": "kirovsky--svd.sudrf.ru|2-4783/2026",
       "number": "2-4783/2026",
@@ -11775,14 +11674,14 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": true,
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "kirovsky--svd.sudrf.ru|2-4540/2026",
@@ -11991,7 +11890,7 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -12006,7 +11905,7 @@
       "court": "Кировский районный суд г. Екатеринбурга",
       "court_domain": "kirovsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -12027,9 +11926,9 @@
       "last_checked_at": "2026-11-20"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -12406,24 +12305,6 @@
     },
     {
       "outcome": "skip",
-      "reason": "writ_weekly(6d/7d)",
-      "reason_ru": "иск банка решён, ждём ИЛ/жалобу — опрос раз в 7 дн. (прошло 6)",
-      "detail": "",
-      "degraded": false,
-      "force_parsed": false,
-      "events": [],
-      "changed": false,
-      "left_track": false,
-      "archived": true,
-      "key": "chkalovsky--svd.sudrf.ru|2-4086/2026",
-      "number": "2-4086/2026",
-      "court": "Чкаловский районный суд г. Екатеринбурга",
-      "court_domain": "chkalovsky--svd.sudrf.ru",
-      "case_status": "Решено",
-      "last_checked_at": "2026-11-18"
-    },
-    {
-      "outcome": "skip",
       "reason": "future_hearing(25.11.2026)",
       "reason_ru": "заседание 25.11.2026 ещё впереди",
       "detail": "",
@@ -12459,9 +12340,9 @@
       "last_checked_at": "2026-11-20"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -12513,9 +12394,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -12549,9 +12430,9 @@
       "last_checked_at": "2026-11-20"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -12693,9 +12574,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -12783,7 +12664,7 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -12798,7 +12679,7 @@
       "court": "Чкаловский районный суд г. Екатеринбурга",
       "court_domain": "chkalovsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -12855,7 +12736,7 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -12870,7 +12751,7 @@
       "court": "Орджоникидзевский районный суд г. Екатеринбурга",
       "court_domain": "ordzhonikidzevsky--svd.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-17"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -12909,9 +12790,9 @@
       "last_checked_at": "2026-11-20"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -12927,8 +12808,8 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -12942,7 +12823,7 @@
       "court": "Губкинский районный суд",
       "court_domain": "gubkinskiy--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-17"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -12963,7 +12844,7 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -12978,12 +12859,12 @@
       "court": "Губкинский районный суд",
       "court_domain": "gubkinskiy--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-17"
+      "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -13035,9 +12916,9 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -13053,9 +12934,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -13071,9 +12952,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -13125,9 +13006,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -13143,9 +13024,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -13159,24 +13040,6 @@
       "court_domain": "labytnangsky--ynao.sudrf.ru",
       "case_status": "Решено",
       "last_checked_at": "2026-11-24"
-    },
-    {
-      "outcome": "unknown",
-      "reason": "",
-      "reason_ru": "",
-      "detail": "",
-      "degraded": false,
-      "force_parsed": false,
-      "events": [],
-      "changed": false,
-      "left_track": false,
-      "archived": true,
-      "key": "labytnangsky--ynao.sudrf.ru|2-707/2026",
-      "number": "2-707/2026",
-      "court": "Лабытнангский городской суд",
-      "court_domain": "labytnangsky--ynao.sudrf.ru",
-      "case_status": "Решено",
-      "last_checked_at": "2026-11-17"
     },
     {
       "outcome": "skip",
@@ -13233,9 +13096,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -13249,24 +13112,6 @@
       "court_domain": "muravlenkovsky--ynao.sudrf.ru",
       "case_status": "Решено",
       "last_checked_at": "2026-11-24"
-    },
-    {
-      "outcome": "unknown",
-      "reason": "",
-      "reason_ru": "",
-      "detail": "",
-      "degraded": false,
-      "force_parsed": false,
-      "events": [],
-      "changed": false,
-      "left_track": false,
-      "archived": true,
-      "key": "muravlenkovsky--ynao.sudrf.ru|2-363/2026",
-      "number": "2-363/2026",
-      "court": "Муравленковский городской суд",
-      "court_domain": "muravlenkovsky--ynao.sudrf.ru",
-      "case_status": "Решено",
-      "last_checked_at": "2026-11-17"
     },
     {
       "outcome": "skip",
@@ -13305,9 +13150,9 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -13323,9 +13168,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -13341,9 +13186,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -13359,9 +13204,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -13395,9 +13240,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -13431,7 +13276,7 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -13446,7 +13291,7 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -13575,8 +13420,8 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -13590,10 +13435,10 @@
       "court": "Ноябрьский городской суд",
       "court_domain": "noyabrsky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-17"
+      "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -13608,11 +13453,11 @@
       "court": "Ноябрьский городской суд",
       "court_domain": "noyabrsky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -13626,11 +13471,11 @@
       "court": "Ноябрьский городской суд",
       "court_domain": "noyabrsky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-17"
+      "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -13644,7 +13489,7 @@
       "court": "Ноябрьский городской суд",
       "court_domain": "noyabrsky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-17"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -13827,8 +13672,8 @@
       "last_checked_at": "2026-11-20"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -13842,7 +13687,7 @@
       "court": "Салехардский городской суд",
       "court_domain": "salehardsky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-17"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -13863,9 +13708,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -13935,8 +13780,8 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -13950,7 +13795,7 @@
       "court": "Тазовский районный суд",
       "court_domain": "tazovsky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-17"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -14007,7 +13852,7 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -14022,10 +13867,10 @@
       "court": "Ямальский районный суд",
       "court_domain": "yamalsky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -14040,11 +13885,11 @@
       "court": "Ямальский районный суд",
       "court_domain": "yamalsky--ynao.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
-      "reason": "run_deadline",
+      "reason": "breaker",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -14080,7 +13925,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "run_deadline",
+      "reason": "breaker",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -14098,7 +13943,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "run_deadline",
+      "reason": "portal_placeholder",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -14116,7 +13961,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "run_deadline",
+      "reason": "portal_placeholder",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -14367,7 +14212,7 @@
       "last_checked_at": "2026-11-20"
     },
     {
-      "outcome": "unknown",
+      "outcome": "parsed",
       "reason": "",
       "reason_ru": "",
       "detail": "",
@@ -14382,7 +14227,7 @@
       "court": "Орджоникидзевский районный суд г. Екатеринбурга",
       "court_domain": "ordzhonikidzevsky--svd.sudrf.ru",
       "case_status": "В производстве",
-      "last_checked_at": "2026-11-23"
+      "last_checked_at": "2026-11-24"
     },
     {
       "outcome": "skip",
@@ -14440,7 +14285,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "run_deadline",
+      "reason": "breaker",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -14494,7 +14339,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "run_deadline",
+      "reason": "breaker",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -14926,7 +14771,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "run_deadline",
+      "reason": "breaker",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -15015,23 +14860,23 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "intake_new",
-      "reason": "",
-      "reason_ru": "дело заведено авто-подхватом с выдачи суда в этом прогоне (карточка прочитана при заведении)",
-      "detail": "Новоуренгойский городской суд",
+      "outcome": "skip",
+      "reason": "run_deadline",
+      "reason_ru": "",
+      "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
       "changed": false,
       "left_track": false,
       "archived": false,
-      "key": "novourengoysky--ynao.sudrf.ru|М-3392/2026",
-      "number": "М-3392/2026",
-      "court": "Новоуренгойский городской суд",
-      "court_domain": "novourengoysky--ynao.sudrf.ru",
-      "case_status": "В производстве",
-      "last_checked_at": "2026-11-24"
+      "key": "kamyshlovsky--svd.sudrf.ru|2-2-246/2026",
+      "number": "2-2-246/2026",
+      "court": "Камышловский районный суд",
+      "court_domain": "kamyshlovsky--svd.sudrf.ru",
+      "case_status": "Решено",
+      "last_checked_at": "2026-11-17"
     }
   ],
-  "updated_at": "2026-11-24T06:54:38+05:00"
+  "updated_at": "2026-11-24T07:59:46+05:00"
 }
