@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated_at": "2026-11-26T07:59:32+05:00",
+ "updated_at": "2026-11-26T08:39:12+05:00",
  "sources": {
   "appeal:oblsud--ynao.sudrf.ru": {
    "counts": [
@@ -364,114 +364,90 @@
   }
  },
  "last_run": {
-  "at": "2026-11-26T07:59:32",
+  "at": "2026-11-26T08:39:12",
   "alerts": [],
-  "requests_ok": 127,
-  "requests_failed": 22,
+  "requests_ok": 82,
+  "requests_failed": 4,
   "requests_retried": 0,
-  "cards_breaker_skipped": 127,
-  "cards_breaker_unrequested": 125,
+  "cards_breaker_skipped": 69,
+  "cards_breaker_unrequested": 69,
   "cards_breaker_recovered": 0,
-  "cards_blocked": 85,
-  "cards_read": 37,
-  "cards_planned": 608,
-  "cards_read_today": 84,
+  "cards_blocked": 68,
+  "cards_read": 14,
+  "cards_planned": 561,
+  "cards_read_today": 96,
   "cards_planned_today": 525,
-  "daily_attempts": 2,
+  "daily_attempts": 3,
   "instances": {
    "first_instance": {
-    "read": 27,
-    "planned": 574,
-    "read_today": 32,
+    "read": 12,
+    "planned": 535,
+    "read_today": 44,
     "planned_today": 449
    },
    "appeal": {
-    "read": 5,
-    "planned": 15,
+    "read": 1,
+    "planned": 11,
     "read_today": 33,
     "planned_today": 43
    },
    "cassation": {
-    "read": 5,
-    "planned": 19,
+    "read": 1,
+    "planned": 15,
     "read_today": 19,
     "planned_today": 33
    }
   },
   "latency": {
-   "n": 127,
-   "p50": 15.9,
-   "p90": 22.4,
-   "max": 30.2
+   "n": 82,
+   "p50": 14.7,
+   "p90": 22.8,
+   "max": 29.7
   },
   "failure_latency": {
    "http_504": {
-    "n": 22,
-    "p50": 30.2,
-    "p90": 45.5,
-    "max": 60.2
-   },
-   "identity_mismatch": {
-    "n": 2,
-    "p50": 13.1,
-    "p90": 13.9,
-    "max": 13.9
+    "n": 4,
+    "p50": 30.0,
+    "p90": 30.2,
+    "max": 30.2
    },
    "portal_placeholder": {
-    "n": 85,
-    "p50": 15.7,
-    "p90": 21.9,
-    "max": 29.6
+    "n": 68,
+    "p50": 14.5,
+    "p90": 22.8,
+    "max": 28.2
    }
   },
   "fail_kinds": {
-   "http_504": 22,
-   "portal_placeholder": 85,
-   "identity_mismatch": 2,
-   "breaker": 2
+   "portal_placeholder": 68,
+   "http_504": 4
   },
   "breaker": {
    "mode": "time",
-   "opened_hosts": 29,
-   "open_hosts": 28,
-   "recovered_hosts": 1,
-   "deferred_total": 175,
-   "deferred_remaining": 175,
+   "opened_hosts": 21,
+   "open_hosts": 21,
+   "recovered_hosts": 0,
+   "deferred_total": 103,
+   "deferred_remaining": 103,
    "deferred_recovered": 0,
-   "probes": 22,
-   "probe_successes": 1,
-   "probe_failures": 16,
+   "probes": 13,
+   "probe_successes": 0,
+   "probe_failures": 6,
    "by_kind": {
-    "http_504": 3,
-    "portal_placeholder": 42
+    "portal_placeholder": 27
    },
    "hosts": [
     {
      "host": "akademicheskiy--svd.sudrf.ru",
      "state": "open",
-     "kind": "http_504",
-     "family": "fast_transient",
-     "reason": "суд отвечает HTTP 504",
-     "preopened": false,
-     "skipped": 8,
-     "probes": 1,
-     "deferred_total": 10,
-     "deferred_remaining": 10,
-     "deferred_recovered": 0,
-     "cooldown_seconds": 60.0,
-     "next_probe_in_seconds": 0.0
-    },
-    {
-     "host": "asbestovsky--svd.sudrf.ru",
-     "state": "half_open",
      "kind": "portal_placeholder",
      "family": "portal_outage",
      "reason": "вместо карточки пришла заглушка портала",
      "preopened": false,
-     "skipped": 5,
+     "skipped": 3,
      "probes": 1,
-     "deferred_total": 7,
-     "deferred_remaining": 7,
+     "deferred_total": 5,
+     "deferred_remaining": 5,
      "deferred_recovered": 0,
      "cooldown_seconds": 180.0,
      "next_probe_in_seconds": 0.0
@@ -493,30 +469,15 @@
     },
     {
      "host": "chkalovsky--svd.sudrf.ru",
-     "state": "open",
-     "kind": "portal_placeholder",
-     "family": "portal_outage",
-     "reason": "вместо карточки пришла заглушка портала",
-     "preopened": false,
-     "skipped": 10,
-     "probes": 1,
-     "deferred_total": 12,
-     "deferred_remaining": 12,
-     "deferred_recovered": 0,
-     "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 0.0
-    },
-    {
-     "host": "dzerzhinsky--svd.sudrf.ru",
      "state": "half_open",
      "kind": "portal_placeholder",
      "family": "portal_outage",
      "reason": "вместо карточки пришла заглушка портала",
      "preopened": false,
-     "skipped": 1,
+     "skipped": 5,
      "probes": 1,
-     "deferred_total": 3,
-     "deferred_remaining": 3,
+     "deferred_total": 7,
+     "deferred_remaining": 7,
      "deferred_recovered": 0,
      "cooldown_seconds": 180.0,
      "next_probe_in_seconds": 0.0
@@ -538,7 +499,7 @@
     },
     {
      "host": "karpinsky--svd.sudrf.ru",
-     "state": "open",
+     "state": "half_open",
      "kind": "portal_placeholder",
      "family": "portal_outage",
      "reason": "вместо карточки пришла заглушка портала",
@@ -549,7 +510,7 @@
      "deferred_remaining": 2,
      "deferred_recovered": 0,
      "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 35.6
+     "next_probe_in_seconds": 0.0
     },
     {
      "host": "kirovsky--svd.sudrf.ru",
@@ -558,10 +519,10 @@
      "family": "portal_outage",
      "reason": "вместо карточки пришла заглушка портала",
      "preopened": false,
-     "skipped": 16,
+     "skipped": 12,
      "probes": 1,
-     "deferred_total": 18,
-     "deferred_remaining": 18,
+     "deferred_total": 14,
+     "deferred_remaining": 14,
      "deferred_recovered": 0,
      "cooldown_seconds": 180.0,
      "next_probe_in_seconds": 0.0
@@ -573,13 +534,13 @@
      "family": "portal_outage",
      "reason": "вместо карточки пришла заглушка портала",
      "preopened": false,
-     "skipped": 3,
+     "skipped": 2,
      "probes": 1,
-     "deferred_total": 5,
-     "deferred_remaining": 5,
+     "deferred_total": 4,
+     "deferred_remaining": 4,
      "deferred_recovered": 0,
      "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 0.0
+     "next_probe_in_seconds": 81.3
     },
     {
      "host": "leninskyeka--svd.sudrf.ru",
@@ -588,13 +549,13 @@
      "family": "portal_outage",
      "reason": "вместо карточки пришла заглушка портала",
      "preopened": false,
-     "skipped": 16,
-     "probes": 1,
-     "deferred_total": 18,
-     "deferred_remaining": 18,
+     "skipped": 12,
+     "probes": 0,
+     "deferred_total": 13,
+     "deferred_remaining": 13,
      "deferred_recovered": 0,
      "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 0.0
+     "next_probe_in_seconds": 5.4
     },
     {
      "host": "lesnoy--svd.sudrf.ru",
@@ -603,10 +564,10 @@
      "family": "portal_outage",
      "reason": "вместо карточки пришла заглушка портала",
      "preopened": false,
-     "skipped": 2,
+     "skipped": 1,
      "probes": 1,
-     "deferred_total": 2,
-     "deferred_remaining": 2,
+     "deferred_total": 3,
+     "deferred_remaining": 3,
      "deferred_recovered": 0,
      "cooldown_seconds": 180.0,
      "next_probe_in_seconds": 0.0
@@ -657,36 +618,6 @@
      "next_probe_in_seconds": 0.0
     },
     {
-     "host": "novourengoysky--ynao.sudrf.ru",
-     "state": "closed",
-     "kind": "http_504",
-     "family": "fast_transient",
-     "reason": "суд отвечает HTTP 504",
-     "preopened": false,
-     "skipped": 4,
-     "probes": 1,
-     "deferred_total": 5,
-     "deferred_remaining": 5,
-     "deferred_recovered": 0,
-     "cooldown_seconds": 60.0,
-     "next_probe_in_seconds": 0.0
-    },
-    {
-     "host": "oktiabrsky--svd.sudrf.ru",
-     "state": "open",
-     "kind": "portal_placeholder",
-     "family": "portal_outage",
-     "reason": "вместо карточки пришла заглушка портала",
-     "preopened": false,
-     "skipped": 8,
-     "probes": 1,
-     "deferred_total": 10,
-     "deferred_remaining": 10,
-     "deferred_recovered": 0,
-     "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 0.0
-    },
-    {
      "host": "ordzhonikidzevsky--svd.sudrf.ru",
      "state": "open",
      "kind": "portal_placeholder",
@@ -702,52 +633,22 @@
      "next_probe_in_seconds": 0.0
     },
     {
-     "host": "prigorodny--svd.sudrf.ru",
-     "state": "open",
-     "kind": "portal_placeholder",
-     "family": "portal_outage",
-     "reason": "вместо карточки пришла заглушка портала",
-     "preopened": false,
-     "skipped": 0,
-     "probes": 0,
-     "deferred_total": 1,
-     "deferred_remaining": 1,
-     "deferred_recovered": 0,
-     "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 52.9
-    },
-    {
      "host": "revdinsky--svd.sudrf.ru",
      "state": "open",
      "kind": "portal_placeholder",
      "family": "portal_outage",
      "reason": "вместо карточки пришла заглушка портала",
      "preopened": false,
-     "skipped": 12,
+     "skipped": 0,
      "probes": 1,
-     "deferred_total": 14,
-     "deferred_remaining": 14,
+     "deferred_total": 2,
+     "deferred_remaining": 2,
      "deferred_recovered": 0,
      "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 0.0
+     "next_probe_in_seconds": 25.2
     },
     {
-     "host": "serovsky--svd.sudrf.ru",
-     "state": "half_open",
-     "kind": "portal_placeholder",
-     "family": "portal_outage",
-     "reason": "вместо карточки пришла заглушка портала",
-     "preopened": false,
-     "skipped": 1,
-     "probes": 1,
-     "deferred_total": 3,
-     "deferred_remaining": 3,
-     "deferred_recovered": 0,
-     "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 0.0
-    },
-    {
-     "host": "severouralsky--svd.sudrf.ru",
+     "host": "sinarsky--svd.sudrf.ru",
      "state": "open",
      "kind": "portal_placeholder",
      "family": "portal_outage",
@@ -762,68 +663,38 @@
      "next_probe_in_seconds": 0.0
     },
     {
-     "host": "sinarsky--svd.sudrf.ru",
-     "state": "open",
-     "kind": "portal_placeholder",
-     "family": "portal_outage",
-     "reason": "вместо карточки пришла заглушка портала",
-     "preopened": false,
-     "skipped": 1,
-     "probes": 1,
-     "deferred_total": 3,
-     "deferred_remaining": 3,
-     "deferred_recovered": 0,
-     "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 0.0
-    },
-    {
-     "host": "suholozhsky--svd.sudrf.ru",
-     "state": "open",
-     "kind": "portal_placeholder",
-     "family": "portal_outage",
-     "reason": "вместо карточки пришла заглушка портала",
-     "preopened": false,
-     "skipped": 1,
-     "probes": 1,
-     "deferred_total": 3,
-     "deferred_remaining": 3,
-     "deferred_recovered": 0,
-     "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 16.2
-    },
-    {
      "host": "sysertsky--svd.sudrf.ru",
-     "state": "open",
+     "state": "half_open",
      "kind": "portal_placeholder",
      "family": "portal_outage",
      "reason": "вместо карточки пришла заглушка портала",
      "preopened": false,
-     "skipped": 3,
+     "skipped": 2,
      "probes": 1,
-     "deferred_total": 5,
-     "deferred_remaining": 5,
+     "deferred_total": 4,
+     "deferred_remaining": 4,
      "deferred_recovered": 0,
      "cooldown_seconds": 180.0,
      "next_probe_in_seconds": 0.0
     },
     {
      "host": "talicky--svd.sudrf.ru",
-     "state": "open",
+     "state": "half_open",
      "kind": "portal_placeholder",
      "family": "portal_outage",
      "reason": "вместо карточки пришла заглушка портала",
      "preopened": false,
-     "skipped": 1,
+     "skipped": 2,
      "probes": 1,
-     "deferred_total": 3,
-     "deferred_remaining": 3,
+     "deferred_total": 4,
+     "deferred_remaining": 4,
      "deferred_recovered": 0,
      "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 66.8
+     "next_probe_in_seconds": 0.0
     },
     {
      "host": "turinsky--svd.sudrf.ru",
-     "state": "open",
+     "state": "half_open",
      "kind": "portal_placeholder",
      "family": "portal_outage",
      "reason": "вместо карточки пришла заглушка портала",
@@ -838,21 +709,6 @@
     },
     {
      "host": "verhisetsky--svd.sudrf.ru",
-     "state": "open",
-     "kind": "portal_placeholder",
-     "family": "portal_outage",
-     "reason": "вместо карточки пришла заглушка портала",
-     "preopened": false,
-     "skipped": 7,
-     "probes": 1,
-     "deferred_total": 9,
-     "deferred_remaining": 9,
-     "deferred_recovered": 0,
-     "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 0.0
-    },
-    {
-     "host": "verhnepyshminsky--svd.sudrf.ru",
      "state": "half_open",
      "kind": "portal_placeholder",
      "family": "portal_outage",
@@ -862,6 +718,21 @@
      "probes": 1,
      "deferred_total": 4,
      "deferred_remaining": 4,
+     "deferred_recovered": 0,
+     "cooldown_seconds": 180.0,
+     "next_probe_in_seconds": 0.0
+    },
+    {
+     "host": "verhnepyshminsky--svd.sudrf.ru",
+     "state": "open",
+     "kind": "portal_placeholder",
+     "family": "portal_outage",
+     "reason": "вместо карточки пришла заглушка портала",
+     "preopened": false,
+     "skipped": 2,
+     "probes": 0,
+     "deferred_total": 3,
+     "deferred_remaining": 3,
      "deferred_recovered": 0,
      "cooldown_seconds": 180.0,
      "next_probe_in_seconds": 0.0
@@ -883,11 +754,11 @@
     }
    ]
   },
-  "courts_unavailable": 28,
-  "courts_with_unrequested": 25,
+  "courts_unavailable": 21,
+  "courts_with_unrequested": 18,
   "courts_outage": 0,
-  "cards_unreachable": 125,
-  "cards_unread_other": 446,
+  "cards_unreachable": 69,
+  "cards_unread_other": 478,
   "run_deadline_seconds": 3300.0,
   "run_deadline_reached": false
  },
@@ -1541,10 +1412,10 @@
   "date": "2026-11-26",
   "region": "sverdlovsk_yanao",
   "waiting": 442,
-  "due": 135,
-  "planned": 133,
+  "due": 134,
+  "planned": 132,
   "read": 0,
-  "unread": 133,
+  "unread": 132,
   "published": 0,
   "backfilled": 0,
   "unplanned": 26,
@@ -2953,8 +2824,8 @@
    {
     "key": "labytnangsky--ynao.sudrf.ru|1540005|1|2-795/2026|2026-09-15",
     "number": "2-795/2026",
-    "next_check_at": "2026-11-26",
-    "reason": "run_deadline"
+    "next_check_at": "2026-12-03",
+    "reason": "scheduled"
    },
    {
     "key": "nadymsky--ynao.sudrf.ru|1540005|1|2-743/2026|2026-06-22",
@@ -4954,14 +4825,14 @@
   "date": "2026-11-26",
   "region": "sverdlovsk_yanao",
   "waiting": 621,
-  "due": 139,
-  "planned": 125,
+  "due": 127,
+  "planned": 113,
   "read": 0,
-  "unread": 125,
+  "unread": 113,
   "published": 0,
   "backfilled": 0,
-  "unplanned": 53,
-  "needs_review": 50,
+  "unplanned": 52,
+  "needs_review": 49,
   "expired": 0,
   "long_wait": 0,
   "items": [
@@ -5371,13 +5242,13 @@
     "key": "lesnoy--svd.sudrf.ru|1|2-407/2026|27.07.2026",
     "number": "2-407/2026",
     "next_check_at": "2026-11-26",
-    "reason": "breaker"
+    "reason": "run_deadline"
    },
    {
     "key": "lesnoy--svd.sudrf.ru|1|2-362/2026|01.07.2026",
     "number": "2-362/2026",
     "next_check_at": "2026-11-26",
-    "reason": "breaker"
+    "reason": "run_deadline"
    },
    {
     "key": "kushvinsky--svd.sudrf.ru|1|2-632/2026|28.07.2026",
@@ -7308,8 +7179,8 @@
    {
     "key": "labytnangsky--ynao.sudrf.ru|1|2-795/2026|15.09.2026",
     "number": "2-795/2026",
-    "next_check_at": "2026-11-26",
-    "reason": "run_deadline"
+    "next_check_at": "2026-12-03",
+    "reason": "scheduled"
    },
    {
     "key": "labytnangsky--ynao.sudrf.ru|1|2-770/2026|13.07.2026",
@@ -7326,8 +7197,8 @@
    {
     "key": "muravlenkovsky--ynao.sudrf.ru|1|2-519/2026|08.09.2026",
     "number": "2-519/2026",
-    "next_check_at": "2026-11-26",
-    "reason": "run_deadline"
+    "next_check_at": "2026-12-03",
+    "reason": "scheduled"
    },
    {
     "key": "muravlenkovsky--ynao.sudrf.ru|1|2-324/2026|22.06.2026",
@@ -7374,8 +7245,8 @@
    {
     "key": "nadymsky--ynao.sudrf.ru|1|2-1042/2026|08.09.2026",
     "number": "2-1042/2026",
-    "next_check_at": "2026-11-26",
-    "reason": "run_deadline"
+    "next_check_at": "2026-12-03",
+    "reason": "scheduled"
    },
    {
     "key": "nadymsky--ynao.sudrf.ru|1|2-743/2026|22.06.2026",
@@ -7386,44 +7257,44 @@
    {
     "key": "novourengoysky--ynao.sudrf.ru|1|2-2577/2026|14.09.2026",
     "number": "2-2577/2026",
-    "next_check_at": "2026-11-26",
-    "reason": "run_deadline"
+    "next_check_at": "2026-12-03",
+    "reason": "scheduled"
    },
    {
     "key": "novourengoysky--ynao.sudrf.ru|1|2-2483/2026|19.08.2026",
     "number": "2-2483/2026",
-    "next_check_at": "2026-11-26",
-    "reason": "run_deadline"
+    "next_check_at": "2026-12-03",
+    "reason": "scheduled"
    },
    {
     "key": "novourengoysky--ynao.sudrf.ru|1|2-2354/2026|17.07.2026",
     "number": "2-2354/2026",
-    "next_check_at": "2026-11-26",
-    "reason": "run_deadline"
+    "next_check_at": "2026-12-03",
+    "reason": "scheduled"
    },
    {
     "key": "novourengoysky--ynao.sudrf.ru|1|2-2223/2026|20.07.2026",
     "number": "2-2223/2026",
-    "next_check_at": "2026-11-26",
-    "reason": "run_deadline"
+    "next_check_at": "2026-12-03",
+    "reason": "scheduled"
    },
    {
     "key": "novourengoysky--ynao.sudrf.ru|1|2-2440/2026|17.08.2026",
     "number": "2-2440/2026",
-    "next_check_at": "2026-11-26",
-    "reason": "run_deadline"
+    "next_check_at": "2026-12-03",
+    "reason": "scheduled"
    },
    {
     "key": "novourengoysky--ynao.sudrf.ru|1|2-2384/2026|22.07.2026",
     "number": "2-2384/2026",
-    "next_check_at": "2026-11-26",
-    "reason": "run_deadline"
+    "next_check_at": "2026-12-03",
+    "reason": "scheduled"
    },
    {
     "key": "novourengoysky--ynao.sudrf.ru|1|2-2071/2026|20.08.2026",
     "number": "2-2071/2026",
-    "next_check_at": "2026-11-26",
-    "reason": "run_deadline"
+    "next_check_at": "2026-12-03",
+    "reason": "scheduled"
    },
    {
     "key": "noyabrsky--ynao.sudrf.ru|1|2-1714/2026|22.07.2026",
@@ -7932,8 +7803,8 @@
    {
     "key": "muravlenkovsky--ynao.sudrf.ru|1|2-528/2026|02.10.2026",
     "number": "2-528/2026",
-    "next_check_at": "2026-11-26",
-    "reason": "run_deadline"
+    "next_check_at": "2026-12-03",
+    "reason": "scheduled"
    },
    {
     "key": "ordzhonikidzevsky--svd.sudrf.ru|1|2-816/2026|14.04.2026",
@@ -8320,12 +8191,6 @@
     "reason": "scheduled"
    },
    {
-    "key": "noyabrsky--ynao.sudrf.ru|1|2-696/2026|",
-    "number": "2-696/2026",
-    "next_check_at": "2026-11-26",
-    "reason": "basis_changed"
-   },
-   {
     "key": "salehardsky--ynao.sudrf.ru|1|2-2075/2026|27.10.2026",
     "number": "2-2075/2026",
     "next_check_at": "2026-12-02",
@@ -8568,8 +8433,8 @@
    {
     "key": "noyabrsky--ynao.sudrf.ru|1|2-2100/2026|02.11.2026",
     "number": "2-2100/2026",
-    "next_check_at": "2026-11-26",
-    "reason": "run_deadline"
+    "next_check_at": "2026-12-03",
+    "reason": "scheduled"
    },
    {
     "key": "nadymsky--ynao.sudrf.ru|1|2-1163/2026|03.11.2026",
@@ -10065,17 +9930,17 @@
  "parsing_backlog": {
   "date": "2026-11-26",
   "region": "sverdlovsk_yanao",
-  "cards_unread": 571,
+  "cards_unread": 547,
   "fi_without_card": 63,
   "candidates_pending": 0,
-  "acts_unread": 157,
-  "writs_unread": 125,
-  "writs_need_review": 50
+  "acts_unread": 156,
+  "writs_unread": 113,
+  "writs_need_review": 49
  },
  "card_refresh": {
   "date": "2026-11-26",
   "region": "sverdlovsk_yanao",
-  "planned": 265,
+  "planned": 253,
   "read": 0,
   "items": [
    {
@@ -10084,34 +9949,10 @@
     "reasons": [
      "writ"
     ],
-    "reason": "breaker"
+    "reason": "run_deadline"
    },
    {
     "key": "first_instance|https://lesnoy--svd.sudrf.ru/modules.php?case_id=572972777&case_uid=8f0afb83-4fb7-4586-909a-ef7301786afa&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "writ"
-    ],
-    "reason": "breaker"
-   },
-   {
-    "key": "first_instance|https://muravlenkovsky--ynao.sudrf.ru/modules.php?case_id=131261873&case_uid=abc219e0-ea40-4074-9735-0896e3aa016e&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "writ"
-    ],
-    "reason": "run_deadline"
-   },
-   {
-    "key": "first_instance|https://muravlenkovsky--ynao.sudrf.ru/modules.php?case_id=132118139&case_uid=04c7aa74-b730-4309-a739-4a2d3243f236&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "writ"
-    ],
-    "reason": "run_deadline"
-   },
-   {
-    "key": "first_instance|https://nadymsky--ynao.sudrf.ru/modules.php?case_id=128772619&case_uid=1ca91db9-185c-464d-858f-b5bd5c5f5d3c&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
     "stage": "first_instance",
     "reasons": [
      "writ"
@@ -10177,70 +10018,6 @@
    },
    {
     "key": "first_instance|https://novouralsky--svd.sudrf.ru/modules.php?case_id=575867306&case_uid=3b3d8f63-5657-4989-8719-3506be7f584c&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "writ"
-    ],
-    "reason": "run_deadline"
-   },
-   {
-    "key": "first_instance|https://novourengoysky--ynao.sudrf.ru/modules.php?case_id=128584117&case_uid=fbb25e74-43dc-4212-bd13-465a37ddf7a7&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "writ"
-    ],
-    "reason": "run_deadline"
-   },
-   {
-    "key": "first_instance|https://novourengoysky--ynao.sudrf.ru/modules.php?case_id=128779306&case_uid=9fc86016-cc87-46f0-8cbd-9b2d5377335f&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "writ"
-    ],
-    "reason": "run_deadline"
-   },
-   {
-    "key": "first_instance|https://novourengoysky--ynao.sudrf.ru/modules.php?case_id=128844698&case_uid=e0b8b1a9-3387-464a-853f-7634b119366e&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "writ"
-    ],
-    "reason": "run_deadline"
-   },
-   {
-    "key": "first_instance|https://novourengoysky--ynao.sudrf.ru/modules.php?case_id=128941569&case_uid=2c95511b-aef8-403e-bb0d-2aaf6e169ce3&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "writ"
-    ],
-    "reason": "run_deadline"
-   },
-   {
-    "key": "first_instance|https://novourengoysky--ynao.sudrf.ru/modules.php?case_id=129079897&case_uid=a8012f1a-35fe-4406-9a10-25ea4b781ffe&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "writ"
-    ],
-    "reason": "run_deadline"
-   },
-   {
-    "key": "first_instance|https://novourengoysky--ynao.sudrf.ru/modules.php?case_id=129286590&case_uid=0b847f3f-8d95-4865-baaa-a8d50559b1c4&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "writ"
-    ],
-    "reason": "run_deadline"
-   },
-   {
-    "key": "first_instance|https://novourengoysky--ynao.sudrf.ru/modules.php?case_id=131137976&case_uid=b6abb93a-614b-4d93-a5cc-c4a3dc8dec79&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "writ"
-    ],
-    "reason": "run_deadline"
-   },
-   {
-    "key": "first_instance|https://noyabrsky--ynao.sudrf.ru/modules.php?case_id=134004910&case_uid=86ea7eb7-e679-410c-8051-2aaf0fbd0d9b&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
     "stage": "first_instance",
     "reasons": [
      "writ"
@@ -11066,15 +10843,6 @@
     "key": "first_instance|https://kushvinsky--svd.sudrf.ru/modules.php?case_id=575684962&case_uid=63288895-4004-4957-9d4a-5d133c67d72e&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
     "stage": "first_instance",
     "reasons": [
-     "writ"
-    ],
-    "reason": "run_deadline"
-   },
-   {
-    "key": "first_instance|https://labytnangsky--ynao.sudrf.ru/modules.php?case_id=131930254&case_uid=9983590b-d988-41a3-85db-1a3306cbd6ae&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
-    "stage": "first_instance",
-    "reasons": [
-     "text_waiting",
      "writ"
     ],
     "reason": "run_deadline"
@@ -12226,11 +11994,11 @@
     "read": 0
    },
    "first_instance": {
-    "planned": 241,
+    "planned": 229,
     "read": 0
    }
   },
-  "unread": 265
+  "unread": 253
  },
  "technical_card_day": {
   "date": "2026-11-26",
@@ -12239,23 +12007,23 @@
   "items": {
    "first_instance|https://lesnoy--svd.sudrf.ru/modules.php?case_id=570552855&case_uid=a75ed1b6-0698-40ce-9979-5eb995cf3d1d&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "breaker"
+    "reason": "run_deadline"
    },
    "first_instance|https://lesnoy--svd.sudrf.ru/modules.php?case_id=572972777&case_uid=8f0afb83-4fb7-4586-909a-ef7301786afa&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "breaker"
+    "reason": "run_deadline"
    },
    "first_instance|https://muravlenkovsky--ynao.sudrf.ru/modules.php?case_id=131261873&case_uid=abc219e0-ea40-4074-9735-0896e3aa016e&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "run_deadline"
+    "reason": "checked"
    },
    "first_instance|https://muravlenkovsky--ynao.sudrf.ru/modules.php?case_id=132118139&case_uid=04c7aa74-b730-4309-a739-4a2d3243f236&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "run_deadline"
+    "reason": "checked"
    },
    "first_instance|https://nadymsky--ynao.sudrf.ru/modules.php?case_id=128772619&case_uid=1ca91db9-185c-464d-858f-b5bd5c5f5d3c&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "run_deadline"
+    "reason": "checked"
    },
    "first_instance|https://nizhneserginsky--svd.sudrf.ru/modules.php?case_id=571507720&case_uid=c2c45390-2e35-4790-a469-33a009f9c7ad&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
@@ -12291,31 +12059,31 @@
    },
    "first_instance|https://novourengoysky--ynao.sudrf.ru/modules.php?case_id=128584117&case_uid=fbb25e74-43dc-4212-bd13-465a37ddf7a7&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "run_deadline"
+    "reason": "checked"
    },
    "first_instance|https://novourengoysky--ynao.sudrf.ru/modules.php?case_id=128779306&case_uid=9fc86016-cc87-46f0-8cbd-9b2d5377335f&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "run_deadline"
+    "reason": "checked"
    },
    "first_instance|https://novourengoysky--ynao.sudrf.ru/modules.php?case_id=128844698&case_uid=e0b8b1a9-3387-464a-853f-7634b119366e&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "run_deadline"
+    "reason": "checked"
    },
    "first_instance|https://novourengoysky--ynao.sudrf.ru/modules.php?case_id=128941569&case_uid=2c95511b-aef8-403e-bb0d-2aaf6e169ce3&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "run_deadline"
+    "reason": "checked"
    },
    "first_instance|https://novourengoysky--ynao.sudrf.ru/modules.php?case_id=129079897&case_uid=a8012f1a-35fe-4406-9a10-25ea4b781ffe&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "run_deadline"
+    "reason": "checked"
    },
    "first_instance|https://novourengoysky--ynao.sudrf.ru/modules.php?case_id=129286590&case_uid=0b847f3f-8d95-4865-baaa-a8d50559b1c4&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "run_deadline"
+    "reason": "checked"
    },
    "first_instance|https://novourengoysky--ynao.sudrf.ru/modules.php?case_id=131137976&case_uid=b6abb93a-614b-4d93-a5cc-c4a3dc8dec79&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "run_deadline"
+    "reason": "checked"
    },
    "first_instance|https://noyabrsky--ynao.sudrf.ru/modules.php?case_id=133943559&case_uid=7b1fc820-18c5-4bfd-80c8-81d6d5548649&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
@@ -12323,7 +12091,7 @@
    },
    "first_instance|https://noyabrsky--ynao.sudrf.ru/modules.php?case_id=134004910&case_uid=86ea7eb7-e679-410c-8051-2aaf0fbd0d9b&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "run_deadline"
+    "reason": "checked"
    },
    "first_instance|https://oktiabrsky--svd.sudrf.ru/modules.php?case_id=587203409&case_uid=93973389-03fe-4f71-9f9f-4f2f2b5e8a6b&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
@@ -12775,7 +12543,7 @@
    },
    "first_instance|https://labytnangsky--ynao.sudrf.ru/modules.php?case_id=131930254&case_uid=9983590b-d988-41a3-85db-1a3306cbd6ae&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "run_deadline"
+    "reason": "checked"
    },
    "first_instance|https://labytnangsky--ynao.sudrf.ru/modules.php?case_id=131932969&case_uid=198afe2d-9b80-419d-8b1a-5d44ba361735&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",

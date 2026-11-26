@@ -3,19 +3,37 @@
   "run_date": "2026-11-26",
   "smart_skip": true,
   "totals": {
-    "total": 808,
-    "parsed": 13,
-    "skip": 714,
-    "failed": 80,
+    "total": 807,
+    "parsed": 12,
+    "skip": 715,
+    "failed": 0,
     "no_card": 0,
     "not_in_queue": 0,
-    "intake_new": 1
+    "intake_new": 0
   },
   "cases": [
     {
-      "outcome": "fetch_empty",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
+      "detail": "",
+      "degraded": false,
+      "force_parsed": false,
+      "events": [],
+      "changed": false,
+      "left_track": false,
+      "archived": false,
+      "key": "gubkinskiy--ynao.sudrf.ru|М-925/2026",
+      "number": "М-925/2026",
+      "court": "Губкинский районный суд",
+      "court_domain": "gubkinskiy--ynao.sudrf.ru",
+      "case_status": "В производстве",
+      "last_checked_at": "2026-11-26"
+    },
+    {
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -31,9 +49,9 @@
       "last_checked_at": "2026-11-25"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -49,9 +67,9 @@
       "last_checked_at": "2026-11-25"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -103,9 +121,9 @@
       "last_checked_at": "2026-11-20"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -175,9 +193,9 @@
       "last_checked_at": "2026-11-13"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -193,9 +211,9 @@
       "last_checked_at": "2026-11-25"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -301,9 +319,9 @@
       "last_checked_at": "2026-11-13"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -481,9 +499,9 @@
       "last_checked_at": "2026-11-12"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -769,9 +787,9 @@
       "last_checked_at": "2026-11-25"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -841,9 +859,9 @@
       "last_checked_at": "2026-11-25"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -931,9 +949,9 @@
       "last_checked_at": "2026-11-25"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -1471,9 +1489,9 @@
       "last_checked_at": "2026-10-14"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -1561,9 +1579,9 @@
       "last_checked_at": "2026-11-05"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -1831,9 +1849,9 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -1885,9 +1903,9 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -2173,9 +2191,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -2299,14 +2317,14 @@
       "last_checked_at": "2026-10-16"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": false,
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "noyabrsky--ynao.sudrf.ru|2-2100/2026",
@@ -2314,12 +2332,12 @@
       "court": "Ноябрьский городской суд",
       "court_domain": "noyabrsky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-19"
+      "last_checked_at": "2026-11-26"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -2677,29 +2695,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
-      "detail": "",
-      "degraded": false,
-      "force_parsed": false,
-      "events": [
-        "fi_writ_issued"
-      ],
-      "changed": false,
-      "left_track": false,
-      "archived": true,
-      "key": "noyabrsky--ynao.sudrf.ru|2-2129/2026",
-      "number": "2-2129/2026",
-      "court": "Ноябрьский городской суд",
-      "court_domain": "noyabrsky--ynao.sudrf.ru",
-      "case_status": "Решено",
-      "last_checked_at": "2026-11-26"
-    },
-    {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -2949,9 +2947,9 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -3129,9 +3127,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -3687,9 +3685,9 @@
       "last_checked_at": "2026-11-25"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -3741,9 +3739,9 @@
       "last_checked_at": "2026-11-25"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -3886,7 +3884,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "breaker",
+      "reason": "run_deadline",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -3904,7 +3902,7 @@
     },
     {
       "outcome": "skip",
-      "reason": "breaker",
+      "reason": "run_deadline",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -4155,9 +4153,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -4191,9 +4189,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -4245,9 +4243,9 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -4659,9 +4657,9 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -5847,9 +5845,9 @@
       "last_checked_at": "2026-11-20"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -5901,9 +5899,9 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -6045,9 +6043,9 @@
       "last_checked_at": "2026-11-25"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -6099,9 +6097,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -6207,9 +6205,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -6351,9 +6349,9 @@
       "last_checked_at": "2026-10-26"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -6441,9 +6439,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -6639,9 +6637,9 @@
       "last_checked_at": "2026-10-28"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -6675,9 +6673,9 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -6693,9 +6691,9 @@
       "last_checked_at": "2026-11-02"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -6729,9 +6727,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -6747,9 +6745,9 @@
       "last_checked_at": "2026-11-25"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -7233,9 +7231,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -7665,9 +7663,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -7953,9 +7951,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8151,9 +8149,9 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8187,9 +8185,9 @@
       "last_checked_at": "2026-11-25"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8205,9 +8203,9 @@
       "last_checked_at": "2026-11-10"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8259,9 +8257,9 @@
       "last_checked_at": "2026-11-25"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8277,9 +8275,9 @@
       "last_checked_at": "2026-11-25"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8313,9 +8311,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8331,9 +8329,9 @@
       "last_checked_at": "2026-11-25"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8367,9 +8365,9 @@
       "last_checked_at": "2026-11-10"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8385,9 +8383,9 @@
       "last_checked_at": "2026-11-25"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8403,9 +8401,9 @@
       "last_checked_at": "2026-11-25"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8421,9 +8419,9 @@
       "last_checked_at": "2026-11-25"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8457,9 +8455,9 @@
       "last_checked_at": "2026-11-12"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8583,9 +8581,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8655,9 +8653,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8853,9 +8851,9 @@
       "last_checked_at": "2026-11-13"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8871,9 +8869,9 @@
       "last_checked_at": "2026-11-12"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8889,9 +8887,9 @@
       "last_checked_at": "2026-10-22"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8943,9 +8941,9 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8961,9 +8959,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8979,9 +8977,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -8997,9 +8995,9 @@
       "last_checked_at": "2026-11-25"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9051,9 +9049,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9069,9 +9067,9 @@
       "last_checked_at": "2026-11-25"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9285,9 +9283,9 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9357,9 +9355,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9393,9 +9391,9 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9483,9 +9481,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9591,9 +9589,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9609,9 +9607,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -9987,9 +9985,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -10383,9 +10381,9 @@
       "last_checked_at": "2026-11-25"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -11229,9 +11227,9 @@
       "last_checked_at": "2026-11-25"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -11697,9 +11695,9 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -12075,9 +12073,9 @@
       "last_checked_at": "2026-11-20"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -12111,9 +12109,9 @@
       "last_checked_at": "2026-11-10"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -12471,9 +12469,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -12633,9 +12631,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -12795,8 +12793,8 @@
       "last_checked_at": "2026-11-23"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -12810,7 +12808,7 @@
       "court": "Лабытнангский городской суд",
       "court_domain": "labytnangsky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-19"
+      "last_checked_at": "2026-11-26"
     },
     {
       "outcome": "skip",
@@ -12867,8 +12865,8 @@
       "last_checked_at": "2026-11-25"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -12882,11 +12880,11 @@
       "court": "Муравленковский городской суд",
       "court_domain": "muravlenkovsky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-19"
+      "last_checked_at": "2026-11-26"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -12900,7 +12898,7 @@
       "court": "Муравленковский городской суд",
       "court_domain": "muravlenkovsky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-19"
+      "last_checked_at": "2026-11-26"
     },
     {
       "outcome": "skip",
@@ -13029,14 +13027,16 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_final_event"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "nadymsky--ynao.sudrf.ru|2-1042/2026",
@@ -13044,7 +13044,7 @@
       "court": "Надымский городской суд",
       "court_domain": "nadymsky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-19"
+      "last_checked_at": "2026-11-26"
     },
     {
       "outcome": "skip",
@@ -13083,9 +13083,9 @@
       "last_checked_at": "2026-11-19"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -13101,8 +13101,8 @@
       "last_checked_at": "2026-11-25"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -13116,17 +13116,19 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-19"
+      "last_checked_at": "2026-11-26"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [],
-      "changed": false,
+      "events": [
+        "fi_final_event"
+      ],
+      "changed": true,
       "left_track": false,
       "archived": false,
       "key": "novourengoysky--ynao.sudrf.ru|2-2483/2026",
@@ -13134,11 +13136,11 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-19"
+      "last_checked_at": "2026-11-26"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -13152,11 +13154,11 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-19"
+      "last_checked_at": "2026-11-26"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -13170,11 +13172,11 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-19"
+      "last_checked_at": "2026-11-26"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -13188,11 +13190,11 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-19"
+      "last_checked_at": "2026-11-26"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -13206,11 +13208,11 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-19"
+      "last_checked_at": "2026-11-26"
     },
     {
-      "outcome": "skip",
-      "reason": "run_deadline",
+      "outcome": "parsed",
+      "reason": "",
       "reason_ru": "",
       "detail": "",
       "degraded": false,
@@ -13224,7 +13226,7 @@
       "court": "Новоуренгойский городской суд",
       "court_domain": "novourengoysky--ynao.sudrf.ru",
       "case_status": "Решено",
-      "last_checked_at": "2026-11-19"
+      "last_checked_at": "2026-11-26"
     },
     {
       "outcome": "skip",
@@ -13245,9 +13247,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -13335,9 +13337,9 @@
       "last_checked_at": "2026-11-20"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -13425,9 +13427,9 @@
       "last_checked_at": "2026-11-25"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -13479,9 +13481,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -13515,14 +13517,14 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
       "events": [],
-      "changed": true,
+      "changed": false,
       "left_track": false,
       "archived": false,
       "key": "salehardsky--ynao.sudrf.ru|2-1480/2026",
@@ -13551,15 +13553,13 @@
       "last_checked_at": "2026-11-20"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
-      "events": [
-        "fi_act_text_published"
-      ],
+      "events": [],
       "changed": false,
       "left_track": false,
       "archived": false,
@@ -13589,9 +13589,9 @@
       "last_checked_at": "2026-11-24"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -13607,9 +13607,9 @@
       "last_checked_at": "2026-11-26"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -13625,9 +13625,9 @@
       "last_checked_at": "2026-11-26"
     },
     {
-      "outcome": "parsed",
-      "reason": "",
-      "reason_ru": "",
+      "outcome": "skip",
+      "reason": "checked_today",
+      "reason_ru": "карточка уже прочитана сегодня (дочитка слотов)",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -13643,9 +13643,9 @@
       "last_checked_at": "2026-11-26"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -13661,9 +13661,9 @@
       "last_checked_at": "2026-11-25"
     },
     {
-      "outcome": "fetch_empty",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "пустой ответ сервера суда",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -13895,9 +13895,9 @@
       "last_checked_at": "2026-11-20"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -14003,9 +14003,9 @@
       "last_checked_at": "2026-11-20"
     },
     {
-      "outcome": "court_breaker",
+      "outcome": "unknown",
       "reason": "",
-      "reason_ru": "суд снят с обхода предохранителем — карточки не читаются (заглушка/код/сеть), дело перечитается следующим прогоном",
+      "reason_ru": "",
       "detail": "",
       "degraded": false,
       "force_parsed": false,
@@ -14541,25 +14541,7 @@
       "court_domain": "verhnesaldinsky--svd.sudrf.ru",
       "case_status": "Решено",
       "last_checked_at": "2026-11-19"
-    },
-    {
-      "outcome": "intake_new",
-      "reason": "",
-      "reason_ru": "дело заведено авто-подхватом с выдачи суда в этом прогоне (карточка прочитана при заведении)",
-      "detail": "Губкинский районный суд",
-      "degraded": false,
-      "force_parsed": false,
-      "events": [],
-      "changed": false,
-      "left_track": false,
-      "archived": false,
-      "key": "gubkinskiy--ynao.sudrf.ru|М-925/2026",
-      "number": "М-925/2026",
-      "court": "Губкинский районный суд",
-      "court_domain": "gubkinskiy--ynao.sudrf.ru",
-      "case_status": "В производстве",
-      "last_checked_at": "2026-11-26"
     }
   ],
-  "updated_at": "2026-11-26T07:59:33+05:00"
+  "updated_at": "2026-11-26T08:39:17+05:00"
 }
