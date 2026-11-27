@@ -5023,5 +5023,37 @@
       "status": "ready"
     },
     "generated_at": "2026-11-25T03:46:25+00:00"
+  },
+  "acd54c309297222c": {
+    "summary": "Суд отказал в иске, так как истец не доказал наличие наследственной массы и её стоимость, а установленные обстоятельства свидетельствуют об отсутствии у наследодателя имущества и наследников, принявших наследство. Доказательства перехода имущества в собственность РФ как выморочного также не представлены.",
+    "model": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "attempts": [
+      {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "status": "ready",
+        "context_limit": 1000000,
+        "input_token_upper_bound": 28407,
+        "output_reserve": 1024,
+        "token_estimate": "utf8_bytes_upper_bound"
+      }
+    ],
+    "fallback": false,
+    "stage": "first_instance",
+    "preparation": {
+      "version": "full-act-v1",
+      "source_hash": "bf48da055eff803ee3b1d18a58abbda05ea586f59d40364d65e6fe6660131679",
+      "raw_chars": 12841,
+      "prepared_chars": 12841,
+      "source_url": "https://severouralsky--svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=572094213&case_uid=8ecd3be8-8c27-470d-88d8-e82100cea284&delo_id=1540005&new=0",
+      "court_domain": "severouralsky--svd.sudrf.ru",
+      "received_at": "2026-11-27T02:51:40+00:00",
+      "case_number": "2-356/2026",
+      "stage": "first_instance",
+      "judicial_uid": "66RS0050-01-2026-000385-42",
+      "identity_check": "matched_uid",
+      "status": "ready"
+    },
+    "generated_at": "2026-11-27T03:45:54+00:00"
   }
 }
