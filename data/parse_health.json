@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated_at": "2026-11-27T08:38:57+05:00",
+ "updated_at": "2026-11-27T08:40:45+05:00",
  "sources": {
   "appeal:oblsud--ynao.sudrf.ru": {
    "counts": [
@@ -364,31 +364,24 @@
   }
  },
  "last_run": {
-  "at": "2026-11-27T08:38:57",
-  "alerts": [
-   "Губкинский районный суд: страница поиска не загружается 3 прогонов подряд",
-   "Муравленковский городской суд: страница поиска не загружается 3 прогонов подряд",
-   "Надымский городской суд: поиск вернул 0 результатов, хотя обычно ~17 (3-й нулевой прогон подряд)",
-   "Тазовский районный суд: поиск вернул 0 результатов, хотя обычно ~24 (1-й нулевой прогон подряд)",
-   "Шурышкарский районный суд: поиск вернул 0 результатов, хотя обычно ~25 (1-й нулевой прогон подряд)",
-   "Ямальский районный суд: поиск вернул 0 результатов, хотя обычно ~22 (1-й нулевой прогон подряд)"
-  ],
-  "requests_ok": 35,
-  "requests_failed": 9,
+  "at": "2026-11-27T08:40:45",
+  "alerts": [],
+  "requests_ok": 0,
+  "requests_failed": 0,
   "requests_retried": 0,
-  "cards_breaker_skipped": 38,
-  "cards_breaker_unrequested": 38,
+  "cards_breaker_skipped": 0,
+  "cards_breaker_unrequested": 0,
   "cards_breaker_recovered": 0,
-  "cards_blocked": 13,
-  "cards_read": 14,
-  "cards_planned": 313,
+  "cards_blocked": 0,
+  "cards_read": 0,
+  "cards_planned": 300,
   "cards_read_today": 288,
   "cards_planned_today": 575,
-  "daily_attempts": 4,
+  "daily_attempts": 5,
   "instances": {
    "first_instance": {
-    "read": 13,
-    "planned": 269,
+    "read": 0,
+    "planned": 256,
     "read_today": 240,
     "planned_today": 485
    },
@@ -399,219 +392,36 @@
     "planned_today": 52
    },
    "cassation": {
-    "read": 1,
+    "read": 0,
     "planned": 21,
     "read_today": 18,
     "planned_today": 38
    }
   },
-  "latency": {
-   "n": 35,
-   "p50": 17.1,
-   "p90": 27.2,
-   "max": 29.9
-  },
-  "failure_latency": {
-   "http_504": {
-    "n": 9,
-    "p50": 30.1,
-    "p90": 30.4,
-    "max": 30.4
-   },
-   "outage_search": {
-    "n": 7,
-    "p50": 11.7,
-    "p90": 29.9,
-    "max": 29.9
-   },
-   "portal_placeholder": {
-    "n": 13,
-    "p50": 21.3,
-    "p90": 27.3,
-    "max": 29.0
-   }
-  },
-  "fail_kinds": {
-   "http_504": 9,
-   "outage_search": 7,
-   "portal_placeholder": 13
-  },
+  "latency": {},
+  "failure_latency": {},
+  "fail_kinds": {},
   "breaker": {
    "mode": "time",
-   "opened_hosts": 10,
-   "open_hosts": 10,
+   "opened_hosts": 0,
+   "open_hosts": 0,
    "recovered_hosts": 0,
-   "deferred_total": 49,
-   "deferred_remaining": 49,
+   "deferred_total": 0,
+   "deferred_remaining": 0,
    "deferred_recovered": 0,
-   "probes": 8,
+   "probes": 0,
    "probe_successes": 0,
-   "probe_failures": 6,
-   "by_kind": {
-    "http_504": 1,
-    "outage_search": 7,
-    "portal_placeholder": 8
-   },
-   "hosts": [
-    {
-     "host": "gubkinskiy--ynao.sudrf.ru",
-     "state": "half_open",
-     "kind": "portal_placeholder",
-     "family": "portal_outage",
-     "reason": "вместо карточки пришла заглушка портала",
-     "preopened": false,
-     "skipped": 1,
-     "probes": 1,
-     "deferred_total": 3,
-     "deferred_remaining": 3,
-     "deferred_recovered": 0,
-     "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 0.0
-    },
-    {
-     "host": "labytnangsky--ynao.sudrf.ru",
-     "state": "open",
-     "kind": "portal_placeholder",
-     "family": "portal_outage",
-     "reason": "вместо карточки пришла заглушка портала",
-     "preopened": false,
-     "skipped": 1,
-     "probes": 0,
-     "deferred_total": 2,
-     "deferred_remaining": 2,
-     "deferred_recovered": 0,
-     "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 0.0
-    },
-    {
-     "host": "nadymsky--ynao.sudrf.ru",
-     "state": "open",
-     "kind": "portal_placeholder",
-     "family": "portal_outage",
-     "reason": "вместо карточки пришла заглушка портала",
-     "preopened": true,
-     "skipped": 3,
-     "probes": 1,
-     "deferred_total": 4,
-     "deferred_remaining": 4,
-     "deferred_recovered": 0,
-     "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 0.0
-    },
-    {
-     "host": "novourengoysky--ynao.sudrf.ru",
-     "state": "open",
-     "kind": "portal_placeholder",
-     "family": "portal_outage",
-     "reason": "вместо карточки пришла заглушка портала",
-     "preopened": false,
-     "skipped": 12,
-     "probes": 1,
-     "deferred_total": 14,
-     "deferred_remaining": 14,
-     "deferred_recovered": 0,
-     "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 0.0
-    },
-    {
-     "host": "noyabrsky--ynao.sudrf.ru",
-     "state": "open",
-     "kind": "http_504",
-     "family": "fast_transient",
-     "reason": "суд отвечает HTTP 504",
-     "preopened": true,
-     "skipped": 12,
-     "probes": 1,
-     "deferred_total": 13,
-     "deferred_remaining": 13,
-     "deferred_recovered": 0,
-     "cooldown_seconds": 60.0,
-     "next_probe_in_seconds": 0.0
-    },
-    {
-     "host": "purovsky--ynao.sudrf.ru",
-     "state": "open",
-     "kind": "portal_placeholder",
-     "family": "portal_outage",
-     "reason": "вместо карточки пришла заглушка портала",
-     "preopened": true,
-     "skipped": 2,
-     "probes": 1,
-     "deferred_total": 3,
-     "deferred_remaining": 3,
-     "deferred_recovered": 0,
-     "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 0.0
-    },
-    {
-     "host": "salehardsky--ynao.sudrf.ru",
-     "state": "open",
-     "kind": "portal_placeholder",
-     "family": "portal_outage",
-     "reason": "вместо карточки пришла заглушка портала",
-     "preopened": true,
-     "skipped": 6,
-     "probes": 1,
-     "deferred_total": 7,
-     "deferred_remaining": 7,
-     "deferred_recovered": 0,
-     "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 0.0
-    },
-    {
-     "host": "shuryshkarsky--ynao.sudrf.ru",
-     "state": "open",
-     "kind": "portal_placeholder",
-     "family": "portal_outage",
-     "reason": "вместо карточки пришла заглушка портала",
-     "preopened": true,
-     "skipped": 0,
-     "probes": 1,
-     "deferred_total": 1,
-     "deferred_remaining": 1,
-     "deferred_recovered": 0,
-     "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 0.0
-    },
-    {
-     "host": "tazovsky--ynao.sudrf.ru",
-     "state": "open",
-     "kind": "outage_search",
-     "family": "portal_outage",
-     "reason": "вместо поиска суд вернул заглушку портала",
-     "preopened": true,
-     "skipped": 1,
-     "probes": 0,
-     "deferred_total": 1,
-     "deferred_remaining": 1,
-     "deferred_recovered": 0,
-     "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 0.0
-    },
-    {
-     "host": "yamalsky--ynao.sudrf.ru",
-     "state": "half_open",
-     "kind": "outage_search",
-     "family": "portal_outage",
-     "reason": "вместо поиска суд вернул заглушку портала",
-     "preopened": true,
-     "skipped": 0,
-     "probes": 1,
-     "deferred_total": 1,
-     "deferred_remaining": 1,
-     "deferred_recovered": 0,
-     "cooldown_seconds": 180.0,
-     "next_probe_in_seconds": 0.0
-    }
-   ]
+   "probe_failures": 0,
+   "by_kind": {},
+   "hosts": []
   },
-  "courts_unavailable": 10,
-  "courts_with_unrequested": 8,
-  "courts_outage": 7,
-  "cards_unreachable": 38,
-  "cards_unread_other": 261,
+  "courts_unavailable": 0,
+  "courts_with_unrequested": 0,
+  "courts_outage": 0,
+  "cards_unreachable": 0,
+  "cards_unread_other": 300,
   "run_deadline_seconds": 3300.0,
-  "run_deadline_reached": false
+  "run_deadline_reached": true
  },
  "act_publication_watch": {
   "date": "2026-11-27",
@@ -9765,7 +9575,7 @@
  "parsing_backlog": {
   "date": "2026-11-27",
   "region": "sverdlovsk_yanao",
-  "cards_unread": 299,
+  "cards_unread": 300,
   "fi_without_card": 63,
   "candidates_pending": 0,
   "acts_unread": 167,
