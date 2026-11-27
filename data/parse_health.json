@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated_at": "2026-11-27T08:40:45+05:00",
+ "updated_at": "2026-11-27T12:24:43+05:00",
  "sources": {
   "appeal:oblsud--ynao.sudrf.ru": {
    "counts": [
@@ -364,25 +364,25 @@
   }
  },
  "last_run": {
-  "at": "2026-11-27T08:40:45",
+  "at": "2026-11-27T12:24:43",
   "alerts": [],
-  "requests_ok": 0,
-  "requests_failed": 0,
+  "requests_ok": 11,
+  "requests_failed": 28,
   "requests_retried": 0,
-  "cards_breaker_skipped": 0,
-  "cards_breaker_unrequested": 0,
+  "cards_breaker_skipped": 20,
+  "cards_breaker_unrequested": 20,
   "cards_breaker_recovered": 0,
   "cards_blocked": 0,
-  "cards_read": 0,
+  "cards_read": 11,
   "cards_planned": 300,
-  "cards_read_today": 288,
+  "cards_read_today": 299,
   "cards_planned_today": 575,
-  "daily_attempts": 5,
+  "daily_attempts": 6,
   "instances": {
    "first_instance": {
-    "read": 0,
+    "read": 11,
     "planned": 256,
-    "read_today": 240,
+    "read_today": 251,
     "planned_today": 485
    },
    "appeal": {
@@ -398,30 +398,121 @@
     "planned_today": 38
    }
   },
-  "latency": {},
-  "failure_latency": {},
-  "fail_kinds": {},
+  "latency": {
+   "n": 11,
+   "p50": 26.2,
+   "p90": 29.8,
+   "max": 30.1
+  },
+  "failure_latency": {
+   "http_502": {
+    "n": 6,
+    "p50": 0.2,
+    "p90": 60.2,
+    "max": 60.2
+   },
+   "http_504": {
+    "n": 26,
+    "p50": 31.1,
+    "p90": 37.3,
+    "max": 37.9
+   },
+   "read_timeout": {
+    "n": 1,
+    "p50": 65.3,
+    "p90": 65.3,
+    "max": 65.3
+   }
+  },
+  "fail_kinds": {
+   "http_504": 26,
+   "http_502": 6,
+   "read_timeout": 1
+  },
   "breaker": {
    "mode": "time",
-   "opened_hosts": 0,
-   "open_hosts": 0,
-   "recovered_hosts": 0,
-   "deferred_total": 0,
-   "deferred_remaining": 0,
+   "opened_hosts": 4,
+   "open_hosts": 3,
+   "recovered_hosts": 1,
+   "deferred_total": 26,
+   "deferred_remaining": 26,
    "deferred_recovered": 0,
-   "probes": 0,
-   "probe_successes": 0,
-   "probe_failures": 0,
-   "by_kind": {},
-   "hosts": []
+   "probes": 4,
+   "probe_successes": 1,
+   "probe_failures": 2,
+   "by_kind": {
+    "http_504": 6
+   },
+   "hosts": [
+    {
+     "host": "labytnangsky--ynao.sudrf.ru",
+     "state": "half_open",
+     "kind": "http_504",
+     "family": "fast_transient",
+     "reason": "суд отвечает HTTP 504",
+     "preopened": false,
+     "skipped": 0,
+     "probes": 1,
+     "deferred_total": 1,
+     "deferred_remaining": 1,
+     "deferred_recovered": 0,
+     "cooldown_seconds": 60.0,
+     "next_probe_in_seconds": 0.0
+    },
+    {
+     "host": "novourengoysky--ynao.sudrf.ru",
+     "state": "open",
+     "kind": "http_504",
+     "family": "fast_transient",
+     "reason": "суд отвечает HTTP 504",
+     "preopened": false,
+     "skipped": 11,
+     "probes": 1,
+     "deferred_total": 13,
+     "deferred_remaining": 13,
+     "deferred_recovered": 0,
+     "cooldown_seconds": 60.0,
+     "next_probe_in_seconds": 0.0
+    },
+    {
+     "host": "noyabrsky--ynao.sudrf.ru",
+     "state": "open",
+     "kind": "http_504",
+     "family": "fast_transient",
+     "reason": "суд отвечает HTTP 504",
+     "preopened": false,
+     "skipped": 9,
+     "probes": 1,
+     "deferred_total": 11,
+     "deferred_remaining": 11,
+     "deferred_recovered": 0,
+     "cooldown_seconds": 60.0,
+     "next_probe_in_seconds": 0.0
+    },
+    {
+     "host": "salehardsky--ynao.sudrf.ru",
+     "state": "closed",
+     "kind": "http_504",
+     "family": "fast_transient",
+     "reason": "суд отвечает HTTP 504",
+     "preopened": false,
+     "skipped": 0,
+     "probes": 1,
+     "deferred_total": 1,
+     "deferred_remaining": 1,
+     "deferred_recovered": 0,
+     "cooldown_seconds": 60.0,
+     "next_probe_in_seconds": 0.0
+    }
+   ]
   },
-  "courts_unavailable": 0,
-  "courts_with_unrequested": 0,
+  "courts_unavailable": 3,
+  "courts_with_unrequested": 2,
   "courts_outage": 0,
-  "cards_unreachable": 0,
-  "cards_unread_other": 300,
-  "run_deadline_seconds": 3300.0,
-  "run_deadline_reached": true
+  "cards_unreachable": 20,
+  "cards_unread_other": 269,
+  "run_deadline_seconds": 1500.0,
+  "run_deadline_reached": false
  },
  "act_publication_watch": {
   "date": "2026-11-27",
@@ -4506,8 +4597,8 @@
   "waiting": 620,
   "due": 27,
   "planned": 13,
-  "read": 0,
-  "unread": 13,
+  "read": 1,
+  "unread": 12,
   "published": 0,
   "backfilled": 0,
   "unplanned": 53,
@@ -5976,7 +6067,7 @@
    {
     "key": "verhisetsky--svd.sudrf.ru|1|2-2382/2026|20.04.2026",
     "number": "2-2382/2026",
-    "next_check_at": "2026-12-19",
+    "next_check_at": "2026-12-27",
     "reason": "scheduled"
    },
    {
@@ -6997,7 +7088,7 @@
     "key": "purovsky--ynao.sudrf.ru|1|2-622/2026|30.07.2026",
     "number": "2-622/2026",
     "next_check_at": "2026-11-27",
-    "reason": "run_deadline"
+    "reason": "checked"
    },
    {
     "key": "purovsky--ynao.sudrf.ru|1|2-617/2026|04.08.2026",
@@ -9575,18 +9666,18 @@
  "parsing_backlog": {
   "date": "2026-11-27",
   "region": "sverdlovsk_yanao",
-  "cards_unread": 300,
+  "cards_unread": 289,
   "fi_without_card": 63,
   "candidates_pending": 0,
   "acts_unread": 167,
-  "writs_unread": 13,
+  "writs_unread": 12,
   "writs_need_review": 50
  },
  "card_refresh": {
   "date": "2026-11-27",
   "region": "sverdlovsk_yanao",
   "planned": 177,
-  "read": 0,
+  "read": 1,
   "items": [
    {
     "key": "first_instance|https://purovsky--ynao.sudrf.ru/modules.php?case_id=130777406&case_uid=387cb6ca-b017-433f-9b35-87358b52b662&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -9594,7 +9685,7 @@
     "reasons": [
      "writ"
     ],
-    "reason": "run_deadline"
+    "reason": "checked"
    },
    {
     "key": "first_instance|https://purovsky--ynao.sudrf.ru/modules.php?case_id=131303829&case_uid=33969c58-6721-44c0-9e3d-3ddbf9d45578&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1",
@@ -11019,10 +11110,10 @@
    },
    "first_instance": {
     "planned": 136,
-    "read": 0
+    "read": 1
    }
   },
-  "unread": 177
+  "unread": 176
  },
  "technical_card_day": {
   "date": "2026-11-27",
@@ -11091,7 +11182,7 @@
    },
    "first_instance|https://purovsky--ynao.sudrf.ru/modules.php?case_id=130777406&case_uid=387cb6ca-b017-433f-9b35-87358b52b662&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
-    "reason": "run_deadline"
+    "reason": "checked"
    },
    "first_instance|https://purovsky--ynao.sudrf.ru/modules.php?case_id=131303829&case_uid=33969c58-6721-44c0-9e3d-3ddbf9d45578&delo_id=1540005&name=sud_delo&name_op=case&new=0&srv_num=1": {
     "stage": "first_instance",
